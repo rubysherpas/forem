@@ -1,0 +1,7 @@
+en:
+  forem:
+    forum:
+      topics_count:
+        zero: 0 topics
+        one: 1 topic
+        many: "%{count} topics"
