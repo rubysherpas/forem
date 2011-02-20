@@ -5,3 +5,7 @@ en:
         zero: 0 topics
         one: 1 topic
         many: "%{count} topics"
+      posts_count:
+        zero: 0 posts
+        one: 1 post
+        many: "%{count} posts"
