@@ -1,320 +1,4 @@
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-15 09:13:52 +1100
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-15 09:15:08 +1100
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-15 09:17:09 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForum Load (0.5ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-SQLite3::SQLException: no such table: forums: SELECT "forums".* FROM "forums" 
-Completed   in 78ms
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-20 11:08:45 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForum Load (0.5ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-SQLite3::SQLException: no such table: forums: SELECT "forums".* FROM "forums" 
-Completed   in 82ms
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-20 13:39:20 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forums")[0m
-Completed 500 Internal Server Error in 58ms
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-21 07:15:08 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36m (0.4ms)[0m  [1mPRAGMA table_info("forums")[0m
-Completed 500 Internal Server Error in 71ms
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-21 07:16:43 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mForum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" 
-Completed 500 Internal Server Error in 227ms
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-21 07:21:46 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36m (0.4ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mForum Load (0.1ms)[0m  SELECT "forums".* FROM "forums" 
-ERROR: compiling ___sers_ryanbigg__ites_side_projects_forem_app_views_forem_forums_index_html_erb__3707353849676822619_2154423740 RAISED /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
-/Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb:15: syntax error, unexpected $end, expecting keyword_end
-Function body:           def ___sers_ryanbigg__ites_side_projects_forem_app_views_forem_forums_index_html_erb__3707353849676822619_2154423740(local_assigns)
-            _old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<ul class="forums listing">
-');   @forums.each do |forum| 
-@output_buffer.safe_concat('  <li class="');@output_buffer.append= ( cycle("odd", "even") );@output_buffer.safe_concat('">
-    <h2>');@output_buffer.append= ( link_to forum.title, forem_forum_path(forum) );@output_buffer.safe_concat('</h2>
-    ');@output_buffer.append= ( forum.description );@output_buffer.safe_concat('
-');@output_buffer.safe_concat('    <br>
-    ');@output_buffer.append= ( t("forem.topics_count", :count => forum.topics.count) );@output_buffer.safe_concat(' topics,  ');@output_buffer.append= ( t("forem.posts_count", :count => forum.posts.count) );@output_buffer.safe_concat(' posts
-    <br>
-    Last post was TIME AGO by NAME in TOPIC
-  </li>
-
-</ul>');@output_buffer.to_s
-          ensure
-            @output_buffer = _old_output_buffer
-          end
-Backtrace: /Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:307:in `module_eval'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:307:in `compile'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:214:in `compile!'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:138:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:137:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:64:in `block (2 levels) in render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:34:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:34:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:63:in `block in render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:71:in `render_with_layout'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:62:in `render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:18:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:23:in `wrap_formats'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:16:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/rendering.rb:99:in `_render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/rendering.rb:27:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:129:in `_render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:123:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/compatibility.rb:46:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:116:in `render_to_string'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:107:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rendering.rb:16:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
-/Users/ryanbigg/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `ms'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:39:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/base.rb:150:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rendering.rb:10:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:402:in `_run__2605475050534347658__process_action__1052331809836055994__callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:381:in `_run_process_action_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:79:in `run_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/callbacks.rb:17:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rescue.rb:17:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/base.rb:119:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:40:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal.rb:193:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal.rb:232:in `block in action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:62:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:27:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `block in recognize'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:520:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/etag.rb:23:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/conditionalget.rb:25:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/head.rb:14:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/methodoverride.rb:24:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/flash.rb:182:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/session/abstract/id.rb:192:in `context'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/session/abstract/id.rb:187:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/cookies.rb:308:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:32:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:26:in `cache'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:12:in `cache'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:31:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:413:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:387:in `_run_call_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:79:in `run_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/sendfile.rb:102:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/railties/lib/rails/rack/logger.rb:13:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/runtime.rb:17:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/lock.rb:34:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/static.rb:60:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/railties/lib/rails/engine.rb:422:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:47:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:41:in `each'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:41:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/mock_session.rb:30:in `request'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/test.rb:209:in `process_request'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/test.rb:57:in `get'
-/Users/ryanbigg/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/forwardable.rb:182:in `get'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:259:in `get'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:206:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:200:in `visit'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/session.rb:135:in `visit'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/dsl.rb:104:in `visit'
-/Users/ryanbigg/Sites/side_projects/forem/spec/integration/forums_spec.rb:5:in `block (2 levels) in <top (required)>'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:49:in `instance_eval'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:49:in `block (2 levels) in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:106:in `with_around_hooks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:46:in `block in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:99:in `block in with_pending_capture'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:98:in `catch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:98:in `with_pending_capture'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:45:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:262:in `block in run_examples'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:258:in `map'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:258:in `run_examples'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:232:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `block (2 levels) in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `map'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `block in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/reporter.rb:12:in `report'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:24:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:55:in `run_in_process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:46:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:10:in `block in autorun'
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (24.8ms)
-Completed 500 Internal Server Error in 119ms
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-21 07:22:34 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forums".* FROM "forums" 
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (0.8ms)
-Completed 200 OK in 90ms (Views: 24.8ms | ActiveRecord: 0.8ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forums" for 127.0.0.1 at 2011-02-21 07:25:17 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (54.4ms)
-Completed 500 Internal Server Error in 79ms
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.4ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:29:54 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (96.5ms)
-Completed 500 Internal Server Error in 121ms
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.4ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:30:26 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (56.4ms)
-Completed 200 OK in 81ms (Views: 79.8ms | ActiveRecord: 1.6ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:37:57 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (29.0ms)
-Completed 500 Internal Server Error in 52ms
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (1.4ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.4ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:39:02 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (9.2ms)
-Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 2.8ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.2ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -323,395 +7,58 @@ Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 2.8ms)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.9ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:42:10 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (10.0ms)
-Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 2.0ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.2ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:42:58 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-ERROR: compiling ___sers_ryanbigg__ites_side_projects_forem_app_views_forem_forums_index_html_erb__4776331647815475_2158421020 RAISED /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb:8: syntax error, unexpected ',', expecting ')'
-..., :count => forum.posts.count), :scope => "forem.forum" );@o...
-...                               ^
-Function body:           def ___sers_ryanbigg__ites_side_projects_forem_app_views_forem_forums_index_html_erb__4776331647815475_2158421020(local_assigns)
-            _old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<ul class="forums listing">
-');   @forums.each do |forum| 
-@output_buffer.safe_concat('    <li class="');@output_buffer.append= ( cycle("odd", "even") );@output_buffer.safe_concat('">
-      <h2>');@output_buffer.append= ( link_to forum.title, forem_forum_path(forum) );@output_buffer.safe_concat('</h2>
-      ');@output_buffer.append= ( forum.description );@output_buffer.safe_concat('
-');@output_buffer.safe_concat('      <br>
-      ');@output_buffer.append= ( t("topics_count", :count => forum.topics.count, :scope => "forem.forum") );@output_buffer.safe_concat(' topics,
-      ');@output_buffer.append= ( t("posts_count", :count => forum.posts.count), :scope => "forem.forum" );@output_buffer.safe_concat(' posts
-      <br>
-      Last post was TIME AGO by NAME in TOPIC
-    </li>
-');   end 
-@output_buffer.safe_concat('</ul>');@output_buffer.to_s
-          ensure
-            @output_buffer = _old_output_buffer
-          end
-Backtrace: /Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:307:in `module_eval'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:307:in `compile'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:214:in `compile!'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:138:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:137:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:64:in `block (2 levels) in render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:34:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:34:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:63:in `block in render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:71:in `render_with_layout'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:62:in `render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:18:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:23:in `wrap_formats'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:16:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/rendering.rb:99:in `_render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/rendering.rb:27:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:129:in `_render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:123:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/compatibility.rb:46:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:116:in `render_to_string'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:107:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rendering.rb:16:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
-/Users/ryanbigg/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `ms'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:39:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/base.rb:150:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rendering.rb:10:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:402:in `_run__2063565109907157522__process_action__3916252968552993674__callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:381:in `_run_process_action_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:79:in `run_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/callbacks.rb:17:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rescue.rb:17:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/base.rb:119:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:40:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal.rb:193:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal.rb:232:in `block in action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:62:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:27:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `block in recognize'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:75:in `optimized_each'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:520:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/etag.rb:23:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/conditionalget.rb:25:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/head.rb:14:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/methodoverride.rb:24:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/flash.rb:182:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/session/abstract/id.rb:192:in `context'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/session/abstract/id.rb:187:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/cookies.rb:308:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:32:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:26:in `cache'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:12:in `cache'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:31:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:413:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:387:in `_run_call_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:79:in `run_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/sendfile.rb:102:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/railties/lib/rails/rack/logger.rb:13:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/runtime.rb:17:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/lock.rb:34:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/static.rb:60:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/railties/lib/rails/engine.rb:422:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:47:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:41:in `each'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:41:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/mock_session.rb:30:in `request'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/test.rb:209:in `process_request'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/test.rb:57:in `get'
-/Users/ryanbigg/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/forwardable.rb:182:in `get'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:259:in `get'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:206:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:200:in `visit'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/session.rb:135:in `visit'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/dsl.rb:104:in `visit'
-/Users/ryanbigg/Sites/side_projects/forem/spec/integration/forums_spec.rb:10:in `block (2 levels) in <top (required)>'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:49:in `instance_eval'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:49:in `block (2 levels) in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:106:in `with_around_hooks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:46:in `block in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:99:in `block in with_pending_capture'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:98:in `catch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:98:in `with_pending_capture'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:45:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:262:in `block in run_examples'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:258:in `map'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:258:in `run_examples'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:232:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `block (2 levels) in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `map'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `block in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/reporter.rb:12:in `report'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:24:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:55:in `run_in_process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:46:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:10:in `block in autorun'
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (29.0ms)
-Completed 500 Internal Server Error in 53ms
-  [1m[36m (0.6ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:43:22 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-ERROR: compiling ___sers_ryanbigg__ites_side_projects_forem_app_views_forem_forums_index_html_erb___1648532760745038151_2155034140 RAISED /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb:8: syntax error, unexpected ',', expecting ')'
-..., :count => forum.posts.count), :scope => "forem.forum") );@...
-...                               ^
-/Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb:8: syntax error, unexpected ')', expecting keyword_end
-...nt), :scope => "forem.forum") );@output_buffer.safe_concat('...
-...                               ^
-Function body:           def ___sers_ryanbigg__ites_side_projects_forem_app_views_forem_forums_index_html_erb___1648532760745038151_2155034140(local_assigns)
-            _old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<ul class="forums listing">
-');   @forums.each do |forum| 
-@output_buffer.safe_concat('    <li class="');@output_buffer.append= ( cycle("odd", "even") );@output_buffer.safe_concat('">
-      <h2>');@output_buffer.append= ( link_to forum.title, forem_forum_path(forum) );@output_buffer.safe_concat('</h2>
-      ');@output_buffer.append= ( forum.description );@output_buffer.safe_concat('
-');@output_buffer.safe_concat('      <br>
-      ');@output_buffer.append= ( t("topics_count", :count => forum.topics.count, :scope => "forem.forum") );@output_buffer.safe_concat(' topics,
-      ');@output_buffer.append= ( t("posts_count", :count => forum.posts.count), :scope => "forem.forum") );@output_buffer.safe_concat(' posts
-      <br>
-      Last post was TIME AGO by NAME in TOPIC
-    </li>
-');   end 
-@output_buffer.safe_concat('</ul>');@output_buffer.to_s
-          ensure
-            @output_buffer = _old_output_buffer
-          end
-Backtrace: /Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:307:in `module_eval'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:307:in `compile'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:214:in `compile!'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:138:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/template.rb:137:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:64:in `block (2 levels) in render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:34:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:34:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:63:in `block in render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:71:in `render_with_layout'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:62:in `render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:18:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/abstract_renderer.rb:23:in `wrap_formats'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/renderer/template_renderer.rb:16:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/rendering.rb:99:in `_render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_view/rendering.rb:27:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:129:in `_render_template'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:123:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/compatibility.rb:46:in `render_to_body'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:116:in `render_to_string'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:107:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rendering.rb:16:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
-/Users/ryanbigg/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `ms'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:39:in `render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/base.rb:150:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rendering.rb:10:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:402:in `_run__3389634048658777312__process_action__357650895643656434__callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:381:in `_run_process_action_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:79:in `run_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/callbacks.rb:17:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/notifications.rb:55:in `instrument'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rescue.rb:17:in `process_action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/base.rb:119:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/abstract_controller/rendering.rb:40:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal.rb:193:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_controller/metal.rb:232:in `block in action'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:62:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:27:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `block in recognize'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:75:in `optimized_each'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/routing/route_set.rb:520:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/etag.rb:23:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/conditionalget.rb:25:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/head.rb:14:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/methodoverride.rb:24:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/flash.rb:182:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/session/abstract/id.rb:192:in `context'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/session/abstract/id.rb:187:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/cookies.rb:308:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:32:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:26:in `cache'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:12:in `cache'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/query_cache.rb:31:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:413:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:387:in `_run_call_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/callbacks.rb:79:in `run_callbacks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/sendfile.rb:102:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/railties/lib/rails/rack/logger.rb:13:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/runtime.rb:17:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/activesupport/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/lock.rb:34:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/actionpack/lib/action_dispatch/middleware/static.rb:60:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-289cc15f1a89/railties/lib/rails/engine.rb:422:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:47:in `block in call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:41:in `each'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rack-e3ffeac0dc04/lib/rack/urlmap.rb:41:in `call'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/mock_session.rb:30:in `request'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/test.rb:209:in `process_request'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rack-test-0.5.7/lib/rack/test.rb:57:in `get'
-/Users/ryanbigg/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/forwardable.rb:182:in `get'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:259:in `get'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:206:in `process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/driver/rack_test_driver.rb:200:in `visit'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/session.rb:135:in `visit'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/capybara-0.4.1.2/lib/capybara/dsl.rb:104:in `visit'
-/Users/ryanbigg/Sites/side_projects/forem/spec/integration/forums_spec.rb:10:in `block (2 levels) in <top (required)>'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:49:in `instance_eval'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:49:in `block (2 levels) in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:106:in `with_around_hooks'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:46:in `block in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:99:in `block in with_pending_capture'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:98:in `catch'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:98:in `with_pending_capture'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example.rb:45:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:262:in `block in run_examples'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:258:in `map'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:258:in `run_examples'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/example_group.rb:232:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `block (2 levels) in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `map'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:27:in `block in run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/reporter.rb:12:in `report'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/command_line.rb:24:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:55:in `run_in_process'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:46:in `run'
-/Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/gems/rspec-core-2.5.1/lib/rspec/core/runner.rb:10:in `block in autorun'
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (26.1ms)
-Completed 500 Internal Server Error in 50ms
-  [1m[36m (0.6ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.6ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:43:50 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (13.8ms)
-Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 1.7ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (68.9ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:56:07 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (5.4ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (152.3ms)
-Completed 200 OK in 281ms (Views: 274.6ms | ActiveRecord: 75.3ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.1ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (6.9ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 
 
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 07:56:29 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (13.7ms)
-Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 8.0ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:43:35 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Completed 500 Internal Server Error in 17ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (463.4ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:44:37 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Completed 500 Internal Server Error in 22ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.2ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -720,32 +67,16 @@ Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 8.0ms)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 
 
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 08:01:16 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (14.9ms)
-Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 1.6ms)
-  [1m[36m (0.5ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
-
-
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 08:11:34 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (13.3ms)
-Completed 200 OK in 43ms (Views: 41.4ms | ActiveRecord: 1.6ms)
-  [1m[36m (0.7ms)[0m  [1mPRAGMA table_info("forums")[0m
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:45:30 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Completed 500 Internal Server Error in 22ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.2ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -759,13 +90,152 @@ Completed 200 OK in 43ms (Views: 41.4ms | ActiveRecord: 1.6ms)
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 
 
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 08:13:50 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.1ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (9.2ms)
-Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 2.0ms)
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:45:51 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Completed 500 Internal Server Error in 9ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:46:11 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Completed 500 Internal Server Error in 22ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:51:50 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 5ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 19:51:50 +1100
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:53:00 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 19:53:00 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered text template within layouts/application (0.0ms)
+Completed 200 OK in 60ms (Views: 59.9ms | ActiveRecord: 1.2ms)
   [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:53:53 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 19:53:53 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.9ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:54:53 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 19:54:53 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 24ms (Views: 24.1ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.4ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 19:55:57 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 19:55:57 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
@@ -778,8 +248,1072 @@ Completed 200 OK in 69ms (Views: 67.6ms | ActiveRecord: 2.0ms)
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 
 
-Started GET "/forem/forums" for 127.0.0.1 at 2011-02-21 08:14:23 +1100
-  Processing by Forem::ForumsController#index as HTML
-  [1m[36mForem::Forum Load (0.1ms)[0m  [1mSELECT "forums".* FROM "forums" [0m
-Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/forums/index.html.erb within layouts/forem/application (4.9ms)
-Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 1.5ms)
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:08:03 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 3ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:08:03 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.8ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:08:03 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 1ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:08:03 +1100
+  Processing by FakeController#sign_in as HTML
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:11:13 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:11:13 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:11:13 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 1ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:11:13 +1100
+  Processing by FakeController#sign_in as HTML
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (93.1ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:14:22 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:14:22 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 24.0ms | ActiveRecord: 93.8ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:14:22 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.3ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 3ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:28:13 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:28:14 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:28:14 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+Completed 500 Internal Server Error in 61ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:30:21 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 3ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:30:21 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.8ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:30:21 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.3ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 74ms (Views: 6.6ms | ActiveRecord: 1.4ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:46:45 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 39ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:46:45 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 24.8ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:46:45 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.3ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 222ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:47:48 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:47:48 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.7ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:47:48 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 114ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:48:18 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:48:18 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:48:18 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (187.2ms)
+Completed 500 Internal Server Error in 327ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:52:55 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (206.2ms)
+Completed 200 OK in 331ms (Views: 246.9ms | ActiveRecord: 2.9ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:54:37 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:54:37 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:54:37 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (213.7ms)
+Completed 200 OK in 356ms (Views: 234.6ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:56:10 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:56:10 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:56:10 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.4ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (170.2ms)
+Completed 200 OK in 313ms (Views: 191.1ms | ActiveRecord: 1.8ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:56:31 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:56:31 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 24.5ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:56:31 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (172.9ms)
+Completed 200 OK in 317ms (Views: 193.4ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:57:04 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 20:57:04 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.8ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 20:57:04 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (168.9ms)
+Completed 200 OK in 313ms (Views: 190.0ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:25:00 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 21:25:00 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.9ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:25:01 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.3ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (168.5ms)
+Completed 200 OK in 309ms (Views: 188.7ms | ActiveRecord: 1.8ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:33:44 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:33:44 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (206.2ms)
+Completed 200 OK in 332ms (Views: 245.3ms | ActiveRecord: 2.9ms)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:34:03 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 3ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 21:34:03 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.8ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:34:03 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.4ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (165.8ms)
+Completed 200 OK in 307ms (Views: 185.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:34:04 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"FIRST TOPIC", "posts"=>{"text"=>"omgomgomgomg"}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.1ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 51ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:53:29 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+Redirected to http://www.example.com/sign_in
+Completed 302 Found in 4ms
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-02-21 21:53:29 +1100
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 24.0ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:53:30 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (208.0ms)
+Completed 200 OK in 355ms (Views: 229.4ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:53:30 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"FIRST TOPIC", "posts_attributes"=>{"0"=>{"text"=>"omgomgomgomg"}}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.1ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 2ms
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:53:30 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.1ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (50.5ms)
+Completed 200 OK in 56ms (Views: 52.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:53:30 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"", "posts_attributes"=>{"0"=>{"text"=>""}}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:54:17 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (168.2ms)
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/new.html.erb within layouts/forem/application (184.9ms)
+Completed 200 OK in 331ms (Views: 209.8ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:54:18 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"FIRST TOPIC", "posts_attributes"=>{"0"=>{"text"=>"omgomgomgomg"}}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:54:45 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (165.7ms)
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/new.html.erb within layouts/forem/application (181.9ms)
+Completed 200 OK in 336ms (Views: 206.5ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:54:45 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"FIRST TOPIC", "posts_attributes"=>{"0"=>{"text"=>"omgomgomgomg"}}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:55:35 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (169.3ms)
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/new.html.erb within layouts/forem/application (185.6ms)
+Completed 200 OK in 343ms (Views: 209.7ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:55:36 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"FIRST TOPIC", "posts_attributes"=>{"0"=>{"text"=>"omgomgomgomg"}}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:55:49 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35mForem::Topic Load (0.1ms)[0m  SELECT "topics".* FROM "topics" WHERE ("topics"."forum_id" = 1)
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (167.4ms)
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/new.html.erb within layouts/forem/application (184.0ms)
+Completed 200 OK in 350ms (Views: 209.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:55:49 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"FIRST TOPIC", "posts_attributes"=>{"0"=>{"text"=>"omgomgomgomg"}}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.1ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mForem::Topic Load (0.1ms)[0m  SELECT "topics".* FROM "topics" WHERE ("topics"."forum_id" = 1)
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "forums" ("title", "description") VALUES ('Welcome to Forem!', 'A placeholder forum.')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/forem/forums/1/topics/new" for 127.0.0.1 at 2011-02-21 21:56:01 +1100
+  Processing by Forem::TopicsController#new as HTML
+  Parameters: {"forum_id"=>"1"}
+  [1m[36mForem::Forum Load (0.2ms)[0m  [1mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/_form.html.erb (169.4ms)
+Rendered /Users/ryanbigg/Sites/side_projects/forem/app/views/forem/topics/new.html.erb within layouts/forem/application (185.8ms)
+Completed 200 OK in 348ms (Views: 210.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/forem/forums/1/topics" for 127.0.0.1 at 2011-02-21 21:56:01 +1100
+  Processing by Forem::TopicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "forem_topic"=>{"subject"=>"FIRST TOPIC", "posts_attributes"=>{"0"=>{"text"=>"omgomgomgomg"}}}, "commit"=>"Create Topic", "forum_id"=>"1"}
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 2ms

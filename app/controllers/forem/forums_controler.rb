@@ -1,5 +1,5 @@
 module Forem
-  class ForumsController < ApplicationController
+  class ForumsController < Forem::ApplicationController
     def index
       @forums = Forem::Forum.all
     end

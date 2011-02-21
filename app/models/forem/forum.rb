@@ -1,11 +1,5 @@
 class Forem::Forum < ActiveRecord::Base
-  
-  #temporary
-  def topics
-    []
-  end
-  
-  def posts
-    []
-  end
+  has_many :topics, :class_name => "Forem::Topic"
+  has_many :posts, :through => :topics
+
 end

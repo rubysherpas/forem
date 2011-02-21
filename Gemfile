@@ -6,7 +6,7 @@ gem 'arel', :git => "git://github.com/rails/arel.git"
 
 gem 'rspec-rails'
 gem 'capybara'
-
+gem 'simple_form'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 group :development do

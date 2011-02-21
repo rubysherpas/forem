@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Insert Forem description."
   s.files = Dir["lib/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.version = "0.0.1"
-  
+
   s.add_development_dependency "launchy"
+  s.add_dependency "simple_form"
 end

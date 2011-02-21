@@ -2,14 +2,21 @@ require 'spec_helper'
 
 describe "forums" do
   before do
-    @forum = Forem::Forum.create(:title => "Welcome to Forem!",
+    @forum = Forem::Forum.create!(:title => "Welcome to Forem!",
                                  :description => "A placeholder forum.")
   end
 
-  it "lists all forums" do
+  it "listing all" do
     visit forem_forums_path
-    p page.save_and_open_page
     page.should have_content("Welcome to Forem!")
     page.should have_content("A placeholder forum.")
+
+  end
+
+  it "visiting one" do
+    visit forem_forum_path(@forum.id)
+    within("#forum h2") do
+      page.should have_content("Welcome to Forem!")
+    end
   end
 end

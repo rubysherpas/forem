@@ -1,22 +1,3 @@
-  [1m[36m (0.3ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m  select sqlite_version(*)
-  [1m[36m (32.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [1m[35m (0.1ms)[0m  PRAGMA index_list("schema_migrations")
-  [1m[36m (4.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.4ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[36m (0.5ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
   [1m[36m (0.5ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -25,37 +6,14 @@
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
-  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
 Migrating to CreateForums (20110214221555)
-  [1m[35m (1.9ms)[0m  select sqlite_version(*)
-  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
-  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110214221555')
+Migrating to CreateTopics (20110221092741)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer, "subject" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110221092741')
   [1m[36m (0.2ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
-  [1m[36m (0.1ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m  PRAGMA table_info("forums")
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.0ms)[0m  PRAGMA index_list("forums")
-  [1m[36m (1.9ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
-  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
-  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
-Migrating to CreateForums (20110214221555)
-  [1m[35m (0.1ms)[0m  select sqlite_version(*)
-  [1m[36m (0.1ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
@@ -67,71 +25,27 @@ Migrating to CreateForums (20110214221555)
   [1m[35m (0.0ms)[0m  PRAGMA table_info("forums")
   [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.0ms)[0m  PRAGMA index_list("forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("topics")[0m
   [1m[36m (0.5ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35m (0.2ms)[0m   SELECT name
+  [1m[35m (0.1ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
   [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
-  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
-Migrating to CreateForums (20110214221555)
-  [1m[35m (0.1ms)[0m  select sqlite_version(*)
-  [1m[36m (0.1ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
-  [1m[36m (0.1ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m  PRAGMA table_info("forums")
-  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
-  [1m[35m (0.0ms)[0m  PRAGMA index_list("forums")
-  [1m[36m (0.5ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
-  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
   [1m[35m (0.1ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
-Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
   [1m[35m (0.0ms)[0m  select sqlite_version(*)
-  [1m[36m (0.8ms)[0m  [1mDROP TABLE "forums"[0m
-  [1m[35m (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110214221555'
-  [1m[36m (0.2ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
-  [1m[36m (0.1ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[36m (0.4ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
-  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
-  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
-Migrating to CreateForums (20110214221555)
-  [1m[35m (0.0ms)[0m  select sqlite_version(*)
-  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) [0m
-  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110214221555')
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE "topics"[0m
+  [1m[35m (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110221092741'
   [1m[36m (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -152,44 +66,21 @@ Migrating to CreateForums (20110214221555)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
   [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
-  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
-  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
-  [1m[35m (0.1ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
 Migrating to CreateForums (20110214221555)
-  [1m[35m (0.1ms)[0m  select sqlite_version(*)
-  [1m[36m (0.8ms)[0m  [1mDROP TABLE "forums"[0m
-  [1m[35m (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110214221555'
-  [1m[36m (0.2ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
-  [1m[36m (0.2ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[36m (0.4ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35m (0.2ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
-  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
-  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
-Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
   [1m[35m (0.0ms)[0m  select sqlite_version(*)
-  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) [0m
-  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110214221555')
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer, "user_id" integer, "subject" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110221092741')
+Migrating to CreatePosts (20110221094502)
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic_id" integer, "text" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110221094502')
   [1m[36m (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
   [1m[36m (0.1ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
@@ -197,3 +88,9 @@ Migrating to CreateForums (20110214221555)
   [1m[35m (0.0ms)[0m  PRAGMA table_info("forums")
   [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forums")[0m
   [1m[35m (0.0ms)[0m  PRAGMA index_list("forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("topics")

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  match "forem", :to => Forem::Engine, :controller => "hax"
+  get '/sign_in', :controller => "fake", :action => "sign_in", :as => "sign_in"
 end
