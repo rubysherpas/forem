@@ -1,0 +1,9 @@
+<%= simple_form_for [@forum, @topic] do |f| %>
+  <%= f.input :subject %>
+
+  <%= f.simple_fields_for :posts do |post| %>
+    <%= post.input :text %>
+  <% end %>
+  
+  <%= f.submit %>
+<% end %>

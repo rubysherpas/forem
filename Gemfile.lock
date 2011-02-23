@@ -10,9 +10,8 @@ GIT
   specs:
     arel (2.0.7.beta.20110121165657)
 
-GIT
-  remote: git://github.com/rails/rails.git
-  revision: 289cc15f1a89a179116f67e5f666f4ff6d645f03
+PATH
+  remote: rails
   specs:
     actionmailer (3.1.0.beta)
       actionpack (= 3.1.0.beta)
