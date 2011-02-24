@@ -25,12 +25,11 @@ describe "forums" do
         fill_in "Subject", :with => "FIRST TOPIC"
         fill_in "Text", :with => "omgomgomgomg"
         click_button 'Create Topic'
-        
-        p page.save_and_open_page
+
         flash_notice!("This topic has been created.")
         assert_seen("FIRST TOPIC", :within => "#topic h2")
         assert_seen("omgomgomgomg", :within => "#posts .post .text")
-        assert_seen("Magic Johnson", :within => "#posts .post .user")
+        assert_seen("forem_user", :within => "#posts .post .user")
 
       end
 
