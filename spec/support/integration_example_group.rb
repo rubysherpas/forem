@@ -10,7 +10,6 @@ module RSpec::Rails
     include RSpec::Rails::TestUnitAssertionAdapter
     include ActionDispatch::Assertions
     include Capybara
-    include RSpec::Matchers
 
     module InstanceMethods
       def app
