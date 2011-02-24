@@ -33,4 +33,9 @@ ActiveRecord::Schema.define(:version => 20110221094502) do
     t.datetime "updated_at"
   end
 
+  create_table "users", :force => true do |t|
+    t.string  "login"
+    t.boolean "forem_admin", :default => false
+  end
+
 end
