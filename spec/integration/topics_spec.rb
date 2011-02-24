@@ -8,7 +8,7 @@ describe "forums" do
 
   context "not signed in" do
     it "cannot create a new topic" do
-      visit new_forem_forum_forem_topic_path(@forum)
+      visit new_forum_topic_path(@forum)
       flash_error!("You must sign in first.")
     end
   end
@@ -16,7 +16,7 @@ describe "forums" do
   context "signed in" do
     before do
       sign_in!(:login => "Magic Johnson")
-      visit new_forem_forum_forem_topic_path(@forum)
+      visit new_forum_topic_path(@forum)
     end
 
     context "creating a topic" do
