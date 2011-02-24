@@ -37,13 +37,8 @@ describe "forums" do
         click_button 'Create Topic'
 
         flash_error!("This topic could not be created.")
-        find_field("#topic_subject").value.should eql("")
-        find_field("#topic_posts_attributes_0_text").value.should eql("")
-
-        assert_seen("FIRST TOPIC", :within => "#topic h2")
-        assert_seen("omgomgomgomg", :within => "#posts .post .text")
-        assert_seen("Magic Johnson", :within => "#posts .post .user")
-
+        find_field("topic_subject").value.should eql("")
+        find_field("topic_posts_attributes_0_text").value.should eql("")
       end
     end
   end
