@@ -4,7 +4,7 @@ gem 'rails', :git => "git://github.com/rails/rails"
 gem 'rack', :git => "git://github.com/rack/rack.git"
 gem 'arel', :git => "git://github.com/rails/arel.git"
 
-gem 'rspec-rails'
+gem 'rspec-rails', '~> 2.5'
 gem 'capybara'
 gem 'simple_form'
 gem 'sqlite3-ruby', :require => 'sqlite3'

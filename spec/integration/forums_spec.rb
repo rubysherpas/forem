@@ -7,14 +7,14 @@ describe "forums" do
   end
 
   it "listing all" do
-    visit forem_forums_path
+    visit forums_path
     page.should have_content("Welcome to Forem!")
     page.should have_content("A placeholder forum.")
 
   end
 
   it "visiting one" do
-    visit forem_forum_path(@forum.id)
+    visit forum_path(@forum.id)
     within("#forum h2") do
       page.should have_content("Welcome to Forem!")
     end
