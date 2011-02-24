@@ -1,6 +1,6 @@
 class CreateForums < ActiveRecord::Migration
   def up
-    create_table :forums do |t|
+    create_table :forem_forums do |t|
       t.string :title
       t.text :description
     end

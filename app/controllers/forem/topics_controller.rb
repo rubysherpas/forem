@@ -2,6 +2,7 @@ class Forem::TopicsController < Forem::ApplicationController
   before_filter :authenticate_forem_user, :except => [:show]
   before_filter :find_forum
 
+  # TODO: investigate why this has to be here
   layout "application"
 
   def show
@@ -16,7 +17,8 @@ class Forem::TopicsController < Forem::ApplicationController
   def create
     # Association builders are broken in edge Rails atm
     # Hack our way around it
-    @topic = Forem::Topic.new(params[:forem_topic])
+    # TODO: Fix the hack
+    @topic = Forem::Topic.new(params[:topic])
     @topic.user = current_user
     @topic.forum_id = params[:forum_id]
     if @topic.save

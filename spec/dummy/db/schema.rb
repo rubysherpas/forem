@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(:version => 20110221094502) do
 
-  create_table "forums", :force => true do |t|
+  create_table "forem_forums", :force => true do |t|
     t.string "title"
     t.text   "description"
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "forem_posts", :force => true do |t|
     t.integer  "topic_id"
     t.text     "text"
     t.integer  "user_id"
@@ -25,12 +25,17 @@ ActiveRecord::Schema.define(:version => 20110221094502) do
     t.datetime "updated_at"
   end
 
-  create_table "topics", :force => true do |t|
+  create_table "forem_topics", :force => true do |t|
     t.integer  "forum_id"
     t.integer  "user_id"
     t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string  "login"
+    t.boolean "forem_admin", :default => false
   end
 
 end

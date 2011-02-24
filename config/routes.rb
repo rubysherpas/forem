@@ -1,7 +1,5 @@
-Rails.application.routes.draw do
-  namespace :forem do
-    resources :forums do
-      resources :topics, :as => "forem_topics"
-    end
+Forem::Engine.routes.draw do
+  resources :forums do
+    resources :topics
   end
 end

@@ -8,7 +8,7 @@ describe "forums" do
 
   context "not signed in" do
     it "cannot create a new topic" do
-      visit new_forem_forum_forem_topic_path(@forum)
+      visit new_forum_topic_path(@forum)
       flash_error!("You must sign in first.")
     end
   end
@@ -16,7 +16,7 @@ describe "forums" do
   context "signed in" do
     before do
       sign_in!(:login => "Magic Johnson")
-      visit new_forem_forum_forem_topic_path(@forum)
+      visit new_forum_topic_path(@forum)
     end
 
     context "creating a topic" do
@@ -25,12 +25,11 @@ describe "forums" do
         fill_in "Subject", :with => "FIRST TOPIC"
         fill_in "Text", :with => "omgomgomgomg"
         click_button 'Create Topic'
-        
-        p page.save_and_open_page
+
         flash_notice!("This topic has been created.")
         assert_seen("FIRST TOPIC", :within => "#topic h2")
         assert_seen("omgomgomgomg", :within => "#posts .post .text")
-        assert_seen("Magic Johnson", :within => "#posts .post .user")
+        assert_seen("forem_user", :within => "#posts .post .user")
 
       end
 
@@ -38,13 +37,8 @@ describe "forums" do
         click_button 'Create Topic'
 
         flash_error!("This topic could not be created.")
-        find_field("#topic_subject").value.should eql("")
-        find_field("#topic_posts_attributes_0_text").value.should eql("")
-
-        assert_seen("FIRST TOPIC", :within => "#topic h2")
-        assert_seen("omgomgomgomg", :within => "#posts .post .text")
-        assert_seen("Magic Johnson", :within => "#posts .post .user")
-
+        find_field("topic_subject").value.should eql("")
+        find_field("topic_posts_attributes_0_text").value.should eql("")
       end
     end
   end
