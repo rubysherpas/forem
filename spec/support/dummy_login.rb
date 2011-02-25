@@ -6,10 +6,6 @@
 #       to make this easier to test.
 
 def sign_out!
-  # Fake user, provided by our fake "model".
-  # HACK HACK HACK.
-  # This is done so we can use the options to define how the current_user method is defined.
-  # Better ideas?
   Forem::ApplicationController.class_eval <<-STRING
     def current_user
       nil
