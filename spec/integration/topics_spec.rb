@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "forums" do
+describe "topics" do
   before do
     @forum = Forem::Forum.create!(:title => "Welcome to Forem!",
                                  :description => "A placeholder forum.")
