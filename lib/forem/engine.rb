@@ -1,9 +1,10 @@
-
 module Forem
   class Engine < Rails::Engine
     isolate_namespace Forem
   end
 end
+
+require 'simple_form'
 
 # Fixes this error:
 # Encoding::CompatibilityError:
