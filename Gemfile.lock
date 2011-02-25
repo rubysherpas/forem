@@ -56,6 +56,12 @@ GIT
       rake (>= 0.8.7)
       thor (~> 0.14.4)
 
+PATH
+  remote: .
+  specs:
+    forem (0.0.1)
+      simple_form
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -151,10 +157,10 @@ PLATFORMS
 DEPENDENCIES
   arel!
   capybara
+  forem!
   launchy
   rack!
   rails!
   rspec-rails (~> 2.5)
   ruby-debug19
-  simple_form
   sqlite3-ruby
