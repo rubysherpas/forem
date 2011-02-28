@@ -10,6 +10,8 @@ def sign_out!
     def current_user
       nil
     end
+
+    helper_method :current_user
   STRING
 end
 
@@ -25,5 +27,7 @@ def sign_in!(options={})
 
       User.new(attributes)
     end
+
+    helper_method :current_user
   STRING
 end
