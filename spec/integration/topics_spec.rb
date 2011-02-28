@@ -8,6 +8,9 @@ describe "topics" do
   # let(:topic) { Factory(:topic) }
 
   context "not signed in" do
+    before do
+      sign_out!
+    end
     it "cannot create a new topic" do
       visit new_forum_topic_path(forum)
       flash_error!("You must sign in first.")
