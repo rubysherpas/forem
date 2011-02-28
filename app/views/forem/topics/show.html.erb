@@ -1,6 +1,5 @@
-:|
 <div id='topic'>
-  <h2><%= @topic.subject %><h2>
+  <h2><%= @topic.subject %></h2>
   <div id='posts'>
     <%= render :partial => "forem/posts/post", :collection => @topic.posts %>
   </div>
