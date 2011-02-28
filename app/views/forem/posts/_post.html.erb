@@ -1,6 +1,16 @@
+<a name='post-#{post.id}'></a>
 <div id='post_<%= post.id %>' class='post'>
   <div class='user'>
     User: <%= post.user %>
+  </div>
+
+  <div class='actions'>
+    <% if current_user %>
+      <%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %>
+    <% end %>
+    <% if post.reply_to %>
+      <%= link_to "In reply to #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+    <% end %>
   </div>
 
   <div class='text'>

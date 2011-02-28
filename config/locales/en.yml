@@ -15,3 +15,9 @@ en:
       created: This topic has been created.
       new: Creating a new topic
       not_created: This topic could not be created.
+    post:
+      buttons:
+        reply: Post Reply
+      created: Your reply has been posted.
+      new: Posting a reply
+      not_created: Your reply could not be posted.

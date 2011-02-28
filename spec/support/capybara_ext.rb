@@ -30,6 +30,12 @@ module CapybaraExt
       "#posts .post .text"
     when :post_user
       "#posts .post .user"
+    when :first_post
+      "#posts #post_1"
+    when :second_post
+      "#posts #post_2"
+    when :post_actions
+      "#{selector_for(:first_post)} .actions"
     else
       pending "No selector defined for #{identifier}. Please define one in spec/support/capybara_ext.rb"
     end

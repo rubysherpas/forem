@@ -2,7 +2,7 @@
   <%= f.input :subject %>
 
   <%= f.simple_fields_for :posts do |post| %>
-    <%= post.input :text %>
+    <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
   <% end %>
   
   <%= f.submit %>
