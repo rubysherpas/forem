@@ -2,9 +2,6 @@ class Forem::TopicsController < Forem::ApplicationController
   before_filter :authenticate_forem_user, :except => [:show]
   before_filter :find_forum
 
-  # TODO: investigate why this has to be here
-  layout "application"
-
   def show
     @topic = @forum.topics.find(params[:id])
   end
