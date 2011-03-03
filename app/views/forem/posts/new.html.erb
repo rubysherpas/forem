@@ -1,0 +1,6 @@
+<h2><%= t("forem.post.new") %></h2>
+
+<%= simple_form_for [@topic, @post] do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= f.submit t("forem.post.buttons.reply") %>
+<% end %>
