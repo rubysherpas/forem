@@ -29,3 +29,5 @@ end
 
 
 task :default => :test
+
+Bundler::GemHelper.install_tasks
