@@ -4,6 +4,8 @@ module Forem
   end
 end
 
+ENGINE_ROOT = Pathname.new(File.expand_path(File.dirname(__FILE__) + "/../.."))
+
 require 'simple_form'
 
 # Fixes this error:
