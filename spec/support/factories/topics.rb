@@ -5,4 +5,5 @@ Factory.define(:topic, :class => Forem::Topic) do |t|
   #t.posts { |p| [p.association(:post)] }
   #t.assocation :user
   t.user {|u| u.association(:user) }
+  t.posts { |p| [p.association(:post)]}
 end
