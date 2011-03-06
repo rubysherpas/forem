@@ -23,7 +23,7 @@ def sign_in!(options={})
   Forem::ApplicationController.class_eval <<-STRING
     def current_user
       attributes = { :login => "forem_user" }
-      #{"attributes.merge!(:context_admin => true)" if options[:admin]}
+      #{"attributes.merge!(:forem_admin => true)" if options[:admin]}
 
       User.new(attributes)
     end
