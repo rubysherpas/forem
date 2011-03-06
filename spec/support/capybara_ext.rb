@@ -24,6 +24,10 @@ module CapybaraExt
   
   def selector_for(identifier)
     case identifier
+    when :forum_header
+      "#forum h2"
+    when :forum_description
+      "#forums .forum .description"
     when :topic_header
       "#topic h2"
     when :post_text
