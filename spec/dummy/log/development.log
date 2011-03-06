@@ -203,3 +203,147 @@ ActionController::RoutingError (uninitialized constant Forem::ForumsController):
   
 
 Rendered /Users/ryanbigg/.rvm/gems/ruby-1.9.2-p136@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-05 16:16:46 -0800
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/forem" for 127.0.0.1 at 2011-03-05 16:16:59 -0800
+
+ActionController::RoutingError (No route matches "/forem"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-03-05 16:18:03 -0800
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/forem" for 127.0.0.1 at 2011-03-05 16:18:23 -0800
+
+ActionController::RoutingError (No route matches "/forem"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/forums" for 127.0.0.1 at 2011-03-05 16:18:43 -0800
+
+ActionController::RoutingError (No route matches "/forums"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/forem/forums" for 127.0.0.1 at 2011-03-05 16:18:48 -0800
+
+ActionController::RoutingError (uninitialized constant Forem::ForumsController):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-05 16:19:08 -0800
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-05 16:19:35 -0800
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/forem" for 127.0.0.1 at 2011-03-05 16:19:37 -0800
+
+ActionController::RoutingError (No route matches "/forem"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-03-05 16:19:50 -0800
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 27ms (Views: 27.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (18.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "forem_forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) [0m
+SQLite3::SQLException: table "forem_forums" already exists: CREATE TABLE "forem_forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) 
+  [1m[36m (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "forem_forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) [0m
+SQLite3::SQLException: table "forem_forums" already exists: CREATE TABLE "forem_forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) 
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (13.3ms)[0m  [1mDROP TABLE "forem_forums"[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "forem_forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) 
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "forem_posts"
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "forem_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic_id" integer, "text" text, "user_id" integer, "created_at" datetime, "updated_at" datetime, "reply_to" integer, "reply_to_id" integer) [0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "forem_topics"[0m
+  [1m[35m (22.2ms)[0m  CREATE TABLE "forem_topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer, "user_id" integer, "subject" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "users"
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "forem_admin" boolean DEFAULT 'f') [0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110228084940')
+  [1m[36m (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110214221555')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110221092741')
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-05 16:33:25 -0800
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)

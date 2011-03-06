@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "posts" do
   # TODO: FG'ize
-  let(:forum) { create_forum! }
-  let(:topic) { create_topic! }
+  let(:forum) { Factory(:forum) }
+  let(:topic) { Factory(:topic) }
   
   context "not signed in users " do
     it "cannot begin to post a reply" do

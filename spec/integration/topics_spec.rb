@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe "topics" do
-  let(:forum) { Forem::Forum.create!(:title => "Welcome to forem!",
-                                     :description => "FIRST FORUM") }
+  # let(:forum) { Forem::Forum.create!(:title => "Welcome to forem!",
+  #                                    :description => "FIRST FORUM") }
   # When FG is implemented
-  # let(:forum) { Factory(:forum) }
-  # let(:topic) { Factory(:topic) }
+  let(:forum) { Factory(:forum) }
+  let(:topic) { Factory(:topic) }
 
   context "not signed in" do
     before do
