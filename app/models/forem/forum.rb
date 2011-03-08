@@ -1,7 +1,7 @@
 module Forem
   class Forum < ActiveRecord::Base
-    has_many :topics
-    has_many :posts, :through => :topics
+    has_many :topics, :dependent => :destroy
+    has_many :posts, :through => :topics, :dependent => :destroy
   
     validates :title, :presence => true
     validates :description, :presence => true
