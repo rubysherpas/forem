@@ -1,8 +1,8 @@
-## Forem
+# Forem
 
 This is a experimental engine for Rails that aims to be the best little forum system ever. The end goal is to have an engine that can be dropped into an application that provides the basic functionality of forums, topics and posts. 
 
-### Installation
+## Installation
 
 **Currently, this engine requires that you use edge Rails which is known to be broken at different points in time. Therefore, it isn't recommended that you use it in any kind of production environment just yet.** 
 
@@ -22,11 +22,11 @@ Once these gems are installed, run `rake forem:install` which will copy over any
 
     mount Forem::Engine, :at => "forem"
 
-### OMG BUG! / OMG FEATURE REQUEST!
+## OMG BUG! / OMG FEATURE REQUEST!
 
 File an issue and we'll get around to it when we can.
 
-### Contributors
+## Contributors
 
 * Ryan Bigg
 * Adam McDonald
