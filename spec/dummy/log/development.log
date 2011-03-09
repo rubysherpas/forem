@@ -347,3 +347,335 @@ ActionController::RoutingError (No route matches "/"):
   
 
 Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+  [1m[36m (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (2.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/" for 127.0.0.1 at Mon Mar 07 23:32:50 -0500 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Mar 07 23:33:21 -0500 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/for" for 127.0.0.1 at Mon Mar 07 23:33:22 -0500 2011
+
+ActionController::RoutingError (No route matches "/for"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/forems" for 127.0.0.1 at Mon Mar 07 23:33:23 -0500 2011
+
+ActionController::RoutingError (No route matches "/forems"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/forems" for 127.0.0.1 at Mon Mar 07 23:36:22 -0500 2011
+
+ActionController::RoutingError (No route matches "/forems"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/fore" for 127.0.0.1 at Mon Mar 07 23:36:25 -0500 2011
+
+ActionController::RoutingError (No route matches "/fore"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/for" for 127.0.0.1 at Mon Mar 07 23:36:26 -0500 2011
+
+ActionController::RoutingError (No route matches "/for"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/foru" for 127.0.0.1 at Mon Mar 07 23:36:26 -0500 2011
+
+ActionController::RoutingError (No route matches "/foru"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/forums" for 127.0.0.1 at Mon Mar 07 23:36:26 -0500 2011
+
+ActionController::RoutingError (No route matches "/forums"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Mar 07 23:36:28 -0500 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Mon Mar 07 23:37:52 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 126ms (Views: 16.6ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (10.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/forem/forums/new" for 127.0.0.1 at Mon Mar 07 23:39:16 -0500 2011
+  Processing by Forem::ForumsController#new as HTML
+Redirected to http://localhost:3000/forem/forums
+Completed 302 Found in 34ms
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Mon Mar 07 23:39:16 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 71ms (Views: 9.5ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Mon Mar 07 23:41:07 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 72ms (Views: 61.3ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (52.8ms)[0m  [1mDROP TABLE "forem_forums"[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "forem_forums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text) 
+  [1m[36m (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (3.1ms)[0m  DROP TABLE "forem_posts"
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "forem_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic_id" integer, "text" text, "user_id" integer, "created_at" datetime, "updated_at" datetime, "reply_to" integer, "reply_to_id" integer) [0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (4.1ms)[0m  [1mDROP TABLE "forem_topics"[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "forem_topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer, "user_id" integer, "subject" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (3.6ms)[0m  DROP TABLE "users"
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "forem_admin" boolean DEFAULT 'f') [0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Tue Mar 08 00:04:45 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 64ms (Views: 25.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/forem/forums/" for 127.0.0.1 at Tue Mar 08 00:05:57 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 67ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/forem/forums/new" for 127.0.0.1 at Tue Mar 08 00:05:58 -0500 2011
+  Processing by Forem::ForumsController#new as HTML
+Redirected to http://localhost:3000/forem/forums
+Completed 302 Found in 50ms
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Tue Mar 08 00:05:58 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 18ms (Views: 7.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Tue Mar 08 00:06:56 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 73ms (Views: 7.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/forem/forums/new" for 127.0.0.1 at Tue Mar 08 00:07:05 -0500 2011
+  Processing by Forem::ForumsController#new as HTML
+Redirected to http://localhost:3000/forem/forums
+Completed 302 Found in 1ms
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Tue Mar 08 00:07:05 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 70ms (Views: 59.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Tue Mar 08 08:57:31 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (66.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 2300ms (Views: 501.6ms | ActiveRecord: 66.2ms)
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Tue Mar 08 20:07:12 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (15.8ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.2ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 111758ms (Views: 267.8ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/forem/forums" for 127.0.0.1 at Tue Mar 08 20:09:57 -0500 2011
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/Zak/Sites/forem/app/views/forem/forums/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 112ms (Views: 7.5ms | ActiveRecord: 0.4ms)

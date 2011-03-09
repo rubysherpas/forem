@@ -32,5 +32,11 @@ describe "posts" do
       click_button "Post Reply"
       flash_error!("Your reply could not be posted.")
     end
+    
+    it "can delete own post" do
+      click_button "Delete Post"
+      flash_notice!("Your post has been deleted.")
+      / assert that post is gone?/
+    end
   end
 end
