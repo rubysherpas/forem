@@ -13,6 +13,14 @@ module Forem
       end
     end
 
+    config.after_initialize do
+      # Allow forem to hook into Refinery CMS if it's available
+      ::Refinery::Plugin.register do |plugin|
+        plugin.name = "forem"
+        plugin.directory = "forem"
+      end if defined?(::Refinery)
+    end
+
   end
 end
 
