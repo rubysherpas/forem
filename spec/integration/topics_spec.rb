@@ -12,7 +12,7 @@ describe "topics" do
       sign_out!
     end
     it "cannot create a new topic" do
-      visit new_forum_topic_path(forum)
+      visit new_forem_forum_topic_path(forum)
       flash_error!("You must sign in first.")
     end
   end
@@ -20,7 +20,7 @@ describe "topics" do
   context "signed in" do
     before do
       sign_in!
-      visit new_forum_topic_path(forum)
+      visit new_forem_forum_topic_path(forum)
     end
 
     context "creating a topic" do
@@ -63,7 +63,7 @@ describe "topics" do
     end
 
     it "is free for all" do
-      visit forum_topic_path(forum, topic)
+      visit forem_forum_topic_path(forum, topic)
       assert_seen("FIRST TOPIC", :within => :topic_header)
       assert_seen("omgomgomg", :within => :post_text)
     end

@@ -4,14 +4,14 @@ describe "forums" do
   let!(:forum) { Factory(:forum) }
 
   it "listing all" do
-    visit forums_path
+    visit forem_forums_path
     page.should have_content("Welcome to Forem!")
     page.should have_content("A placeholder forum.")
 
   end
 
   it "visiting one" do
-    visit forum_path(forum.id)
+    visit forem_forum_path(forum.id)
     within("#forum h2") do
       page.should have_content("Welcome to Forem!")
     end
@@ -23,7 +23,7 @@ describe "forums" do
     end
     
     it "cannot create a new forum" do
-      visit new_forum_path
+      visit new_forem_forum_path
       flash_error!("Access denied.")
     end
   end
@@ -31,7 +31,7 @@ describe "forums" do
   context "signed in admins" do
     before do
       sign_in! :admin => true
-      visit new_forum_path
+      visit new_forem_forum_path
     end
 
     context "creating a forum" do
