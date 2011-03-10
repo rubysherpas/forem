@@ -1,4 +1,5 @@
 class Forem::Topic < ActiveRecord::Base
+  set_table_name :forem_topics
   belongs_to :forum
   belongs_to :user
   has_many :posts
