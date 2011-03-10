@@ -20,7 +20,7 @@ class Forem::TopicsController < Forem::ApplicationController
     @topic.forum_id = params[:forum_id]
     if @topic.save
       flash[:notice] = t("forem.topic.created")
-      redirect_to [:forem, @forum, @topic]
+      redirect_to forem_forum_topic_path(@forum, @topic)
     else
       flash[:error] = t("forem.topic.not_created")
       render :action => "new"
