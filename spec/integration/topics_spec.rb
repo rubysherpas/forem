@@ -41,8 +41,8 @@ describe "topics" do
         click_button 'Create Topic'
 
         flash_error!("This topic could not be created.")
-        find_field("topic_subject").value.should eql("")
-        find_field("topic_posts_attributes_0_text").value.should eql("")
+        find_field("forem_topic_subject").value.should eql("")
+        find_field("forem_topic_posts_attributes_0_text").value.should eql("")
       end
     end
   end
