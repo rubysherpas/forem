@@ -7,7 +7,7 @@ describe "posts" do
   
   context "not signed in users " do
     it "cannot begin to post a reply" do
-      visit new_topic_post_path(topic)
+      visit new_forem_topic_post_path(topic)
       flash_error!("You must sign in first.")
     end
   end
@@ -15,7 +15,7 @@ describe "posts" do
   context "signed in users" do
     before do
       sign_in!
-      visit forum_topic_path(forum, topic)
+      visit forem_forum_topic_path(forum, topic)
       within(selector_for(:first_post)) do
         click_link("Reply")
       end
