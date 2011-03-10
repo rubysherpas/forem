@@ -1,4 +1,12 @@
-<%= simple_form_for [@forum, @topic] do |f| %>
+<%
+# terribad hack for Rails 3.0 crap
+ url = if @topic.new_record?
+  forem_forum_topics_url(@forum)
+else
+  forem_forum_topic_url(@forum, @topic)
+end
+%>
+<%= simple_form_for [@forum, @topic], :url => url do |f| %>
   <%= f.input :subject %>
 
   <%= f.simple_fields_for :posts do |post| %>
