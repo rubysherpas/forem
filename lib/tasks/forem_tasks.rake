@@ -2,6 +2,7 @@ require 'pathname'
 require 'fileutils'
 namespace :forem do
   task :install do
+    timestamp = Time.now.strftime("%Y%m%d%I%m%S")
     existing_migrations = Dir[Rails.root + "db/migrate/*"]
     Dir[File.dirname(__FILE__) + "/../../db/migrate/*.rb"].each do |file|
       migration_name = /\d+_(.*?)\.rb/.match(File.basename(file))[1]
