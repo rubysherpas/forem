@@ -1,7 +1,7 @@
 <ul class="forums listing">
   <% @forums.each do |forum| %>
     <li class="<%= cycle("odd", "even") %>">
-      <h2><%= link_to forum.title, forum_path(forum) %></h2>
+      <h2><%= link_to forum.title, forem_forum_path(forum) %></h2>
       <%= forum.description %>
       <br>
       <%= t("forem.forum.topics_count", :count => forum.topics.count) %> topics,
