@@ -7,12 +7,12 @@ class Forem::PostsController < Forem::ApplicationController
   end
   
   def create
-    @post = @topic.posts.build(params[:post])
+    @post = @topic.posts.build(params[:forem_post])
     if @post.save
       flash[:notice] = t("forem.post.created")
       redirect_to [@topic.forum, @topic]
     else
-      params[:reply_to_id] = params[:post][:reply_to_id]
+      params[:reply_to_id] = params[:forem_post][:reply_to_id]
       flash[:error] = t("forem.post.not_created")
       render :action => "new"
     end
