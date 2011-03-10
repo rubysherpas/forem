@@ -1,5 +1,5 @@
-class CreateForums < ActiveRecord::Migration
-  def up
+class CreateForemForums < ActiveRecord::Migration
+  def self.up
     create_table :forem_forums do |t|
       t.string :title
       t.text :description
@@ -7,7 +7,7 @@ class CreateForums < ActiveRecord::Migration
 
   end
 
-  def down
-    drop_table :forums
+  def self.down
+    drop_table :forem_forums
   end
 end
