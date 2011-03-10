@@ -15,7 +15,7 @@ module Forem
     end
     
     def create
-      @forum = Forem::Forum.new(params[:forum])
+      @forum = Forem::Forum.new(params[:forem_forum])
       if @forum.save
         flash[:notice] = t("forem.forum.created")
         redirect_to @forum
