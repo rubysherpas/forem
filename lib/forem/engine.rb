@@ -1,10 +1,16 @@
 module Forem
   class Engine < Rails::Engine
     isolate_namespace Forem
+
+    class << self
+      attr_accessor :root
+      def root
+        @root ||= Pathname.new(File.expand_path('../../', __FILE__))
+      end
+    end
+
   end
 end
-
-ENGINE_ROOT = Pathname.new(File.expand_path(File.dirname(__FILE__) + "/../.."))
 
 require 'simple_form'
 
