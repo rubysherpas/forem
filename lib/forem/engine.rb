@@ -2,6 +2,10 @@ module Forem
   class Engine < Rails::Engine
     isolate_namespace Forem
 
+    initializer "serve static assets" do |app|
+      app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
+    end
+
     class << self
       attr_accessor :root
       def root
