@@ -50,7 +50,7 @@ describe "forums" do
         click_button 'Create Forum'
 
         flash_error!("This forum could not be created.")
-        find_field("forum_title").value.should eql("")
+        find_field("forem_forum_title").value.should eql("")
       end
       
       it "is invalid without description" do
@@ -58,7 +58,7 @@ describe "forums" do
         click_button 'Create Forum'
 
         flash_error!("This forum could not be created.")
-        find_field("forum_description").value.should eql("")
+        find_field("forem_forum_description").value.should eql("")
       end
     end
   end
