@@ -6,7 +6,7 @@
 
   <div class='actions'>
     <% if current_user %>
-      <%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %>
+      <%= link_to "Reply", new_forem_topic_post_path(@topic, :reply_to_id => post.id) %>
     <% end %>
     <% if post.reply_to %>
       <%= link_to "In reply to #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
