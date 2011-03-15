@@ -18,6 +18,18 @@ module Forem
         render :action => "new"
       end
     end
+    
+    def destroy
+      @post = @topic.posts.find(params[:id])
+      if current_user.login == @post.user.login
+        @post.destroy
+        flash[:notice] = t("forem.post.deleted")
+      else
+        flash[:error] = t("forem.post.cannot_delete")
+      end
+      
+      redirect_to [@topic.forum, @topic]
+    end
 
     private
 

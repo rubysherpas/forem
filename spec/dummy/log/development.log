@@ -347,3 +347,88 @@ ActionController::RoutingError (No route matches "/"):
   
 
 Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-11 19:12:22 -0800
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Users/adam/.rvm/gems/ruby-1.9.2-p180@forem/bundler/gems/rails-5f1fc0c8ac6e/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/forem" for 127.0.0.1 at 2011-03-11 19:12:26 -0800
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/adam/Development/github/raid5/forem/app/views/forem/forums/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 78ms (Views: 8.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/forem/forums" for 127.0.0.1 at 2011-03-11 19:12:33 -0800
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/adam/Development/github/raid5/forem/app/views/forem/forums/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 45ms (Views: 6.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/forem/forums/new" for 127.0.0.1 at 2011-03-11 19:12:51 -0800
+  Processing by Forem::ForumsController#new as HTML
+Redirected to http://localhost:3000/forem/forums
+Completed 302 Found in 3ms
+
+
+Started GET "/forem/forums" for 127.0.0.1 at 2011-03-11 19:12:51 -0800
+  Processing by Forem::ForumsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35mForem::Forum Load (0.1ms)[0m  SELECT "forem_forums".* FROM "forem_forums" 
+Rendered /Users/adam/Development/github/raid5/forem/app/views/forem/forums/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 23ms (Views: 8.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2011-03-11 19:13:16 -0800
+  Processing by FakeController#sign_in as HTML
+Rendered fake/sign_in.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 5ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
