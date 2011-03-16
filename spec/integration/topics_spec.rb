@@ -1,11 +1,9 @@
 require 'spec_helper'
 
 describe "topics" do
-  # let(:forum) { Forem::Forum.create!(:title => "Welcome to forem!",
-  #                                    :description => "FIRST FORUM") }
-  # When FG is implemented
   let(:forum) { Factory(:forum) }
   let(:topic) { Factory(:topic) }
+  let(:other_topic) { Factory(:topic, :subject => 'Another forem topic', :user => Factory(:user, :id => '2', :login => 'other_forem_user')) }
 
   context "not signed in" do
     before do
@@ -14,6 +12,12 @@ describe "topics" do
     it "cannot create a new topic" do
       visit new_forum_topic_path(forum)
       flash_error!("You must sign in first.")
+    end
+    
+    it "cannot delete topics" do
+      delete forum_topic_path(topic.forum, topic), :id => topic.id.to_s
+      response.should redirect_to(sign_in_path)
+      flash[:error].should == "You must sign in first."
     end
   end
 
@@ -24,7 +28,6 @@ describe "topics" do
     end
 
     context "creating a topic" do
-
       it "is valid with subject and post text" do
         fill_in "Subject", :with => "FIRST TOPIC"
         fill_in "Text", :with => "omgomgomgomg"
@@ -43,6 +46,26 @@ describe "topics" do
         flash_error!("This topic could not be created.")
         find_field("topic_subject").value.should eql("")
         find_field("topic_posts_attributes_0_text").value.should eql("")
+      end
+    end
+    
+    context "deleting a topic" do
+      before do
+        sign_in!
+      end
+      
+      it "can delete their own topics" do
+        visit forum_topic_path(topic.forum, topic)
+        within(selector_for(:topic_menu)) do
+          click_link("Delete")
+        end
+        flash_notice!("Your topic has been deleted.")
+      end
+
+      it "cannot delete topics by others" do
+        delete forum_topic_path(other_topic.forum, other_topic), :id => other_topic.id.to_s
+        response.should redirect_to(forum_path(other_topic.forum))
+        flash[:error].should == "You cannot delete a topic you do not own."
       end
     end
   end

@@ -30,6 +30,8 @@ module CapybaraExt
       "#forums .forum .description"
     when :topic_header
       "#topic h2"
+    when :topic_menu
+      "#topic menu"
     when :post_text
       "#posts .post .text"
     when :post_user

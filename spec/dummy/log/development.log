@@ -432,3 +432,18 @@ Migrating to AddReplyToToPosts (20110228084940)
   [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("users")[0m
   [1m[35m (0.0ms)[0m  PRAGMA table_info("users")
   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("login", "forem_admin") VALUES ('forem_user', 'f')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("login", "forem_admin") VALUES ('other_forem_user', 'f')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m

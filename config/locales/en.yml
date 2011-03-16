@@ -19,6 +19,8 @@ en:
       created: This topic has been created.
       new: Creating a new topic
       not_created: This topic could not be created.
+      deleted: Your topic has been deleted.
+      cannot_delete: You cannot delete a topic you do not own.
     post:
       buttons:
         reply: Post Reply

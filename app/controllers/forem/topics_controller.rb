@@ -27,6 +27,18 @@ module Forem
         render :action => "new"
       end
     end
+    
+    def destroy
+      @topic = @forum.topics.find(params[:id])
+      if current_user == @topic.user
+        @topic.destroy
+        flash[:notice] = t("forem.topic.deleted")
+      else
+        flash[:error] = t("forem.topic.cannot_delete")
+      end
+      
+      redirect_to @topic.forum
+    end
 
     private
 
