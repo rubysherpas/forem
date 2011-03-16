@@ -25,7 +25,9 @@ def sign_in!(options={})
       attributes = { :login => "forem_user" }
       #{"attributes.merge!(:forem_admin => true)" if options[:admin]}
 
-      User.new(attributes)
+      user = User.new(attributes)
+      user.id = 1
+      user
     end
 
     helper_method :current_user

@@ -21,7 +21,7 @@ module Forem
     
     def destroy
       @post = @topic.posts.find(params[:id])
-      if current_user.login == @post.user.login
+      if current_user == @post.user
         @post.destroy
         flash[:notice] = t("forem.post.deleted")
       else
