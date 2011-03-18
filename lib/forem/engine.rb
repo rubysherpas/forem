@@ -18,6 +18,11 @@ module Forem
       ::Refinery::Plugin.register do |plugin|
         plugin.name = "forem"
         plugin.directory = "forem"
+        plugin.url = {:controller => '/admin/forem/forums', :action => 'index'}
+        plugin.menu_match = /^\/?(admin|refinery)\/forem\/?(forums|posts|topics)?/
+        plugin.activity = {
+          :class => ::Forem::Post
+        }
       end if defined?(::Refinery)
     end
 

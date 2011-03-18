@@ -1,11 +1,13 @@
+require File.expand_path('../lib/forem/version', __FILE__)
 # Provide a simple gemspec so you can easily use your
 # project in your rails apps through git.
 Gem::Specification.new do |s|
   s.name = "forem"
+  s.authors = ['Ryan Bigg', 'Philip Arndt']
   s.summary = "The best Rails 3 forum engine in the world."
   s.description = "The best Rails 3 forum engine in the world."
   s.files = `git ls-files`.split("\n")
-  s.version = "0.0.1"
+  s.version = ::Forem.version
 
   s.add_development_dependency "launchy"
   s.add_development_dependency "rspec-rails", "~> 2.5"
