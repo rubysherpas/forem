@@ -14,16 +14,24 @@ module Forem
     end
 
     config.after_initialize do
-      # Allow forem to hook into Refinery CMS if it's available
-      ::Refinery::Plugin.register do |plugin|
-        plugin.name = "forem"
-        plugin.directory = "forem"
-        plugin.url = {:controller => '/admin/forem/forums', :action => 'index'}
-        plugin.menu_match = /^\/?(admin|refinery)\/forem\/?(forums|posts|topics)?/
-        plugin.activity = {
-          :class => ::Forem::Post
-        }
-      end if defined?(::Refinery)
+      if defined?(::Refinery)
+        # Allow forem to hook into Refinery CMS if it's available
+        ::Refinery::Plugin.register do |plugin|
+          plugin.name = "forem"
+          plugin.directory = "forem"
+          plugin.url = {:controller => '/admin/forem/forums', :action => 'index'}
+          plugin.menu_match = /^\/?(admin|refinery)\/forem\/?(forums|posts|topics)?/
+          plugin.activity = {
+            :class => ::Forem::Post
+          }
+        end
+      end
+    end
+
+    config.to_prepare do
+      if defined?(::Refinery)
+        ::User.send :include, ::Forem::UserExtensions
+      end
     end
 
   end
