@@ -1,5 +1,5 @@
 require "forem/engine"
-
+require "forem/user_extensions"
 module Forem
 
   mattr_accessor :user_name, :current_user, :login_url
