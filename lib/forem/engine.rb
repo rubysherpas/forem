@@ -33,7 +33,6 @@ module Forem
         ::User.send :include, ::Forem::UserExtensions
       end
     end
-
   end
 end
 
