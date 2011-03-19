@@ -1,14 +1,14 @@
 GIT
-  remote: git://github.com/rack/rack.git
-  revision: e3ffeac0dc04bb8d5994b7923bf12e55d549a279
+  remote: git://github.com/rack/rack
+  revision: 1a5a44ab518c1cc97e429d717979f09c1369c88f
   specs:
     rack (1.2.1)
 
 GIT
-  remote: git://github.com/rails/arel.git
-  revision: dbc86c0f2c2fc3c8bacf35c67fb8e0967b0a8980
+  remote: git://github.com/rails/arel
+  revision: 05887fc406820f2e8fecc5cedcc42b87cf9f0ab1
   specs:
-    arel (2.0.7.beta.20110121165657)
+    arel (2.0.7.beta.20110228092631)
 
 GIT
   remote: git://github.com/rails/rails
@@ -59,7 +59,7 @@ GIT
 PATH
   remote: .
   specs:
-    forem (0.0.1)
+    forem (0.1)
       simple_form
 
 GEM
