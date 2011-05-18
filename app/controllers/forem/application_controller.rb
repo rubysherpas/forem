@@ -13,8 +13,4 @@ class Forem::ApplicationController < ApplicationController
       redirect_to forums_path #TODO: not positive where to redirect here
     end
   end
-
-  # dummy method
-  def current_user
-  end
 end

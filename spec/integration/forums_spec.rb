@@ -16,18 +16,18 @@ describe "forums" do
       page.should have_content("Welcome to Forem!")
     end
   end
-  
+
   context "not signed in admins" do
     before do
       sign_in!
     end
-    
+
     it "cannot create a new forum" do
       visit new_forum_path
       flash_error!("Access denied.")
     end
   end
-  
+
   context "signed in admins" do
     before do
       sign_in! :admin => true
@@ -52,7 +52,7 @@ describe "forums" do
         flash_error!("This forum could not be created.")
         find_field("forum_title").value.should eql("")
       end
-      
+
       it "is invalid without description" do
         fill_in "Title", :with => "FIRST FORUM."
         click_button 'Create Forum'
