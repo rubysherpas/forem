@@ -1,7 +1,7 @@
 <div id='forum'>
   <h2><%= link_to forum.title, forum %></h2>
-  <div id='forums'>
-    <%= render :partial => "forem/forums/forum", :locals => { :forum => forum } %>
+  <div class='description'>
+    <%= forum.description %>
   </div>
   <menu>
     <%= link_to "Post a new topic.", new_forum_topic_path(@forum) -%>
