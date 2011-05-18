@@ -1,12 +1,3 @@
-<div id='forum'>
-  <h2><%= @forum.title %></h2>
-  <div id='forums'>
-    <%= render :partial => "forem/forums/forum", :locals => { :forum => @forum } %>
-  </div>
-</div>
-
-<menu>
-  <%= link_to "Post a new topic.", new_forum_topic_path(@forum) -%>
-</menu>
+<%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
 
 <%= render :partial => 'forem/topics/topic_listing', :collection => @topics %>
