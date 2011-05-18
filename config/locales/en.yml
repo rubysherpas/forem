@@ -10,17 +10,25 @@ en:
       topics_count:
         zero: 0 topics
         one: 1 topic
-        many: "%{count} topics"
+        other: "%{count} topics"
       posts_count:
         zero: 0 posts
         one: 1 post
-        many: "%{count} posts"
+        other: "%{count} posts"
     topic:
+      headings:
+        topic: "Topic"
+        latest: "Latest"
+        posts: "Posts"
+        views: "Views"
       created: This topic has been created.
       new: Creating a new topic
       not_created: This topic could not be created.
       deleted: Your topic has been deleted.
       cannot_delete: You cannot delete a topic you do not own.
+      links:
+        post: Post a new topic.
+        back_to_topics: Back to topics
     post:
       buttons:
         reply: Post Reply
