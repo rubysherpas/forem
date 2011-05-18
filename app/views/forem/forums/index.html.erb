@@ -4,8 +4,8 @@
       <h2><%= link_to forum.title, forum_path(forum) %></h2>
       <%= forum.description %>
       <br>
-      <%= t("forem.forum.topics_count", :count => forum.topics.count) %> topics,
-      <%= t("forem.forum.posts_count", :count => forum.posts.count) %> posts
+      <%= t("forem.forum.topics_count", :count => forum.topics.count) %>,
+      <%= t("forem.forum.posts_count", :count => forum.posts.count) %>
       <br>
       Last post was TIME AGO by NAME in TOPIC
     </li>
