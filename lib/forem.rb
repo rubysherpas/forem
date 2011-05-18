@@ -1,5 +1,7 @@
 require "forem/engine"
 require "forem/user_extensions"
+require "forem/kaminari_config"
+
 module Forem
 
   mattr_accessor :user_name, :current_user, :login_url
