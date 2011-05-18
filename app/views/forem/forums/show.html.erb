@@ -4,4 +4,6 @@
     <%= render :partial => "forem/forums/forum", :locals => { :forum => @forum } %>
   </div>
 </div>
+
 <%= link_to "Post a new topic.", new_forum_topic_path(@forum) -%>
+<%= render :partial => 'forem/topics/topic_listing', :collection => @topics %>

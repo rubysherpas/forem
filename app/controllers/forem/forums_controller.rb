@@ -8,6 +8,8 @@ module Forem
 
     def show
       @forum = Forem::Forum.find(params[:id])
+      # TODO: Pagination
+      @topics = @forum.topics
     end
 
     def new
