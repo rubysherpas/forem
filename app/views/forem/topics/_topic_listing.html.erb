@@ -1,6 +1,5 @@
-<div id='topic'>
-  <h2><%= topic_listing.subject %></h2>
-  <menu>
-    <%= link_to "View", forum_topic_path(@forum, topic_listing) %>
-  </menu>
+<div class='topic'>
+  <div class='icon'></div>
+  <div class='subject'><%= link_to topic_listing.subject, forum_topic_path(@forum, topic_listing) %></div>
+  <div class='latest-post'><%= time_ago_in_words topic_listing.posts.last.created_at -%> ago by SOMEUSER</div>
 </div>

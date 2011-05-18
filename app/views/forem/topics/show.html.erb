@@ -1,6 +1,7 @@
 <div id='topic'>
   <h2><%= @topic.subject %></h2>
   <menu>
+    <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
     <%= link_to "Delete", forum_topic_path(@forum, @topic), :method => :delete, :confirm => "Are you sure?" %>
   </menu>
   <div id='posts'>

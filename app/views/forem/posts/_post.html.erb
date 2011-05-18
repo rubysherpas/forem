@@ -1,7 +1,13 @@
 <a name='post-#{post.id}'></a>
-<div id='post_<%= post.id %>' class='post'>
+<div id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
   <div class='user'>
-    User: <%= post.user %>
+    <div class='username'>username</div>
+    <div class='icon'></div>
+    <div class='member-for'>member for 3 months</div>
+  </div>
+
+  <div class='text'>
+    <%= post.text %>
   </div>
 
   <div class='actions'>
@@ -14,9 +20,4 @@
       <%= link_to "In reply to #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
     <% end %>
   </div>
-
-  <div class='text'>
-    <%= post.text %>
-  </div>
-
 </div>
