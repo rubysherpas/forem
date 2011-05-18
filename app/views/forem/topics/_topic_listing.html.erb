@@ -1,5 +1,13 @@
-<div class='topic'>
-  <div class='icon'></div>
-  <div class='subject'><%= link_to topic_listing.subject, forum_topic_path(@forum, topic_listing) %></div>
-  <div class='latest-post'><%= time_ago_in_words topic_listing.posts.last.created_at -%> ago by SOMEUSER</div>
-</div>
+<tr class="<%= cycle('odd', 'even') %>">
+  <td class='icon'>
+  </td>
+  <td>
+    <div class='subject'><%= link_to topic_listing.subject, forum_topic_path(@forum, topic_listing) %></div>
+    <div class='started-by'>Started by <%= topic_listing.posts.first.user %></div>
+  </td>
+  <td class='latest-post'>
+    <%= time_ago_in_words topic_listing.posts.last.created_at -%> ago by SOMEUSER
+  </td>
+  <td><%= topic_listing.posts.count %></td>
+  <td>75</td>
+</tr>
