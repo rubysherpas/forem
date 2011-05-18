@@ -1,7 +1,7 @@
 module Forem
   class ForumsController < Forem::ApplicationController
     before_filter :authenticate_forem_admin, :only => [:new, :create]
-    
+
     def index
       @forums = Forem::Forum.all
     end
@@ -9,11 +9,11 @@ module Forem
     def show
       @forum = Forem::Forum.find(params[:id])
     end
-    
+
     def new
       @forum = Forem::Forum.new
     end
-    
+
     def create
       @forum = Forem::Forum.new(params[:forum])
       if @forum.save
