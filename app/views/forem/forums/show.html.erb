@@ -1,8 +1,10 @@
 <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
 
-<div class='pages'>
-  <%= t('forem.common.pages') -%>: <%= paginate @topics %>
-</div>
+<% if @topics.num_pages > 1 %>
+  <div class='pages'>
+    <%= t('forem.common.pages') -%>: <%= paginate @topics %>
+  </div>
+<% end %>
 <table class='topics'>
   <thead>
     <tr>
