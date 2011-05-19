@@ -6,19 +6,21 @@
     <div class='member-for'>member for 3 months</div>
   </div>
 
-  <div class='text'>
-    <div class='time'><%= time_ago_in_words(post.created_at) -%> ago</div>
-    <%= post.text %>
-  </div>
+  <div class='contents'>
+    <div class='text'>
+      <div class='time'><%= time_ago_in_words(post.created_at) -%> ago</div>
+      <%= post.text %>
+    </div>
 
-  <div class='actions'>
-    <% if current_user %>
-      <%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %>
-      |
-      <%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %>
-    <% end %>
     <% if post.reply_to %>
       <%= link_to "In reply to #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
     <% end %>
+
+    <ul class='actions'>
+      <% if current_user %>
+        <li><%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
+        <li><%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %></li>
+      <% end %>
+    </ul>
   </div>
 </div>
