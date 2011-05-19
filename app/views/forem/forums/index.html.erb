@@ -1,13 +1,25 @@
-<ul class="forums listing">
-  <% @forums.each do |forum| %>
-    <li class="<%= cycle("odd", "even") %>">
-      <h2><%= link_to forum.title, forum_path(forum) %></h2>
-      <%= forum.description %>
-      <br>
-      <%= t("forem.forum.topics_count", :count => forum.topics.count) %>,
-      <%= t("forem.forum.posts_count", :count => forum.posts.count) %>
-      <br>
-      Last: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
-    </li>
-  <% end %>
-</ul>
+<h2>Forums</h2>
+<table class='forums subdued'>
+  <thead>
+    <tr>
+      <th>Forum</th>
+      <th>Posts</th>
+      <th>Views</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forums.each do |forum| %>
+      <tr class="<%= cycle("odd", "even") %>">
+        <td>
+          <%= link_to forum.title, forum_path(forum) %>
+          <br />
+          <%= forum.description %>
+          <br />
+          Last: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
+        </td>
+        <td><%= t("forem.forum.topics_count", :count => forum.topics.count) %></td>
+        <td><%= t("forem.forum.posts_count", :count => forum.posts.count) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
