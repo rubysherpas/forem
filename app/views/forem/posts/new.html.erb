@@ -1,3 +1,5 @@
+<%= render :partial => 'forem/forums/head', :locals => { :forum => @topic.forum } %>
+
 <h2><%= t("forem.post.new") %></h2>
 
 <%= simple_form_for [@topic, @post] do |f| %>

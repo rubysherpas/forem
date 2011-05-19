@@ -30,6 +30,10 @@ describe "posts" do
       end
 
       it "can post a reply to a topic" do
+        # FIXME: This is only necessary because of how current_user is mocked in sign_in!.
+        # Once that's fixed this can go away and the spec should pass.
+        User.delete_all
+
         fill_in "Text", :with => "Witty and insightful commentary."
         click_button "Post Reply"
         flash_notice!("Your reply has been posted.")

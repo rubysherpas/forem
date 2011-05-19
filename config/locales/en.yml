@@ -33,7 +33,7 @@ en:
       buttons:
         reply: Post Reply
       created: Your reply has been posted.
-      new: Posting a reply
+      new: Post reply
       not_created: Your reply could not be posted.
       deleted: Your post has been deleted.
       cannot_delete: You cannot delete a post you do not own.

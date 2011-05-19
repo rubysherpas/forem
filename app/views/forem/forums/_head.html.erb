@@ -4,9 +4,9 @@
     <%= forum.description %>
   </div>
   <menu>
-    <%= link_to t('forem.topic.links.post'), new_forum_topic_path(@forum) -%>
+    <%= link_to t('forem.topic.links.post'), new_forum_topic_path(forum) -%>
     <% if @topic %>
-      <%= link_to t('forem.topic.links.back_to_topics'), forum_path(@forum) %>
+      <%= link_to t('forem.topic.links.back_to_topics'), forum_path(forum) %>
     <% end %>
   </menu>
 </div>
