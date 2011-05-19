@@ -3,8 +3,8 @@
   <thead>
     <tr>
       <th>Forum</th>
+      <th>Topics</th>
       <th>Posts</th>
-      <th>Views</th>
     </tr>
   </thead>
   <tbody>
@@ -17,8 +17,8 @@
           <br />
           Last: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
         </td>
-        <td><%= t("forem.forum.topics_count", :count => forum.topics.count) %></td>
-        <td><%= t("forem.forum.posts_count", :count => forum.posts.count) %></td>
+        <td><%= forum.topics.count %></td>
+        <td><%= forum.posts.count %></td>
       </tr>
     <% end %>
   </tbody>
