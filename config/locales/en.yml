@@ -7,6 +7,7 @@ en:
       new: Creating a new forum
       created: This forum has been created.
       not_created: This forum could not be created.
+      forums: Forums
       topics_count:
         zero: 0 topics
         one: 1 topic
