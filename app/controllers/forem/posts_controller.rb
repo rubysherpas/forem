@@ -9,6 +9,7 @@ module Forem
   
     def create
       @post = @topic.posts.build(params[:post])
+      @post.user = current_user
       if @post.save
         flash[:notice] = t("forem.post.created")
         redirect_to [@topic.forum, @topic]
