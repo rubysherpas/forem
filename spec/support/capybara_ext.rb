@@ -27,7 +27,7 @@ module CapybaraExt
     when :forum_header
       "#forum h2"
     when :forum_description
-      "#forums .forum .description"
+      "#forum .description"
     when :topic_header
       "#topic h2"
     when :topic_menu
