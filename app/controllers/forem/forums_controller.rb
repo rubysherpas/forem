@@ -9,7 +9,6 @@ module Forem
 
     def show
       @forum = Forem::Forum.find(params[:id])
-      # TODO: Pagination
       @topics = @forum.topics.by_most_recent_post.page(params[:page]).per(20)
     end
 
