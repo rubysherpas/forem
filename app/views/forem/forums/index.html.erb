@@ -7,7 +7,7 @@
       <%= t("forem.forum.topics_count", :count => forum.topics.count) %>,
       <%= t("forem.forum.posts_count", :count => forum.posts.count) %>
       <br>
-      Last post was TIME AGO by NAME in TOPIC
+      Last: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
     </li>
   <% end %>
 </ul>
