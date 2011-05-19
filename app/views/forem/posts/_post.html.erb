@@ -1,22 +1,22 @@
 <a name='post-#{post.id}'></a>
-<div id='post_<%= post.id %>' class='post'>
-  <div class='user'>
-    User: <%= post.user %>
-  </div>
+<div id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
+  <%= render :partial => 'forem/posts/user_details', :locals => { :user => post.user } %>
 
-  <div class='actions'>
-    <% if current_user %>
-      <%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %>
-      |
-      <%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %>
-    <% end %>
+  <div class='contents'>
+    <time datetime="<%= post.created_at.to_s(:db) -%>"><%= time_ago_in_words(post.created_at) -%> ago</time>
+    <div class='text'>
+      <%= post.text %>
+    </div>
+
     <% if post.reply_to %>
       <%= link_to "In reply to #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
     <% end %>
-  </div>
 
-  <div class='text'>
-    <%= post.text %>
+    <ul class='actions'>
+      <% if current_user %>
+        <li><%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
+        <li><%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %></li>
+      <% end %>
+    </ul>
   </div>
-
 </div>

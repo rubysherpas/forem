@@ -1,0 +1,13 @@
+<tr class="<%= cycle('odd', 'even') %>">
+  <td class='icon'>
+  </td>
+  <td class='topic'>
+    <div class='subject'><%= link_to topic_listing.subject, forum_topic_path(@forum, topic_listing) %></div>
+    <div class='started-by'>Started by <%= topic_listing.posts.first.user %></div>
+  </td>
+  <td class='latest-post'>
+    <%= link_to_latest_post(topic_listing.posts.last) -%>
+  </td>
+  <td class='posts-count'><%= topic_listing.posts.count %></td>
+  <td class='views-count'>75</td>
+</tr>

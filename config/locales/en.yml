@@ -1,5 +1,7 @@
 en:
   forem:
+    common:
+      pages: Pages
     errors:
       not_signed_in: You must sign in first.
       access_denied: Access denied.
@@ -7,6 +9,7 @@ en:
       new: Creating a new forum
       created: This forum has been created.
       not_created: This forum could not be created.
+      forums: Forums
       topics_count:
         zero: 0 topics
         one: 1 topic
@@ -33,7 +36,7 @@ en:
       buttons:
         reply: Post Reply
       created: Your reply has been posted.
-      new: Posting a reply
+      new: Post reply
       not_created: Your reply could not be posted.
       deleted: Your post has been deleted.
       cannot_delete: You cannot delete a post you do not own.
