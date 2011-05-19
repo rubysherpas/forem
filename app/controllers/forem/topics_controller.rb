@@ -5,6 +5,7 @@ module Forem
 
     def show
       @topic = @forum.topics.find(params[:id])
+      @posts = @topic.posts.page(params[:page]).per(20)
     end
 
     def new
