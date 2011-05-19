@@ -9,6 +9,8 @@ module Forem
 
     before_save :set_first_post_user
 
+    scope :by_most_recent_post, joins(:posts).order('forem_posts.created_at DESC').group('topic_id')
+
     private
   
     def set_first_post_user
