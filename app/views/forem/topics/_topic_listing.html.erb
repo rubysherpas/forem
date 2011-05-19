@@ -6,7 +6,7 @@
     <div class='started-by'>Started by <%= topic_listing.posts.first.user %></div>
   </td>
   <td class='latest-post'>
-    <%= time_ago_in_words topic_listing.posts.last.created_at -%> ago by <%= topic_listing.posts.last.user %>
+    <%= link_to_latest_post(topic_listing.posts.last) -%>
   </td>
   <td class='posts-count'><%= topic_listing.posts.count %></td>
   <td class='views-count'>75</td>

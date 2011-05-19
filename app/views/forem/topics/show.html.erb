@@ -5,9 +5,6 @@
     <%= @topic.subject %>
     <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
   </h2>
-  <menu>
-    <%= link_to "Delete", forum_topic_path(@forum, @topic), :method => :delete, :confirm => "Are you sure?" %>
-  </menu>
   <div id='posts'>
     <%= paginate @posts %>
     <%= render :partial => "forem/posts/post", :collection => @posts %>
