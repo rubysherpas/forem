@@ -7,8 +7,8 @@
   </div>
 
   <div class='contents'>
+    <time datetime="<%= post.created_at.to_s(:db) -%>"><%= time_ago_in_words(post.created_at) -%> ago</time>
     <div class='text'>
-      <div class='time'><%= time_ago_in_words(post.created_at) -%> ago</div>
       <%= post.text %>
     </div>
 
