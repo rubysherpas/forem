@@ -1,5 +1,5 @@
 <h2>Forums</h2>
-<table class='forums subdued'>
+<table id='forums' class='forums subdued'>
   <thead>
     <tr>
       <th>Forum</th>
@@ -9,13 +9,13 @@
   </thead>
   <tbody>
     <% @forums.each do |forum| %>
-      <tr class="<%= cycle("odd", "even") %>">
+      <tr class="forum <%= cycle("odd", "even") %>">
         <td>
           <%= link_to forum.title, forum_path(forum) %>
-          <br />
-          <%= forum.description %>
-          <br />
-          Last: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
+          <div class='description'><%= forum.description %></div>
+          <% if forum.last_post %>
+            Last: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
+          <% end %>
         </td>
         <td><%= forum.topics.count %></td>
         <td><%= forum.posts.count %></td>
