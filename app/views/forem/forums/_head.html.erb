@@ -3,7 +3,9 @@
   <div class='description'>
     <%= forum.description %>
   </div>
-  <%= link_to t('forem.forum.forums'), forums_path, :class => 'forums' %>
+  <div class='secondary-nav'>
+    <%= link_to t('forem.forum.forums'), forums_path, :class => 'forums' %>
+  </div>
   <menu>
     <% unless @topic && @topic.new_record? %>
       <%= link_to t('forem.topic.links.post'), new_forum_topic_path(forum) %>
