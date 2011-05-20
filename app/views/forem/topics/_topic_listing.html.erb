@@ -1,4 +1,4 @@
-<tr class="<%= cycle('odd', 'even') %>">
+<tr class="<%= cycle('odd', 'even') %> <%= topic_listing.locked? ? 'locked' : 'unlocked' %>">
   <td class='icon'>
   </td>
   <td class='topic'>
