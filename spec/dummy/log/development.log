@@ -655,3 +655,48 @@ Migrating to AddPinnedToTopics (20110519222000)
   [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("users")[0m
   [1m[35m (0.1ms)[0m  PRAGMA table_info("users")
   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[36m (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+Migrating to AddLockedToTopics (20110519210300)
+Migrating to AddPinnedToTopics (20110519222000)
+Migrating to AddViews (20110520150056)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "forem_views" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "topic_id" integer, "created_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110520150056')
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("forem_views")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_views")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_views")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")

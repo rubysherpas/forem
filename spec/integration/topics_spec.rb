@@ -90,5 +90,11 @@ describe "topics" do
       assert_seen("FIRST TOPIC", :within => :topic_header)
       assert_seen("omgomgomg", :within => :post_text)
     end
+
+    it "creates a visit" do
+      lambda do
+        visit forum_topic_path(forum, topic)
+      end.should change(Forem::View, :count).by(1)
+    end
   end
 end
