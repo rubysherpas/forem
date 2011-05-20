@@ -20,6 +20,11 @@ module Forem
       update_attribute(:locked, true)
     end
 
+    # A Topic cannot be replied to if it's locked.
+    def can_be_replied_to?
+      !locked?
+    end
+
     private
     def set_first_post_user
       post = self.posts.first
