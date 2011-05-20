@@ -13,7 +13,11 @@ Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
-  
+
+  config.before(:each) do
+    User.delete_all
+  end
+
   config.after(:each) do
     sign_out!
   end

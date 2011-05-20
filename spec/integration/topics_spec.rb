@@ -13,7 +13,7 @@ describe "topics" do
       visit new_forum_topic_path(forum)
       flash_error!("You must sign in first.")
     end
-    
+
     it "cannot delete topics" do
       delete forum_topic_path(topic.forum, topic), :id => topic.id.to_s
       response.should redirect_to(sign_in_path)
@@ -48,12 +48,12 @@ describe "topics" do
         find_field("topic_posts_attributes_0_text").value.should eql("")
       end
     end
-    
+
     context "deleting a topic" do
       before do
         sign_in!
       end
-      
+
       it "can delete their own topics" do
         visit forum_topic_path(topic.forum, topic)
         within(selector_for(:topic_menu)) do
