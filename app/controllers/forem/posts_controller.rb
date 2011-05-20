@@ -8,6 +8,10 @@ module Forem
     end
   
     def create
+      if @topic.locked?
+        flash[:error] = t("forem.post.not_created_topic_locked")
+        redirect_to [@topic.forum, @topic] and return
+      end
       @post = @topic.posts.build(params[:post])
       @post.user = current_user
       if @post.save

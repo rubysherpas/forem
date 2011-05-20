@@ -15,6 +15,7 @@ PATH
   specs:
     forem (0.1)
       kaminari
+      rdiscount
       simple_form
 
 GEM
@@ -116,6 +117,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.6)
     rake (0.8.7)
+    rdiscount (1.6.8)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -171,7 +173,7 @@ DEPENDENCIES
   forem!
   launchy
   rack!
-  rails (= 3.1.0.beta1)
-  rspec-rails (~> 2.5)
+  rails!
+  rspec-rails (~> 2.6)
   ruby-debug19
   sqlite3-ruby
