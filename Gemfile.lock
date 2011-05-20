@@ -120,19 +120,19 @@ GEM
       rack (>= 1.0)
     rake (0.8.7)
     rdiscount (1.6.8)
-    rspec (2.5.0)
-      rspec-core (~> 2.5.0)
-      rspec-expectations (~> 2.5.0)
-      rspec-mocks (~> 2.5.0)
-    rspec-core (2.5.1)
-    rspec-expectations (2.5.0)
+    rspec (2.6.0)
+      rspec-core (~> 2.6.0)
+      rspec-expectations (~> 2.6.0)
+      rspec-mocks (~> 2.6.0)
+    rspec-core (2.6.1)
+    rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.5.0)
-    rspec-rails (2.5.0)
+    rspec-mocks (2.6.0)
+    rspec-rails (2.6.0)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
-      rspec (~> 2.5.0)
+      rspec (~> 2.6.0)
     ruby-debug-base19 (0.11.24)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -171,6 +171,6 @@ DEPENDENCIES
   launchy
   rack!
   rails!
-  rspec-rails (~> 2.5)
+  rspec-rails (~> 2.6)
   ruby-debug19
   sqlite3-ruby
