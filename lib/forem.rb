@@ -1,6 +1,7 @@
 require "forem/engine"
 require "forem/user_extensions"
 require "forem/kaminari_config"
+require 'rdiscount'
 
 module Forem
 
