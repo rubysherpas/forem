@@ -3,7 +3,9 @@
 <div id='topic'>
   <h2>
     <%= @topic.subject %>
-    <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
+    <% if @topic.can_be_replied_to? %>
+      <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
+    <% end %>
   </h2>
   <menu>
     <%= link_to "Delete", forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
