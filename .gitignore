@@ -6,3 +6,4 @@ pkg/
 *.gem
 *.gems
 tmp
+*.sw*
