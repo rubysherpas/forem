@@ -48,9 +48,7 @@ module Forem
     end
 
     def register_view
-      if current_user
-        @topic.views.create(:user => current_user)
-      end
+      @topic.views.create(:user => current_user)
     end
   end
 end
