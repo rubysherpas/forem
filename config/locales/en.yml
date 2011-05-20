@@ -38,5 +38,6 @@ en:
       created: Your reply has been posted.
       new: Post reply
       not_created: Your reply could not be posted.
+      not_created_topic_locked: You cannot reply to a locked topic.
       deleted: Your post has been deleted.
       cannot_delete: You cannot delete a post you do not own.

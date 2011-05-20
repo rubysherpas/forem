@@ -447,3 +447,211 @@ Migrating to AddReplyToToPosts (20110228084940)
   [1m[36m (0.7ms)[0m  [1mSAVEPOINT active_record_1[0m
   [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("login", "forem_admin") VALUES ('other_forem_user', 'f')
   [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+Migrating to AddLockedToTopics (20110519210300)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "forem_topics" ADD "locked" boolean[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110519210300')
+  [1m[36m (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[36m (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+Migrating to AddLockedToTopics (20110519210300)
+Migrating to AddPinnedToTopics (20110519222000)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+Migrating to AddLockedToTopics (20110519210300)
+Migrating to AddPinnedToTopics (20110519222000)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+Migrating to AddLockedToTopics (20110519210300)
+Migrating to AddPinnedToTopics (20110519222000)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "forem_topics" ADD "pinned" boolean[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110519222000')
+  [1m[36m (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[36m (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("schema_migrations")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("schema_migrations")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to AddPinnedToTopics (20110519222000)
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.2ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.7ms)[0m  CREATE TEMPORARY TABLE "altered_forem_topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer, "user_id" integer, "subject" varchar(255), "created_at" datetime, "updated_at" datetime, "locked" boolean, "pinned" boolean) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("forem_topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "forem_topics"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "forem_topics"
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("altered_forem_topics")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA table_info("altered_forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("altered_forem_topics")[0m
+  [1m[35m (0.2ms)[0m  PRAGMA table_info("altered_forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("altered_forem_topics")[0m
+  [1m[35m (4.3ms)[0m  CREATE TABLE "forem_topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "forum_id" integer, "user_id" integer, "subject" varchar(255), "created_at" datetime, "updated_at" datetime, "locked" boolean) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_forem_topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("altered_forem_topics")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "altered_forem_topics"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_forem_topics"
+  [1m[36m (0.4ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110519222000'[0m
+  [1m[35m (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("forem_forums")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("forem_posts")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("forem_topics")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.3ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateUsers (1)
+Migrating to CreateForums (20110214221555)
+Migrating to CreateTopics (20110221092741)
+Migrating to CreatePosts (20110221094502)
+Migrating to AddReplyToToPosts (20110228084940)
+Migrating to AddLockedToTopics (20110519210300)
+Migrating to AddPinnedToTopics (20110519222000)
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "forem_topics" ADD "pinned" boolean DEFAULT 'f'[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110519222000')
+  [1m[36m (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35m (0.2ms)[0m  PRAGMA table_info("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_forums")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("forem_forums")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_posts")
+  [1m[36m (1.3ms)[0m  [1mPRAGMA index_list("forem_posts")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("forem_topics")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("forem_topics")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA table_info("users")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA table_info("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m

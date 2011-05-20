@@ -10,10 +10,11 @@ Gem::Specification.new do |s|
   s.version = ::Forem.version
 
   s.add_development_dependency "launchy"
-  s.add_development_dependency "rspec-rails", "~> 2.5"
+  s.add_development_dependency "rspec-rails", "~> 2.6"
   s.add_development_dependency "capybara"
   s.add_development_dependency "sqlite3-ruby"
   s.add_development_dependency "factory_girl_rails"
   s.add_dependency "simple_form"
   s.add_dependency "kaminari"
+  s.add_dependency "rdiscount"
 end
