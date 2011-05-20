@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem 'rails', :git => "git://github.com/rails/rails"
+gem 'rails', '3.1.0.beta1'
 gem 'rack', :git => "git://github.com/rack/rack"
 gem 'arel', :git => "git://github.com/rails/arel"
 

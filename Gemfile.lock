@@ -173,7 +173,7 @@ DEPENDENCIES
   forem!
   launchy
   rack!
-  rails!
+  rails (= 3.1.0.beta1)
   rspec-rails (~> 2.6)
   ruby-debug19
   sqlite3-ruby
