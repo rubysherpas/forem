@@ -9,7 +9,9 @@ module Forem
 
     before_save :set_first_post_user
 
-    scope :by_most_recent_post, joins(:posts).order('forem_posts.created_at DESC').group('topic_id')
+    scope :by_pinned, order('forem_topics.pinned DESC, forem_topics.id')
+    scope :by_most_recent_post, joins(:posts).order('forem_posts.created_at DESC, forem_topics.id').group('topic_id')
+    scope :by_pinned_or_most_recent_post, joins(:posts).order('forem_topics.pinned DESC, forem_posts.created_at DESC, forem_topics.id').group('topic_id')
 
     def to_s
       subject
@@ -18,6 +20,19 @@ module Forem
     # Cannot use method name lock! because it's reserved by AR::Base
     def lock_topic!
       update_attribute(:locked, true)
+    end
+
+    def unlock_topic!
+      update_attribute(:locked, false)
+    end
+
+    # Provide convenience methods for pinning, unpinning a topic
+    def pin!
+      update_attribute(:pinned, true)
+    end
+
+    def unpin!
+      update_attribute(:pinned, false)
     end
 
     # A Topic cannot be replied to if it's locked.
