@@ -5,7 +5,7 @@
   <div class='contents'>
     <time datetime="<%= post.created_at.to_s(:db) -%>"><%= time_ago_in_words(post.created_at) -%> ago</time>
     <div class='text'>
-      <%= post.text %>
+      <%= forem_markdown(post.text) %>
     </div>
 
     <% if post.reply_to %>
@@ -14,7 +14,9 @@
 
     <ul class='actions'>
       <% if current_user %>
-        <li><%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
+        <% if @topic.can_be_replied_to? %>
+          <li><%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
+        <% end %>
         <li><%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %></li>
       <% end %>
     </ul>

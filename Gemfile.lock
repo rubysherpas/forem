@@ -61,6 +61,7 @@ PATH
   specs:
     forem (0.1)
       kaminari
+      rdiscount
       simple_form
 
 GEM
@@ -118,6 +119,7 @@ GEM
     rack-test (0.5.7)
       rack (>= 1.0)
     rake (0.8.7)
+    rdiscount (1.6.8)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -147,7 +149,7 @@ GEM
       ffi (~> 0.6.3)
       json_pure
       rubyzip
-    simple_form (1.3.1)
+    simple_form (1.4.0)
     sqlite3 (1.3.3)
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
