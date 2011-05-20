@@ -29,15 +29,31 @@ describe "posts" do
         end
       end
 
-      it "can post a reply to a topic" do
-        # FIXME: This is only necessary because of how current_user is mocked in sign_in!.
-        # Once that's fixed this can go away and the spec should pass.
-        User.delete_all
+      context "to an unlocked topic" do
+        it "can post a reply" do
+          # FIXME: This is only necessary because of how current_user is mocked in sign_in!.
+          # Once that's fixed this can go away and the spec should pass.
+          User.delete_all
 
-        fill_in "Text", :with => "Witty and insightful commentary."
-        click_button "Post Reply"
-        flash_notice!("Your reply has been posted.")
-        assert_seen("In reply to #{topic.posts.first.user}", :within => :second_post)
+          fill_in "Text", :with => "Witty and insightful commentary."
+          click_button "Post Reply"
+          flash_notice!("Your reply has been posted.")
+          assert_seen("In reply to #{topic.posts.first.user}", :within => :second_post)
+        end
+      end
+
+      context "to a locked topic" do
+        it "cannot post a reply" do
+          # FIXME: This is only necessary because of how current_user is mocked in sign_in!.
+          # Once that's fixed this can go away and the spec should pass.
+          User.delete_all
+
+          topic.lock_topic!
+
+          fill_in "Text", :with => "Witty and insightful commentary."
+          click_button "Post Reply"
+          flash_error!("You cannot reply to a locked topic.")
+        end
       end
 
       it "cannot post a reply to a topic with blank text" do

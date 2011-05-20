@@ -15,6 +15,11 @@ module Forem
       subject
     end
 
+    # Cannot use method name lock! because it's reserved by AR::Base
+    def lock_topic!
+      update_attribute(:locked, true)
+    end
+
     private
     def set_first_post_user
       post = self.posts.first
