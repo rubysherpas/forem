@@ -1,6 +1,6 @@
 <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
 
-<div id='topic'>
+<div id='topic' class='<%= @topic.locked? ? 'locked' : 'unlocked' %>'>
   <h2>
     <%= @topic.subject %>
     <% if @topic.can_be_replied_to? %>
