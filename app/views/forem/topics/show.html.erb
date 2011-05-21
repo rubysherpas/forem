@@ -3,6 +3,12 @@
 <div id='topic' class='<%= @topic.locked? ? 'locked' : 'unlocked' %>'>
   <h2>
     <%= @topic.subject %>
+    <% if @topic.locked? %>
+      <span class='lock icon'></span>
+    <% end %>
+    <% if @topic.pinned? %>
+      <span class='pin icon'></span>
+    <% end %>
     <% if @topic.can_be_replied_to? %>
       <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
     <% end %>

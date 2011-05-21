@@ -1,5 +1,11 @@
 <tr class="<%= cycle('odd', 'even') %> <%= topic_listing.locked? ? 'locked' : 'unlocked' %>">
   <td class='icon'>
+    <% if topic_listing.locked? %>
+      <span class='lock icon'></span>
+    <% end %>
+    <% if topic_listing.pinned? %>
+      <span class='pin icon'></span>
+    <% end %>
   </td>
   <td class='topic'>
     <div class='subject'><%= link_to topic_listing.subject, forum_topic_path(@forum, topic_listing) %></div>
