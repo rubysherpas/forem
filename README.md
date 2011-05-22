@@ -31,7 +31,7 @@ is required is to mount this engine in the application's `config/routes.rb` file
 
 ## Refinery CMS Integration
 
-Requires Refinery CMS >= 0.9.9.9
+Requires Refinery CMS [rails-3-1 branch](https://github.com/resolve/refinerycms/tree/rails-3-1)
 
 Run:
 
