@@ -48,11 +48,7 @@ module Forem
     end
 
     def register_view
-      if current_user
-        @topic.views.create(:user_id => current_user.id)
-      else
-        @topic.views.create # Just create a visitor view if no current user
-      end
+      @topic.views.create(:user_id => current_user.try(:id))
     end
   end
 end
