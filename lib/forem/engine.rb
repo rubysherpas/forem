@@ -30,7 +30,7 @@ module Forem
 
     config.to_prepare do
       if defined?(::Refinery)
-        ::User.send :include, ::Forem::UserExtensions
+        ::Refinery::User.send :include, ::Forem::UserExtensions
       end
     end
   end

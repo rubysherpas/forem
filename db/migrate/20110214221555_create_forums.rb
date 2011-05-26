@@ -8,6 +8,6 @@ class CreateForums < ActiveRecord::Migration
   end
 
   def down
-    drop_table :forums
+    drop_table :forem_forums
   end
 end
