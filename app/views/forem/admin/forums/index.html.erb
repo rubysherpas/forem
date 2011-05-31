@@ -1,4 +1,7 @@
-<h2>Forums</h2>
+<h2><%= t("forem.admin.forum.index") %></h2>
+
+<%= link_to t("forem.admin.forum.new_link"), new_admin_forum_path %>
+
 <table id='forums' class='forums subdued'>
   <thead>
     <tr>
@@ -24,6 +27,3 @@
   </tbody>
 </table>
 
-<% if forem_admin? %>
-  <%= link_to "Admin Area", admin_root_path %>
-<% end %>
