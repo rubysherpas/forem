@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/rack/rack
-  revision: a976537cd0134a8c65ca0b180533640e693f35d9
+  revision: 404f2f167f9f7d89d0662870ed13cde827703139
   specs:
-    rack (1.3.0.beta2)
+    rack (1.3.0)
 
 GIT
   remote: git://github.com/rails/arel
-  revision: 58c3d1d56cf38aebf09e64803441b606680b680a
+  revision: 593002080cbcbb6e14acf3bc909aab819811f215
   specs:
     arel (2.1.1.20110518143805)
 
