@@ -1,14 +1,18 @@
 en:
   forem:
+    admin:
+      forum:
+        index: Manage Forums
+        new: Creating a new forum
+        new_link: New Forum
+        created: This forum has been created.
+        not_created: This forum could not be created.
     common:
       pages: Pages
     errors:
       not_signed_in: You must sign in first.
       access_denied: Access denied.
     forum:
-      new: Creating a new forum
-      created: This forum has been created.
-      not_created: This forum could not be created.
       forums: Forums
       topics_count:
         zero: 0 topics

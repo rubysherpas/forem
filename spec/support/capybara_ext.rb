@@ -46,6 +46,11 @@ module CapybaraExt
       pending "No selector defined for #{identifier}. Please define one in spec/support/capybara_ext.rb"
     end
   end
+  
+  # Just shorter to type.
+  def page!
+    save_and_open_page
+  end
 end
 
 RSpec.configure do |config|
