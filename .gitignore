@@ -7,3 +7,4 @@ pkg/
 *.gems
 tmp
 *.sw*
+spec/dummy/log
