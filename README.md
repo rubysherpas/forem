@@ -31,6 +31,25 @@ The final step that is required is to mount this engine in the application's `co
 
 This engine will then be accessible at `http://yoursite.com/forem`.
 
+## Features
+
+Here's a comprehensive list of the features currently in Forem:
+
+*WIP means 'Work in Progress'*
+
+* An admin backend
+** Forums
+*** CRUD operations
+* Topics
+** Viewing all topics for a forum
+** Creating of new topics
+** Deleting own topics
+** Locking topics (WIP)
+* Posts
+** Replying to topics
+** Deleting own topics
+** Blocking replies to locked topics
+
 ## Refinery CMS Integration
 
 Requires Refinery CMS [rails-3-1 branch](https://github.com/resolve/refinerycms/tree/rails-3-1)
