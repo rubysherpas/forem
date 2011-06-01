@@ -27,7 +27,6 @@ describe "managing forums" do
         fill_in "Title", :with => "FIRST FORUM"
         fill_in "Description", :with => "The first placeholder forum."
         click_button 'Create Forum'
-        page!
 
         flash_notice!("This forum has been created.")
         assert_seen("FIRST FORUM", :within => :forum_header)
