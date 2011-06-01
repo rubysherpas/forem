@@ -2,16 +2,14 @@ module Forem
   class Engine < Rails::Engine
     isolate_namespace Forem
 
-    initializer "serve static assets" do |app|
-      app.middleware.insert_after ::ActionDispatch::Static, ::ActionDispatch::Static, "#{root}/public"
-    end
-
     class << self
       attr_accessor :root
       def root
         @root ||= Pathname.new(File.expand_path('../../', __FILE__))
       end
     end
+    
+    cattr_accessor :theme
 
     config.after_initialize do
       if defined?(::Refinery)
@@ -37,9 +35,3 @@ module Forem
 end
 
 require 'simple_form'
-
-# Fixes this error:
-# Encoding::CompatibilityError:
-#        incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)
-# Which happens when running integration specs containing a form
-require 'rack/utils_monkey_patch'

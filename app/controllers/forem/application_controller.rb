@@ -1,4 +1,7 @@
 class Forem::ApplicationController < ApplicationController
+  
+  private
+  
   def authenticate_forem_user
     if !current_user
       session[:return_to] = request.fullpath
@@ -6,11 +9,10 @@ class Forem::ApplicationController < ApplicationController
       redirect_to "/sign_in" #TODO: Change to routing helper for flexibility
     end
   end
-
-  def authenticate_forem_admin
-    if !current_user || !current_user.forem_admin
-      flash[:error] = t("forem.errors.access_denied")
-      redirect_to forums_path #TODO: not positive where to redirect here
-    end
+  
+  def forem_admin?
+    current_user && current_user.forem_admin?
   end
+  helper_method :forem_admin?
+
 end

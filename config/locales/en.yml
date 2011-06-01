@@ -1,14 +1,22 @@
 en:
   forem:
+    admin:
+      forum:
+        edit: "Editing the {{title}} forum"
+        index: Manage Forums
+        new: Creating a new forum
+        new_link: New Forum
+        deleted: The selected forum has been deleted.
+        created: This forum has been created.
+        not_created: This forum could not be created.
+        updated: That forum has been updated.
+        not_updated: This forum could not be updated.
     common:
       pages: Pages
     errors:
       not_signed_in: You must sign in first.
       access_denied: Access denied.
     forum:
-      new: Creating a new forum
-      created: This forum has been created.
-      not_created: This forum could not be created.
       forums: Forums
       topics_count:
         zero: 0 topics
@@ -18,6 +26,13 @@ en:
         zero: 0 posts
         one: 1 post
         other: "%{count} posts"
+    forums:
+      index:
+        title: Forums
+        forum: Forum
+        topics: Topics
+        posts: Posts
+        last: Last
     topic:
       headings:
         topic: "Topic"

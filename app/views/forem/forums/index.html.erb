@@ -1,10 +1,10 @@
-<h2>Forums</h2>
+<h2><%= t('.title') %></h2>
 <table id='forums' class='forums subdued'>
   <thead>
     <tr>
-      <th>Forum</th>
-      <th>Topics</th>
-      <th>Posts</th>
+      <th><%= t('.forum') %></th>
+      <th><%= t('.topics') %></th>
+      <th><%= t('.posts') %></th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,7 @@
           <%= link_to forum.title, forum_path(forum) %>
           <div class='description'><%= forum.description %></div>
           <% if forum.last_post %>
-            Last: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
+            <%= t('.last') %>: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
           <% end %>
         </td>
         <td><%= forum.topics.count %></td>
@@ -23,3 +23,7 @@
     <% end %>
   </tbody>
 </table>
+
+<% if forem_admin? %>
+  <%= link_to "Admin Area", admin_root_path %>
+<% end %>
