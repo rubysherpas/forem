@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/radar/forem-theme-base
+  revision: 29957fee42eecac562f788adc2c80aa127b5021a
+  specs:
+    forem-theme-base (0.0.1)
+
+GIT
   remote: git://github.com/sstephenson/sprockets
   revision: 890be4ef4baeed8dcc5b39c73a8b18d25b998854
   specs:
@@ -14,11 +20,6 @@ PATH
       kaminari
       rdiscount
       simple_form
-
-PATH
-  remote: ../forem-theme-base
-  specs:
-    forem-theme-base (0.0.1)
 
 GEM
   remote: http://rubygems.org/
