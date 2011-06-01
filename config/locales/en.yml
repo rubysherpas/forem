@@ -2,11 +2,14 @@ en:
   forem:
     admin:
       forum:
+        edit: "Editing the {{title}} forum"
         index: Manage Forums
         new: Creating a new forum
         new_link: New Forum
         created: This forum has been created.
         not_created: This forum could not be created.
+        updated: That forum has been updated.
+        not_updated: This forum could not be updated.
     common:
       pages: Pages
     errors:
