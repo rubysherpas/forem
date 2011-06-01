@@ -67,6 +67,11 @@ describe "managing forums" do
         click_button "Update Forum"
         assert_seen("This forum could not be updated.")
       end
+      
+      it "deleting a forum" do
+        click_link "Delete"
+        assert_seen("The selected forum has been deleted.")
+      end
     end
   end
 end
