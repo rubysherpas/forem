@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/radar/forem-theme-base
-  revision: 29957fee42eecac562f788adc2c80aa127b5021a
+  revision: f3b26c326ee2897fa0853c3319b0e1ea9c3bb488
   specs:
     forem-theme-base (0.0.1)
 
