@@ -3,7 +3,8 @@ require 'spec_helper'
 describe "topics" do
   let(:forum) { Factory(:forum) }
   let(:topic) { Factory(:topic) }
-  let(:other_topic) { Factory(:topic, :subject => 'Another forem topic', :user => Factory(:user, :id => '2', :login => 'other_forem_user')) }
+  let(:user) { Factory(:user, :id => 2, :login => 'other_forem_user') }
+  let(:other_topic) { Factory(:topic, :subject => 'Another forem topic', :user => user) }
 
   context "not signed in" do
     before do

@@ -1,4 +1,4 @@
-<%= simple_form_for @forum do |f| %>
+<%= simple_form_for [:admin, @forum] do |f| %>
   <%= f.input :title %>
   <%= f.input :description, :as => :text %>
   

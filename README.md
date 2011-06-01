@@ -23,11 +23,32 @@ Then you'll need to of course specify the engine itself:
 
 Run `bundle install` to install these gems.
 
-Once these gems are installed, run `rake forem:install` which will copy over any
-assets and migrations that are contained within the engine. The final step that
-is required is to mount this engine in the application's `config/routes.rb` file:
+Once these gems are installed, run `rake forem:install:migrations` which will copy over the migrations that are contained within the engine into your application, which will then need to be run using `rake db:migrate`.
+
+The final step that is required is to mount this engine in the application's `config/routes.rb` file:
 
     mount Forem::Engine, :at => "forem"
+
+This engine will then be accessible at `http://yoursite.com/forem`.
+
+## Features
+
+Here's a comprehensive list of the features currently in Forem:
+
+*WIP means 'Work in Progress'*
+
+* An admin backend
+  * Forums
+      * CRUD operations
+* Topics
+  * Viewing all topics for a forum
+  * Creating of new topics
+  * Deleting own topics
+  * Locking topics (WIP)
+* Posts
+  * Replying to topics
+  * Deleting own topics
+  * Blocking replies to locked topics
 
 ## Refinery CMS Integration
 
