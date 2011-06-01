@@ -38,17 +38,17 @@ Here's a comprehensive list of the features currently in Forem:
 *WIP means 'Work in Progress'*
 
 * An admin backend
-** Forums
-*** CRUD operations
+  * Forums
+      * CRUD operations
 * Topics
-** Viewing all topics for a forum
-** Creating of new topics
-** Deleting own topics
-** Locking topics (WIP)
+  * Viewing all topics for a forum
+  * Creating of new topics
+  * Deleting own topics
+  * Locking topics (WIP)
 * Posts
-** Replying to topics
-** Deleting own topics
-** Blocking replies to locked topics
+  * Replying to topics
+  * Deleting own topics
+  * Blocking replies to locked topics
 
 ## Refinery CMS Integration
 
