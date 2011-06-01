@@ -36,6 +36,12 @@ module Forem
         end
       end
 
+      def destroy
+        @forum.destroy
+        flash[:notice] = t("forem.admin.forum.deleted")
+        redirect_to admin_forums_path
+      end
+
       private
 
         def find_forum
