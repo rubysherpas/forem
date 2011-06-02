@@ -49,6 +49,8 @@ Here's a comprehensive list of the features currently in Forem:
   * Replying to topics
   * Deleting own topics
   * Blocking replies to locked topics
+* Markdown formatting for posts
+
 
 ## Refinery CMS Integration
 
