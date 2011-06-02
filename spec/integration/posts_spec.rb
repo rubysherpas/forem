@@ -5,7 +5,7 @@ describe "posts" do
   let(:forum) { Factory(:forum) }
   let(:topic) { Factory(:topic, :forum => forum) }
   
-  context "not signed in users " do
+  context "not signed in users" do
     it "cannot begin to post a reply" do
       visit new_topic_post_path(topic)
       flash_error!("You must sign in first.")
