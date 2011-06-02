@@ -19,6 +19,18 @@ describe Forem::Topic do
       @topic.should_not be_valid
     end
   end
+  
+  describe "protected attributes" do
+    it "cannot assign pinned" do
+      topic = Forem::Topic.new(:pinned => true)
+      topic.pinned.should be_false
+    end
+    
+    it "cannot assign locked" do
+      topic = Forem::Topic.new(:locked => true)
+      topic.locked.should be_false
+    end
+  end
 
   describe "pinning" do
     before(:each) do

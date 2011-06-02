@@ -1,14 +1,8 @@
 <div id='forum'>
-  <h2><%= link_to forum.title, forum %></h2>
-  <div class='description'>
-    <%= forum.description %>
-  </div>
-  <div class='secondary-nav'>
-    <%= link_to t('forem.forum.forums'), forums_path, :class => 'forums' %>
-  </div>
+  <h2><%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to forum.title, forum %></h2>
   <menu>
-    <% unless @topic && @topic.new_record? %>
-      <%= link_to t('forem.topic.links.post'), new_forum_topic_path(forum) %>
+    <% unless @topic.try(:new_record?) %>
+      <%= link_to t('forem.topic.links.new'), new_forum_topic_path(forum) %>
     <% end %>
     <% if @topic %>
       <%= link_to t('forem.topic.links.back_to_topics'), forum_path(forum) %>

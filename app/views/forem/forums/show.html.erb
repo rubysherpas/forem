@@ -5,7 +5,7 @@
     <%= t('forem.common.pages') -%>: <%= paginate @topics %>
   </div>
 <% end %>
-<table class='topics subdued'>
+<table class='topics subdued' cellspacing='0'>
   <thead>
     <tr>
       <th></th>
@@ -16,6 +16,9 @@
     </tr>
   </thead>
   <tbody>
+    <% if @topics.empty? %>
+      <tr><td colspan='5' align='center'><%= t('forem.topic.none') %></td></tr>
+    <% end %>
     <%= render :partial => 'forem/topics/topic_listing', :collection => @topics %>
   </tbody>
 </table>

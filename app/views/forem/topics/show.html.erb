@@ -1,7 +1,6 @@
-<%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
-
 <div id='topic' class='<%= @topic.locked? ? 'locked' : 'unlocked' %>'>
   <h2>
+    <%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to @topic.forum.title, @topic.forum %> &raquo; <%= @topic.subject %>
     <%= @topic.subject %>
     <% if @topic.locked? %>
       <span class='lock icon'></span>
@@ -13,11 +12,17 @@
       <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
     <% end %>
   </h2>
+  
   <menu>
-    <%= link_to "Delete", forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
+    <% if @topic.can_be_replied_to? %>
+      <%= link_to t(".reply"), new_topic_post_path(@topic) %>
+    <% end %>
+    <% if @topic.user == current_user || forem_admin? %>
+      | <%= link_to t(".delete"), forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
+    <% end %>
   </menu>
-  <div id='posts'>
-    <%= paginate @posts %>
+  <%= paginate @posts %>
+  <table id='posts' cellspacing='0'>
     <%= render :partial => "forem/posts/post", :collection => @posts %>
-  </div>
+  </table>
 </div>

@@ -15,12 +15,8 @@ module Forem
     end
 
     def create
-      # Association builders are broken in edge Rails atm
-      # Hack our way around it
-      # TODO: Fix the hack
-      @topic = Forem::Topic.new(params[:topic])
+      @topic = @forum.topics.build(params[:topic])
       @topic.user = current_user
-      @topic.forum_id = params[:forum_id]
       if @topic.save
         flash[:notice] = t("forem.topic.created")
         redirect_to [@forum, @topic]
