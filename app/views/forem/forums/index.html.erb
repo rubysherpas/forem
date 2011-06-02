@@ -1,5 +1,5 @@
 <h2><%= t('.title') %></h2>
-<table id='forums' class='forums subdued'>
+<table id='forums' class='forums subdued' cellspacing='0'>
   <thead>
     <tr>
       <th><%= t('.forum') %></th>
@@ -14,7 +14,9 @@
           <%= link_to forum.title, forum_path(forum) %>
           <div class='description'><%= forum.description %></div>
           <% if forum.last_post %>
-            <%= t('.last') %>: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
+            <span class='last_post'>
+              <%= t('.last_post') %>: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= time_ago_in_words(forum.last_post.created_at) -%>
+            </span>
           <% end %>
         </td>
         <td><%= forum.topics.count %></td>

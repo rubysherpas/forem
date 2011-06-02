@@ -6,7 +6,7 @@ class Forem::ApplicationController < ApplicationController
     if !current_user
       session[:return_to] = request.fullpath
       flash[:error] = t("forem.errors.not_signed_in")
-      redirect_to "/sign_in" #TODO: Change to routing helper for flexibility
+      redirect_to sign_in_path
     end
   end
   

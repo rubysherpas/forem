@@ -8,3 +8,4 @@ pkg/
 tmp
 *.sw*
 spec/dummy/log
+*.rbc
