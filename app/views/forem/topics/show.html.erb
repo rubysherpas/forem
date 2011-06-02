@@ -5,12 +5,14 @@
   
   <menu>
     <% if @topic.can_be_replied_to? %>
-      <%= link_to "Reply to Topic", new_topic_post_path(@topic) %> |
+      <%= link_to t(".reply"), new_topic_post_path(@topic) %>
     <% end %>
-    <%= link_to "Delete", forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
+    <% if @topic.user == current_user || forem_admin? %>
+      | <%= link_to t(".delete"), forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
+    <% end %>
   </menu>
-  <div id='posts'>
-    <%= paginate @posts %>
+  <%= paginate @posts %>
+  <table id='posts' cellspacing='0'>
     <%= render :partial => "forem/posts/post", :collection => @posts %>
-  </div>
+  </table>
 </div>

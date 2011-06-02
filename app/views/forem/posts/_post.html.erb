@@ -1,8 +1,8 @@
 <a name='post-#{post.id}'></a>
-<div id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
+<tr id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
   <%= render :partial => 'forem/posts/user_details', :locals => { :user => post.user } %>
 
-  <div class='contents'>
+  <td class='contents'>
     <time datetime="<%= post.created_at.to_s(:db) -%>"><%= time_ago_in_words(post.created_at) -%> ago</time>
     <div class='text'>
       <%= forem_markdown(post.text) %>
@@ -20,5 +20,5 @@
         <li><%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %></li>
       <% end %>
     </ul>
-  </div>
-</div>
+  </td>
+</tr>
