@@ -1,8 +1,5 @@
 <div id='forum'>
-  <h2><%= link_to forum.title, forum %></h2>
-  <div class='description'>
-    <%= forum.description %>
-  </div>
+  <h2><%= link_to t('forem.forum.header', :title => forum.title), forum %></h2>
   <div class='secondary-nav'>
     <%= link_to t('forem.forum.forums'), forums_path, :class => 'forums' %>
   </div>
