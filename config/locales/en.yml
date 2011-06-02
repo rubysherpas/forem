@@ -45,7 +45,7 @@ en:
       deleted: Your topic has been deleted.
       cannot_delete: You cannot delete a topic you do not own.
       links:
-        post: Post a new topic.
+        new: New topic
         back_to_topics: Back to topics
     post:
       buttons:
