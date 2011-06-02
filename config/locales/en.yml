@@ -2,7 +2,7 @@ en:
   forem:
     admin:
       forum:
-        edit: "Editing the {{title}} forum"
+        edit: "Editing the %{title} forum"
         index: Manage Forums
         new: Creating a new forum
         new_link: New Forum
@@ -17,6 +17,7 @@ en:
       not_signed_in: You must sign in first.
       access_denied: Access denied.
     forum:
+      header: "Viewing %{title}"
       forums: Forums
       topics_count:
         zero: 0 topics
@@ -32,7 +33,7 @@ en:
         forum: Forum
         topics: Topics
         posts: Posts
-        last: Last
+        last_post: Last Post
     topic:
       headings:
         topic: "Topic"
@@ -44,6 +45,7 @@ en:
       not_created: This topic could not be created.
       deleted: Your topic has been deleted.
       cannot_delete: You cannot delete a topic you do not own.
+      none: There are no topics in this forum currently.
       links:
         new: New topic
         back_to_topics: Back to topics
