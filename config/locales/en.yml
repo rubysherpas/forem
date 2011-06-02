@@ -56,3 +56,9 @@ en:
       not_created_topic_locked: You cannot reply to a locked topic.
       deleted: Your post has been deleted.
       cannot_delete: You cannot delete a post you do not own.
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Forums
+        description: Manage forums
+

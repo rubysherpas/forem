@@ -1,4 +1,4 @@
-module Forem
+module ::Forem
   class Engine < Rails::Engine
     isolate_namespace Forem
 
@@ -15,9 +15,9 @@ module Forem
       if defined?(::Refinery)
         # Allow forem to hook into Refinery CMS if it's available
         ::Refinery::Plugin.register do |plugin|
-          plugin.name = "forem"
+          plugin.name = "refinery_forem"
           plugin.directory = "forem"
-          plugin.url = {:controller => '/admin/forem/forums', :action => 'index'}
+          plugin.url = '/forem/admin/forums'
           plugin.menu_match = /^\/?(admin|refinery)\/forem\/?(forums|posts|topics)?/
           plugin.activity = {
             :class => ::Forem::Post
