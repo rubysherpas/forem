@@ -31,6 +31,8 @@ The final step that is required is to mount this engine in the application's `co
 
 This engine will then be accessible at `http://yoursite.com/forem`.
 
+Then you will need to add a `forem_admin` boolean field to your `User` model. This is then used to indicate to forem if the currently signed in user should be an admin for forem or not. Currently there is no migration generator in forem to do this, so you will have to do it manually.
+
 ## Features
 
 Here's a comprehensive list of the features currently in Forem:
