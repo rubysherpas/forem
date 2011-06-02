@@ -1,13 +1,12 @@
-<%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
-
 <div id='topic' class='<%= @topic.locked? ? 'locked' : 'unlocked' %>'>
   <h2>
-    <%= @topic.subject %>
-    <% if @topic.can_be_replied_to? %>
-      <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
-    <% end %>
+  <h2><%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to @topic.forum.title, @topic.forum %> &raquo; <%= @topic.subject %></h2>
   </h2>
+  
   <menu>
+    <% if @topic.can_be_replied_to? %>
+      <%= link_to "Reply to Topic", new_topic_post_path(@topic) %> |
+    <% end %>
     <%= link_to "Delete", forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
   </menu>
   <div id='posts'>
