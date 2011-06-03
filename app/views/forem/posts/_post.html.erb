@@ -1,4 +1,4 @@
-<a name='post-#{post.id}'></a>
+<a name='post-<%= post.id %>'></a>
 <tr id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
   <%= render :partial => 'forem/posts/user_details', :locals => { :user => post.user } %>
 
