@@ -13,7 +13,10 @@ module Forem
 
     scope :by_pinned, order('forem_topics.pinned DESC, forem_topics.id')
     scope :by_most_recent_post, joins(:posts).order('forem_posts.created_at DESC, forem_topics.id').group('topic_id')
-    scope :by_pinned_or_most_recent_post, joins(:posts).order('forem_topics.pinned DESC, forem_posts.created_at DESC, forem_topics.id').group('topic_id')
+    scope :by_pinned_or_most_recent_post, includes(:posts).
+                                          order('forem_topics.pinned DESC').
+                                          order('forem_posts.created_at DESC').
+                                          order('forem_topics.id')
 
     def to_s
       subject
