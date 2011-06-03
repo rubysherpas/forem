@@ -1,4 +1,4 @@
-# Forem ![Build status](http://travis-ci.org/radar/forem.png)
+# Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
 
 This is an experimental engine for Rails that aims to be the best little forum system ever.
 The end goal is to have an engine that can be dropped into an application that 
