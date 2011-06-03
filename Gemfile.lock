@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git://github.com/rails/rails
-  revision: f064664de72a34d24568eadf7340f41876df4b20
+  revision: 64325a82427120cf7659c80e1b67ca1ffb01ebc4
   specs:
     actionmailer (3.1.0.rc1)
       actionpack (= 3.1.0.rc1)
@@ -56,7 +56,7 @@ GIT
 
 GIT
   remote: git://github.com/sstephenson/sprockets
-  revision: 890be4ef4baeed8dcc5b39c73a8b18d25b998854
+  revision: 225e079ddc09293a915bea19ffe97d7f44f22cb5
   specs:
     sprockets (2.0.0.beta.9)
       hike (~> 1.0)
