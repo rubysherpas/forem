@@ -17,7 +17,9 @@
         <% if @topic.can_be_replied_to? %>
           <li><%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
         <% end %>
-        <li><%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %></li>
+        <% if current_user == post.user || forem_admin? %>
+          <li><%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %></li>
+        <% end %>
       <% end %>
     </ul>
   </td>
