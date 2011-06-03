@@ -15,6 +15,7 @@ module Forem
   
     def create
       @topic = @forum.topics.build(params[:topic])
+      @topic.posts -= [@topic.posts.first] # Why are there two posts created? Me no understand.
       @topic.user = current_user
       if @topic.save
         flash[:notice] = t("forem.topic.created")
