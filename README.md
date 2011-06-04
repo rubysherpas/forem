@@ -39,6 +39,8 @@ The final step that is required is to mount this engine in the application's `co
 
 This engine will then be accessible at `http://yoursite.com/forem`.
 
+You will also need to define a route that defines a `sign_in_path` / `sign_in_url` helper, as forem will go looking for it when it requires users to be signed in.
+
 ## Features
 
 Here's a comprehensive list of the features currently in Forem:
