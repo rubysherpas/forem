@@ -4,7 +4,7 @@ module Forem
 
     belongs_to :forum
     belongs_to :user
-    has_many :posts, :dependent => :destroy
+    has_many :posts, :dependent => :destroy, :order => "created_at ASC"
     accepts_nested_attributes_for :posts
 
     validates :subject, :presence => true
