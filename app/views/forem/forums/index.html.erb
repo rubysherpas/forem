@@ -15,7 +15,7 @@
           <div class='description'><%= forum.description %></div>
           <% if forum.last_post %>
             <span class='last_post'>
-              <%= t('.last_post') %>: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= t('.time_ago_in_words', :time => time_ago_in_words(forum.last_post.created_at)) -%>
+              <%= t('.last_post') %>: <%= link_to(forum.last_post.topic, forum_topic_path(forum, forum.last_post.topic)) -%> by <%= forum.last_post.user %> <%= t('time_ago_in_words', :time => time_ago_in_words(forum.last_post.created_at)) -%>
             </span>
           <% end %>
         </td>
