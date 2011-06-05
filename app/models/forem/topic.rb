@@ -5,7 +5,7 @@ module Forem
     belongs_to :forum
     belongs_to :user
     has_many   :views
-    has_many   :posts, :dependent => :destroy
+    has_many :posts, :dependent => :destroy, :order => "created_at ASC"
     accepts_nested_attributes_for :posts
 
     validates :subject, :presence => true
@@ -14,7 +14,10 @@ module Forem
 
     scope :by_pinned, order('forem_topics.pinned DESC, forem_topics.id')
     scope :by_most_recent_post, joins(:posts).order('forem_posts.created_at DESC, forem_topics.id').group('topic_id')
-    scope :by_pinned_or_most_recent_post, joins(:posts).order('forem_topics.pinned DESC, forem_posts.created_at DESC, forem_topics.id').group('topic_id')
+    scope :by_pinned_or_most_recent_post, includes(:posts).
+                                          order('forem_topics.pinned DESC').
+                                          order('forem_posts.created_at DESC').
+                                          order('forem_topics.id')
 
     def to_s
       subject

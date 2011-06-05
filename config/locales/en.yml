@@ -49,6 +49,11 @@ en:
       links:
         new: New topic
         back_to_topics: Back to topics
+    topics:
+      show:
+        reply: 'Reply'
+        delete: 'Delete'
+        reply_to_topic: 'Reply to Topic'
     post:
       buttons:
         reply: Post Reply
@@ -64,3 +69,5 @@ en:
         title: Forums
         description: Manage forums
 
+  # General stuff
+  time_ago_in_words: "%{time} ago"
