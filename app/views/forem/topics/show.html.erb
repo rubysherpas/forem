@@ -12,7 +12,7 @@
     <% end %>
   </menu>
   <%= paginate @posts %>
-  <table id='posts' cellspacing='0'>
+  <div id='posts'>
     <%= render :partial => "forem/posts/post", :collection => @posts %>
-  </table>
+  </div>
 </div>
