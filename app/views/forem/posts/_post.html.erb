@@ -1,8 +1,8 @@
 <a name='post-<%= post.id %>'></a>
-<tr id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
+<div id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
   <%= render :partial => 'forem/posts/user_details', :locals => { :user => post.user } %>
 
-  <td class='contents'>
+  <div class='contents'>
     <time datetime="<%= post.created_at.to_s(:db) -%>"><%= time_ago_in_words(post.created_at) -%> ago</time>
     <div class='text'>
       <%= forem_markdown(post.text) %>
@@ -22,5 +22,5 @@
         <% end %>
       <% end %>
     </ul>
-  </td>
-</tr>
+  </div>
+</div>
