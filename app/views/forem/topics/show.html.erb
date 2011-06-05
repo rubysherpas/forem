@@ -1,7 +1,6 @@
 <div id='topic' class='<%= @topic.locked? ? 'locked' : 'unlocked' %>'>
   <h2>
     <%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to @topic.forum.title, @topic.forum %> &raquo; <%= @topic.subject %>
-    <%= @topic.subject %>
     <% if @topic.locked? %>
       <span class='lock icon'></span>
     <% end %>
@@ -9,7 +8,7 @@
       <span class='pin icon'></span>
     <% end %>
     <% if @topic.can_be_replied_to? %>
-      <%= link_to "Reply to Topic", new_topic_post_path(@topic) %>
+      <%= link_to t('.reply_to_topic'), new_topic_post_path(@topic), :class => 'reply' %>
     <% end %>
   </h2>
   
