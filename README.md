@@ -25,11 +25,13 @@ Then you'll need to of course specify the engine itself:
 
 Run `bundle install` to install these gems.
 
-### Run the migrations
+### Run the migrations & setup the models
 
 Once these gems are installed, run `rake forem:install:migrations` which will copy over the migrations that are contained within the engine into your application, which will then need to be run using `rake db:migrate`.
 
 Then you will need to add a `forem_admin` boolean field to your `User` model. This is then used to indicate to forem if the currently signed in user should be an admin for forem or not. Currently there is no migration generator in forem to do this, so you will have to do it manually.
+
+Also you will need to include the `Forem::UserExtension` module into your `User` model. This tells forem what its `Forem::Post` and `Forem::Topic` models should relate to, defining a `user` association for each.
 
 ### Mount the engine
 
