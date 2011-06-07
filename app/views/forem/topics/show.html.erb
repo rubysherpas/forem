@@ -1,7 +1,5 @@
 <div id='topic' class='<%= @topic.locked? ? 'locked' : 'unlocked' %>'>
-  <h2>
   <h2><%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to @topic.forum.title, @topic.forum %> &raquo; <%= @topic.subject %></h2>
-  </h2>
   
   <menu>
     <% if @topic.can_be_replied_to? %>
