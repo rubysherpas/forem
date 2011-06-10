@@ -1,23 +1,14 @@
 require "forem/engine"
-require "forem/user_extensions"
 require "forem/kaminari_config"
 require 'rdiscount'
 
 module Forem
 
-  mattr_accessor :user_name, :current_user, :login_url
+  mattr_accessor :user_class
 
   class << self
-    def user_name
-      @@user_name || raise(ConfigurationNotFound.new("user_name"))
-    end
-
-    def current_user
-      @@current_user || raise(ConfigurationNotFound.new("current_user"))
-    end
-
-    def login_url
-      @@login_url || raise(ConfigurationNotFound.new("login_url"))
+    def user_class
+      @@user_class || raise(ConfigurationNotFound.new("user_class"))
     end
   end
   
