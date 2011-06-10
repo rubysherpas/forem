@@ -3,7 +3,8 @@ module Forem
     attr_protected :pinned, :locked
 
     belongs_to :forum
-    belongs_to :user
+    belongs_to :user, :class_name => Forem.user_class.to_s
+    
     has_many :posts, :dependent => :destroy, :order => "created_at ASC"
     accepts_nested_attributes_for :posts
 

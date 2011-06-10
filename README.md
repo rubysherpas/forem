@@ -31,7 +31,9 @@ Once these gems are installed, run `rake forem:install:migrations` which will co
 
 Then you will need to add a `forem_admin` boolean field to your `User` model. This is then used to indicate to forem if the currently signed in user should be an admin for forem or not. Currently there is no migration generator in forem to do this, so you will have to do it manually.
 
-Also you will need to include the `Forem::UserExtension` module into your `User` model. This tells forem what its `Forem::Post` and `Forem::Topic` models should relate to, defining a `user` association for each.
+Also you will need to tell Forem what the `User` model of the application is so that it knows how to associate posts and topics to the authors. To do this, create a new file in the application called `config/initializers/forem.rb` and put this line in it:
+
+    Forem.user_class = User
 
 ### Mount the engine
 
