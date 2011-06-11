@@ -6,7 +6,7 @@ module Forem
     end
     
     def forem_theme_tag
-      stylesheet_link_tag("forem/#{Forem::Engine.theme}/style.css")
+      stylesheet_link_tag("forem/#{Forem.theme}/style.css")
     end
   end
 end
