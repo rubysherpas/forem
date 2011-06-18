@@ -25,12 +25,6 @@ module Forem
         end
       end
     end
-
-    config.to_prepare do
-      if defined?(::Refinery)
-        ::Refinery::User.send :include, ::Forem::UserExtensions
-      end
-    end
   end
 end
 
