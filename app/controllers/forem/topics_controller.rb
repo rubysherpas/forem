@@ -5,6 +5,7 @@ module Forem
 
     def show
       @topic = @forum.topics.find(params[:id])
+      register_view
       @posts = @topic.posts.page(params[:page]).per(20)
     end
 
@@ -12,7 +13,7 @@ module Forem
       @topic = @forum.topics.build
       @topic.posts.build
     end
-  
+
     def create
       @topic = @forum.topics.build(params[:topic])
       @topic.user = current_user
@@ -24,7 +25,7 @@ module Forem
         render :action => "new"
       end
     end
-    
+
     def destroy
       @topic = @forum.topics.find(params[:id])
       if current_user == @topic.user
@@ -33,14 +34,17 @@ module Forem
       else
         flash[:error] = t("forem.topic.cannot_delete")
       end
-      
+
       redirect_to @topic.forum
     end
 
     private
-
     def find_forum
       @forum = Forem::Forum.find(params[:forum_id])
+    end
+
+    def register_view
+      @topic.register_view_by(current_user)
     end
   end
 end

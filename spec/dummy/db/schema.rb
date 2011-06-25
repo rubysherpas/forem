@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110519222000) do
+ActiveRecord::Schema.define(:version => 20110520150056) do
 
   create_table "forem_forums", :force => true do |t|
     t.string "title"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(:version => 20110519222000) do
     t.datetime "updated_at"
     t.boolean  "locked"
     t.boolean  "pinned",     :default => false
+  end
+
+  create_table "forem_views", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "count"
   end
 
   create_table "users", :force => true do |t|
