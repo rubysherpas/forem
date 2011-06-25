@@ -17,9 +17,6 @@ module ::Forem
           plugin.directory = "forem"
           plugin.url = '/forem/admin/forums'
           plugin.menu_match = /^\/?(admin|refinery)\/forem\/?(forums|posts|topics)?/
-          plugin.activity = {
-            :class => ::Forem::Post
-          }
         end
       end
     end
