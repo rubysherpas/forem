@@ -5,6 +5,7 @@
       <th><%= t('.forum') %></th>
       <th><%= t('.topics') %></th>
       <th><%= t('.posts') %></th>
+      <th><%= t('.views') %></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
         </td>
         <td><%= forum.topics.count %></td>
         <td><%= forum.posts.count %></td>
+        <td><%= forum.views.sum(:count) %></td>
       </tr>
     <% end %>
   </tbody>
