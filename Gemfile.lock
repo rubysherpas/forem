@@ -75,6 +75,7 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    archive-tar-minitar (0.5.2)
     arel (2.1.1)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
@@ -90,6 +91,7 @@ GEM
     celerity (0.8.9)
     childprocess (0.1.9)
       ffi (~> 1.0.6)
+    columnize (0.3.2)
     configuration (1.2.0)
     culerity (0.2.15)
     database_cleaner (0.6.7)
@@ -108,6 +110,8 @@ GEM
     launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -141,6 +145,16 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+    ruby-debug-base19 (0.11.24)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.4)
+      archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
     selenium-webdriver (0.2.0)
       childprocess (>= 0.1.7)
@@ -171,5 +185,6 @@ DEPENDENCIES
   launchy
   rails!
   rspec-rails (~> 2.6)
+  ruby-debug19
   sprockets!
   sqlite3-ruby

@@ -44,7 +44,7 @@ module Forem
     end
 
     def register_view
-      @topic.views.create(:user_id => current_user.try(:id))
+      @topic.register_view_by(current_user)
     end
   end
 end

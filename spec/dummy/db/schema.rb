@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20110520150056) do
     t.integer  "user_id"
     t.integer  "topic_id"
     t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "count"
   end
 
   create_table "users", :force => true do |t|
