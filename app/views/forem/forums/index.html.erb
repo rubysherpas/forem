@@ -11,7 +11,7 @@
     <% @forums.each do |forum| %>
       <tr class="forum <%= cycle("odd", "even") %>">
         <td>
-          <%= link_to forum.title, forum_path(forum) %>
+          <%= link_to forum.title, forum_path(forum), :class => "title" %>
           <div class='description'><%= forum.description %></div>
           <% if forum.last_post %>
             <span class='last_post'>
