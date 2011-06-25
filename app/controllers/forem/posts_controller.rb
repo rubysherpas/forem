@@ -5,8 +5,12 @@ module Forem
 
     def new
       @post = @topic.posts.build
+      if params[:quote]
+        reply_to = @topic.posts.find(params[:reply_to_id])
+        @post.text = "<blockquote>" + reply_to.text + "</blockquote>\n\n"
+      end
     end
-  
+
     def create
       if @topic.locked?
         flash[:error] = t("forem.post.not_created_topic_locked")
@@ -23,7 +27,7 @@ module Forem
         render :action => "new"
       end
     end
-    
+
     def destroy
       @post = @topic.posts.find(params[:id])
       if current_user == @post.user
@@ -32,7 +36,7 @@ module Forem
       else
         flash[:error] = t("forem.post.cannot_delete")
       end
-      
+
       redirect_to [@topic.forum, @topic]
     end
 
