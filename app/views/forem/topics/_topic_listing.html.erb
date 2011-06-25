@@ -15,5 +15,5 @@
     <%= link_to_latest_post(topic_listing.posts.last) -%>
   </td>
   <td class='posts-count'><%= topic_listing.posts.count %></td>
-  <td class='views-count'><%= topic_listing.views.count %></td>
+  <td class='views-count'><%= topic_listing.views.sum(:count) %></td>
 </tr>
