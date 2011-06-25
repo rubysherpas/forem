@@ -5,7 +5,7 @@ module Forem
     belongs_to :forum
     has_many   :views
     belongs_to :user, :class_name => Forem.user_class.to_s
-    
+
     has_many :posts, :dependent => :destroy, :order => "created_at ASC"
     accepts_nested_attributes_for :posts
 
