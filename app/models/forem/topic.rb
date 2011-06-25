@@ -48,6 +48,10 @@ module Forem
       !locked?
     end
 
+    def view_for(user)
+      views.find_by_user_id(user.id)
+    end
+
     # Track when users last viewed topics
     def register_view_by(user)
       if user
