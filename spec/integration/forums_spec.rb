@@ -37,5 +37,18 @@ describe "forums" do
       topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
       topic_subjects.include?("HIDDEN!").should be_false
     end
+
+    context "when logged in" do
+      before do
+        sign_in!
+      end
+      it "calls out topics that have been posted to since your last visit, if you've visited" do
+        visit forum_topic_path(forum.id, @topic_2)
+        ::Forem::View.last.update_attribute(:updated_at, 1.minute.ago)
+        visit forum_path(forum)
+        topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .new_posts")
+        topic_subjects.should_not be_empty
+      end
+    end
   end
 end
