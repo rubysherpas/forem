@@ -47,6 +47,14 @@ module Forem
       !locked?
     end
 
+    # Track when users last viewed topics
+    def register_view_by(user)
+      if user
+        view = views.find_or_create_by_user_id(user.id)
+        ::Forem::View.increment_counter("count", view.id)
+      end
+    end
+
     private
     def set_first_post_user
       post = self.posts.first

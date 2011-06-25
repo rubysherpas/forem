@@ -1,10 +1,18 @@
 require 'spec_helper'
 
 describe "topics" do
+  before do
+    User.delete_all
+    ::Forem::Forum.delete_all
+    ::Forem::Topic.delete_all
+    ::Forem::View.delete_all
+  end
+
   let(:forum) { Factory(:forum) }
-  let(:topic) { Factory(:topic) }
-  let(:user) { Factory(:user, :id => 2, :login => 'other_forem_user') }
-  let(:other_topic) { Factory(:topic, :subject => 'Another forem topic', :user => user) }
+  let(:topic) { Factory(:topic, :forum => forum) }
+  let(:first_user) { Factory(:user, :login => 'first_forem_user') }
+  let(:user) { Factory(:user, :login => 'other_forem_user') }
+  let(:other_topic) { Factory(:topic, :subject => 'Another forem topic', :user => user, :forum => forum) }
 
   context "not signed in" do
     before do
@@ -64,9 +72,34 @@ describe "topics" do
       end
 
       it "cannot delete topics by others" do
+        first_user.id # Generate the first user that corresponds to the logged in user
         delete forum_topic_path(other_topic.forum, other_topic), :id => other_topic.id.to_s
         response.should redirect_to(forum_path(other_topic.forum))
         flash[:error].should == "You cannot delete a topic you do not own."
+      end
+    end
+
+    context "creating a topic" do
+      before do
+        sign_in!
+      end
+
+      it "creates a view" do
+        lambda do
+          visit forum_topic_path(forum, topic)
+        end.should change(Forem::View, :count).by(1)
+      end
+
+      it "increments a view" do
+        pending "ryan helping me with tests because sqlite nested transaction fail"
+        # register a view
+        visit forum_topic_path(forum, topic)
+
+        view = ::Forem::View.last
+
+        expect do
+          visit forum_topic_path(forum, topic)
+        end.to change(::Forem::View.find(view.id), :count)
       end
     end
   end
@@ -90,12 +123,6 @@ describe "topics" do
       visit forum_topic_path(forum, topic)
       assert_seen("FIRST TOPIC", :within => :topic_header)
       assert_seen("omgomgomg", :within => :post_text)
-    end
-
-    it "creates a visit" do
-      lambda do
-        visit forum_topic_path(forum, topic)
-      end.should change(Forem::View, :count).by(1)
     end
   end
 end
