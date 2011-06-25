@@ -8,7 +8,7 @@ module Forem
 
     def show
       @forum = Forem::Forum.find(params[:id])
-      @topics = @forum.topics.by_pinned_or_most_recent_post.page(params[:page]).per(20)
+      @topics = @forum.topics.visible.by_pinned_or_most_recent_post.page(params[:page]).per(20)
     end
   end
 end

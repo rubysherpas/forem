@@ -13,6 +13,7 @@ module Forem
 
     before_save :set_first_post_user
 
+    scope :visible, where(:hidden => false)
     scope :by_pinned, order('forem_topics.pinned DESC, forem_topics.id')
     scope :by_most_recent_post, joins(:posts).order('forem_posts.created_at DESC, forem_topics.id').group('topic_id')
     scope :by_pinned_or_most_recent_post, includes(:posts).
