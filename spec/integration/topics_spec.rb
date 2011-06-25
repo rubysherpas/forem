@@ -91,15 +91,23 @@ describe "topics" do
       end
 
       it "increments a view" do
-        pending "ryan helping me with tests because sqlite nested transaction fail"
         # register a view
         visit forum_topic_path(forum, topic)
+        
+        # expect does not work as expected.
+        # the view object is not reloaded when it's re-checked, but cached instead
+        # Therefore we cannot do this:
+        #
+        # expect do
+        #   visit forum_topic_path(forum, topic)
+        # end.to change(view.reload, :count)
+        # 
+        # But instead must go long-form:
 
         view = ::Forem::View.last
-
-        expect do
-          visit forum_topic_path(forum, topic)
-        end.to change(::Forem::View.find(view.id), :count)
+        view.count.should eql(1)
+        visit forum_topic_path(forum, topic)
+        view.reload.count.should eql(2)
       end
     end
   end
