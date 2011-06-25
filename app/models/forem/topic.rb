@@ -3,6 +3,7 @@ module Forem
     attr_protected :pinned, :locked
 
     belongs_to :forum
+    has_many   :views
     belongs_to :user, :class_name => Forem.user_class.to_s
     
     has_many :posts, :dependent => :destroy, :order => "created_at ASC"
@@ -44,6 +45,14 @@ module Forem
     # A Topic cannot be replied to if it's locked.
     def can_be_replied_to?
       !locked?
+    end
+
+    # Track when users last viewed topics
+    def register_view_by(user)
+      if user
+        view = views.find_or_create_by_user_id(user.id)
+        ::Forem::View.increment_counter("count", view.id)
+      end
     end
 
     private
