@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110520150056) do
     t.datetime "updated_at"
     t.boolean  "locked"
     t.boolean  "pinned",     :default => false
+    t.boolean  "hidden",     :default => false
   end
 
   create_table "forem_views", :force => true do |t|
