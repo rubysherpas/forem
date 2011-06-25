@@ -6,6 +6,11 @@
     <% if topic_listing.pinned? %>
       <span class='pin icon'></span>
     <% end %>
+    <% if current_user && view = topic_listing.view_for(current_user) %>
+      <% if topic_listing.posts.where("created_at > ?", view.updated_at).any? %>
+        <span class='new_posts icon'>new</span>
+      <% end %>
+    <% end %>
   </td>
   <td class='topic'>
     <div class='subject'><%= link_to topic_listing.subject, forum_topic_path(@forum, topic_listing) %></div>
