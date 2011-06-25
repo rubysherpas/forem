@@ -50,6 +50,7 @@ en:
       links:
         new: New topic
         back_to_topics: Back to topics
+        edit: Edit topic
     topics:
       show:
         reply: 'Reply'
