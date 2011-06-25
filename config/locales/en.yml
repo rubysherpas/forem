@@ -49,6 +49,11 @@ en:
       links:
         new: New topic
         back_to_topics: Back to topics
+    topics:
+      show:
+        reply: 'Reply'
+        delete: 'Delete'
+        reply_to_topic: 'Reply to Topic'
     post:
       buttons:
         reply: Post Reply
@@ -58,6 +63,11 @@ en:
       not_created_topic_locked: You cannot reply to a locked topic.
       deleted: Your post has been deleted.
       cannot_delete: You cannot delete a post you do not own.
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Forums
+        description: Manage forums
 
   # General stuff
   time_ago_in_words: "%{time} ago"
