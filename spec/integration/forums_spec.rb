@@ -16,6 +16,7 @@ describe "forums" do
       @topic_2 = Factory(:topic, :subject => "Most Recent", :forum => forum)
       Factory(:post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
       @topic_3 = Factory(:topic, :subject => "PINNED!", :forum => forum, :pinned => true)
+      @topic_4 = Factory(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
       visit forum_path(forum.id)
     end
 
@@ -29,6 +30,12 @@ describe "forums" do
       # TODO: cleaner way to get at topic subjects on the page?
       topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
       topic_subjects.should == ["PINNED!", "Most Recent", "Unpinned"]
+    end
+
+    it "does not show hidden topics" do
+      # TODO: cleaner way to get at topic subjects on the page?
+      topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
+      topic_subjects.include?("HIDDEN!").should be_false
     end
   end
 end
