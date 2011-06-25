@@ -51,7 +51,7 @@ module Forem
     def register_view_by(user)
       if user
         view = views.find_or_create_by_user_id(user.id)
-        ::Forem::View.increment_counter("count", view.id)
+        view.increment!("count")
       end
     end
 
