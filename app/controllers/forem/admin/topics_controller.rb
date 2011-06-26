@@ -1,7 +1,7 @@
 module Forem
   module Admin
     class TopicsController < BaseController
-      before_filter :find_topic, :only => [:edit, :update, :destroy]
+      before_filter :find_topic
 
       def edit
       end
