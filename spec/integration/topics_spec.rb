@@ -1,12 +1,6 @@
 require 'spec_helper'
 
 describe "topics" do
-  before do
-    User.delete_all
-    ::Forem::Forum.delete_all
-    ::Forem::Topic.delete_all
-    ::Forem::View.delete_all
-  end
 
   let(:forum) { Factory(:forum) }
   let(:topic) { Factory(:topic, :forum => forum) }
