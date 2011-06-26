@@ -39,6 +39,11 @@ module Forem
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
 
+      def toggle_pin
+        @topic.toggle!(:pinned)
+        flash[:notice] = t("forem.topic.pinned.#{@topic.pinned?}")
+        redirect_to forum_topic_path(@topic.forum, @topic)
+      end
 
       private
         def find_topic
