@@ -33,6 +33,13 @@ module Forem
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
 
+      def toggle_lock
+        @topic.toggle!(:locked)
+        flash[:notice] = t("forem.topic.locked.#{@topic.locked?}")
+        redirect_to forum_topic_path(@topic.forum, @topic)
+      end
+
+
       private
         def find_topic
           @topic = Forem::Topic.find(params[:id])

@@ -15,6 +15,7 @@ Forem::Engine.routes.draw do
     resources :topics do
       member do
         put :toggle_hide
+        put :toggle_lock
       end
     end
   end

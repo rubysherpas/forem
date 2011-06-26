@@ -57,6 +57,9 @@ en:
       hidden:
         'true': This topic is now hidden.
         'false': This topic is now visible.
+      locked:
+        'true': This topic is now locked.
+        'false': This topic is now unlocked.
     topics:
       show:
         reply: 'Reply'
@@ -65,6 +68,9 @@ en:
         hide:
           'true': Show this topic
           'false': Hide this topic
+        lock:
+          'true': Unlock this topic
+          'false': Lock this topic
         
         
     post:
