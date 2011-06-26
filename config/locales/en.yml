@@ -46,11 +46,16 @@ en:
       not_created: This topic could not be created.
       deleted: Your topic has been deleted.
       cannot_delete: You cannot delete a topic you do not own.
+      updated: This topic has been updated.
+      not_updated: This topic could not be updated.
       none: There are no topics in this forum currently.
       links:
         new: New topic
         back_to_topics: Back to topics
         edit: Edit topic
+      not_found: The topic you are looking for could not be found.
+      hidden: This topic is now hidden.
+      visible: This topic is now visible.
     topics:
       show:
         reply: 'Reply'

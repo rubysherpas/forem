@@ -4,9 +4,16 @@ module Forem
     before_filter :find_forum
 
     def show
-      @topic = @forum.topics.find(params[:id])
-      register_view
-      @posts = @topic.posts.page(params[:page]).per(20)
+      begin
+        scope = forem_admin? ? @forum.topics : @forum.topics.visible
+        @topic = scope.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash[:error] = t("forem.topic.not_found")
+        redirect_to @forum
+      else
+        register_view
+        @posts = @topic.posts.page(params[:page]).per(20)
+      end
     end
 
     def new
