@@ -54,13 +54,19 @@ en:
         back_to_topics: Back to topics
         edit: Edit topic
       not_found: The topic you are looking for could not be found.
-      hidden: This topic is now hidden.
-      visible: This topic is now visible.
+      hidden:
+        'true': This topic is now hidden.
+        'false': This topic is now visible.
     topics:
       show:
         reply: 'Reply'
         delete: 'Delete'
         reply_to_topic: 'Reply to Topic'
+        hide:
+          'true': Show this topic
+          'false': Hide this topic
+        
+        
     post:
       buttons:
         reply: Post Reply
