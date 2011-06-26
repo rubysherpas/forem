@@ -11,7 +11,6 @@ describe "topics" do
   it "can hide a topic" do
     visit forum_topic_path(forum, topic)
     click_link "Hide"
-    page!
     flash_notice!("This topic is now hidden.")
 
     sign_out!
