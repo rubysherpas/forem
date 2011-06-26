@@ -12,10 +12,10 @@ module Forem
         @topic.locked  = params[:topic][:locked]
         @topic.hidden  = params[:topic][:hidden]
         if @topic.save
-          flash[:notice] = t("forem.admin.topic.updated")
+          flash[:notice] = t("forem.topic.updated")
           redirect_to forum_topic_path(@topic.forum, @topic)
         else
-          flash[:error] = t("forem.admin.topic.not_updated")
+          flash[:error] = t("forem.topic.not_updated")
           render :action => "edit"
         end
       end
@@ -23,7 +23,7 @@ module Forem
       def destroy
         forum = @topic.forum
         @topic.destroy
-        flash[:notice] = t("forem.admin.topic.deleted")
+        flash[:notice] = t("forem.topic.deleted")
         redirect_to forum_topics_path(forum)
       end
 
