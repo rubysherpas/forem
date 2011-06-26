@@ -1,7 +1,7 @@
 module Forem
   module Admin
     class BaseController < ApplicationController
-      before_filter :authenticate_forem_admin, :only => [:new, :create]
+      before_filter :authenticate_forem_admin
 
       def index
         # TODO: perhaps gather some stats here to show on the admin page?
