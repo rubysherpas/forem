@@ -49,16 +49,17 @@ You will also need to define a route that defines a `sign_in_path` / `sign_in_ur
 
 Here's a comprehensive list of the features currently in Forem:
 
-*WIP means 'Work in Progress'*
-
 * An admin backend
   * Forums
       * CRUD operations
 * Topics
   * Viewing all topics for a forum
   * Creating of new topics
+  * Editing topics
   * Deleting own topics
-  * Locking topics (WIP)
+  * Locking topics
+  * Hiding topics
+  * Pinning topics
 * Posts
   * Replying to topics
   * Deleting own topics
