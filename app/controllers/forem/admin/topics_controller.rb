@@ -27,6 +27,13 @@ module Forem
         redirect_to forum_topics_path(forum)
       end
 
+      def toggle_hide
+        @topic.toggle!(:hidden)
+        i18n_string = @topic.hidden? ? "hidden" : "visible"
+        flash[:notice] = t("forem.topic.#{i18n_string}")
+        redirect_to forum_topic_path(@topic.forum, @topic)
+      end
+
       private
         def find_topic
           @topic = Forem::Topic.find(params[:id])

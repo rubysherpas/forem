@@ -9,6 +9,10 @@
       | <%= link_to t(".delete"), forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
     <% end %>
   </menu>
+
+  <% if forem_admin? %>
+    <%= link_to t(".hide"), toggle_hide_admin_topic_path(@topic), :method => :put %>
+  <% end %>
   <%= paginate @posts %>
   <div id='posts'>
     <%= render :partial => "forem/posts/post", :collection => @posts %>
