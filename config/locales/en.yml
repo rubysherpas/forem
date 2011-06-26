@@ -60,6 +60,9 @@ en:
       locked:
         'true': This topic is now locked.
         'false': This topic is now unlocked.
+      pinned:
+        'true': This topic is now pinned.
+        'false': This topic is now unpinned.
     topics:
       show:
         reply: 'Reply'
@@ -71,6 +74,9 @@ en:
         lock:
           'true': Unlock this topic
           'false': Lock this topic
+        pin:
+          'true': Unpin this topic
+          'false': Pin this topic
         
         
     post:

@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "topics" do
   let(:forum) { Factory(:forum) }
   let(:topic) { Factory(:topic, :forum => forum) }
+  let(:other_topic) { Factory(:topic, :forum => forum) }
 
   before do
     sign_in! :admin => true
@@ -29,5 +30,16 @@ describe "topics" do
 
     visit forum_topic_path(forum, topic)
     page.should_not have_content("New Topic")
+  end
+
+  it "can pin a topic" do
+    visit forum_topic_path(forum, topic)
+    click_link "Pin"
+    page!
+    flash_notice!("This topic is now pinned.")
+
+    visit forum_path(forum)
+    page!
+
   end
 end

@@ -16,6 +16,7 @@ Forem::Engine.routes.draw do
       member do
         put :toggle_hide
         put :toggle_lock
+        put :toggle_pin
       end
     end
   end
