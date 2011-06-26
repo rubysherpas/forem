@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "topics" do
   let(:forum) { Factory(:forum) }
   let(:topic) { Factory(:topic, :forum => forum) }
-  let(:other_topic) { Factory(:topic, :forum => forum) }
+  let(:other_topic) { Factory(:topic, :forum => forum, :subject => "SECOND TOPIC") }
 
   before do
     sign_in! :admin => true
@@ -35,11 +35,10 @@ describe "topics" do
   it "can pin a topic" do
     visit forum_topic_path(forum, topic)
     click_link "Pin"
-    page!
     flash_notice!("This topic is now pinned.")
 
+    other_topic # will create another topic, making it the top post unless the first topic is truly pinned
     visit forum_path(forum)
-    page!
-
+    page.all(".topics .subject").map(&:text).should == ["FIRST TOPIC", "SECOND TOPIC"]
   end
 end
