@@ -45,4 +45,20 @@ describe Forem::Topic do
       Forem::Topic.by_pinned.first.should == @topic2
     end
   end
+
+  describe ".by_most_recent_post" do
+    before do
+      Forem::Topic.delete_all
+      @topic1 = Factory(:topic)
+      Factory(:post, :topic => @topic, :created_at => 1.seconds.ago)
+      @topic2 = Factory(:topic)
+      Factory(:post, :topic => @topic2, :created_at => 5.seconds.ago)
+      @topic3 = Factory(:topic)
+      Factory(:post, :topic => @topic3, :created_at => 10.seconds.ago)
+    end
+
+    it "should show topics by most recent post" do
+      Forem::Topic.by_most_recent_post.to_a.should == [@topic1, @topic2, @topic3]
+    end
+  end
 end
