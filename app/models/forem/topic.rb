@@ -15,7 +15,7 @@ module Forem
 
     scope :visible, where(:hidden => false)
     scope :by_pinned, order('forem_topics.pinned DESC, forem_topics.id')
-    scope :by_most_recent_post, joins(:posts).select("DISTINCT forem_posts.topic_id, forem_topics.*").order('forem_posts.created_at DESC, forem_topics.id')
+    scope :by_most_recent_post, joins(:posts).select("DISTINCT forem_posts.topic_id, forem_topics.*, forem_posts.created_at").order('forem_posts.created_at DESC, forem_topics.id')
     scope :by_pinned_or_most_recent_post, includes(:posts).
                                           order('forem_topics.pinned DESC').
                                           order('forem_posts.created_at DESC').
