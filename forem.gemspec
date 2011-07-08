@@ -18,4 +18,5 @@ Gem::Specification.new do |s|
   s.add_dependency "simple_form"
   s.add_dependency "kaminari"
   s.add_dependency "rdiscount"
+  s.add_dependency "gravatar_image_tag"
 end
