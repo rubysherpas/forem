@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110625220412) do
+ActiveRecord::Schema.define(:version => 20110708030915) do
 
   create_table "forem_forums", :force => true do |t|
     t.string "title"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20110625220412) do
   create_table "users", :force => true do |t|
     t.string  "login"
     t.boolean "forem_admin", :default => false
+    t.string  "email"
   end
 
 end
