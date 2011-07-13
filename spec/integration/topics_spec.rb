@@ -5,7 +5,7 @@ describe "topics" do
   let(:forum) { Factory(:forum) }
   let(:topic) { Factory(:topic, :forum => forum) }
   let(:first_user) { Factory(:user, :login => 'first_forem_user') }
-  let(:user) { Factory(:user, :login => 'other_forem_user') }
+  let(:user) { Factory(:user, :login => 'other_forem_user', :email => "bob@boblaw.com") }
   let(:other_topic) { Factory(:topic, :subject => 'Another forem topic', :user => user, :forum => forum) }
 
   context "not signed in" do
@@ -107,24 +107,18 @@ describe "topics" do
   end
 
   context "viewing a topic" do
-    # Todo: Factory'ize
     let(:topic) do
-      attributes = { :subject => "FIRST TOPIC",
-        :posts_attributes => {
-          "0" => {
-            :text => "omgomgomg",
-            :user => User.first
-          }
-        }
-      }
-
-      forum.topics.create(attributes)
+      Factory(:topic, :forum => forum, :user => user)
     end
 
     it "is free for all" do
       visit forum_topic_path(forum, topic)
-      assert_seen("FIRST TOPIC", :within => :topic_header)
-      assert_seen("omgomgomg", :within => :post_text)
+      assert_seen(topic.subject, :within => :topic_header)
+      assert_seen(topic.posts.first.text, :within => :post_text)
+    end
+
+    it "should show a gravatar" do
+      assert page.has_selector?("div.icon > img[alt='Gravatar']")
     end
   end
 end
