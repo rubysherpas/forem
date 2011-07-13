@@ -1,1 +1,1 @@
-script: "bundle exec rake db:setup spec"
+script: "bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate spec"
