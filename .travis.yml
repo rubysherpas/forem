@@ -1,0 +1,1 @@
+script: "bundle exec rake db:setup spec"
