@@ -1,6 +1,7 @@
 require "forem/engine"
 require 'rdiscount'
 require 'kaminari'
+require 'gravatar_image_tag'
 
 module Forem
 

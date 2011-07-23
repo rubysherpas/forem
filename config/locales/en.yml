@@ -46,16 +46,39 @@ en:
       not_created: This topic could not be created.
       deleted: Your topic has been deleted.
       cannot_delete: You cannot delete a topic you do not own.
+      updated: This topic has been updated.
+      not_updated: This topic could not be updated.
       none: There are no topics in this forum currently.
       links:
         new: New topic
         back_to_topics: Back to topics
         edit: Edit topic
+      not_found: The topic you are looking for could not be found.
+      hidden:
+        'true': This topic is now hidden.
+        'false': This topic is now visible.
+      locked:
+        'true': This topic is now locked.
+        'false': This topic is now unlocked.
+      pinned:
+        'true': This topic is now pinned.
+        'false': This topic is now unpinned.
     topics:
       show:
         reply: 'Reply'
         delete: 'Delete'
         reply_to_topic: 'Reply to Topic'
+        hide:
+          'true': Show this topic
+          'false': Hide this topic
+        lock:
+          'true': Unlock this topic
+          'false': Lock this topic
+        pin:
+          'true': Unpin this topic
+          'false': Pin this topic
+        
+        
     post:
       buttons:
         reply: Post Reply
