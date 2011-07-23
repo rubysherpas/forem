@@ -24,7 +24,7 @@ module Forem
 
     def create
       @topic = @forum.topics.build(params[:topic])
-      @topic.user = current_user
+      @topic.user = forem_user
       if @topic.save
         flash[:notice] = t("forem.topic.created")
         redirect_to [@forum, @topic]
@@ -36,7 +36,7 @@ module Forem
 
     def destroy
       @topic = @forum.topics.find(params[:id])
-      if current_user == @topic.user
+      if forem_user == @topic.user
         @topic.destroy
         flash[:notice] = t("forem.topic.deleted")
       else
@@ -52,7 +52,7 @@ module Forem
     end
 
     def register_view
-      @topic.register_view_by(current_user)
+      @topic.register_view_by(forem_user)
     end
   end
 end
