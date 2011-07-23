@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520150056) do
+ActiveRecord::Schema.define(:version => 20110708030915) do
 
   create_table "forem_forums", :force => true do |t|
     t.string "title"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20110520150056) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "reply_to"
     t.integer  "reply_to_id"
   end
 
@@ -43,12 +42,13 @@ ActiveRecord::Schema.define(:version => 20110520150056) do
     t.integer  "topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "count"
+    t.integer  "count",      :default => 0
   end
 
   create_table "users", :force => true do |t|
     t.string  "login"
     t.boolean "forem_admin", :default => false
+    t.string  "email"
   end
 
 end

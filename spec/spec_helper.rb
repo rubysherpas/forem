@@ -6,8 +6,6 @@ require 'rspec/rails'
 require 'factory_girl'
 require 'database_cleaner'
 
-require 'ruby-debug'
-
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 
 # Requires supporting ruby files with custom matchers and macros, etc,

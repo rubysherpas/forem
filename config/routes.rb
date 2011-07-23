@@ -12,6 +12,12 @@ Forem::Engine.routes.draw do
   namespace :admin do
     root :to => "base#index"
     resources :forums
-    resources :topics
+    resources :topics do
+      member do
+        put :toggle_hide
+        put :toggle_lock
+        put :toggle_pin
+      end
+    end
   end
 end
