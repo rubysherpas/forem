@@ -50,6 +50,13 @@ describe "topics" do
         find_field("topic_subject").value.should eql("")
         find_field("topic_posts_attributes_0_text").value.should eql("")
       end
+
+      it "does not keep flash error over requests" do
+        click_button 'Create Topic'
+        flash_error!("This topic could not be created.")
+        visit root_path
+        page.should_not have_content("This topic could not be created.")
+      end
     end
 
     context "deleting a topic" do

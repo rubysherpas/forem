@@ -29,7 +29,7 @@ module Forem
         flash[:notice] = t("forem.topic.created")
         redirect_to [@forum, @topic]
       else
-        flash[:error] = t("forem.topic.not_created")
+        flash.now[:error] = t("forem.topic.not_created")
         render :action => "new"
       end
     end
