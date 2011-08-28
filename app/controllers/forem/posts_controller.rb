@@ -23,7 +23,7 @@ module Forem
         redirect_to [@topic.forum, @topic]
       else
         params[:reply_to_id] = params[:post][:reply_to_id]
-        flash[:error] = t("forem.post.not_created")
+        flash.now[:error] = t("forem.post.not_created")
         render :action => "new"
       end
     end

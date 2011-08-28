@@ -67,8 +67,15 @@ describe "posts" do
         click_button "Post Reply"
         flash_error!("Your reply could not be posted.")
       end
+
+      it "does not hold over failed post flash to next request" do
+        click_button "Post Reply"
+        flash_error!("Your reply could not be posted.")
+        visit root_path
+        page.should_not have_content("Your reply could not be posted.")
+      end
     end
-    
+
     context "deleting" do
       before do
         topic.posts << Factory(:post, :user => Factory(:user, :login => 'other_forem_user'))
