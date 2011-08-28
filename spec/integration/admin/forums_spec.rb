@@ -50,6 +50,14 @@ describe "managing forums" do
         flash_error!("This forum could not be created.")
         find_field("forum_description").value.should eql("")
       end
+
+      it "does not keep fail flash message for next request" do
+        fill_in "Title", :with => ""
+        click_button 'Create Forum'
+        flash_error!("This forum could not be created.")
+        visit root_path
+        page.should_not have_content("This forum could not be created.")
+      end
     end
 
     context "working with a forum" do
