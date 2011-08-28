@@ -31,7 +31,7 @@ module Forem
           flash[:notice] = t("forem.admin.forum.updated")
           redirect_to admin_forums_path
         else
-          flash[:error] = t("forem.admin.forum.not_updated")
+          flash.now[:error] = t("forem.admin.forum.not_updated")
           render :action => "edit"
         end
       end

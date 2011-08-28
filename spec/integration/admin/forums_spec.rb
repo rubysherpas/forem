@@ -75,7 +75,16 @@ describe "managing forums" do
         click_button "Update Forum"
         assert_seen("This forum could not be updated.")
       end
-      
+
+      it "does not keep failed update notice across request" do
+        click_link "Edit"
+        fill_in "Title", :with => ""
+        click_button "Update Forum"
+        flash_error!("This forum could not be updated.")
+        visit root_path
+        page.should_not have_content("This forum could not be updated.")
+      end
+
       it "deleting a forum" do
         click_link "Delete"
         assert_seen("The selected forum has been deleted.")
