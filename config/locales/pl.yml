@@ -1,0 +1,99 @@
+en:
+  forem:
+    admin:
+      forum:
+        edit: "Edytuj forum %{title}"
+        index: "Zarządzanie forami"
+        new: "Dodaj forum"
+        new_link: "Dodaj forum"
+        deleted: "Forum zostało usunięte."
+        created: "Forum zostało dodane."
+        not_created: "Forum nie zostało dodane."
+        updated: "Forum zostało zaktualizowane."
+        not_updated: "Forum nie zostało zaktualizowane."
+    common:
+      pages: "Strony"
+    errors:
+      not_signed_in: "Musisz się wpierw zalogować."
+      access_denied: "Brak dostępu."
+    forum:
+      header: "Przeglądasz %{title}"
+      forums: "Fora"
+      topics_count:
+        zero: "0 tematów"
+        one: "1 temat"
+        few: "%{count} tematy"
+        other: "%{count} tematów"
+      posts_count:
+        zero: "0 wpisów"
+        one: "1 wpis"
+        few: "%{count} wpisy"
+        other: "%{count} wpisów"
+    forums:
+      index:
+        title: "Fora"
+        forum: "Forum"
+        topics: "Tematy"
+        posts: "Wpisy"
+        views: "Wyświetlenia"
+        last_post: "Ostatni wpis"
+    topic:
+      headings:
+        topic: "Temat"
+        latest: "Ostatni"
+        posts: "Wpisy"
+        views: "Wyświetlenia"
+      created: "Temat został dodany."
+      new: "Dodaj temat"
+      not_created: "Temat nie został dodany."
+      deleted: "Temat został usunięty."
+      cannot_delete: "Nie możesz usunąć tematu, którego nie dodałeś."
+      updated: "Temat został zaktualizowany."
+      not_updated: "Temat nie został zaktualizowany."
+      none: "To forum jest puste."
+      links:
+        new: "Dodaj temat"
+        back_to_topics: "Powrót"
+        edit: "Edytuj temat"
+      not_found: "Tego tematu nie udało się znaleźć."
+      hidden:
+        "true": "Ten temat jest ukryty."
+        "false": "Ten temat jest widoczny."
+      locked:
+        "true": "Ten temat jest zablokowany."
+        "false": "Ten temat nie jest zablokowany."
+      pinned:
+        "true": "Ten temat jest przypięty."
+        "false": "Ten temat nie jest przypięty."
+    topics:
+      show:
+        reply: "Odpowiedz"
+        delete: "Usuń"
+        reply_to_topic: "Odpowiedz w temacie"
+        hide:
+          "true": "Pokaż ten temat"
+          "false": "Ukryj ten temat"
+        lock:
+          "true": "Odblokuj ten temat"
+          "false": "Zablokuj ten temat"
+        pin:
+          "true": "Odepnij ten temat"
+          "false": "Przypnij ten temat"
+
+    post:
+      buttons:
+        reply: "Odpowiedz"
+      created: "Odpowiedź dodana."
+      new: "Odpowiedz"
+      not_created: "Odpowiedź nie została dodana."
+      not_created_topic_locked: "Nie możesz odpowiadać w zablokowanych tematach."
+      deleted: "Twój wpis został usunięty."
+      cannot_delete: "Nie możesz usunąć wpisu, którego nie dodałeś."
+  refinery:
+    plugins:
+      refinery_forem:
+        title: "Fora"
+        description: "Zarządzaj forami"
+
+  # General stuff
+  time_ago_in_words: "%{time} temu"
