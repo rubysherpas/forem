@@ -60,11 +60,11 @@ Here's a comprehensive list of the features currently in Forem:
 
 ## Refinery CMS Integration
 
-Requires Refinery CMS [rails-3-1 branch](https://github.com/resolve/refinerycms/tree/rails-3-1)
+Requires Refinery CMS [master branch](https://github.com/resolve/refinerycms/tree/master)
 
 Run:
 
-    rails generate refinerycms_forem
+    rails generate refinery:forem
     rake db:migrate
 
 If you're using Forem with Refinery then you will need to specify the `user_class` option like this:
