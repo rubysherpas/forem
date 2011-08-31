@@ -1,25 +1,14 @@
 # Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
 
-This is an experimental engine for Rails that aims to be the best little forum system ever.
-The end goal is to have an engine that can be dropped into an application that 
+Forem is an engine for Rails that aims to be the best little forum system ever.
+The end goal is to have an engine that can be dropped into an application that
 provides the basic functionality of forums, topics and posts.
 
 ## Installation
 
-**Currently, this engine requires that you use edge Rails which is known to be
-broken at different points in time. Therefore, it isn't recommended that you use
-it in any kind of production environment just yet.** However, as edge Rails approaches its 3.1 release status things will get much more stable.
+Installing Forem is easy.
 
 ### Specify Gem dependencies
-To install this engine, you will need to install edge versions of `rails`, `rack`
-`arel` and `sprockets` in your application's `Gemfile` using these lines:
-
-    gem 'rails', :git => "git://github.com/rails/rails.git"
-    gem 'arel', :git => "git://github.com/rails/arel.git"
-    gem 'rack', :git => "git://github.com/rack/rack.git"
-    gem 'sprockets', :git => "git://github.com/sstephenson/sprockets"
-
-Then you'll need to of course specify the engine itself:
 
     gem 'forem', :git => "git://github.com/radar/forem.git"
 
@@ -34,6 +23,7 @@ Then you will need to add a `forem_admin` boolean field to your `User` model. Th
 Also you will need to tell Forem what the `User` model of the application is so that it knows how to associate posts and topics to the authors. To do this, create a new file in the application called `config/initializers/forem.rb` and put this line in it:
 
     Forem.user_class = User
+
 
 ### Mount the engine
 
@@ -76,6 +66,10 @@ Run:
 
     rails generate refinerycms_forem
     rake db:migrate
+
+If you're using Forem with Refinery then you will need to specify the `user_class` option like this:
+
+    Forem.user_class = Refinery::User
 
 ## OMG BUG! / OMG FEATURE REQUEST!
 
