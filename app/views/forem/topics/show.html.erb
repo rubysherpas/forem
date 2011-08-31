@@ -5,7 +5,7 @@
     <% if @topic.can_be_replied_to? %>
       <%= link_to t(".reply"), new_topic_post_path(@topic) %>
     <% end %>
-    <% if @topic.user == current_user || forem_admin? %>
+    <% if @topic.user == forem_user || forem_admin? %>
       | <%= link_to t(".delete"), forum_topic_path(@forum, @topic), :method => :delete, :confirm => 'Are you sure?' %>
     <% end %>
   </menu>

@@ -14,7 +14,7 @@ Installing Forem is easy.
 
 Run `bundle install` to install these gems.
 
-### Run the migrations & setup the models
+### Run the migrations & setup the models and controllers
 
 Once these gems are installed, run `rake forem:install:migrations` which will copy over the migrations that are contained within the engine into your application, which will then need to be run using `rake db:migrate`.
 
@@ -24,6 +24,11 @@ Also you will need to tell Forem what the `User` model of the application is so 
 
     Forem.user_class = User
 
+Finally, the controllers need to know what the current logged in user is for Forem's purposes.  You can put something like this in ApplicationController:
+
+      def forem_user
+        current_user
+      end
 
 ### Mount the engine
 

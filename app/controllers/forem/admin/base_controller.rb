@@ -10,7 +10,7 @@ module Forem
       private
 
       def authenticate_forem_admin
-        if !current_user || !current_user.forem_admin?
+        if !forem_user || !forem_user.forem_admin?
           flash[:error] = t("forem.errors.access_denied")
           redirect_to forums_path #TODO: not positive where to redirect here
         end

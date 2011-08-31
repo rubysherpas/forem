@@ -17,7 +17,7 @@ module Forem
         redirect_to [@topic.forum, @topic] and return
       end
       @post = @topic.posts.build(params[:post])
-      @post.user = current_user
+      @post.user = forem_user
       if @post.save
         flash[:notice] = t("forem.post.created")
         redirect_to [@topic.forum, @topic]
@@ -30,7 +30,7 @@ module Forem
 
     def destroy
       @post = @topic.posts.find(params[:id])
-      if current_user == @post.user
+      if forem_user == @post.user
         @post.destroy
         flash[:notice] = t("forem.post.deleted")
       else

@@ -13,14 +13,14 @@
     <% end %>
 
     <ul class='actions'>
-      <% if current_user %>
+      <% if forem_user %>
         <% if @topic.can_be_replied_to? %>
           <li><%= link_to "Reply", new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
         <% end %>
         <% if @topic.can_be_replied_to? %>
           <li><%= link_to "Quote", new_topic_post_path(@topic, :reply_to_id => post.id, :quote => true) %></li>
         <% end %>
-        <% if current_user == post.user || forem_admin? %>
+        <% if forem_user == post.user || forem_admin? %>
           <li><%= link_to "Delete", topic_post_path(@topic, post), :method => :delete, :confirm => "Are you sure?" %></li>
         <% end %>
       <% end %>

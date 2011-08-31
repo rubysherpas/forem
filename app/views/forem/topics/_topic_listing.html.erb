@@ -6,7 +6,7 @@
     <% if topic_listing.pinned? %>
       <span class='pin icon'></span>
     <% end %>
-    <% if current_user && view = topic_listing.view_for(current_user) %>
+    <% if forem_user && view = topic_listing.view_for(forem_user) %>
       <% if topic_listing.posts.where("created_at > ?", view.updated_at).any? %>
         <span class='new_posts icon'>new</span>
       <% end %>
