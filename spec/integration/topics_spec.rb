@@ -125,6 +125,7 @@ describe "topics" do
     end
 
     it "should show a gravatar" do
+      visit forum_topic_path(forum, topic)
       assert page.has_selector?("div.icon > img[alt='Gravatar']")
     end
   end
