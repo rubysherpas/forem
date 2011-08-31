@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   unless defined?(JRUBY_VERSION)
     s.add_development_dependency "sqlite3"
   else
-    s.add_development_dependency "activerecord-jdbc-adapter"
+    s.add_development_dependency "activerecord-jdbcsqlite3-adapter"
   end
   s.add_development_dependency "factory_girl_rails"
   s.add_development_dependency "database_cleaner"
