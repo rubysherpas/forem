@@ -34,6 +34,8 @@ Finally, the controllers need to know what the current logged in user is for For
         current_user
       end
 
+      helper_method :forem_user
+
 ### Mount the engine
 
 The final step that is required is to mount this engine in the application's `config/routes.rb` file:
