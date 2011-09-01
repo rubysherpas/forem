@@ -12,6 +12,10 @@ Installing Forem is easy.
 
     gem 'forem', :git => "git://github.com/radar/forem.git"
 
+You may also want to include the basic theme (which you can then fork and alter as you see fit)
+
+    gem 'forem-theme-base', :git => "git://github.com/radar/forem-theme-base.git"
+
 Run `bundle install` to install these gems.
 
 ### Run the migrations & setup the models and controllers
