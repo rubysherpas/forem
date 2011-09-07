@@ -68,6 +68,15 @@ Here's a comprehensive list of the features currently in Forem:
 * Markdown formatting for posts
 * Theme support
 
+### Translations
+
+We currently have support for the following languages:
+
+* English
+* Polish
+* Chinese (zh-CN)
+
+Patches for new translations are very much welcome!
 
 ## Refinery CMS Integration
 
