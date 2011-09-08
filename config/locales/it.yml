@@ -1,0 +1,98 @@
+it:
+  forem:
+    admin:
+      forum:
+        edit: "Modifica il forum %{title}"
+        index: Gestione forum
+        new: Nuovo forum in creazione
+        new_link: Nuovo forum
+        deleted: Il forum selezionato è stato cancellato.
+        created: Il forum è stato creato.
+        not_created: Il forum non può essere creato.
+        updated: Il forum è stato aggiornato.
+        not_updated: Il forum non può essere aggiornato.
+    common:
+      pages: Pagine
+    errors:
+      not_signed_in: Devi prima registrarti.
+      access_denied: Accesso vietato.
+    forum:
+      header: "%{title} in visione"
+      forums: Forum
+      topics_count:
+        zero: 0 argomenti
+        one: 1 argomento
+        other: "%{count} argomenti"
+      posts_count:
+        zero: 0 discussioni
+        one: 1 discussione
+        other: "%{count} discussioni"
+    forums:
+      index:
+        title: Forum
+        forum: Forum
+        topics: Argomenti
+        posts: Discussioni
+        views: Visite
+        last_post: Ultima discussione
+    topic:
+      headings:
+        topic: "Argomento"
+        latest: "Ultima"
+        posts: "Discussione"
+        views: "Visite"
+      created: L'argomento è stato creato.
+      new: Nuovo argomento in creazione
+      not_created: L'argomento non può essere creato.
+      deleted: Il tuo argomento è stato cancellato.
+      cannot_delete: Non puoi cancellare un argomento che non hai creato.
+      updated: L'argomento è stato aggiornato.
+      not_updated: L'argomento non può essere aggiornato.
+      none: Non ci sono argomenti ndel forum.
+      links:
+        new: Nuovo argomento
+        back_to_topics: Torna agli argomenti
+        edit: Modifica argomento
+      not_found: L'argomento cercato non è stato trovato.
+      hidden:
+        'true': L'argomento è ora nascosto'.
+        'false': L'argomento è ora visibile.
+      locked:
+        'true': L'argomento è ora bloccato.
+        'false': L'argomento è ora sbloccato.
+      pinned:
+        'true': L'argomento è ora in evidenza.
+        'false': L'argomento non è più in evidenza.
+    topics:
+      show:
+        reply: 'Rispondi'
+        delete: 'Elimina'
+        reply_to_topic: Rispondi all'argomento
+        hide:
+          'true': Mostra l'argomento
+          'false': Nascondi l'argomento
+        lock:
+          'true': Sblocca l'argomento
+          'false': Blocca l'argomento
+        pin:
+          'true': Unpin this topic
+          'false': Pin this topic
+        
+        
+    post:
+      buttons:
+        reply: Invia la risposta
+      created: La tua risposta non è stata inviata.
+      new: Risposta
+      not_created: La tua risposta non può essere inviata.
+      not_created_topic_locked: Non puoi rispondere ad un argomento bloccato.
+      deleted: La tua disussione è stata eliminata.
+      cannot_delete: Non puoi cancellare una discussione che non hai creato.
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Forum
+        description: Gestisci forum
+
+  # General stuff
+  time_ago_in_words: "%{time} fa"
