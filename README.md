@@ -72,9 +72,10 @@ Here's a comprehensive list of the features currently in Forem:
 
 We currently have support for the following languages:
 
-* English
-* Polish
 * Chinese (zh-CN)
+* English
+* Italian
+* Polish
 
 Patches for new translations are very much welcome!
 
