@@ -1,4 +1,4 @@
-require "forem/engine"
+require 'forem/engine'
 require 'rdiscount'
 require 'kaminari'
 
