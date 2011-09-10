@@ -13,8 +13,8 @@ describe "managing forums" do
   end
 
   context "users signed in as admins" do
+    let!(:forum) { FactoryGirl.create(:forum, :title => "Original Name") }
     before do
-      @forum = Factory(:forum, :title => "Original Name")
       sign_in! :admin => true
       visit root_path
       # Ensure that people can navigate to this area.

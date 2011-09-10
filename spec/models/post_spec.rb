@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Forem::Post do
-  let(:post) { Factory(:post) }
-  let(:reply) { Factory(:post, :reply_to => post) }
+  let(:post) { FactoryGirl.create(:post) }
+  let(:reply) { FactoryGirl.create(:post, :reply_to => post) }
   
   context "upon deletion" do
 

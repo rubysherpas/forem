@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "forums" do
-  let!(:forum) { Factory(:forum) }
+  let!(:forum) { FactoryGirl.create(:forum) }
 
   it "listing all" do
     visit forums_path
@@ -12,11 +12,11 @@ describe "forums" do
 
   context "visiting a forum" do
     before do
-      @topic_1 = Factory(:topic, :subject => "Unpinned", :forum => forum)
-      @topic_2 = Factory(:topic, :subject => "Most Recent", :forum => forum)
-      Factory(:post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
-      @topic_3 = Factory(:topic, :subject => "PINNED!", :forum => forum, :pinned => true)
-      @topic_4 = Factory(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
+      @topic_1 = FactoryGirl.create(:topic, :subject => "Unpinned", :forum => forum)
+      @topic_2 = FactoryGirl.create(:topic, :subject => "Most Recent", :forum => forum)
+      FactoryGirl.create(:post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
+      @topic_3 = FactoryGirl.create(:topic, :subject => "PINNED!", :forum => forum, :pinned => true)
+      @topic_4 = FactoryGirl.create(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
       visit forum_path(forum.id)
     end
 
