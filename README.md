@@ -1,4 +1,4 @@
-![Forem - using the forem-theme-orange theme](/radar/forem/raw/doc/screenshot.png)
+![Forem - using the forem-theme-orange theme](http://github.com/radar/forem/raw/doc/screenshot.png)
 *Forem, using the forem-theme-orange theme*
 
 # Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
