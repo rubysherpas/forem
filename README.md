@@ -18,6 +18,17 @@ You may also want to include the basic theme (which you can then fork and alter 
 
 Run `bundle install` to install these gems.
 
+If you're choosing to use a theme then you will have to put this line inside your `application.css` file's directives:
+
+    *= require "forem/{theme}/style"
+
+Alternatively, require the stylesheet using `stylesheet_link_tag`:
+
+    <%= stylesheet_link_tag "forem/{theme}/style" %>
+
+This will require you to have the Asset Pipeline feature *enabled* within your application, which is the default for Rails 3.1 applications.
+
+
 ### Run the migrations & setup the models and controllers
 
 Once these gems are installed, run `rake forem:install:migrations` which will copy over the migrations that are contained within the engine into your application, which will then need to be run using `rake db:migrate`.

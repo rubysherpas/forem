@@ -5,10 +5,6 @@ module Forem
       (text.blank? ? "" : RDiscount.new(text).to_html).html_safe
     end
 
-    def forem_theme_tag
-      stylesheet_link_tag("forem/#{Forem.theme}/style.css")
-    end
-
     def forem_paginate(collection, options={})
       if respond_to?(:will_paginate)
         # If parent app is using Will Paginate, we need to use it also
