@@ -60,7 +60,7 @@ module Forem
       end
     end
 
-    private
+    protected
     def set_first_post_user
       post = self.posts.first
       post.user = self.user
