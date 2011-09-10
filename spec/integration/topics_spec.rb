@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe "topics" do
 
-  let(:forum) { Factory(:forum) }
-  let(:topic) { Factory(:topic, :forum => forum) }
-  let(:first_user) { Factory(:user, :login => 'first_forem_user') }
-  let(:user) { Factory(:user, :login => 'other_forem_user', :email => "bob@boblaw.com") }
-  let(:other_topic) { Factory(:topic, :subject => 'Another forem topic', :user => user, :forum => forum) }
+  let(:forum) { FactoryGirl.create(:forum) }
+  let(:topic) { FactoryGirl.create(:topic, :forum => forum) }
+  let(:first_user) { FactoryGirl.create(:user, :login => 'first_forem_user') }
+  let(:user) { FactoryGirl.create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com") }
+  let(:other_topic) { FactoryGirl.create(:topic, :subject => 'Another forem topic', :user => user, :forum => forum) }
 
   context "not signed in" do
     before do
@@ -115,7 +115,7 @@ describe "topics" do
 
   context "viewing a topic" do
     let(:topic) do
-      Factory(:topic, :forum => forum, :user => user)
+      FactoryGirl.create(:topic, :forum => forum, :user => user)
     end
 
     it "is free for all" do

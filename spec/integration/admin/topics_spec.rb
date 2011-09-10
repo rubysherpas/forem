@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe "topics" do
-  let(:forum) { Factory(:forum) }
-  let(:topic) { Factory(:topic, :forum => forum) }
-  let(:other_topic) { Factory(:topic, :forum => forum, :subject => "SECOND TOPIC") }
+  let(:forum) { FactoryGirl.create(:forum) }
+  let(:topic) { FactoryGirl.create(:topic, :forum => forum) }
+  let(:other_topic) { FactoryGirl.create(:topic, :forum => forum, :subject => "SECOND TOPIC") }
 
   before do
     sign_in! :admin => true

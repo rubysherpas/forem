@@ -9,8 +9,8 @@ describe "posts" do
   end
 
   # TODO: FG'ize
-  let(:forum) { Factory(:forum) }
-  let(:topic) { Factory(:topic, :forum => forum) }
+  let(:forum) { FactoryGirl.create(:forum) }
+  let(:topic) { FactoryGirl.create(:topic, :forum => forum) }
   
   context "not signed in users" do
     it "cannot begin to post a reply" do
@@ -78,7 +78,7 @@ describe "posts" do
 
     context "deleting" do
       before do
-        topic.posts << Factory(:post, :user => Factory(:user, :login => 'other_forem_user'))
+        topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user'))
         
         sign_in!
         visit forum_topic_path(forum, topic)

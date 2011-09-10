@@ -35,8 +35,8 @@ describe Forem::Topic do
   describe "pinning" do
     before(:each) do
       Forem::Topic.delete_all
-      @topic1 = Factory(:topic)
-      @topic2 = Factory(:topic)
+      @topic1 = FactoryGirl.create(:topic)
+      @topic2 = FactoryGirl.create(:topic)
     end
 
     it "should show pinned topics up top" do
@@ -50,11 +50,11 @@ describe Forem::Topic do
     before do
       Forem::Topic.delete_all
       @topic1 = Forem::Topic.create :subject => "POST"
-      Factory(:post, :topic => @topic1, :created_at => 1.seconds.ago)
+      FactoryGirl.create(:post, :topic => @topic1, :created_at => 1.seconds.ago)
       @topic2 = Forem::Topic.create :subject => "POST"
-      Factory(:post, :topic => @topic2, :created_at => 5.seconds.ago)
+      FactoryGirl.create(:post, :topic => @topic2, :created_at => 5.seconds.ago)
       @topic3 = Forem::Topic.create :subject => "POST"
-      Factory(:post, :topic => @topic3, :created_at => 10.seconds.ago)
+      FactoryGirl.create(:post, :topic => @topic3, :created_at => 10.seconds.ago)
     end
 
     it "should show topics by most recent post" do
