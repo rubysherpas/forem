@@ -2,7 +2,7 @@
 
 <% if @topics.num_pages > 1 %>
   <div class='pages'>
-    <%= t('forem.common.pages') -%>: <%= paginate @topics %>
+    <%= t('forem.common.pages') -%>: <%= forem_paginate @topics %>
   </div>
 <% end %>
 <table class='topics subdued' cellspacing='0'>
