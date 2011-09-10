@@ -1,12 +1,16 @@
 require 'forem/engine'
-require 'rdiscount'
+require 'redcarpet'
 require 'kaminari'
 
 module Forem
 
-  mattr_accessor :user_class, :theme
+  mattr_accessor :user_class, :theme, :markdown
 
   class << self
+    def markdown
+      @@markdown ||= ::Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    end
+
     def user_class
       @@user_class || raise(ConfigurationNotFound.new("user_class"))
     end
