@@ -2,5 +2,6 @@ script: "bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate; b
 rvm:
   - 1.8.7
   - 1.9.2
+  - 1.9.3
   - rbx-2.0
   - jruby
