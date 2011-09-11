@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: fe01a41046d127239343a4380dd18e456f270f82
+  specs:
+    kaminari (0.12.4)
+      railties (>= 3.0.0)
+
+GIT
   remote: git://github.com/radar/forem-theme-base
   revision: ad595697feb1f94720f5d5a46204f6ad24178cfe
   specs:
@@ -70,8 +77,6 @@ GEM
     i18n (0.6.0)
     json_pure (1.5.4)
       spruz (~> 0.2.8)
-    kaminari (0.12.4)
-      rails (>= 3.0.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mail (2.3.0)
@@ -156,6 +161,7 @@ DEPENDENCIES
   factory_girl_rails (>= 1.2.0)
   forem!
   forem-theme-base!
+  kaminari!
   launchy
   rails (~> 3.1.0)
   rspec-rails (~> 2.6)
