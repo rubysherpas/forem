@@ -1,6 +1,5 @@
 source "http://rubygems.org"
 
-gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git"
 gem 'forem-theme-base', :git => "git://github.com/radar/forem-theme-base"
 
 gemspec
