@@ -14,7 +14,7 @@
   </td>
   <td class='topic'>
     <div class='subject'><%= link_to topic_listing.subject, forum_topic_path(@forum, topic_listing) %></div>
-    <div class='started-by'>Started by <%= topic_listing.posts.first.user %></div>
+    <div class='started-by'><%= t "started_by" %><%= topic_listing.posts.first.user %></div>
   </td>
   <td class='latest-post'>
     <%= link_to_latest_post(topic_listing.posts.last) -%>
