@@ -18,6 +18,7 @@ zh-CN:
         forum: 论坛
         topics: 帖子
         posts: 回复
+        delete_confirm: 你确定删除这个板块吗?
     common:
       pages: 页面
     errors:
