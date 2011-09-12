@@ -3,25 +3,25 @@
   <%= render :partial => 'forem/posts/user_details', :locals => { :user => post.user } %>
 
   <div class='contents'>
-    <time datetime="<%= post.created_at.to_s(:db) -%>"><%= time_ago_in_words(post.created_at) + t("ago") -%></time>
+    <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %>  </time>
     <div class='text'>
       <%= forem_markdown(post.text) %>
     </div>
 
     <% if post.reply_to %>
-      <%= link_to t("forem.post.in_reply_to") + " #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+      <%= link_to " #{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
     <% end %>
 
     <ul class='actions'>
       <% if forem_user %>
         <% if @topic.can_be_replied_to? %>
-          <li><%= link_to t("forem.topic.reply"), new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
+          <li><%= link_to t('reply', :scope => 'forem.topic'), new_topic_post_path(@topic, :reply_to_id => post.id) %></li>
         <% end %>
         <% if @topic.can_be_replied_to? %>
-          <li><%= link_to t("forem.topic.quote"), new_topic_post_path(@topic, :reply_to_id => post.id, :quote => true) %></li>
+          <li><%= link_to t('quote', :scope => 'forem.topic'), new_topic_post_path(@topic, :reply_to_id => post.id, :quote => true) %></li>
         <% end %>
         <% if forem_user == post.user || forem_admin? %>
-          <li><%= link_to t("forem.topic.delete"), topic_post_path(@topic, post), :method => :delete, :confirm => t("are_you_sure") %></li>
+          <li><%= link_to t('delete', :scope => 'forem.topic'), topic_post_path(@topic, post), :method => :delete, :confirm => t("are_you_sure") %></li>
         <% end %>
       <% end %>
     </ul>
