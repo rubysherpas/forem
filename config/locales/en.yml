@@ -1,6 +1,7 @@
 en:
   forem:
     admin:
+      area: "Admin Area"
       forum:
         edit: "Editing the %{title} forum"
         index: Manage Forums
@@ -11,6 +12,12 @@ en:
         not_created: This forum could not be created.
         updated: That forum has been updated.
         not_updated: This forum could not be updated.
+      forums:
+        edit: Edit
+        delete: Delete
+        forum: Forum
+        topics: Topics
+        posts: Posts
     common:
       pages: Pages
     errors:
@@ -41,6 +48,9 @@ en:
         latest: "Latest"
         posts: "Posts"
         views: "Views"
+      reply: Reply
+      quote: Quote
+      delete: Delete
       created: This topic has been created.
       new: Creating a new topic
       not_created: This topic could not be created.
@@ -88,6 +98,7 @@ en:
       not_created_topic_locked: You cannot reply to a locked topic.
       deleted: Your post has been deleted.
       cannot_delete: You cannot delete a post you do not own.
+      in_reply_to: "In Reply To"
   refinery:
     plugins:
       refinery_forem:
@@ -96,3 +107,7 @@ en:
 
   # General stuff
   time_ago_in_words: "%{time} ago"
+  ago: " ago"
+  ago_by: " ago by"
+  started_by: "Started by "
+  are_you_sure: Are you sure?
