@@ -1,0 +1,98 @@
+en:
+  forem:
+    admin:
+      forum:
+        edit: "Das Forum \"%{title}\" bearbeiten"
+        index: Foren verwalten
+        new: Neues Forum erstellen
+        new_link: Neues Forum
+        deleted: Das gewählte Forum wurde gelöscht.
+        created: Das Forum wurde erstellt.
+        not_created: Das Forum konnte nicht erstellt werden.
+        updated: Das Forum wurde geändert.
+        not_updated: Das Forum konnte nicht geändert werden.
+    common:
+      pages: Seiten
+    errors:
+      not_signed_in: Sie müssen zuerst eingeloggt sein.
+      access_denied: Zugriff verweigert.
+    forum:
+      header: "Angezeigt wird %{title}"
+      forums: Foren
+      topics_count:
+        zero: 0 Topics
+        one: 1 Topic
+        other: "%{count} Topics"
+      posts_count:
+        zero: 0 Posts
+        one: 1 Posts
+        other: "%{count} Posts"
+    forums:
+      index:
+        title: Foren
+        forum: Forum
+        topics: Topics
+        posts: Posts
+        views: Views
+        last_post: Letzter Post
+    topic:
+      headings:
+        topic: "Topic"
+        latest: "Neuester"
+        posts: "Posts"
+        views: "Views"
+      created: Der Topic wurde erstellt.
+      new: Einen neuen Topic erstellen
+      not_created: Der Topic konnte nicht erstellt werden.
+      deleted: Der Topic wurde gelöscht.
+      cannot_delete: Sie können keinen Topic löschen, den sie nicht erstellt haben.
+      updated: Der Topic wurde geändert.
+      not_updated: Der Topic konnte nicht geändert werden.
+      none: Es gibt im Moment keine Topics in diesem Forum.
+      links:
+        new: Neuer Topic
+        back_to_topics: Zurück zu den Topics
+        edit: Topic bearbeiten
+      not_found: Der angeforderte Topic konnte nicht gefunden werden.
+      hidden:
+        'true': Der Topic ist jetzt unsichtbar.
+        'false': Der Topic ist jetzt sichtbar.
+      locked:
+        'true': Der Topic ist jetzt gesperrt.
+        'false': Der Topic ist jetzt entsperrt.
+      pinned:
+        'true': Der Topic ist jetzt angeheftet.
+        'false': Der Topic ist jetzt nicht angeheftet.
+    topics:
+      show:
+        reply: 'Antworten'
+        delete: 'Löschen'
+        reply_to_topic: 'Auf diesen Topic antworten'
+        hide:
+          'true': Diesen Topic wieder anzeigen
+          'false': Diesen Topic verstecken
+        lock:
+          'true': Diesen Topic entsperren
+          'false': Diesen Topic sperren
+        pin:
+          'true': Diesen Topic nicht mehr anheften
+          'false': Diesen Topic anheften
+        
+        
+    post:
+      buttons:
+        reply: Antwort erstellen
+      created: Ihre Antwort wurde erstellt.
+      new: Antwort erstellen
+      not_created: Ihre Antwort konnte nicht erstellt werden.
+      not_created_topic_locked: Sie können nicht auf einen gesperrten Topic antworten.
+      deleted: Ihr Post wurde gelöscht.
+      cannot_delete: Sie können keinen Post löschen, der nicht von Ihnen stammt.
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Foren
+        description: Foren verwalten
+
+  # General stuff
+  time_ago_in_words: "vor %{time}"
