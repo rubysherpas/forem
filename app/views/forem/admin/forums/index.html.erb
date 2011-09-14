@@ -5,18 +5,18 @@
 <table id='forums' class='forums subdued'>
   <thead>
     <tr>
-      <th>Edit</th>
-      <th>Delete</th>
-      <th>Forum</th>
-      <th>Topics</th>
-      <th>Posts</th>
+      <th><%= t('edit', :scope => 'forem.admin.forums') %></th>
+      <th><%= t('delete', :scope => 'forem.admin.forums') %></th>
+      <th><%= t('forum', :scope => 'forem.admin.forums') %></th>
+      <th><%= t('topics', :scope => 'forem.admin.forums') %></th>
+      <th><%= t('posts', :scope => 'forem.admin.forums') %></th>      
     </tr>
   </thead>
   <tbody>
     <% @forums.each do |forum| %>
       <tr class="forum <%= cycle("odd", "even") %>">
-        <td><%= link_to "Edit", edit_admin_forum_path(forum) %></td>
-        <td><%= link_to "Delete", admin_forum_path(forum), :method => :delete, :confirm => "Are you sure you want to delete this forum?" %></td>
+        <td><%= link_to t('edit', :scope => 'forem.admin.forums'), edit_admin_forum_path(forum) %></td>
+        <td><%= link_to t('delete', :scope => 'forem.admin.forums'), admin_forum_path(forum), :method => :delete, :confirm => t("delete_confirm", :scope => "forem.admin.forums") %></td>
         <td>
           <%= link_to forum.title, forum_path(forum) %>
           <div class='description'><%= forum.description %></div>
