@@ -1,16 +1,24 @@
 zh-CN:
   forem:
     admin:
+      area: "管理论坛"
       forum:
         edit: "编辑板块： %{title} "
         index: 管理板块
         new: 新建板块
-        new_link: 新板块
+        new_link: 新建板块
         deleted: 选择的板块已被删除
         created: 板块被创建
         not_created: 板块不能被新建
         updated: 板块已更新
         not_updated: 板块不能被更新
+      forums:
+        edit: 编辑
+        delete: 删除
+        forum: 论坛
+        topics: 帖子
+        posts: 回复
+        delete_confirm: 你确定删除这个板块吗?
     common:
       pages: 页面
     errors:
@@ -20,74 +28,78 @@ zh-CN:
       header: "查看 %{title}"
       forums: 板块
       topics_count:
-        zero: 0 主题
-        one: 1 主题
-        other: "%{count} 主题"
-      posts_count:
         zero: 0 帖子
         one: 1 帖子
         other: "%{count} 帖子"
+      posts_count:
+        zero: 0 回复
+        one: 1 回复
+        other: "%{count} 回复"
     forums:
       index:
         title: 板块
         forum: 板块
-        topics: 主题
-        posts: 帖子
+        topics: 帖子
+        posts: 回复
         views: 查看次数
-        last_post: 最新的帖子
+        last_post: 最新的回复
     topic:
       headings:
-        topic: "主题"
+        topic: "帖子"
         latest: "最新"
-        posts: "帖子"
+        posts: "回复"
         views: "查看次数"
-      created: 主题被创建
-      new: 新建一个主题
-      not_created: 主题不能被新建
-      deleted: 你的主题被删除了
-      cannot_delete: 你不能删除别人的主题
-      updated: 主题已被更新
-      not_updated: 主题不能被更新
-      none: 目前没有主题
+      reply: 回复
+      quote: 引用
+      delete: 删除
+      created: 帖子被创建
+      new: 新建一个帖子
+      not_created: 帖子不能被新建
+      deleted: 你的帖子被删除了
+      cannot_delete: 你不能删除别人的帖子
+      updated: 帖子已被更新
+      not_updated: 帖子不能被更新
+      none: 目前没有帖子
       links:
-        new: 新建主题
-        back_to_topics: 返回主题
-        edit: 编辑主题
-      not_found: 未找到主题
+        new: 新建帖子
+        back_to_topics: 返回帖子
+        edit: 编辑帖子
+      not_found: 未找到帖子
       hidden:
-        'true': 这个主题不可见
-        'false': 这个主题可见
+        'true': 这个帖子不可见
+        'false': 这个帖子可见
       locked:
-        'true': 这个主题被锁定了
-        'false': 这个主题被解锁了
+        'true': 这个帖子被锁定了
+        'false': 这个帖子被解锁了
       pinned:
-        'true': 这个主题被置顶了
-        'false': 这个主题被取消置顶了
+        'true': 这个帖子被置顶了
+        'false': 这个帖子被取消置顶了
     topics:
       show:
         reply: '回复'
         delete: '删除'
-        reply_to_topic: '回复该主题'
+        reply_to_topic: '回复该帖子'
         hide:
-          'true': 显示该主题
-          'false': 隐藏该主题
+          'true': 显示该帖子
+          'false': 隐藏该帖子
         lock:
-          'true': 解锁该主题
-          'false': 锁定该主题
+          'true': 解锁该帖子
+          'false': 锁定该帖子
         pin:
-          'true': 取消置顶该主题
-          'false': 置顶该主题
+          'true': 取消置顶该帖子
+          'false': 置顶该帖子
         
         
     post:
       buttons:
-        reply: 回复帖子
+        reply: 回复
       created: 你的回复发表了
-      new: 回复帖子
+      new: 回复
       not_created: 你的回复不能被发表
-      not_created_topic_locked: 你不能回复被锁定的帖子
-      deleted: 你的帖子被删除了
-      cannot_delete: 你不能删除别人的帖子
+      not_created_topic_locked: 你不能回复被锁定的回复
+      deleted: 你的回复被删除了
+      cannot_delete: 你不能删除别人的回复
+      in_reply_to: "回复给"
   refinery:
     plugins:
       refinery_forem:
@@ -95,4 +107,8 @@ zh-CN:
         description: 管理板块
 
   # General stuff
-  time_ago_in_words: "%{time} 以前"
+  time_ago_in_words: "%{time} 前"
+  ago: " 前"
+  ago_by: " 前 回复者: "
+  started_by: "创建者: "
+  are_you_sure: "确定吗？"
