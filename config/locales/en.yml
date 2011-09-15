@@ -42,7 +42,7 @@ en:
         topics: Topics
         posts: Posts
         views: Views
-        last_post: Last Post
+        last_post: Last Post:
     topic:
       headings:
         topic: "Topic"
