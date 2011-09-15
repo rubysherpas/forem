@@ -10,5 +10,9 @@ module Forem
     def last_post
       posts.last
     end
+
+    def last_visible_post
+      posts.where("forem_topics.hidden = ?", false).last
+    end
   end
 end

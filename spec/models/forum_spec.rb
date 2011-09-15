@@ -24,4 +24,14 @@ describe Forem::Forum do
       @forum.should_not be_valid
     end
   end
+
+  describe "helper methods" do
+    it "finds the last visible post" do
+      visible_topic = FactoryGirl.create(:topic, :forum => @forum)
+      hidden_topic = FactoryGirl.create(:topic, :forum => @forum, :hidden => true)
+
+      @forum.last_post.should == hidden_topic.posts.last
+      @forum.last_visible_post.should == visible_topic.posts.last
+    end
+  end
 end
