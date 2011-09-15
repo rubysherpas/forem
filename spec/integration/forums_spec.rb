@@ -24,6 +24,9 @@ describe "forums" do
       within("#forum h2") do
         page.should have_content("Welcome to Forem!")
       end
+      within("#forum small") do
+        page.should have_content("Some description goes here.")
+      end
     end
 
     it "lists pinned topics first" do
