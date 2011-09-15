@@ -2,8 +2,8 @@
 <div id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
 
   <div class='user'>
-    <div class='username'><%= user -%></div>
-    <div class='icon'><%= avatar(user, :size => 60) %></div>
+    <div class='username'><%= post.user -%></div>
+    <div class='icon'><%= avatar(post.user, :size => 60) %></div>
   </div>
 
   <div class='contents'>
