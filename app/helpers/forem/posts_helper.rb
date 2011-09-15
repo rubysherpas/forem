@@ -12,5 +12,9 @@ module Forem
       size = ("?s=#{options[:size]}" if options[:size])
       "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email.to_s.strip.downcase)}#{size}.jpg"
     end
+
+    def post_owner_or_admin?(post)
+      post.user == current_user || forem_admin?
+    end
   end
 end
