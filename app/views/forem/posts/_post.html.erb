@@ -22,7 +22,7 @@
         <% if @topic.can_be_replied_to? %>
           <li><%= link_to t('quote', :scope => 'forem.topic'), new_topic_post_path(@topic, :reply_to_id => post.id, :quote => true) %></li>
         <% end %>
-        <% if post_owner_or_admin?(post) %>
+        <% if post.owner_or_admin?(current_user) %>
           <li><%= link_to t('delete', :scope => 'forem.topic'), topic_post_path(@topic, post), :method => :delete, :confirm => t("are_you_sure") %></li>
         <% end %>
       <% end %>
