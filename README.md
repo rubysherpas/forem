@@ -1,6 +1,8 @@
-![Forem - using the forem-theme-orange theme](https://github.com/radar/forem/raw/master/doc/screenshot.png)
+![Forem - using the forem-theme-twist theme](https://github.com/radar/forem/raw/master/doc/twist-theme-post.png)
 
-*Forem, using the forem-theme-orange theme*
+*Forem, using the forem-theme-twist theme*
+
+*For other screenshots, please see the `doc` folder*
 
 # Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
 
