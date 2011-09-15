@@ -12,4 +12,12 @@ describe Forem::Post do
       reply.reply_to.should be_nil
     end
   end
+
+  context "helper methods" do
+    it "checks for post owner" do
+      admin = FactoryGirl.create(:admin)
+      assert post.owner_or_admin?(post.user)
+      assert post.owner_or_admin?(admin)
+    end
+  end
 end
