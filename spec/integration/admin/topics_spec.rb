@@ -20,6 +20,21 @@ describe "topics" do
     flash_error!("The topic you are looking for could not be found.")
   end
 
+  # Regression test for #41
+  it "can unhide a topic" do
+    visit forum_topic_path(forum, topic)
+    click_link "Hide"
+    flash_notice!("This topic is now hidden.")
+
+    visit forum_path(forum)
+
+    # Ensures we can navigate back to the topic from the forum view
+    # We should be able to see it because we're an admin
+    click_link "FIRST TOPIC"
+    click_link "Show this topic"
+    flash_notice!("This topic is now visible.")
+  end
+
   it "can lock a topic" do
     visit forum_topic_path(forum, topic)
     click_link "Lock"
