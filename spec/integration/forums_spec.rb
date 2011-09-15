@@ -25,7 +25,7 @@ describe "forums" do
         page.should have_content("Welcome to Forem!")
       end
       within("#forum small") do
-        page.should have_content("Some description goes here.")
+        page.should have_content("A placeholder forum.")
       end
     end
 
