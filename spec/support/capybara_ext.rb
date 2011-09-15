@@ -33,7 +33,7 @@ module CapybaraExt
     when :topic_menu
       "#topic menu"
     when :post_text
-      "#posts .post .text"
+      "#posts .post"
     when :post_user
       "#posts .post .user"
     when :first_post
