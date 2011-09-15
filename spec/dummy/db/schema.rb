@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110828132917) do
     t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "locked"
+    t.boolean  "locked",     :default => false, :null => false
     t.boolean  "pinned",     :default => false
     t.boolean  "hidden",     :default => false
   end
