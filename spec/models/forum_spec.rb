@@ -26,12 +26,23 @@ describe Forem::Forum do
   end
 
   describe "helper methods" do
-    it "finds the last visible post" do
-      visible_topic = FactoryGirl.create(:topic, :forum => @forum)
-      hidden_topic = FactoryGirl.create(:topic, :forum => @forum, :hidden => true)
+    # Regression tests + tests related to fix for #42
+    context "last_post" do
+      let!(:visible_topic) { FactoryGirl.create(:topic, :forum => @forum) }
+      let!(:hidden_topic) { FactoryGirl.create(:topic, :forum => @forum, :hidden => true) }
 
-      @forum.last_post.should == hidden_topic.posts.last
-      @forum.last_visible_post.should == visible_topic.posts.last
+      let(:user) { FactoryGirl.create(:user) }
+      let(:admin) { FactoryGirl.create(:admin) }
+
+      it "finds the last visible post" do
+        @forum.last_visible_post.should == visible_topic.posts.last
+      end
+
+      it "finds the last visible post for a user" do
+        @forum.last_post_for(user).should == visible_topic.posts.last
+        @forum.last_post_for(admin).should == hidden_topic.posts.last
+      end
     end
+
   end
 end
