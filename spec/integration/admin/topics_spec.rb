@@ -18,6 +18,11 @@ describe "topics" do
 
     visit forum_topic_path(forum, topic)
     flash_error!("The topic you are looking for could not be found.")
+
+    # Regression test for #42
+    visit root_path
+    # Sigh, do what I mean, not what I say.
+    /Last Post:\s?None/.match(page.body)
   end
 
   # Regression test for #41
