@@ -85,6 +85,14 @@ Here's a comprehensive list of the features currently in Forem:
 * Markdown formatting for posts
 * Theme support
 
+### Customisation
+
+If you want to customise Forem, you can copy over the views using the (Devise-inspired) `forem:views` generator:
+
+    rails g forem:views
+
+You will then be able to edit the forem views inside the `app/views/forem` of your application. These views will take precedence over those in the engine.
+
 ### Translations
 
 We currently have support for the following languages:
