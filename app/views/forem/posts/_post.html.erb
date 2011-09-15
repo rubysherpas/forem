@@ -11,7 +11,9 @@
     <%= forem_markdown(post.text) %>
 
     <% if post.reply_to %>
-      <%= link_to " #{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+      <span class='in_reply_to'>
+        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+      </span>
     <% end %>
 
     <ul class='actions'>
