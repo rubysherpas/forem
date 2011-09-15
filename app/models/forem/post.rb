@@ -9,5 +9,9 @@ module Forem
                        :dependent => :nullify
 
     validates :text, :presence => true
+
+    def owner_or_admin?(other_user)
+      self.user == other_user || other_user.forem_admin?
+    end
   end
 end
