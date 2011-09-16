@@ -32,12 +32,19 @@ module Forem
       @post = @topic.posts.find(params[:id])
       if forem_user == @post.user
         @post.destroy
-        flash[:notice] = t("forem.post.deleted")
+        if @post.topic.posts.count == 0
+          @post.topic.destroy
+          flash[:notice] = t("forem.post.deleted_with_topic")
+          redirect_to [@topic.forum]
+        else
+          flash[:notice] = t("forem.post.deleted")
+          redirect_to [@topic.forum, @topic]
+        end
       else
         flash.alert = t("forem.post.cannot_delete")
+        redirect_to [@topic.forum, @topic]
       end
 
-      redirect_to [@topic.forum, @topic]
     end
 
     private

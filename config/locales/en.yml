@@ -98,6 +98,7 @@ en:
       not_created: Your reply could not be posted.
       not_created_topic_locked: You cannot reply to a locked topic.
       deleted: Your post has been deleted.
+      deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: "In reply to"
   refinery:
