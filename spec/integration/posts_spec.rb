@@ -76,27 +76,49 @@ describe "posts" do
       end
     end
 
-    context "deleting" do
+    context "deleting posts in topics" do
       before do
-        topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user'))
-        
         sign_in!
-        visit forum_topic_path(forum, topic)
-      end
-      
-      it "can delete their own post" do
-        within(selector_for(:first_post)) do
-          click_link("Delete")
-        end
-        flash_notice!("Your post has been deleted.")
       end
 
-      it "cannot delete posts by others" do
-        other_post = topic.posts[1]
-        delete topic_post_path(topic, other_post), :id => other_post.id.to_s
-        response.should redirect_to(forum_topic_path(forum, topic))
-        flash.alert.should == "You cannot delete a post you do not own."
+      context "topic contains two posts" do
+        before do
+          topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user'))
+
+          visit forum_topic_path(forum, topic)
+        end
+
+        it "can delete their own post" do
+          within(selector_for(:first_post)) do
+            click_link("Delete")
+          end
+          flash_notice!("Your post has been deleted.")
+        end
+
+        it "cannot delete posts by others" do
+          other_post = topic.posts[1]
+          delete topic_post_path(topic, other_post), :id => other_post.id.to_s
+          response.should redirect_to(forum_topic_path(forum, topic))
+          flash[:error].should == "You cannot delete a post you do not own."
+        end
       end
+
+      context "topic contains one post" do
+        before do
+          visit forum_topic_path(forum, topic)
+        end
+
+        it "topic is deleted if only post" do
+          Forem::Topic.count.should == 1
+          within(selector_for(:first_post)) do
+            click_link("Delete")
+          end
+          Forem::Topic.count.should == 0
+
+          flash_notice!("Only post in topic deleted. Topic also deleted.")
+        end
+      end
+
     end
   end
 end
