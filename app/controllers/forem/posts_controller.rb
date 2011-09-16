@@ -41,8 +41,13 @@ module Forem
           redirect_to [@topic.forum, @topic]
         end
       else
-        flash.alert = t("forem.post.cannot_delete")
-        redirect_to [@topic.forum, @topic]
+        flash[:notice] = "OMGOMGOMG"
+        puts "DISPLAYING THE BLOODY FLASH"
+        flash[:alert] = t("forem.post.cannot_delete")
+        @posts = @topic.posts.page(params[:page])
+        @forum = @topic.forum
+
+        render "forem/topics/show"
       end
 
     end
