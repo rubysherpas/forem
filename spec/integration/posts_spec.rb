@@ -8,7 +8,6 @@ describe "posts" do
     ::Forem::View.delete_all
   end
 
-  # TODO: FG'ize
   let(:forum) { FactoryGirl.create(:forum) }
   let(:topic) { FactoryGirl.create(:topic, :forum => forum) }
   
@@ -95,13 +94,6 @@ describe "posts" do
           flash_notice!("Your post has been deleted.")
         end
 
-        it "cannot delete posts by others" do
-          other_post = topic.posts[1]
-          delete topic_post_path(topic, other_post), :id => other_post.id.to_s
-          # response.should redirect_to(forum_topic_path(forum, topic))
-          page!
-          flash_alert!("You cannot delete a post you do not own.")
-        end
       end
 
       context "topic contains one post" do
