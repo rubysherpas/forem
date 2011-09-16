@@ -30,7 +30,7 @@ module Forem
 
     def destroy
       @post = @topic.posts.find(params[:id])
-      if forem_user == @post.user
+      if @post.owner_or_admin?(forem_user)
         @post.destroy
         if @post.topic.posts.count == 0
           @post.topic.destroy

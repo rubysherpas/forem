@@ -17,7 +17,7 @@ describe "topics" do
     sign_out!
 
     visit forum_topic_path(forum, topic)
-    flash_error!("The topic you are looking for could not be found.")
+    flash_alert!("The topic you are looking for could not be found.")
 
     # Regression test for #42
     visit root_path
