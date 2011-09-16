@@ -14,7 +14,7 @@ describe "topics" do
     end
     it "cannot create a new topic" do
       visit new_forum_topic_path(forum)
-      flash_error!("You must sign in first.")
+      flash_alert!("You must sign in first.")
     end
 
     it "cannot delete topics" do
@@ -46,14 +46,14 @@ describe "topics" do
       it "is invalid without subject but with post text" do
         click_button 'Create Topic'
 
-        flash_error!("This topic could not be created.")
+        flash_alert!("This topic could not be created.")
         find_field("topic_subject").value.should eql("")
         find_field("topic_posts_attributes_0_text").value.should eql("")
       end
 
       it "does not keep flash error over requests" do
         click_button 'Create Topic'
-        flash_error!("This topic could not be created.")
+        flash_alert!("This topic could not be created.")
         visit root_path
         page.should_not have_content("This topic could not be created.")
       end

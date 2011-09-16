@@ -10,7 +10,7 @@ module CapybaraExt
     end
   end
   
-  def flash_error!(text)
+  def flash_alert!(text)
     within("#flash_alert") do
       assert_seen(text)
     end

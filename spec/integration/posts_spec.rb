@@ -15,7 +15,7 @@ describe "posts" do
   context "not signed in users" do
     it "cannot begin to post a reply" do
       visit new_topic_post_path(topic)
-      flash_error!("You must sign in first.")
+      flash_alert!("You must sign in first.")
     end
     
     it "cannot delete posts" do
@@ -59,18 +59,18 @@ describe "posts" do
 
           fill_in "Text", :with => "Witty and insightful commentary."
           click_button "Post Reply"
-          flash_error!("You cannot reply to a locked topic.")
+          flash_alert!("You cannot reply to a locked topic.")
         end
       end
 
       it "cannot post a reply to a topic with blank text" do
         click_button "Post Reply"
-        flash_error!("Your reply could not be posted.")
+        flash_alert!("Your reply could not be posted.")
       end
 
       it "does not hold over failed post flash to next request" do
         click_button "Post Reply"
-        flash_error!("Your reply could not be posted.")
+        flash_alert!("Your reply could not be posted.")
         visit root_path
         page.should_not have_content("Your reply could not be posted.")
       end
@@ -98,8 +98,9 @@ describe "posts" do
         it "cannot delete posts by others" do
           other_post = topic.posts[1]
           delete topic_post_path(topic, other_post), :id => other_post.id.to_s
-          response.should redirect_to(forum_topic_path(forum, topic))
-          flash[:error].should == "You cannot delete a post you do not own."
+          # response.should redirect_to(forum_topic_path(forum, topic))
+          page!
+          flash_alert!("You cannot delete a post you do not own.")
         end
       end
 

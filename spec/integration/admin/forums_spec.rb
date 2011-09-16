@@ -8,7 +8,7 @@ describe "managing forums" do
 
     it "cannot create a new forum" do
       visit new_admin_forum_path
-      flash_error!("Access denied.")
+      flash_alert!("Access denied.")
     end
   end
 
@@ -39,7 +39,7 @@ describe "managing forums" do
         fill_in "Description", :with => "The first placeholder forum."
         click_button 'Create Forum'
 
-        flash_error!("This forum could not be created.")
+        flash_alert!("This forum could not be created.")
         find_field("forum_title").value.should eql("")
       end
 
@@ -47,14 +47,14 @@ describe "managing forums" do
         fill_in "Title", :with => "FIRST FORUM."
         click_button 'Create Forum'
 
-        flash_error!("This forum could not be created.")
+        flash_alert!("This forum could not be created.")
         find_field("forum_description").value.should eql("")
       end
 
       it "does not keep fail flash message for next request" do
         fill_in "Title", :with => ""
         click_button 'Create Forum'
-        flash_error!("This forum could not be created.")
+        flash_alert!("This forum could not be created.")
         visit root_path
         page.should_not have_content("This forum could not be created.")
       end
@@ -80,7 +80,7 @@ describe "managing forums" do
         click_link "Edit"
         fill_in "Title", :with => ""
         click_button "Update Forum"
-        flash_error!("This forum could not be updated.")
+        flash_alert!("This forum could not be updated.")
         visit root_path
         page.should_not have_content("This forum could not be updated.")
       end
