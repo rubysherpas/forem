@@ -15,7 +15,7 @@ module Forem
           flash[:notice] = t("forem.topic.updated")
           redirect_to forum_topic_path(@topic.forum, @topic)
         else
-          flash[:error] = t("forem.topic.not_updated")
+          flash.alert = t("forem.topic.not_updated")
           render :action => "edit"
         end
       end

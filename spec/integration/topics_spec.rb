@@ -20,7 +20,7 @@ describe "topics" do
     it "cannot delete topics" do
       delete forum_topic_path(topic.forum, topic), :id => topic.id.to_s
       response.should redirect_to(sign_in_path)
-      flash[:error].should == "You must sign in first."
+      flash.alert.should == "You must sign in first."
     end
   end
 
@@ -76,7 +76,7 @@ describe "topics" do
         first_user.id # Generate the first user that corresponds to the logged in user
         delete forum_topic_path(other_topic.forum, other_topic), :id => other_topic.id.to_s
         response.should redirect_to(forum_path(other_topic.forum))
-        flash[:error].should == "You cannot delete a topic you do not own."
+        flash.alert.should == "You cannot delete a topic you do not own."
       end
     end
 

@@ -22,7 +22,7 @@ describe "posts" do
       first_post = topic.posts[0]
       delete topic_post_path(topic, first_post), :id => first_post.id.to_s
       response.should redirect_to(sign_in_path)
-      flash[:error].should == "You must sign in first."
+      flash.alert.should == "You must sign in first."
     end
   end
 
@@ -95,7 +95,7 @@ describe "posts" do
         other_post = topic.posts[1]
         delete topic_post_path(topic, other_post), :id => other_post.id.to_s
         response.should redirect_to(forum_topic_path(forum, topic))
-        flash[:error].should == "You cannot delete a post you do not own."
+        flash.alert.should == "You cannot delete a post you do not own."
       end
     end
   end

@@ -11,7 +11,7 @@ module Forem
 
       def authenticate_forem_admin
         if !forem_user || !forem_user.forem_admin?
-          flash[:error] = t("forem.errors.access_denied")
+          flash.alert = t("forem.errors.access_denied")
           redirect_to forums_path #TODO: not positive where to redirect here
         end
       end
