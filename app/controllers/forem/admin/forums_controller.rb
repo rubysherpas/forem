@@ -17,7 +17,7 @@ module Forem
           flash[:notice] = t("forem.admin.forum.created")
           redirect_to admin_forums_path
         else
-          flash.now[:error] = t("forem.admin.forum.not_created")
+          flash.now.alert = t("forem.admin.forum.not_created")
           render :action => "new"
         end
       end
@@ -31,7 +31,7 @@ module Forem
           flash[:notice] = t("forem.admin.forum.updated")
           redirect_to admin_forums_path
         else
-          flash.now[:error] = t("forem.admin.forum.not_updated")
+          flash.now.alert = t("forem.admin.forum.not_updated")
           render :action => "edit"
         end
       end

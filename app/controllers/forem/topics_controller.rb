@@ -9,7 +9,7 @@ module Forem
         scope = forem_admin? ? @forum.topics : @forum.topics.visible
         @topic = scope.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-        flash[:error] = t("forem.topic.not_found")
+        flash.alert = t("forem.topic.not_found")
         redirect_to @forum
       else
         register_view
@@ -29,7 +29,7 @@ module Forem
         flash[:notice] = t("forem.topic.created")
         redirect_to [@forum, @topic]
       else
-        flash.now[:error] = t("forem.topic.not_created")
+        flash.now.alert = t("forem.topic.not_created")
         render :action => "new"
       end
     end
@@ -40,7 +40,7 @@ module Forem
         @topic.destroy
         flash[:notice] = t("forem.topic.deleted")
       else
-        flash[:error] = t("forem.topic.cannot_delete")
+        flash.alert = t("forem.topic.cannot_delete")
       end
 
       redirect_to @topic.forum

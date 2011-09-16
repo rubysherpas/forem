@@ -13,7 +13,7 @@ module Forem
 
     def create
       if @topic.locked?
-        flash[:error] = t("forem.post.not_created_topic_locked")
+        flash.alert = t("forem.post.not_created_topic_locked")
         redirect_to [@topic.forum, @topic] and return
       end
       @post = @topic.posts.build(params[:post])
@@ -23,7 +23,7 @@ module Forem
         redirect_to [@topic.forum, @topic]
       else
         params[:reply_to_id] = params[:post][:reply_to_id]
-        flash.now[:error] = t("forem.post.not_created")
+        flash.now.alert = t("forem.post.not_created")
         render :action => "new"
       end
     end
@@ -34,7 +34,7 @@ module Forem
         @post.destroy
         flash[:notice] = t("forem.post.deleted")
       else
-        flash[:error] = t("forem.post.cannot_delete")
+        flash.alert = t("forem.post.cannot_delete")
       end
 
       redirect_to [@topic.forum, @topic]
