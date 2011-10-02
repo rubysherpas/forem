@@ -99,6 +99,20 @@ If you want to customise Forem, you can copy over the views using the (Devise-in
 
 You will then be able to edit the forem views inside the `app/views/forem` of your application. These views will take precedence over those in the engine.
 
+### Application route helpers ###
+
+When using Rails route helpers in your application layout, or in customised forem views, you need to make it clear that they are main app links.
+
+    link_to "Sign out", main_app.sign_out_path
+
+Otherwise you will get errors resembling:
+  
+    ActionView::Template::Error (undefined local variable or method `sign_out_path' for #<#Class:0x7f4f21002090:0x7f4f20ffda40>)
+
+Conversely to access forem paths you would use:
+
+    link_to "Discussion", forem.root_path
+
 ### Translations
 
 We currently have support for the following languages:
