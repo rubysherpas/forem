@@ -1,7 +1,7 @@
 en:
   forem:
     admin:
-      area: "Admin Area"
+      area: Admin Area
       forum:
         edit: "Editing the %{title} forum"
         index: Manage Forums
@@ -45,10 +45,10 @@ en:
         last_post: 'Last Post:'
     topic:
       headings:
-        topic: "Topic"
-        latest: "Latest"
-        posts: "Posts"
-        views: "Views"
+        topic: Topic
+        latest: Latest
+        posts: Posts
+        views: Views
       reply: Reply
       quote: Quote
       delete: Delete
@@ -76,9 +76,9 @@ en:
         'false': This topic is now unpinned.
     topics:
       show:
-        reply: 'Reply'
-        delete: 'Delete'
-        reply_to_topic: 'Reply to Topic'
+        reply: Reply
+        delete: Delete
+        reply_to_topic: Reply to Topic
         hide:
           'true': Show this topic
           'false': Hide this topic
@@ -88,8 +88,6 @@ en:
         pin:
           'true': Unpin this topic
           'false': Pin this topic
-        
-        
     post:
       buttons:
         reply: Post Reply
@@ -100,7 +98,7 @@ en:
       deleted: Your post has been deleted.
       deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
-      in_reply_to: "In reply to"
+      in_reply_to: In reply to
   refinery:
     plugins:
       refinery_forem:
@@ -111,5 +109,6 @@ en:
   time_ago_in_words: "%{time} ago"
   ago: " ago"
   ago_by: " ago by"
+  by: by
   started_by: "Started by "
   are_you_sure: Are you sure?

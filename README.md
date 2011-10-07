@@ -124,6 +124,18 @@ We currently have support for the following languages:
 
 Patches for new translations are very much welcome!
 
+### Additional themes
+
+Here are some other themes you can use:
+
+Blue links, black headers:
+
+    gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
+
+Brown links, orange headers and posts body:
+
+    gem 'forem-theme-orange', :git => "git://github.com/radar/forem-theme-orange.git"
+
 ## Refinery CMS Integration
 
 Requires Refinery CMS [master branch](https://github.com/resolve/refinerycms/tree/master)
