@@ -10,4 +10,3 @@ tmp
 spec/dummy/log
 spec/dummy/db/*.sqlite3
 *.rbc
-.rvmrc
