@@ -2,6 +2,7 @@ pl:
   forem:
     admin:
       area: Panel administracyjny
+      welcome: Witaj w panelu administracyjnym Forem.
       forum:
         edit: "Edytuj forum %{title}"
         index: Zarządzanie forami
@@ -45,6 +46,7 @@ pl:
         posts: Wpisy
         views: Wyświetlenia
         last_post: 'Ostatni wpis:'
+        none: Brak
     topic:
       headings:
         topic: Temat

@@ -2,6 +2,7 @@ en:
   forem:
     admin:
       area: Admin Area
+      welcome: "Welcome to forem's Admin Area."
       forum:
         edit: "Editing the %{title} forum"
         index: Manage Forums
@@ -43,6 +44,7 @@ en:
         posts: Posts
         views: Views
         last_post: 'Last Post:'
+        none: None
     topic:
       headings:
         topic: Topic
