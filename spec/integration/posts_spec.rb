@@ -94,6 +94,13 @@ describe "posts" do
           flash_notice!("Your post has been deleted.")
         end
 
+        it "cannot delete posts by others" do
+          other_post = topic.posts[1]
+          #sends delete request with the current rack-test logged-in session & follows the redirect
+          Capybara.current_session.driver.submit :delete, topic_post_path(topic, other_post), {}
+          flash_alert!("You cannot delete a post you do not own.")
+          ::Forem::Post.should exist(other_post.id)
+        end
       end
 
       context "topic contains one post" do
