@@ -3,6 +3,7 @@ pkg/
 *.sqlite3
 *.log
 .rvmrc
+.rbenv-version
 *.gem
 *.gems
 tmp
@@ -10,4 +11,3 @@ tmp
 spec/dummy/log
 spec/dummy/db/*.sqlite3
 *.rbc
-.rvmrc
