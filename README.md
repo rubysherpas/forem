@@ -88,7 +88,9 @@ Here's a comprehensive list of the features currently in Forem:
   * Replying to topics
   * Deleting own topics
   * Blocking replies to locked topics
-* Markdown formatting for posts
+* Text Formatting
+  * Posts are HTML escaped and pre tagged by default.
+  * Pluggable formatters for other behaviour (Markdown, Textile)
 * Theme support
 
 ### Customisation
@@ -112,6 +114,16 @@ Otherwise you will get errors resembling:
 Conversely to access forem paths you would use:
 
     link_to "Discussion", forem.root_path
+
+### Post formatting
+
+To change the post formatting behaviour, you may want to try these gems:
+
+  * [Forem - Markdown formatter](https://github.com/nruth/forem-markdown_formatter)
+  * [Forem - Textile formatter](https://github.com/nruth/forem-textile_formatter)
+
+Or see Forem::FormattingHelper#as\_formatted\_html, which you can override.
+
 
 ### Translations
 

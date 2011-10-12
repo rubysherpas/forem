@@ -1,13 +1,15 @@
 module Forem
   module ApplicationHelper
-    def forem_markdown(text, *options)
-      text = sanitize(text) unless text.html_safe? || options.delete(:safe)
-      as_markdown(text)
+    include FormattingHelper
+    # processes text with installed markup formatter
+    def forem_format(text, *options)
+      as_formatted_html(text)
     end
 
-    def as_markdown(text)
-      return text if text.blank?
-      ::Forem.markdown.render(text).html_safe
+    def forem_markdown(text, *options)
+      #TODO: delete deprecated method
+      Rails.logger.warn("DEPRECATION: forem_markdown is replaced by forem_format() + forem-markdown_formatter gem, and will be removed")
+      forem_format(text)
     end
 
     def forem_paginate(collection, options={})
