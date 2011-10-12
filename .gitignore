@@ -3,6 +3,7 @@ pkg/
 *.sqlite3
 *.log
 .rvmrc
+.rbenv-version
 *.gem
 *.gems
 tmp
