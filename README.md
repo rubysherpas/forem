@@ -172,3 +172,10 @@ File an issue and we'll get around to it when we can.
 * Josh Adams
 * Adam McDonald
 * Zak Strassburg
+
+## Places using Forem
+
+* http://biasproject.org 
+* http://alabamaintel.com
+
+If you want yours added here, just ask!
