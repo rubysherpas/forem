@@ -18,5 +18,4 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '~>3.1.0'
   s.add_dependency 'simple_form'
   s.add_dependency 'kaminari'
-  s.add_dependency 'redcarpet', '>= 2.0.0b4'
 end
