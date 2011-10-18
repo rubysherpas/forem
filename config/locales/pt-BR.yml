@@ -1,0 +1,116 @@
+en:
+  forem:
+    admin:
+      area: Área de Administração
+      welcome: "Bem vindo"
+      forum:
+        edit: "Editando o fórum %{title}"
+        index: Gerenciar Fórum
+        new: Novo Fórum
+        new_link: Novo Fórum
+        deleted: O fórum selecionado foi removido.
+        created: Fórum criado com sucesso.
+        not_created: Não foi possível criar o fórum.
+        updated: Fórum atualizado.
+        not_updated: Não foi possível atualizar o fórum.
+      forums:
+        edit: Editar
+        delete: Remover
+        forum: Fórum
+        topics: Tópicos
+        posts: Postagens
+        delete_confirm: Tem certeza de que deseja remover este fórum?
+    common:
+      pages: Páginas
+    errors:
+      not_signed_in: Você deve autenticar-se antes de acessar o fórum.
+      access_denied: Acesso negado.
+    forum:
+      header: "Acessando %{title}"
+      forums: Fórums
+      topics_count:
+        zero: 0 tópicos
+        one: 1 tópico
+        other: "%{count} tópicos"
+      posts_count:
+        zero: 0 postagens
+        one: 1 postagem
+        other: "%{count} postagens"
+    forums:
+      index:
+        title: Fórum
+        forum: Fórum
+        topics: Tópics
+        posts: Postagens
+        views: Visistas
+        last_post: 'Última postagem:'
+        none: Nenhuma
+    topic:
+      headings:
+        topic: Tópico
+        latest: Ultima
+        posts: Postagem
+        views: Visitas
+      reply: Responder
+      quote: Quotar
+      delete: Remover
+      created: Tópico criado.
+      new: Criar novo tópico
+      not_created: Tópico não pode ser criado.
+      deleted: Tópico removido.
+      cannot_delete: Você não pode remover um tópico de outra pessoa.
+      updated: Tópico atualizado.
+      not_updated: Não foi possível atualizar o tópico.
+      none: Não existem tópicos neste fórum.
+      links:
+        new: Novo tópico
+        back_to_topics: Voltar aos tópicos
+        edit: Editar tópico
+      not_found: Não foi possível encontrar o tópico requisitado.
+      hidden:
+        'true': Tópico escondido.
+        'false': Tópico visível.
+      locked:
+        'true': Tópico trancado.
+        'false': Tópico destrancado.
+      pinned:
+        'true': Tópico promovido.
+        'false': "Tópico não-promovido."
+    topics:
+      show:
+        reply: Responder
+        delete: Remover
+        reply_to_topic: Responder ao tópico
+        hide:
+          'true': Mostrar tópico
+          'false': Esconder tópico
+        lock:
+          'true': Destrancar tópico
+          'false': Trancar tópico
+        pin:
+          'true': Remover promoção do tópico
+          'false': Promover tópico
+    post:
+      buttons:
+        reply: Responder
+      created: Resposta postada com sucesso.
+      new: Postar resposta
+      not_created: Sua resposta não pode ser postada.
+      not_created_topic_locked: Você não pode responder um tópico trancado.
+      deleted: Post removido.
+      deleted_with_topic: "Única postagem removida. Por isso, o tópico também foi removido."
+      cannot_delete: Você não pode remover uma postagem de outra pessoa.
+      in_reply_to: Em resposta a
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Fórums
+        description: Gerenciar fórums
+
+  # General stuff
+  time_ago_in_words: "%{time} atrás"
+  ago: " atrás"
+  ago_by: " atrás by"
+  by: por
+  started_by: "Iniciado por "
+  are_you_sure: Tem certeza?
