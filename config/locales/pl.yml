@@ -4,7 +4,6 @@ pl:
       area: Panel administracyjny
       welcome: Witaj w panelu administracyjnym Forem.
       forum:
-        edit: "Edytuj forum %{title}"
         index: Zarządzanie forami
         new: Dodaj forum
         new_link: Dodaj forum
@@ -32,6 +31,7 @@ pl:
       header: "Przeglądasz %{title}"
       forums: Fora
       new: Dodawanie nowego forum
+      edit: "Edytujesz forum %{title}"
       topics_count:
         zero: 0 tematów
         one: 1 temat
@@ -108,6 +108,14 @@ pl:
       deleted_with_topic: Tylko post w temacie usunięty. Temat również usunięty.
       cannot_delete: Nie możesz usunąć wpisu, którego nie dodałeś.
       in_reply_to: Odpowiedź na wypowiedź użytkownika
+  helpers:
+    submit:
+      forum:
+        create: Utwórz forum
+        update: Aktualizuj forum
+      topic:
+        create: Utwórz temat
+        update: Aktualizuj temat
   simple_form:
     topic: Temat
     labels:
