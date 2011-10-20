@@ -4,7 +4,6 @@ en:
       area: Admin Area
       welcome: "Welcome to forem's Admin Area."
       forum:
-        edit: "Editing the %{title} forum"
         index: Manage Forums
         new: Creating a new forum
         new_link: New Forum
@@ -32,6 +31,7 @@ en:
       header: "Viewing %{title}"
       forums: Forums
       new: Creating a new forum
+      edit: "Editing the %{title} forum"
       topics_count:
         zero: 0 topics
         one: 1 topic
@@ -106,6 +106,14 @@ en:
       deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: In reply to
+  helpers:
+    submit:
+      forum:
+        create: Create Forum
+        update: Update Forum
+      topic:
+        create: Create Topic
+        update: Update Topic
   simple_form:
     labels:
       forum:
