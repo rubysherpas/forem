@@ -107,7 +107,7 @@ pl:
       deleted: Twój wpis został usunięty.
       deleted_with_topic: Tylko post w temacie usunięty. Temat również usunięty.
       cannot_delete: Nie możesz usunąć wpisu, którego nie dodałeś.
-      in_reply_to: Odpowiedź na wypowiedź użytkownika
+      in_reply_to: W odpowiedzi na wypowiedź użytkownika
   helpers:
     submit:
       forum:
