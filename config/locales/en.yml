@@ -4,7 +4,6 @@ en:
       area: Admin Area
       welcome: "Welcome to forem's Admin Area."
       forum:
-        edit: "Editing the %{title} forum"
         index: Manage Forums
         new: Creating a new forum
         new_link: New Forum
@@ -20,6 +19,9 @@ en:
         topics: Topics
         posts: Posts
         delete_confirm: Are you sure you want to delete this forum?
+        index:
+          last_post: Last post
+          none: None
     common:
       pages: Pages
     errors:
@@ -28,6 +30,8 @@ en:
     forum:
       header: "Viewing %{title}"
       forums: Forums
+      new: Creating a new forum
+      edit: "Editing the %{title} forum"
       topics_count:
         zero: 0 topics
         one: 1 topic
@@ -56,6 +60,7 @@ en:
       delete: Delete
       created: This topic has been created.
       new: Creating a new topic
+      edit: Editing topic
       not_created: This topic could not be created.
       deleted: Your topic has been deleted.
       cannot_delete: You cannot delete a topic you do not own.
@@ -101,6 +106,28 @@ en:
       deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: In reply to
+  helpers:
+    submit:
+      forum:
+        create: Create Forum
+        update: Update Forum
+      topic:
+        create: Create Topic
+        update: Update Topic
+  simple_form:
+    labels:
+      forum:
+        title: Title
+        description: Description
+      topic:
+        subject: Title
+        locked: Locked
+        pinned: Pinned
+        hidden: Hidden
+        posts:
+          text: Text
+      post:
+        text: Text
   refinery:
     plugins:
       refinery_forem:
