@@ -20,6 +20,9 @@ pl:
         topics: Tematy
         posts: Posty
         delete_confirm: Czy na pewno chcesz usunąć to forum?
+        index:
+          last_post: Ostatni post
+          none: Brak
     common:
       pages: Strony
     errors:
@@ -28,6 +31,7 @@ pl:
     forum:
       header: "Przeglądasz %{title}"
       forums: Fora
+      new: Dodawanie nowego forum
       topics_count:
         zero: 0 tematów
         one: 1 temat
@@ -57,7 +61,8 @@ pl:
       quote: Cytuj
       delete: Usuń
       created: Temat został dodany.
-      new: Dodaj temat
+      new: Dodawanie nowego tematu
+      edit: Edycja tematu
       not_created: Temat nie został dodany.
       deleted: Temat został usunięty.
       cannot_delete: Nie możesz usunąć tematu, którego nie dodałeś.
@@ -102,7 +107,22 @@ pl:
       deleted: Twój wpis został usunięty.
       deleted_with_topic: Tylko post w temacie usunięty. Temat również usunięty.
       cannot_delete: Nie możesz usunąć wpisu, którego nie dodałeś.
-      in_reply_to: Odpowiedź użytkownikowi
+      in_reply_to: Odpowiedź na wypowiedź użytkownika
+  simple_form:
+    topic: Temat
+    labels:
+      forum:
+        title: Tytuł
+        description: Opis
+      topic:
+        subject: Temat
+        locked: Zablokowany
+        pinned: Przypięty
+        hidden: Ukryty
+        posts:
+          text: Tekst
+      post:
+        text: Tekst
   refinery:
     plugins:
       refinery_forem:
