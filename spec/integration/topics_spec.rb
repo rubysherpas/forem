@@ -32,7 +32,7 @@ describe "topics" do
 
     context "creating a topic" do
       it "is valid with subject and post text" do
-        fill_in "Title", :with => "FIRST TOPIC"
+        fill_in "Subject", :with => "FIRST TOPIC"
         fill_in "Text", :with => "omgomgomgomg"
         click_button 'Create Topic'
 
