@@ -175,7 +175,9 @@ File an issue and we'll get around to it when we can.
 
 ## Places using Forem
 
-* http://biasproject.org 
-* http://alabamaintel.com
+* [Bias Project](http://biasproject.org)
+* [Alabama Intel](http://alabamaintel.com)
+* [PixieEngine](http://pixieengine.com/community)
+* [2012 Presidential Election](http://www.2012-presidential-election.info/network/)
 
 If you want yours added here, just ask!
