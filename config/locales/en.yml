@@ -120,7 +120,7 @@ en:
         title: Title
         description: Description
       topic:
-        subject: Title
+        subject: Subject
         locked: Locked
         pinned: Pinned
         hidden: Hidden
