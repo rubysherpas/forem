@@ -7,7 +7,7 @@ module Forem
     end
 
     def avatar_url(email, options = {})
-      options = {:size => 60}
+      options.reverse_merge! {:size => 60}
       require 'digest/md5'
       size = ("?s=#{options[:size]}" if options[:size])
       "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email.to_s.strip.downcase)}#{size}.jpg"
