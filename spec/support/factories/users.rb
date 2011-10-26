@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do |f|
-    f.email "bob@boblaw.com"
+    f.email { "bob#{rand(100000)}@boblaw.com" }
     f.password "password"
     f.password_confirmation "password"
 

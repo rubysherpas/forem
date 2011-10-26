@@ -15,10 +15,6 @@ Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
-  config.before(:each) do
-    sign_out! # stubs out the current_user method to return nil
-  end
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
