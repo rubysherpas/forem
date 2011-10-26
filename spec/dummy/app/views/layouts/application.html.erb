@@ -10,7 +10,10 @@
   <% flash.each do |key, message| %>
     <div id='flash_<%= key %>'><%= message %></div>
   <% end %>
-  Signed in as <%= current_user %>
+  <% if user_signed_in? %>
+    Signed in as <%= current_user %>
+    <%= link_to "Sign out", main_app.destroy_user_session_path, :method => :delete %>
+  <% end %>
 
 
 <%= yield %>
