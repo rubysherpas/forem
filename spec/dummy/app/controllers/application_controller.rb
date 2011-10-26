@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def forem_user
     current_user
   end
+
+  def sign_in_path
+    new_user_session_path
+  end
 end

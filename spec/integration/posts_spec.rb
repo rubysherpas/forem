@@ -37,9 +37,8 @@ describe "posts" do
           fill_in "Text", :with => "Witty and insightful commentary."
           click_button "Post Reply"
           flash_notice!("Your reply has been posted.")
-          assert_seen("In reply to #{topic.posts.first.user}", :within => :second_post)
+          assert_seen("In reply to #{topic.posts.first.user.login}", :within => :second_post)
           click_link "Welcome to Forem!"
-          page!
         end
       end
 
@@ -68,12 +67,12 @@ describe "posts" do
 
     context "deleting posts in topics" do
       before do
-        sign_in!
+        sign_in(user)
       end
 
       context "topic contains two posts" do
         before do
-          topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user'))
+          topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
 
           visit forum_topic_path(forum, topic)
         end

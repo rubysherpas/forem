@@ -10,6 +10,8 @@
   <% flash.each do |key, message| %>
     <div id='flash_<%= key %>'><%= message %></div>
   <% end %>
+  Signed in as <%= current_user %>
+
 
 <%= yield %>
 

@@ -4,6 +4,10 @@ require 'rails/all'
 
 Bundler.require
 require "forem"
+# Need to load Devise manually at this point so that the autoload hooks are loaded
+# Otherwise it will bomb out because it cannot find Devise::SessionsController
+require "devise"
+require "devise/rails"
 
 module Dummy
   class Application < Rails::Application
@@ -40,4 +44,3 @@ module Dummy
     config.filter_parameters += [:password]
   end
 end
-
