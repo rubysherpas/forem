@@ -3,7 +3,8 @@ require 'spec_helper'
 describe "managing forums" do
   context "users not signed in as an admin" do
     before do
-      sign_in!
+      user = Factory(:user)
+      sign_in(user)
     end
 
     it "cannot create a new forum" do
