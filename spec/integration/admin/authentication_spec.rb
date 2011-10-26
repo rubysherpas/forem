@@ -10,7 +10,8 @@ describe 'authentication' do
 
   context "admin users" do
     before do
-      sign_in! :admin => true
+      user = Factory(:admin)
+      sign_in(user)
     end
 
     it "can access admin area" do
