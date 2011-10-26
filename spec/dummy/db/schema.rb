@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110828132917) do
+ActiveRecord::Schema.define(:version => 20111026062441) do
 
   create_table "forem_forums", :force => true do |t|
     t.string "title"
@@ -47,9 +47,10 @@ ActiveRecord::Schema.define(:version => 20110828132917) do
   end
 
   create_table "users", :force => true do |t|
-    t.string  "login"
-    t.boolean "forem_admin", :default => false
-    t.string  "email"
+    t.string "email",                             :default => "", :null => false
+    t.string "encrypted_password", :limit => 128, :default => "", :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

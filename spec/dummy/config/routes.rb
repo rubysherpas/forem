@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get '/sign_in', :controller => "fake", :action => "sign_in", :as => "sign_in"
+  require 'devise/rails'
+  devise_for :users
+
   mount Forem::Engine, :at => "/forem"
 end
