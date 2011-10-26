@@ -43,7 +43,8 @@ describe "forums" do
 
     context "when logged in" do
       before do
-        sign_in!
+        user = Factory(:user)
+        sign_in(user)
       end
       it "calls out topics that have been posted to since your last visit, if you've visited" do
         visit forum_topic_path(forum.id, @topic_2)

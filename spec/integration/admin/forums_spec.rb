@@ -16,7 +16,8 @@ describe "managing forums" do
   context "users signed in as admins" do
     let!(:forum) { FactoryGirl.create(:forum, :title => "Original Name") }
     before do
-      sign_in! :admin => true
+      admin = Factory(:admin)
+      sign_in(admin)
       visit root_path
       # Ensure that people can navigate to this area.
       click_link "Admin Area"
