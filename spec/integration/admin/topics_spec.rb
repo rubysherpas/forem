@@ -6,7 +6,8 @@ describe "topics" do
   let(:other_topic) { FactoryGirl.create(:topic, :forum => forum, :subject => "SECOND TOPIC") }
 
   before do
-    sign_in! :admin => true
+    admin = Factory(:admin)
+    sign_in(admin)
   end
 
   it "can hide a topic" do
@@ -14,7 +15,7 @@ describe "topics" do
     click_link "Hide"
     flash_notice!("This topic is now hidden.")
 
-    sign_out!
+    sign_out
 
     visit forum_topic_path(forum, topic)
     flash_alert!("The topic you are looking for could not be found.")
@@ -45,8 +46,7 @@ describe "topics" do
     click_link "Lock"
     flash_notice!("This topic is now locked.")
 
-    sign_out!
-    sign_in!
+    sign_out
 
     visit forum_topic_path(forum, topic)
     page.should_not have_content("New Topic")
