@@ -1,4 +1,4 @@
-<div id='topic' class='<%= @topic.locked? ? 'locked' : 'unlocked' %>'>
+<div id='topic' class='<%= 'un' unless @topic.locked? %>locked'>
   <%= render :partial => 'forem/topics/head', :locals => { :topic => @topic } %>
 
   <menu>
