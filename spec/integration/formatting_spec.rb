@@ -17,7 +17,8 @@ describe "When a post is displayed " do
     end
 
     it "does not render HTML tags in post text" do
-      post.text = '<a href="http://localhost">click me</a>'; post.save!
+      post.text = '<a href="http://localhost">click me</a>'
+      post.save!
       visit forum_topic_path(forum, topic)
       page.should_not have_xpath('//a[text()="click me"]')
     end
