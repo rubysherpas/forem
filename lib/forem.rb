@@ -3,11 +3,15 @@ require 'kaminari'
 
 module Forem
 
-  mattr_accessor :user_class, :theme
+  mattr_accessor :user_class, :theme, :formatter
 
   class << self
     def user_class
       @@user_class || raise(ConfigurationNotFound.new("user_class"))
+    end
+
+    def formatter
+      @@formatter || Forem::Formatters::BaseFormatter
     end
   end
 

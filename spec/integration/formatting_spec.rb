@@ -5,7 +5,7 @@ describe "When a post is displayed " do
   let(:topic) { FactoryGirl.create(:topic, :forum => forum, :posts => [post]) }
   let(:post) { FactoryGirl.create(:post)}
 
-  describe "default formater" do
+  describe "default formatter" do
     it "renders untagged plain text" do
       visit forum_topic_path(forum, topic)
       # Regression test for #72
