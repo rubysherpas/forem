@@ -8,6 +8,11 @@ describe "When a post is displayed " do
   describe "default formater" do
     it "renders untagged plain text" do
       visit forum_topic_path(forum, topic)
+      # Regression test for #72
+      within(".contents") do
+        page.should_not have_css("pre")
+      end
+
       page.should have_content(post.text)
     end
 
