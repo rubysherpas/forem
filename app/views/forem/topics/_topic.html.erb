@@ -1,4 +1,4 @@
-<tr class="<%= cycle('odd', 'even') %> <%= topic.locked? ? 'locked' : 'unlocked' %>">
+<tr class="topic <%= cycle('odd', 'even') %> <%= topic.locked? ? 'locked' : 'unlocked' %>">
   <td class='icon'>
     <% if topic.locked? %>
       <span class='lock icon'></span>
@@ -12,7 +12,7 @@
       <% end %>
     <% end %>
   </td>
-  <td class='topic'>
+  <td class='byline'>
     <div class='subject'><%= link_to topic.subject, forum_topic_path(@forum, topic) %></div>
     <div class='started-by'><%= t "started_by" %><%= topic.posts.first.user %></div>
   </td>
