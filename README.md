@@ -119,11 +119,14 @@ Conversely to access forem paths you would use:
 
 To change the post formatting behaviour, you may want to try these gems:
 
-  * [Forem - Markdown formatter](https://github.com/nruth/forem-markdown_formatter)
+  * [Forem - Markdown (RDiscount) formatter](https://github.com/radar/forem-rdiscount)
+  * [Forem - Markdown (Redcarpet) formatter](https://github.com/nruth/forem-markdown_formatter)
   * [Forem - Textile formatter](https://github.com/nruth/forem-textile_formatter)
 
-Or see Forem::FormattingHelper#as\_formatted\_html, which you can override.
+It is preferrable that if you want to use your own formatter to set `Forem.formatter` to a class defined by you which contains a `format` method that will be used. If `Forem.formatter` is set
+then it will reference this formatter and not use the default.
 
+Or see Forem::FormattingHelper#as\_formatted\_html, which you can override.
 
 ### Translations
 
