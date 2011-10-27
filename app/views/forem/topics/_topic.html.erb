@@ -14,10 +14,10 @@
   </td>
   <td class='byline'>
     <div class='subject'><%= link_to topic.subject, forum_topic_path(@forum, topic) %></div>
-    <div class='started-by'><%= t "started_by" %><%= topic.posts.first.user %></div>
+    <div class='started-by'><%= t "started_by" %><%= topic.posts.by_created_at.first.user %></div>
   </td>
   <td class='latest-post'>
-    <%= link_to_latest_post(topic.posts.last) -%>
+    <%= link_to_latest_post(topic.posts.by_created_at.last) -%>
   </td>
   <td class='posts-count'><%= topic.posts.count %></td>
   <td class='views-count'><%= topic.views.sum(:count) %></td>

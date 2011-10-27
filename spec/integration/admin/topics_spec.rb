@@ -59,6 +59,6 @@ describe "topics" do
 
     other_topic # will create another topic, making it the top post unless the first topic is truly pinned
     visit forum_path(forum)
-    page.all(".topics .subject").map(&:text).should == ["FIRST TOPIC", "SECOND TOPIC"]
+    page.all(".topics .topic .subject").map(&:text).should == ["FIRST TOPIC", "SECOND TOPIC"]
   end
 end
