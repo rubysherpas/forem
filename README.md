@@ -172,6 +172,7 @@ File an issue and we'll get around to it when we can.
 * Josh Adams
 * Adam McDonald
 * Zak Strassburg
+* [And more](https://github.com/radar/forem/contributors)
 
 ## Places using Forem
 
