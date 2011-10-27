@@ -9,10 +9,6 @@ module Forem
     def user_class
       @@user_class || raise(ConfigurationNotFound.new("user_class"))
     end
-
-    def formatter
-      @@formatter || Forem::Formatters::BaseFormatter
-    end
   end
 
   class ConfigurationNotFound < StandardError

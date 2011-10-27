@@ -69,6 +69,8 @@ GEM
       factory_girl (~> 2.1.0)
       railties (>= 3.0.0)
     ffi (1.0.9)
+    forem-rdiscount (1.0.0)
+      rdiscount
     hike (1.2.1)
     i18n (0.6.0)
     json_pure (1.5.4)
@@ -111,6 +113,7 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
+    rdiscount (1.6.8)
     rdoc (3.9.4)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
@@ -161,6 +164,7 @@ DEPENDENCIES
   devise
   factory_girl_rails (>= 1.2.0)
   forem!
+  forem-rdiscount
   forem-theme-base!
   launchy
   rails (~> 3.1.0)

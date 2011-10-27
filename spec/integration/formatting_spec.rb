@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'forem/formatters/rdiscount'
 
 describe "When a post is displayed " do
   let(:forum) { FactoryGirl.create(:forum) }
@@ -21,6 +22,18 @@ describe "When a post is displayed " do
       post.save!
       visit forum_topic_path(forum, topic)
       page.should_not have_xpath('//a[text()="click me"]')
+    end
+  end
+
+  describe "rdiscount formatter" do
+    before { Forem.formatter = Forem::Formatters::RDiscount }
+    after { Forem.formatter = nil }
+
+    it "renders marked up text" do
+      post.text = "**strong text goes here**"
+      post.save!
+      visit forum_topic_path(forum, topic)
+      page.should have_css("strong", :text => "strong text goes here")
     end
   end
 end
