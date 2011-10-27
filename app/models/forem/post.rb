@@ -8,6 +8,8 @@ module Forem
                        :foreign_key => "reply_to_id",
                        :dependent => :nullify
 
+    scope :by_created_at, order("created_at asc")
+
     validates :text, :presence => true
 
     def owner_or_admin?(other_user)

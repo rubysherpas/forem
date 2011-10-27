@@ -74,10 +74,21 @@ describe "posts" do
         before do
           topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
 
-          visit forum_topic_path(forum, topic)
+        end
+
+        it "shows correct 'started by' and 'last post' information" do
+          visit forum_path(forum)
+          within(".topic .started-by") do
+            page.should have_content("forem_user")
+          end
+
+          within(".topic .latest-post") do
+            page.should have_content("other_forem_user")
+          end
         end
 
         it "can delete their own post" do
+          visit forum_topic_path(forum, topic)
           within(selector_for(:first_post)) do
             click_link("Delete")
           end
@@ -85,6 +96,7 @@ describe "posts" do
         end
 
         it "cannot delete posts by others" do
+          visit forum_topic_path(forum, topic)
           other_post = topic.posts[1]
           #sends delete request with the current rack-test logged-in session & follows the redirect
           Capybara.current_session.driver.submit :delete, topic_post_path(topic, other_post), {}
