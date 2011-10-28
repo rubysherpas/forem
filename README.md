@@ -124,9 +124,7 @@ To change the post formatting behaviour, you may want to try these gems:
   * [Forem - Textile formatter](https://github.com/nruth/forem-textile_formatter)
 
 It is preferrable that if you want to use your own formatter to set `Forem.formatter` to a class defined by you which contains a `format` method that will be used. If `Forem.formatter` is set
-then it will reference this formatter and not use the default.
-
-Or see `Forem::FormattingHelper#as_formatted_html`, which you can override.
+then it will reference this formatter and not use the default `simple_format` which is defined by Rails.
 
 ### Translations
 
