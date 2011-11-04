@@ -5,6 +5,7 @@ module Forem
     has_many :posts, :through => :topics, :dependent => :destroy
     has_many :views, :through => :topics, :dependent => :destroy
 
+    validates :category, :presence => true
     validates :title, :presence => true
     validates :description, :presence => true
 
