@@ -4,7 +4,7 @@ module Forem
     helper 'forem/topics'
 
     def index
-      @forums = Forem::Forum.all
+      @forums = Forem::Forum.select("forem_forums.*, forem_categories.name as cat_name, forem_categories.id AS cat_id").joins(:category)
     end
 
     def show
