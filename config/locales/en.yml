@@ -16,12 +16,27 @@ en:
         edit: Edit
         delete: Delete
         forum: Forum
+        category: Category
         topics: Topics
         posts: Posts
         delete_confirm: Are you sure you want to delete this forum?
         index:
           last_post: Last post
           none: None
+      category:
+           index: Manage Forum Categories
+           new: Creating a new Forum Category
+           new_link: New Forum Category
+           deleted: The selected forum category has been deleted.
+           created: This forum category has been created.
+           not_created: This forum category could not be created.
+           updated: That forum category has been updated.
+           not_updated: This forum category could not be updated.
+      categories:
+           edit: Edit
+           delete: Delete
+           category: Category
+           delete_confirm: Are you sure you want to delete this forum?
     common:
       pages: Pages
     errors:
