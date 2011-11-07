@@ -37,7 +37,7 @@ module Forem
 
       def destroy
         @category.destroy
-        flash[:notice] = t("forem.admin.forum.deleted")
+        flash[:notice] = t("forem.admin.category.deleted")
         redirect_to admin_categories_path
       end
 
