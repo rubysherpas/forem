@@ -3,7 +3,7 @@ module Forem
     helper 'forem/topics'
 
     def index
-      @forums = Forem::Forum.select("forem_forums.*, forem_categories.name as cat_name, forem_categories.id AS cat_id").joins(:category)
+      @forums = Forem::Forum.select("#{Forem::Forum.quoted_table_name}.*,#{Forem::Category.quoted_table_name} as cat_name,#{Forem::Category.quoted_table_name}.id AS cat_id").joins(:category)
     end
 
     def show
