@@ -1,35 +1,56 @@
 <h2><%= t('.title') %></h2>
-<table id='forums' class='forums subdued' cellspacing='0'>
-  <thead>
-    <tr>
-      <th><%= t('.forum') %></th>
-      <th><%= t('.topics') %></th>
-      <th><%= t('.posts') %></th>
-      <th><%= t('.views') %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @forums.each do |forum| %>
-      <tr class="forum <%= cycle("odd", "even") %>">
-        <td>
-          <%= link_to forum.title, forum_path(forum), :class => "title" %>
-          <div class='description'><%= forum.description %></div>
-          <%= t('.last_post') -%>
-          <span class='last_post'>
+
+<% forem_curcat = 0 %>
+
+<% @forums.each do |forum| %>
+
+    <% if forum.cat_id.to_i != forem_curcat %>
+
+        <% if forem_curcat != 0 %>
+            </tbody>
+            </table>
+            <% forem_curcat += 1 %>
+        <% end %>
+
+        <h2><%= forum.category.name %></h2>
+        <table id='forums' class='forums subdued' cellspacing='0'>
+          <thead>
+          <tr>
+            <th><%= t('.forums') %></th>
+            <th><%= t('.topics') %></th>
+            <th><%= t('.posts') %></th>
+            <th><%= t('.views') %></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% forem_curcat = forum.cat_id.to_i %>
+
+    <% end %>
+
+    <tr class="forum <%= cycle("odd", "even") %>">
+      <td>
+        <%= link_to forum.title, forum_path(forum), :class => "title" %>
+        <div class='description'><%= forum.description %></div>
+        <%= t('.last_post') -%>
+        <span class='last_post'>
             <% if last_post = forum.last_post_for(forem_user) -%>
               <%= link_to(last_post.topic, forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= t('time_ago_in_words', :time => time_ago_in_words(last_post.created_at)) -%>
             <% else %>
               <%= t('.none') -%>
             <% end %>
           </span>
-        </td>
-        <td><%= forum.topics.count %></td>
-        <td><%= forum.posts.count %></td>
-        <td><%= forum.views.sum(:count) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </td>
+      <td><%= forum.topics.count %></td>
+      <td><%= forum.posts.count %></td>
+      <td><%= forum.views.sum(:count) %></td>
+    </tr>
+
+
+<% end %>
+<% if forem_curcat > 0 %>
+    </tbody>
+    </table>
+<% end %>
 
 <% if forem_admin? %>
   <%= link_to t("area", :scope => "forem.admin"), admin_root_path %>

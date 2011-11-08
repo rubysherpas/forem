@@ -28,10 +28,11 @@ describe "managing forums" do
       before do
         click_link "New Forum"
       end
-
+      category = Factory(:category)
       it "is valid with title and description" do
         fill_in "Title", :with => "FIRST FORUM"
         fill_in "Description", :with => "The first placeholder forum."
+        select "Category", :with => category.id
         click_button 'Create Forum'
 
         flash_notice!("This forum has been created.")

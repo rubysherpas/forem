@@ -1,9 +1,11 @@
 module Forem
   class Forum < ActiveRecord::Base
+    belongs_to :category
     has_many :topics, :dependent => :destroy
     has_many :posts, :through => :topics, :dependent => :destroy
     has_many :views, :through => :topics, :dependent => :destroy
 
+    validates :category, :presence => true
     validates :title, :presence => true
     validates :description, :presence => true
 
