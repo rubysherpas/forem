@@ -2,9 +2,11 @@ require 'spec_helper'
 
 describe Forem::Forum do
   before(:each) do
+    category = Factory(:category)
     @attr = {
-      :title => "A forum", 
-      :description => "My sweet forum of goodness"
+      :title => "A forum",
+      :description => "My sweet forum of goodness",
+      :category_id => category.id
     }
     @forum = Forem::Forum.create!(@attr)
   end
@@ -21,6 +23,11 @@ describe Forem::Forum do
 
     it "requires a description" do
       @forum.description = nil
+      @forum.should_not be_valid
+    end
+
+    it "requires a category id" do
+      @forum.category_id = nil
       @forum.should_not be_valid
     end
   end
