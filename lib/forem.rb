@@ -2,6 +2,8 @@ require 'forem/engine'
 require 'kaminari'
 
 module Forem
+  extend ActiveSupport::Autoload
+  autoload :DefaultPermissions
 
   mattr_accessor :user_class, :theme, :formatter
 

@@ -1,3 +1,5 @@
+require 'cancan'
+
 class Forem::ApplicationController < ApplicationController
   
   private
