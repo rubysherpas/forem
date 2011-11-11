@@ -5,9 +5,12 @@ describe "forums" do
 
   it "listing all" do
     visit forums_path
-    page.should have_content("Welcome to Forem!")
-    page.should have_content("A placeholder forum.")
-
+    within(".forum") do
+      page.should have_content("Welcome to Forem!")
+      within(".description") do
+        page.should have_content("A placeholder forum.")
+      end
+    end
   end
 
   context "visiting a forum" do
