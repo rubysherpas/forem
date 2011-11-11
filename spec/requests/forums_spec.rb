@@ -23,29 +23,44 @@ describe "forums" do
       visit forum_path(forum)
     end
 
-    it "lists pinned topics first" do
-      # TODO: cleaner way to get at topic subjects on the page?
-      topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
-      topic_subjects.should == ["PINNED!", "Most Recent", "Unpinned"]
-    end
-
-    it "does not show hidden topics" do
-      # TODO: cleaner way to get at topic subjects on the page?
-      topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
-      topic_subjects.include?("HIDDEN!").should be_false
-    end
-
-    context "when logged in" do
+    context "with default permissions" do
       before do
-        user = Factory(:user)
-        sign_in(user)
+        visit forum_path(forum.id)
       end
-      it "calls out topics that have been posted to since your last visit, if you've visited" do
-        visit forum_topic_path(forum.id, @topic_2)
-        ::Forem::View.last.update_attribute(:updated_at, 1.minute.ago)
-        visit forum_path(forum)
-        topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .new_posts")
-        topic_subjects.should_not be_empty
+
+      it "shows the title" do
+        within("#forum h2") do
+          page.should have_content("Welcome to Forem!")
+        end
+        within("#forum small") do
+          page.should have_content("A placeholder forum.")
+        end
+      end
+
+      it "lists pinned topics first" do
+        # TODO: cleaner way to get at topic subjects on the page?
+        topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
+        topic_subjects.should == ["PINNED!", "Most Recent", "Unpinned"]
+      end
+
+      it "does not show hidden topics" do
+        # TODO: cleaner way to get at topic subjects on the page?
+        topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
+        topic_subjects.include?("HIDDEN!").should be_false
+      end
+
+      context "when logged in" do
+        before do
+          user = Factory(:user)
+          sign_in(user)
+        end
+        it "calls out topics that have been posted to since your last visit, if you've visited" do
+          visit forum_topic_path(forum.id, @topic_2)
+          ::Forem::View.last.update_attribute(:updated_at, 1.minute.ago)
+          visit forum_path(forum)
+          topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .new_posts")
+          topic_subjects.should_not be_empty
+        end
       end
     end
   end
