@@ -7,10 +7,10 @@ describe User do
   subject { User.new }
 
   it "can read forums" do
-    assert subject.can_read_forums?
+    assert subject.can_read_forem_forums?
   end
 
   it "can read a given forum" do
-    assert subject.can_read_forum?(Forem::Forum.new)
+    assert subject.can_read_forem_forum?(Forem::Forum.new)
   end
 end
