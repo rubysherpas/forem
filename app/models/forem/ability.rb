@@ -10,6 +10,8 @@ module Forem
       if user.can_read_forums?
         can :read, Forem::Forum
       end
+
+      can :read, :forums
     end
   end
 end
