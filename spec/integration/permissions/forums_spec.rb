@@ -1,0 +1,42 @@
+require 'spec_helper'
+
+describe 'forum permissions' do
+  let!(:forum) { Factory(:forum) }
+
+  context "without ability to read all forums" do
+    before do
+      User.any_instance.stub(:can_read_forums?).and_return(false)
+    end
+
+    it "is denied access" do
+      visit forum_path(forum.id)
+      access_denied!
+    end
+  end
+
+  context "without ability to read a specific forum" do
+    before do
+      User.any_instance.stub(:can_read_forum?).and_return(false)
+    end
+
+    it "is denied access" do
+      visit forum_path(forum.id)
+      access_denied!
+    end
+  end
+
+  context "with default permissions" do
+    before do
+      visit forum_path(forum.id)
+    end
+
+    it "shows the title" do
+      within("#forum h2") do
+        page.should have_content("Welcome to Forem!")
+      end
+      within("#forum small") do
+        page.should have_content("A placeholder forum.")
+      end
+    end
+  end
+end

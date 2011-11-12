@@ -27,44 +27,6 @@ describe "forums" do
       @topic_3 = FactoryGirl.create(:topic, :subject => "PINNED!", :forum => forum, :pinned => true)
       @topic_4 = FactoryGirl.create(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
     end
-
-    context "without ability to read all forums" do
-      before do
-        User.any_instance.stub(:can_read_forums?).and_return(false)
-      end
-
-      it "is denied access" do
-        visit forum_path(forum.id)
-        access_denied!
-      end
-    end
-
-    context "without ability to read a specific forum" do
-      before do
-        User.any_instance.stub(:can_read_forums?).and_return(true)
-        User.any_instance.stub(:can_read_forum?).and_return(false)
-      end
-
-      it "is denied access" do
-        visit forum_path(forum.id)
-        access_denied!
-      end
-    end
-
-    context "with default permissions" do
-      before do
-        visit forum_path(forum.id)
-      end
-
-      it "shows the title" do
-        within("#forum h2") do
-          page.should have_content("Welcome to Forem!")
-        end
-        within("#forum small") do
-          page.should have_content("A placeholder forum.")
-        end
-      end
-
       it "lists pinned topics first" do
         # TODO: cleaner way to get at topic subjects on the page?
         topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
