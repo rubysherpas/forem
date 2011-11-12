@@ -5,4 +5,3 @@ class Ability
 
 end
 
-Ability.send :include, Forem::Ability
