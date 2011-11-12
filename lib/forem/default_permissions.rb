@@ -4,13 +4,18 @@ module Forem
   module DefaultPermissions
     extend ActiveSupport::Concern
 
-    module InstanceMethods
-      def can_read_forums?
-        true
+    included do
+      unless respond_to?(:can_read_forums?)
+        puts "Defining can_read_forums!"
+        def can_read_forums?
+          true
+        end
       end
 
-      def can_read_forum?(forum)
-        true
+      unless respond_to?(:can_read_forum?)
+        def can_read_forum?(forum)
+          true
+        end
       end
     end
   end
