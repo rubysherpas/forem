@@ -13,12 +13,6 @@ describe "forums" do
     end
   end
 
-  it "can't see forums it can't access" do
-    User.any_instance.stub(:can_read_forums?).and_return(false)
-    visit forums_path
-    page.should_not have_content("Welcome to Forem!")
-  end
-
   context "visiting a forum" do
     before do
       @topic_1 = FactoryGirl.create(:topic, :subject => "Unpinned", :forum => forum)
@@ -26,7 +20,9 @@ describe "forums" do
       FactoryGirl.create(:post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
       @topic_3 = FactoryGirl.create(:topic, :subject => "PINNED!", :forum => forum, :pinned => true)
       @topic_4 = FactoryGirl.create(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
+      visit forum_path(forum)
     end
+
     it "lists pinned topics first" do
       # TODO: cleaner way to get at topic subjects on the page?
       topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)

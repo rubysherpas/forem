@@ -3,6 +3,12 @@ require 'spec_helper'
 describe 'forum permissions' do
   let!(:forum) { Factory(:forum) }
 
+  it "can't see forums it can't access" do
+    User.any_instance.stub(:can_read_forums?).and_return(false)
+    visit forums_path
+    page.should_not have_content("Welcome to Forem!")
+  end
+
   context "without ability to read all forums" do
     before do
       User.any_instance.stub(:can_read_forums?).and_return(false)
