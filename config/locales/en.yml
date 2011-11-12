@@ -1,5 +1,6 @@
 en:
   forem:
+    access_denied: "You are not allowed to do that."
     admin:
       area: Admin Area
       welcome: "Welcome to forem's Admin Area."

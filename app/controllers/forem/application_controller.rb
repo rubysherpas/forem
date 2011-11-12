@@ -2,6 +2,10 @@ require 'cancan'
 
 class Forem::ApplicationController < ApplicationController
 
+  rescue_from CanCan::AccessDenied do
+    redirect_to root_path, :alert => t("forem.access_denied")
+  end
+
   private
 
   def authenticate_forem_user
