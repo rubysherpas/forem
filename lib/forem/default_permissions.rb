@@ -5,15 +5,14 @@ module Forem
     extend ActiveSupport::Concern
 
     included do
-      unless respond_to?(:can_read_forums?)
-        puts "Defining can_read_forums!"
-        def can_read_forums?
+      unless respond_to?(:can_read_forem_forums?)
+        def can_read_forem_forums?
           true
         end
       end
 
-      unless respond_to?(:can_read_forum?)
-        def can_read_forum?(forum)
+      unless respond_to?(:can_read_forem_forum?)
+        def can_read_forem_forum?(forum)
           true
         end
       end
