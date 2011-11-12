@@ -13,12 +13,6 @@ describe "forums" do
     end
   end
 
-  it "can't see forums it can't access" do
-    User.any_instance.stub(:can_read_forums?).and_return(false)
-    visit forums_path
-    page.should_not have_content("Welcome to Forem!")
-  end
-
   context "visiting a forum" do
     before do
       @topic_1 = FactoryGirl.create(:topic, :subject => "Unpinned", :forum => forum)
