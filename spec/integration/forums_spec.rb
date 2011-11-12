@@ -28,13 +28,26 @@ describe "forums" do
       @topic_4 = FactoryGirl.create(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
     end
 
-    context "without ability to read forums" do
+    context "without ability to read all forums" do
       before do
         User.any_instance.stub(:can_read_forums?).and_return(false)
       end
 
       it "is denied access" do
-        lambda { visit forum_path(forum.id) }.should raise_error(CanCan::AccessDenied)
+        visit forum_path(forum.id)
+        access_denied!
+      end
+    end
+
+    context "without ability to read a specific forum" do
+      before do
+        User.any_instance.stub(:can_read_forums?).and_return(true)
+        User.any_instance.stub(:can_read_forum?).and_return(false)
+      end
+
+      it "is denied access" do
+        visit forum_path(forum.id)
+        access_denied!
       end
     end
 
