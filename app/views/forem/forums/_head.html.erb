@@ -1,5 +1,5 @@
 <div id='forum'>
-  <h2><%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to forum.title, forum %></h2>
+  <h2><%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to forum.category, forum.category %> &raquo; <%= link_to forum.title, forum %></h2>
   <small><%= forum.description %></small>
   <menu>
     <% unless @topic.try(:new_record?) %>
