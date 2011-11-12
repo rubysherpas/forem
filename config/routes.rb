@@ -9,6 +9,8 @@ Forem::Engine.routes.draw do
     resources :posts
   end
 
+  resources :categories
+
   namespace :admin do
     root :to => "base#index"
     resources :forums
