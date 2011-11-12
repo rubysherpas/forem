@@ -12,7 +12,7 @@ module ::Forem
     config.after_initialize do
       # Add Forem::Ability to whatever Ability class is defined.
       # Could be Forem's (app/models/ability.rb) or could be application's.
-      Ability.send :include, Forem::Ability
+      ::Ability.send :include, Forem::Ability
     end
   end
 end
