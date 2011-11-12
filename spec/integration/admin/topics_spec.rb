@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe "topics" do
+  let(:category) { FactoryGirl.create(:category) }
   let(:forum) { FactoryGirl.create(:forum) }
   let(:topic) { FactoryGirl.create(:topic, :forum => forum) }
   let(:other_topic) { FactoryGirl.create(:topic, :forum => forum, :subject => "SECOND TOPIC") }
+  let(:other_forum) {FactoryGirl.create(:forum, :title => "Second Forum", :description => "A Forum", :category_id => category.id )}
 
   before do
     admin = Factory(:admin)
@@ -60,5 +62,19 @@ describe "topics" do
     other_topic # will create another topic, making it the top post unless the first topic is truly pinned
     visit forum_path(forum)
     page.all(".topics .topic .subject").map(&:text).should == ["FIRST TOPIC", "SECOND TOPIC"]
+  end
+
+  it "can move topic" do
+    other_forum #Create a second forum
+    visit edit_admin_topic_path(topic)
+    select "Forum", :with => "Second Forum"
+    click_button "Update Topic"
+    flash_notice!("This topic has been updated.")
+    #Check if we can see the topic in the old forum, the topic should not be there.
+    visit forum_topic_path(forum, topic)
+    flash_alert!("The topic you are looking for could not be found.")
+    #Visit Topic in New Forum
+    visit forum_topic_path(other_forum, topic)
+    page.should have_content("FIRST TOPIC")
   end
 end
