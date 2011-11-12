@@ -8,6 +8,10 @@ module Forem
       def can_read_forums?
         true
       end
+
+      def can_read_forum?(forum)
+        true
+      end
     end
   end
 end

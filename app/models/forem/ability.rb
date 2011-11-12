@@ -8,7 +8,9 @@ module Forem
       user ||= User.new # anonymous user
 
       if user.can_read_forums?
-        can :read, Forem::Forum
+        can :read, Forem::Forum do |forum|
+          user.can_read_forum?(forum)
+        end
       end
     end
   end
