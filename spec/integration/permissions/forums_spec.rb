@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'forum permissions' do
   let!(:forum) { Factory(:forum) }
 
+<<<<<<< HEAD
   it "can't see forums it can't access" do
     User.any_instance.stub(:can_read_forem_forums?).and_return(false)
     visit forums_path
@@ -13,6 +14,11 @@ describe 'forum permissions' do
   context "without ability to read all forums" do
     before do
       User.any_instance.stub(:can_read_forem_forums?).and_return(false)
+=======
+  context "without ability to read all forums" do
+    before do
+      User.any_instance.stub(:can_read_forums?).and_return(false)
+>>>>>>> Move permission specs into spec/integration/permissions
     end
 
     it "is denied access" do
@@ -23,7 +29,11 @@ describe 'forum permissions' do
 
   context "without ability to read a specific forum" do
     before do
+<<<<<<< HEAD
       User.any_instance.stub(:can_read_forem_forum?).and_return(false)
+=======
+      User.any_instance.stub(:can_read_forum?).and_return(false)
+>>>>>>> Move permission specs into spec/integration/permissions
     end
 
     it "is denied access" do
