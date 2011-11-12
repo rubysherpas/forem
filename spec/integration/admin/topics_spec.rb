@@ -75,5 +75,6 @@ describe "topics" do
     flash_alert!("The topic you are looking for could not be found.")
     #Visit Topic in New Forum
     visit forum_topic_path(other_forum, topic)
+    page.should have_content("FIRST TOPIC")
   end
 end
