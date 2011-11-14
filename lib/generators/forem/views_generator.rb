@@ -9,6 +9,7 @@ module Forem
 
       def copy_views
         view_directory :admin
+        view_directory :categories
         view_directory :forums
         view_directory :posts
         view_directory :topics
