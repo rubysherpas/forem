@@ -8,9 +8,11 @@ module Forem
 
     def avatar_url(email, options = {})
       options = {:size => 60}.merge(options)
-      require 'digest/md5'
-      size = ("?s=#{options[:size]}" if options[:size])
-      "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email.to_s.strip.downcase)}#{size}.jpg"
+      require 'digest/md5' unless defined?(Digest::MD5)
+
+      options[:s] = options.delete(:size)
+      options[:d] = options.delete(:default) if options[:default]
+      "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email.to_s.strip.downcase)}?#{options.to_param}"
     end
 
   end
