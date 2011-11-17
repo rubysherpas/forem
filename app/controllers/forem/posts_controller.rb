@@ -6,7 +6,7 @@ module Forem
     def new
       @post = @topic.posts.build
       if params[:quote]
-        reply_to = @topic.posts.find(params[:reply_to_id])
+        @reply_to = @topic.posts.find(params[:reply_to_id])
       end
     end
 
