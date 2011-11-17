@@ -7,6 +7,7 @@ module Forem
       @post = @topic.posts.build
       if params[:quote]
         @reply_to = @topic.posts.find(params[:reply_to_id])
+        @post.text = view_context.forem_quote(@reply_to.text)
       end
     end
 
