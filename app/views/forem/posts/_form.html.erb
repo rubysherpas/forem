@@ -1,4 +1,6 @@
-<%= f.input :text %>
 <% if params[:reply_to_id] %>
+  <%= f.input :text, :input_html => { :value=>forem_quote(@post.text) } %>
   <%= f.hidden_field :reply_to_id, :value => params[:reply_to_id] %>
+<% else %>
+  <%= f.input :text %>
 <% end %>
