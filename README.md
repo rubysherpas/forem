@@ -166,6 +166,18 @@ If you're using Forem with Refinery then you will need to specify the `user_clas
 
 File an issue and we'll get around to it when we can.
 
+## Running the spec suite
+
+Since Forem is implemented as a Rails engine, it has a somewhat unorthodox setup for a ruby project. Its specs are run in the context of a dummy Rails app, so to prepare the specs for running is similar to the process for getting the specs to run for a regular rails app:
+
+    bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare
+
+Once this setup has been done, the specs can be run by executing this command:
+
+    bundle exec rspec spec
+
+More information can be found in [this issue](https://github.com/radar/forem/issues/24) in the bugtracker.
+
 ## Contributors
 
 * Ryan Bigg
