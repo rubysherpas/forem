@@ -149,6 +149,36 @@ Brown links, orange headers and posts body:
 
     gem 'forem-theme-orange', :git => "git://github.com/radar/forem-theme-orange.git"
 
+### Gravatar
+
+By default Forem uses Gravatar for displaying avatar images for post authors. If the user object returned by `forem_user` responds to `email`, this is queried automatically. If a user does not have a Gravatar image associated with their email address they will get the default Gravatar image:
+
+![default gravatar](http://www.gravatar.com/avatar/00000000000000000000000000000000)
+
+The behavior of the default image can be configured with two configuration options.
+
+#### Default theme
+
+To set a default Gravatar theme, use the `.default_gravatar` method:
+
+    Forem.default_gravatar = 'mm'
+
+#### Default image
+
+To set a default image, use the `.default_gravatar_image` method:
+
+    Forem.default_gravatar_image = 'gravatar_default.png'
+
+When a relative path is given, it will be expanded into the absolute URL required by Gravatar with information from Rails' asset directory and the request that was made. For example, given the above method call, in development this would be expanded to something like:
+
+    http://localhost:3000/assets/images/gravatar_default.png
+
+Passing an absolute URL to `.default_gravatar_image` or `.default_gravatar` is roughly equivalent.
+
+#### More information
+
+More information about Gravatar can be found on [this page about Gravatar image requests.](http://en.gravatar.com/site/implement/images/)
+
 ## Refinery CMS Integration
 
 Requires Refinery CMS [master branch](https://github.com/resolve/refinerycms/tree/master)
