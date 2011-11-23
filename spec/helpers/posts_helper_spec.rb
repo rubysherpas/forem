@@ -42,5 +42,29 @@ module Forem
         end
       end
     end
+
+    describe "#default_gravatar" do
+      it "returns the default_gravatar_image when an absolute URL is set" do
+        url = "http://example.com/foo/bar.jpg"
+        Forem.stub(:default_gravatar_image => url)
+
+        helper.default_gravatar.should eq(url)
+      end
+
+      it "returns an absolute URL when default_gravatar image is set to a relative path" do
+        image = "foo.jpg"
+        Forem.stub(:default_gravatar_image => image)
+
+        expected = "http://test.host/images/foo.jpg"
+        helper.default_gravatar.should eq(expected)
+      end
+
+      it "returns the default_gravatar when set" do
+        theme = 'mm'
+        Forem.stub(:default_gravatar => theme)
+
+        helper.default_gravatar.should eq(theme)
+      end
+    end
   end
 end
