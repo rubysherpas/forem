@@ -130,7 +130,7 @@ then it will reference this formatter and not use the default `simple_format` wh
 
 To change the username text on each post to be a link to the User's profile use the following configuration:
 
-    Forem.enable_user_profile_links = true
+    Forem.user_profile_links = true
 
 Then you just need to make sure that you have routes configured for your user model to show the desired profile page. 
 
