@@ -126,6 +126,14 @@ To change the post formatting behaviour, you may want to try these gems:
 It is preferrable that if you want to use your own formatter to set `Forem.formatter` to a class defined by you which contains a `format` method that will be used. If `Forem.formatter` is set
 then it will reference this formatter and not use the default `simple_format` which is defined by Rails.
 
+### User profiles
+
+To change the username text on each post to be a link to the User's profile use the following configuration:
+
+    Forem.enable_user_profile_links = true
+
+Then you just need to make sure that you have routes configured for your user model to show the desired profile page. 
+
 ### Translations
 
 We currently have support for the following languages:
