@@ -2,10 +2,8 @@ require 'forem/engine'
 require 'kaminari'
 
 module Forem
-  extend ActiveSupport::Autoload
-  autoload :DefaultPermissions
-
-  mattr_accessor :user_class, :theme, :formatter
+  mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,
+    :enable_user_profile_links
 
   class << self
     def user_class
