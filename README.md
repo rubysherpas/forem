@@ -169,9 +169,9 @@ To set a default image, use the `.default_gravatar_image` method:
 
     Forem.default_gravatar_image = 'gravatar_default.png'
 
-When a relative path is given, it will be expanded into the absolute URL required by Gravatar with information from Rails' asset directory and the request that was made. For example, given the above method call, in development this would be expanded to something like:
+When a relative path is given, it will be expanded into the absolute URL required by Gravatar with information from the request that was made and Rails's configuration. For example, given the above method call, in development this would be expanded to something like:
 
-    http://localhost:3000/assets/images/gravatar_default.png
+    http://localhost:3000/images/gravatar_default.png
 
 Passing an absolute URL to `.default_gravatar_image` or `.default_gravatar` is roughly equivalent.
 
