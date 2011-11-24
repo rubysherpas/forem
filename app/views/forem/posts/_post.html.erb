@@ -2,7 +2,13 @@
 <div id='post_<%= post.id %>' class='post <%= cycle('odd', 'even') -%>'>
 
   <div class='user'>
-    <div class='username'><%= post.user -%></div>
+    <div class='username'>
+      <% if not Forem.enable_user_profile_links %>
+        <%= post.user -%>
+      <% else %>
+        <%= link_to post.user, [main_app, post.user] %>
+      <% end %>
+    </div>
     <div class='icon'><%= avatar(post.user, :size => 60) %></div>
   </div>
 
