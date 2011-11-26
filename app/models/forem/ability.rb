@@ -27,8 +27,6 @@ module Forem
           end
         end
       end
-
-      can :read, :forums
     end
   end
 end
