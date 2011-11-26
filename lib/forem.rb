@@ -1,4 +1,5 @@
 require 'forem/engine'
+require 'forem/default_permissions'
 require 'kaminari'
 
 module Forem
