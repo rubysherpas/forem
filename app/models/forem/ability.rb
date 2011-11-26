@@ -8,8 +8,6 @@ module Forem
       super
 
       user ||= User.new # anonymous user
-      p user.can_read_forem_forums?
-      p user.can_read_forem_forum?
 
       if user.can_read_forem_forums?
         can :read, Forem::Forum do |forum|
