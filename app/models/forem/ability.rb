@@ -21,6 +21,10 @@ module Forem
               user.can_read_forem_forum?(forum)
             end
           end
+
+          can :read, Forem::Category do |category|
+            user.can_read_forem_category?(category)
+          end
         end
       end
 
