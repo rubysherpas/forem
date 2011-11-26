@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Forem::Post do
-  let(:post) { FactoryGirl.create(:post) }
+  let(:post) { FactoryGirl.create(:post, :topic => stub_model(Forem::Topic)) }
   let(:reply) { FactoryGirl.create(:post, :reply_to => post) }
 
   context "upon deletion" do
@@ -14,6 +14,10 @@ describe Forem::Post do
   end
 
   context "helper methods" do
+    it "retrieves the topic's forum" do
+      post.forum.should == post.topic.forum
+    end
+
     it "checks for post owner" do
       admin = FactoryGirl.create(:admin)
       assert post.owner_or_admin?(post.user)
