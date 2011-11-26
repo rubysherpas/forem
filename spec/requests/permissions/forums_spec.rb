@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'forum permissions' do
   let!(:forum) { Factory(:forum) }
+  let!(:topic) { Factory(:topic, :forum => forum) }
 
   it "can't see forums it can't access" do
     User.any_instance.stub(:can_read_forem_forums?).and_return(false)
@@ -27,6 +28,11 @@ describe 'forum permissions' do
 
     it "is denied access" do
       visit forum_path(forum.id)
+      access_denied!
+    end
+
+    it "cannot view topics inside this forum" do
+      visit forum_topic_path(forum, topic)
       access_denied!
     end
   end
