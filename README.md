@@ -126,6 +126,14 @@ To change the post formatting behaviour, you may want to try these gems:
 It is preferrable that if you want to use your own formatter to set `Forem.formatter` to a class defined by you which contains a `format` method that will be used. If `Forem.formatter` is set
 then it will reference this formatter and not use the default `simple_format` which is defined by Rails.
 
+### User profiles
+
+To change the username text on each post to be a link to the User's profile use the following configuration:
+
+    Forem.user_profile_links = true
+
+Then you just need to make sure that you have routes configured for your user model to show the desired profile page. 
+
 ### Translations
 
 We currently have support for the following languages:
@@ -149,6 +157,36 @@ Brown links, orange headers and posts body:
 
     gem 'forem-theme-orange', :git => "git://github.com/radar/forem-theme-orange.git"
 
+### Gravatar
+
+By default Forem uses Gravatar for displaying avatar images for post authors. If the user object returned by `forem_user` responds to `email`, this is queried automatically. If a user does not have a Gravatar image associated with their email address they will get the default Gravatar image:
+
+![default gravatar](http://www.gravatar.com/avatar/00000000000000000000000000000000)
+
+The behavior of the default image can be configured with two configuration options.
+
+#### Default theme
+
+To set a default Gravatar theme, use the `.default_gravatar` method:
+
+    Forem.default_gravatar = 'mm'
+
+#### Default image
+
+To set a default image, use the `.default_gravatar_image` method:
+
+    Forem.default_gravatar_image = 'gravatar_default.png'
+
+When a relative path is given, it will be expanded into the absolute URL required by Gravatar with information from the request that was made and Rails's configuration. For example, given the above method call, in development this would be expanded to something like:
+
+    http://localhost:3000/images/gravatar_default.png
+
+Passing an absolute URL to `.default_gravatar_image` or `.default_gravatar` is roughly equivalent.
+
+#### More information
+
+More information about Gravatar can be found on [this page about Gravatar image requests.](http://en.gravatar.com/site/implement/images/)
+
 ## Refinery CMS Integration
 
 Requires Refinery CMS [master branch](https://github.com/resolve/refinerycms/tree/master)
@@ -165,6 +203,18 @@ If you're using Forem with Refinery then you will need to specify the `user_clas
 ## OMG BUG! / OMG FEATURE REQUEST!
 
 File an issue and we'll get around to it when we can.
+
+## Running the spec suite
+
+Forem is implemented as a Rails engine and its specs are run in the context of a dummy Rails app. The process for getting the specs to run is similar to setting up a regular rails app:
+
+    bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare
+
+Once this setup has been done, Forem's specs can be run by executing this command:
+
+    bundle exec rspec spec
+
+More information can be found in [this issue](https://github.com/radar/forem/issues/24) in the bugtracker.
 
 ## Contributors
 
