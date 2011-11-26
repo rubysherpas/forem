@@ -10,7 +10,7 @@ module Forem
     end
 
     def as_quoted_text(text)
-      if Forem.formatter
+      if Forem.formatter && Forem.formatter.respond_to?(:blockquote)
         Forem.formatter.blockquote(text)
       else
          "<blockquote>#{(h(text))}</blockquote>\n\n".html_safe
