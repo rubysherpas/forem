@@ -49,6 +49,7 @@ module Forem
     private
     def find_forum
       @forum = Forem::Forum.find(params[:forum_id])
+      authorize! :read, @forum
     end
 
     def register_view
