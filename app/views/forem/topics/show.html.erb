@@ -2,7 +2,7 @@
   <%= render :partial => 'forem/topics/head', :locals => { :topic => @topic } %>
 
   <menu>
-    <% if @topic.can_be_replied_to? %>
+    <% if @topic.can_be_replied_to? && can?(:reply, @topic) %>
       <%= link_to t(".reply"), new_topic_post_path(@topic) %>
     <% end %>
     <% if @topic.user == forem_user || forem_admin? %>

@@ -4,6 +4,7 @@ module Forem
     before_filter :find_topic
 
     def new
+      authorize! :reply, @topic
       @post = @topic.posts.build
       if params[:quote]
         reply_to = @topic.posts.find(params[:reply_to_id])
@@ -12,6 +13,7 @@ module Forem
     end
 
     def create
+      authorize! :reply, @topic
       if @topic.locked?
         flash.alert = t("forem.post.not_created_topic_locked")
         redirect_to [@topic.forum, @topic] and return
