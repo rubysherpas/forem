@@ -13,7 +13,6 @@ describe 'post permissions' do
 
     it "users can't see the link to reply" do
       visit forum_topic_path(forum, topic)
-      page!
       assert_no_link_for!("Reply")
     end
 
