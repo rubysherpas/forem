@@ -23,7 +23,7 @@ module Forem
       end
 
       can :reply, Forem::Topic do |topic|
-        user.can_reply_to_forem_topics?(topic)
+        user.can_reply_to_forem_topic?(topic)
       end
     end
   end

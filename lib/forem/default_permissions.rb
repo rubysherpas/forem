@@ -29,8 +29,8 @@ module Forem
         end
       end
 
-      unless respond_to?(:can_reply_to_forem_topics?)
-        def can_reply_to_forem_topics?(topic)
+      unless respond_to?(:can_reply_to_forem_topic?)
+        def can_reply_to_forem_topic?(topic)
           true
         end
       end
