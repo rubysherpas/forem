@@ -23,6 +23,7 @@ describe 'forum permissions' do
 
   context "without ability to read a specific forum" do
     before do
+      User.any_instance.stub(:can_read_forem_category?).and_return(true)
       User.any_instance.stub(:can_read_forem_forum?).and_return(false)
     end
 
@@ -33,6 +34,17 @@ describe 'forum permissions' do
 
     it "cannot view topics inside this forum" do
       visit forum_topic_path(forum, topic)
+      access_denied!
+    end
+  end
+
+  context "without ability to read a specific forum's category" do
+    before do
+      User.any_instance.stub(:can_read_forem_category?).and_return(false)
+    end
+
+    it "is denied access" do
+      visit forum_path(forum.id)
       access_denied!
     end
   end
