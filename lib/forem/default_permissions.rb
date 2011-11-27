@@ -28,6 +28,12 @@ module Forem
           true
         end
       end
+
+      unless respond_to?(:can_reply_to_forem_topics?)
+        def can_reply_to_forem_topics?(topic)
+          true
+        end
+      end
     end
   end
 end
