@@ -12,7 +12,6 @@ module Forem
 
       options[:s] = options.delete(:size) || 60
       options[:d] = options.delete(:default) || default_gravatar
-      options.delete(:d) unless options[:d]
       "http://www.gravatar.com/avatar/#{md5}?#{options.to_param}"
     end
 
