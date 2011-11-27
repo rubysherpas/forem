@@ -73,9 +73,8 @@ You will also need to define a route that defines a `sign_in_path` / `sign_in_ur
 
 Here's a comprehensive list of the features currently in Forem:
 
-* An admin backend
-  * Forums
-      * CRUD operations
+* Forums
+  * CRUD operations (provided by an admin backend)
 * Topics
   * Viewing all topics for a forum
   * Creating of new topics
@@ -91,7 +90,8 @@ Here's a comprehensive list of the features currently in Forem:
 * Text Formatting
   * Posts are HTML escaped and pre tagged by default.
   * Pluggable formatters for other behaviour (Markdown, Textile)
-* Theme support
+* [Theme support](https://github.com/radar/forem/wiki/Theming)
+* [A flexible permissions system](https://github.com/radar/forem/wiki/Authorization-System)
 
 ### Customisation
 
