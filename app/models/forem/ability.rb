@@ -17,6 +17,10 @@ module Forem
           user.can_read_forem_forum?(forum)
         end
       end
+
+      can :create_topic, Forem::Forum do |forum|
+        can?(:read, forum) && user.can_create_forem_topics?(forum)
+      end
     end
   end
 end
