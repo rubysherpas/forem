@@ -1,11 +1,10 @@
 require 'cancan'
 
 module Forem
-  class Ability < ::Ability
+  class Ability
+    include CanCan::Ability
 
     def initialize(user)
-      # Let other permissions run before this
-      super
 
       user ||= User.new # anonymous user
 
