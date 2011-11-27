@@ -11,7 +11,7 @@ module CapybaraExt
   end
 
   def assert_no_link_for!(id_or_text)
-    lambda { find_link(id_or_text) }.should raise_error(Capybara::ElementNotFound)
+    lambda { find_link(id_or_text) }.should(raise_error(Capybara::ElementNotFound), "Expected there not to be a link for #{id_or_text.inspect} on page, but there was")
   end
   
   def flash_alert!(text)
