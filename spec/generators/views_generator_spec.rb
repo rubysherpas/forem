@@ -5,9 +5,9 @@ describe Forem::Generators::ViewsGenerator do
   let(:views) { Rails.root + "app/views" }
 
   # Ensure directory is missing before generator is running
-  before { FileUtils.rm_r(views + "forem") }
+  before { FileUtils.rm_rf(views + "forem") }
   # And clean up once we are done
-  after { FileUtils.rm_r(views + "forem") }
+  after { FileUtils.rm_rf(views + "forem") }
 
   it "copies over files" do
     capture(:stdout) { described_class.start([], :destination_root => Rails.root) }
