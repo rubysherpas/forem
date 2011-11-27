@@ -8,7 +8,7 @@ describe 'post permissions' do
   context "without permission to reply" do
     before do
       sign_in(user)
-      User.any_instance.stub(:can_reply_to_forem_topics?).and_return(false)
+      User.any_instance.stub(:can_reply_to_forem_topic?).and_return(false)
     end
 
     it "users can't see the link to reply" do
@@ -30,7 +30,7 @@ describe 'post permissions' do
     it "cannot create a new reply" do
       visit new_topic_post_path(topic)
       fill_in "Text", :with => "REPLYING!"
-      User.any_instance.stub(:can_reply_to_forem_topics?).and_return(false)
+      User.any_instance.stub(:can_reply_to_forem_topic?).and_return(false)
       click_button "Reply"
       access_denied!
     end
