@@ -9,6 +9,10 @@ module CapybaraExt
       page.should have_content(text)
     end
   end
+
+  def assert_no_link_for!(id_or_text)
+    lambda { find_link(id_or_text) }.should raise_error(Capybara::ElementNotFound)
+  end
   
   def flash_alert!(text)
     within("#flash_alert") do
