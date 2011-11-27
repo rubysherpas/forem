@@ -3,7 +3,9 @@
   <small><%= forum.description %></small>
   <menu>
     <% unless @topic.try(:new_record?) %>
-      <%= link_to t('forem.topic.links.new'), new_forum_topic_path(forum) %>
+      <% if can? :create_topic, @forum %>
+        <%= link_to t('forem.topic.links.new'), new_forum_topic_path(forum) %>
+      <% end %>
     <% end %>
     <% if @topic %>
       <%= link_to t('forem.topic.links.back_to_topics'), forum_path(forum) %>

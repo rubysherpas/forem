@@ -21,7 +21,6 @@ describe 'categories' do
   it "can view a category's forums" do
     visit forums_path
     click_link category_1.name
-    page!
     page.should have_content(forum_1.title)
     page.should_not have_content(forum_2.title)
   end

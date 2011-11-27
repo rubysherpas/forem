@@ -1,13 +1,21 @@
 require 'forem/engine'
+require 'forem/default_permissions'
 require 'kaminari'
 
 module Forem
-  mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image, 
-    :user_profile_links
+  mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,
+                 :user_profile_links
 
   class << self
     def user_class
       @@user_class || raise(ConfigurationNotFound.new("user_class"))
+    end
+
+    def user_class=(klass)
+      @@user_class = klass
+      if Class === klass
+        klass.send :include, Forem::DefaultPermissions
+      end
     end
   end
 
