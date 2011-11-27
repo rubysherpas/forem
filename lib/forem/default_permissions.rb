@@ -22,6 +22,12 @@ module Forem
           true
         end
       end
+
+      unless respond_to?(:can_create_forem_topics?)
+        def can_create_forem_topics?(forum)
+          true
+        end
+      end
     end
   end
 end
