@@ -8,7 +8,7 @@
 
   <div class='contents'>
     <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
-    <%= forem_format(raw(post.text)) %>
+    <%= forem_format(post.text) %>
 
     <% if post.reply_to %>
       <span class='in_reply_to'>
