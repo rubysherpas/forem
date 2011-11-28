@@ -46,7 +46,7 @@ describe Forem::Generators::InstallGenerator do
   it "copies over the migrations" do
     migrations.should be_empty
     capture(:stdout) do
-      described_class.start(["--user-class=User", "--no-migrate", "--current_user_helper=current_user"], :destination => Rails.root)
+      described_class.start(["--user-class=User", "--no-migrate", "--current-user-helper=current_user"], :destination => Rails.root)
     end
 
     # Ensure forem migrations have been cpied over
