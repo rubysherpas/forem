@@ -2,9 +2,9 @@ require 'rails/generators'
 module Forem
   module Generators
     class InstallGenerator < Rails::Generators::Base
-      class_option :user_class, :type => :string
+      class_option "user-class", :type => :string
       class_option "no-migrate", :type => :boolean
-      class_option :current_user_helper, :type => :string
+      class_option "current-user-helper", :type => :string
 
       source_root File.expand_path("../install/templates", __FILE__)
       desc "Used to install Forem"
@@ -18,18 +18,21 @@ module Forem
 
       def add_forem_admin_migration
         # Is there a cleaner way to do this?
-        if options[:user_class]
-          @user_class = options[:user_class]
+        if options["user-class"]
+          @user_class = options["user-class"]
         else
           @user_class = ask("What is your user class called? [User]")
         end
 
-        @user_class = User if @user_class.blank?
+        if @user_class.blank?
+          @user_class = User
+        end
+
         puts "Adding forem_admin migration..."
 
         last_migration = Dir[Rails.root + "db/migrate/*.rb"].sort.last.split("/").last
         current_migration_number = /^(\d+)_/.match(last_migration)[1]
-        next_migration_number = ActiveRecord::Migration.next_migration_number(current_migration_number)
+        next_migration_number = current_migration_number.to_i + 1
         template "forem_admin_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_admin.rb"
       end
 
@@ -51,8 +54,8 @@ module Forem
       end
 
       def determine_current_user_helper
-        if options[:current_user_helper]
-          current_user_helper = options[:current_user_helper]
+        if options["current-user-helper"]
+          current_user_helper = options["current-user-helper"]
         else
           current_user_helper = ask("What is the current_user helper called in your app? [current_user]")
         end
@@ -115,7 +118,7 @@ output += step("`rake db:migrate` was run, running all the migrations against yo
       end
 
       def user_class
-        @user_class.classify.constantize
+        @user_class
       end
 
     end
