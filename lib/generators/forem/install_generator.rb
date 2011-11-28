@@ -26,6 +26,8 @@ module Forem
 
         if @user_class.blank?
           @user_class = User
+        else
+          @user_class = @user_class.classify.constantize
         end
 
         puts "Adding forem_admin migration..."
