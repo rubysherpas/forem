@@ -35,5 +35,20 @@ describe "When a post is displayed " do
       visit forum_topic_path(forum, topic)
       page.should have_css("strong", :text => "strong text goes here")
     end
+
+    it "does not render HTML tags in post text" do
+      post.text = '<a href="http://localhost">click me</a>'
+      post.save!
+      visit forum_topic_path(forum, topic)
+      page.should_not have_xpath('//a[text()="click me"]')
+    end
+
+    it "does not escape blockquotes" do
+      post.text = "> **strong text**\n\n"
+      post.save!
+      visit forum_topic_path(forum, topic)
+      save_and_open_page
+      page.should have_css('blockquote strong', :text=>'strong text')
+    end
   end
 end
