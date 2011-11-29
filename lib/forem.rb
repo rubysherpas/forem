@@ -10,13 +10,6 @@ module Forem
     def user_class
       @@user_class || raise(ConfigurationNotFound.new("user_class"))
     end
-
-    def user_class=(klass)
-      @@user_class = klass
-      if Class === klass
-        klass.send :include, Forem::DefaultPermissions
-      end
-    end
   end
 
   class ConfigurationNotFound < StandardError
