@@ -8,6 +8,11 @@ module ::Forem
         @root ||= Pathname.new(File.expand_path('../../', __FILE__))
       end
     end
+
+    # Fix for #88
+    config.to_prepare do
+      Forem.user_class.send :include, Forem::DefaultPermissions
+    end
   end
 end
 
