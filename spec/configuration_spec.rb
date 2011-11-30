@@ -12,6 +12,12 @@ describe "required configuration options must be set" do
       call_to_method.should_not raise_error
     end
   end
+
+  after do
+    # Ensure that this is re-set each time in case it changes
+    Forem.user_class = User
+  end
+
 end
 
 describe Forem do
