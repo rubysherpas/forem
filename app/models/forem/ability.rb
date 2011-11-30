@@ -6,7 +6,7 @@ module Forem
 
     def initialize(user)
 
-      user ||= User.new # anonymous user
+      user ||= Forem.user_class.new # anonymous user
 
       can :read, Forem::Category do |category|
         user.can_read_forem_category?(category)
