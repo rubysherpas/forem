@@ -22,6 +22,9 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+
+    # Ensure that this is re-set each time in case it changes
+    Forem.user_class = User
   end
 
   config.after(:each) do
