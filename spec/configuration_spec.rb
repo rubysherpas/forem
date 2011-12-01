@@ -1,25 +1,5 @@
 require 'spec_helper'
 
-describe "required configuration options must be set" do
-  required_options = [:user_class]
-  required_options.each do |option|
-    it "requires #{option} is set" do
-      Forem.send("#{option}=", nil)
-      call_to_method = lambda { Forem.send("#{option}") }
-      call_to_method.should raise_error(Forem::ConfigurationNotFound)
-
-      Forem.send("#{option}=", "not nil")
-      call_to_method.should_not raise_error
-    end
-  end
-
-  after do
-    # Ensure that this is re-set each time in case it changes
-    Forem.user_class = User
-  end
-
-end
-
 describe Forem do
   describe ".default_gravatar" do
     it "can be set and retrieved" do

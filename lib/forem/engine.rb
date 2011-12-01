@@ -11,7 +11,9 @@ module ::Forem
 
     # Fix for #88
     config.to_prepare do
-      Forem.user_class.send :include, Forem::DefaultPermissions
+      if Forem.user_class
+        Forem.user_class.send :include, Forem::DefaultPermissions
+      end
     end
   end
 end
