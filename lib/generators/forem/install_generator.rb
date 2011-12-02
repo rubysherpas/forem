@@ -9,6 +9,13 @@ module Forem
       source_root File.expand_path("../install/templates", __FILE__)
       desc "Used to install Forem"
 
+      def install_migrations
+        puts "Copying over Forem migrations..."
+        Dir.chdir(Rails.root) do
+          `rake forem:install:migrations`
+        end
+      end
+
       def add_forem_admin_migration
         # Is there a cleaner way to do this?
         if options["user-class"]
@@ -52,13 +59,6 @@ module Forem
                          forem_user_method,
                          :after => "ActionController::Base\n")
 
-      end
-
-      def install_migrations
-        puts "Copying over Forem migrations..."
-        Dir.chdir(Rails.root) do
-          `rake forem:install:migrations`
-        end
       end
 
       def add_forem_initializer
