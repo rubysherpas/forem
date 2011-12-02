@@ -9,13 +9,6 @@ module Forem
       source_root File.expand_path("../install/templates", __FILE__)
       desc "Used to install Forem"
 
-      def install_migrations
-        puts "Copying over Forem migrations..."
-        Dir.chdir(Rails.root) do
-          `rake forem:install:migrations`
-        end
-      end
-
       def add_forem_admin_migration
         # Is there a cleaner way to do this?
         if options["user-class"]
@@ -38,6 +31,36 @@ module Forem
         template "forem_admin_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_admin.rb"
       end
 
+      def determine_current_user_helper
+        if options["current-user-helper"]
+          current_user_helper = options["current-user-helper"]
+        else
+          current_user_helper = ask("What is the current_user helper called in your app? [current_user]")
+        end
+        current_user_helper = :current_user if current_user_helper.blank?
+        puts "Defining forem_user method inside ApplicationController..."
+
+        forem_user_method = %Q{
+  def forem_user
+    #{current_user_helper}
+  end
+  helper_method :forem_user
+
+}
+
+        inject_into_file("#{Rails.root}/app/controllers/application_controller.rb",
+                         forem_user_method,
+                         :after => "ActionController::Base\n")
+
+      end
+
+      def install_migrations
+        puts "Copying over Forem migrations..."
+        Dir.chdir(Rails.root) do
+          `rake forem:install:migrations`
+        end
+      end
+
       def add_forem_initializer
         path = "#{Rails.root}/config/initializers/forem.rb"
         if File.exists?(path)
@@ -55,23 +78,6 @@ module Forem
         end
       end
 
-      def determine_current_user_helper
-        if options["current-user-helper"]
-          current_user_helper = options["current-user-helper"]
-        else
-          current_user_helper = ask("What is the current_user helper called in your app? [current_user]")
-        end
-        current_user_helper = :current_user if current_user_helper.blank?
-        puts "Defining forem_user method inside ApplicationController..."
-
-        inject_into_class("#{Rails.root}/app/controllers/application_controller.rb", ApplicationController) do
-          %Q{
-  def forem_user
-    #{current_user_helper}
-  end
-  helper_method :forem_user}
-        end
-      end
 
       def mount_engine
         puts "Mounting Forem::Engine at \"/forums\" in config/routes.rb..."
@@ -89,15 +95,14 @@ Here's what happened:\n\n}
         output += step("Forem's migrations were copied over into db/migrate.\n")
         output += step("We created a new migration called AddForemAdminToTable.
    This creates a new field called \"forem_admin\" on your #{user_class} model's table.\n")
+        output += step("A new method called `forem_user` was instered into your ApplicationController.
+   This lets Forem know what the current user of your application is.\n")
         output += step("A new file was created at config/initializers/forem.rb
    This is where you put Forem's configuration settings.\n")
         
         unless options["no-migrate"]
 output += step("`rake db:migrate` was run, running all the migrations against your database.")
         end
-
-        output += step("A new method called `forem_user` was instered into your ApplicationController.
-   This lets Forem know what the current user of your application is.\n")
         output += step("The engine was mounted in your config/routes.rb file using this line:
 
    mount Forem::Engine, :at => \"/forums\"
