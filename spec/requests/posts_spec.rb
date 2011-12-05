@@ -65,6 +65,47 @@ describe "posts" do
       end
     end
 
+    context "editing posts in topics" do
+      before do
+        sign_in(user)
+        topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
+        second_post = topic.posts[1]
+      end
+
+      it "can edit their own post" do
+        visit forum_topic_path(forum, topic)
+        within(selector_for(:first_post)) do
+            click_link("Edit")
+        end
+        fill_in "Text", :with => "this is my edit"
+        click_button "Edit"
+        flash_notice!("Your post has been edited")
+        page.should have_content("this is my edit")
+      end
+
+      it "should not allow you to edit a post you don't own" do
+        second_post = topic.posts[1]
+        visit edit_topic_post_path(topic, second_post)
+        fill_in "Text", :with => "an evil edit"
+        click_button "Edit"
+        flash_alert!("Your post could not be edited")
+      end
+
+      it "should not display edit link on posts you don't own" do
+        visit forum_topic_path(forum, topic)
+        within(selector_for(:second_post)) do
+          page.should have_no_content("Edit")
+        end
+      end
+
+      it "should display edit link on posts you own" do
+        visit forum_topic_path(forum, topic)
+        within(selector_for(:first_post)) do
+          page.should have_content("Edit")
+        end
+      end
+    end
+
     context "deleting posts in topics" do
       before do
         sign_in(user)

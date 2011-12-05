@@ -30,6 +30,22 @@ module Forem
       end
     end
 
+    def edit
+      @topic = Topic.find(params[:topic_id])
+      @post = Post.find(params[:id])
+    end
+
+    def update
+      @post = Post.find(params[:id])
+      if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
+        flash[:notice] = t("forem.post.edited")
+        redirect_to [@topic.forum, @topic]
+      else
+        flash.now.alert = t("forem.post.not_edited")
+        render :action => "edit"
+      end
+    end
+
     def destroy
       @post = @topic.posts.find(params[:id])
       if @post.owner_or_admin?(forem_user)
