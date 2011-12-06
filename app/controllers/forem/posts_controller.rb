@@ -38,8 +38,7 @@ module Forem
     def update
       @post = Post.find(params[:id])
       if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
-        flash[:notice] = t("forem.post.edited")
-        redirect_to [@topic.forum, @topic]
+        redirect_to [@topic.forum, @topic], :notice => t('edited', :scope => 'forem.post')
       else
         flash.now.alert = t("forem.post.not_edited")
         render :action => "edit"
