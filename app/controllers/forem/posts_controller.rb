@@ -31,11 +31,13 @@ module Forem
     end
 
     def edit
+      authorize! :edit, :all
       @topic = Topic.find(params[:topic_id])
       @post = Post.find(params[:id])
     end
 
     def update
+      authorize! :edit, :all
       @post = Post.find(params[:id])
       if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
         redirect_to [@topic.forum, @topic], :notice => t('edited', :scope => 'forem.post')
