@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe 'post permissions' do
   let(:forum) { Factory(:forum) }
-  let(:topic) { Factory(:topic, :forum => forum) }
   let(:user) { Factory(:user) }
+  let(:topic) { Factory(:topic, :forum => forum, :user => user) }
+  
 
   context "without permission to reply" do
     before do
@@ -36,6 +37,25 @@ describe 'post permissions' do
     end
   end
 
+  context "without permission to edit" do
+    before do
+      sign_in(user)
+      User.any_instance.stub(:can_edit_forem_posts?).and_return(false)
+    end
+
+    it "can't see edit post link" do
+      visit forum_topic_path(forum, topic)
+      within(selector_for(:first_post)) do
+          assert_no_link_for!("Edit")
+      end
+    end
+
+    it "can't edit a post" do
+      first_post = topic.posts[0]
+      visit edit_topic_post_path(topic, first_post)
+      access_denied!
+    end
+  end
 
   context "with default permissions" do
     before do

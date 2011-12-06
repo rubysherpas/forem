@@ -29,6 +29,9 @@
           <% end %>
         <% end %>
         <% if post.owner_or_admin?(forem_user) %>
+          <% if can?(:edit, :all) %>
+            <li><%= link_to t('edit', :scope => 'forem.post'), edit_topic_post_path(@topic, post) %></li>
+          <% end %>
           <li><%= link_to t('delete', :scope => 'forem.topic'), topic_post_path(@topic, post), :method => :delete, :confirm => t("are_you_sure") %></li>
         <% end %>
       <% end %>

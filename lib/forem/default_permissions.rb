@@ -34,6 +34,12 @@ module Forem
           true
         end
       end
+
+      unless method_defined?(:can_edit_forem_posts?)
+        def can_edit_forem_posts?
+          true
+        end
+      end
     end
   end
 end
