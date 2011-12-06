@@ -35,7 +35,7 @@ module Forem
         end
       end
 
-      unless respond_to?(:can_edit_forem_posts?)
+      unless method_defined?(:can_edit_forem_posts?)
         def can_edit_forem_posts?
           true
         end
