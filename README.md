@@ -11,6 +11,11 @@ Forem is an engine for Rails that aims to be the best little forum system ever.
 The end goal is to have an engine that can be dropped into an application that
 provides the basic functionality of forums, topics and posts.
 
+# Demo
+
+A demo application can be found at [http://forem.heroku.com](http://forem.heroku.com), and the source for this application can be found on the [forem.heroku.com
+repository](http://github.com/radar/forem.heroku.com)
+
 # Installation
 
 Installing Forem is easy.
