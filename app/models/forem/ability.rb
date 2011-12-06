@@ -31,6 +31,9 @@ module Forem
       can :reply, Forem::Topic do |topic|
         user.can_reply_to_forem_topic?(topic)
       end
+
+      can :edit, :all if user.can_edit_forem_posts?
+      
     end
   end
 end
