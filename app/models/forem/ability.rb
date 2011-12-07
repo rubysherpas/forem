@@ -32,8 +32,9 @@ module Forem
         user.can_reply_to_forem_topic?(topic)
       end
 
-      can :edit, :all if user.can_edit_forem_posts?
-      
+      can :edit_post, Forem::Forum do |forum|
+        user.can_edit_forem_posts?(forum)
+      end
     end
   end
 end
