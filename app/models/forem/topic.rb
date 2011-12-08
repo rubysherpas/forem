@@ -4,6 +4,7 @@ module Forem
 
     belongs_to :forum
     has_many   :views
+    has_many   :subscriptions
     belongs_to :user, :class_name => Forem.user_class.to_s
 
     has_many :posts, :dependent => :destroy, :order => "created_at ASC"
@@ -12,6 +13,7 @@ module Forem
     validates :subject, :presence => true
 
     before_save :set_first_post_user
+    after_create :subscribe_poster
 
     scope :visible, where(:hidden => false)
     scope :by_pinned, order('forem_topics.pinned DESC, forem_topics.id')
@@ -58,6 +60,10 @@ module Forem
         view = views.find_or_create_by_user_id(user.id)
         view.increment!("count")
       end
+    end
+    
+    def subscribe_poster
+      self.subscriptions.create!(:subscriber_id => self.user_id)
     end
 
     protected
