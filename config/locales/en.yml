@@ -1,5 +1,6 @@
 en:
   forem:
+    access_denied: "You are not allowed to do that."
     admin:
       area: Admin Area
       welcome: "Welcome to forem's Admin Area."
@@ -113,10 +114,14 @@ en:
     post:
       buttons:
         reply: Post Reply
+        edit: Edit
       created: Your reply has been posted.
       new: Post reply
+      edit: Edit
       not_created: Your reply could not be posted.
       not_created_topic_locked: You cannot reply to a locked topic.
+      edited: Your post has been edited.
+      not_edited: Your post could not be edited.
       deleted: Your post has been deleted.
       deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
