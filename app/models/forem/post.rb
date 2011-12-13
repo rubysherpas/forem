@@ -8,6 +8,8 @@ module Forem
                        :foreign_key => "reply_to_id",
                        :dependent => :nullify
 
+    delegate :forum, :to => :topic
+
     scope :by_created_at, order("created_at asc")
 
     validates :text, :presence => true

@@ -18,11 +18,13 @@ module Forem
     end
 
     def new
+      authorize! :create_topic, @forum
       @topic = @forum.topics.build
       @topic.posts.build
     end
 
     def create
+      authorize! :create_topic, @forum
       @topic = @forum.topics.build(params[:topic])
       @topic.user = forem_user
       if @topic.save
@@ -49,6 +51,7 @@ module Forem
     private
     def find_forum
       @forum = Forem::Forum.find(params[:forum_id])
+      authorize! :read, @forum
     end
 
     def register_view

@@ -1,10 +1,20 @@
+require 'cancan'
+
 class Forem::ApplicationController < ApplicationController
+
+  rescue_from CanCan::AccessDenied do
+    redirect_to root_path, :alert => t("forem.access_denied")
+  end
+
+  def current_ability
+    Forem::Ability.new(current_user)
+  end
 
   private
 
   def authenticate_forem_user
     if !forem_user
-      session[:return_to] = request.fullpath
+      session["user_return_to"] = request.fullpath
       flash.alert = t("forem.errors.not_signed_in")
       redirect_to main_app.sign_in_path
     end

@@ -4,6 +4,7 @@ module Forem
     before_filter :find_topic
 
     def new
+      authorize! :reply, @topic
       @post = @topic.posts.build
       if params[:quote]
         @reply_to = @topic.posts.find(params[:reply_to_id])
@@ -12,6 +13,7 @@ module Forem
     end
 
     def create
+      authorize! :reply, @topic
       if @topic.locked?
         flash.alert = t("forem.post.not_created_topic_locked")
         redirect_to [@topic.forum, @topic] and return
@@ -25,6 +27,22 @@ module Forem
         params[:reply_to_id] = params[:post][:reply_to_id]
         flash.now.alert = t("forem.post.not_created")
         render :action => "new"
+      end
+    end
+
+    def edit
+      authorize! :edit_post, @topic.forum
+      @post = Post.find(params[:id])
+    end
+
+    def update
+      authorize! :edit_post, @topic.forum
+      @post = Post.find(params[:id])
+      if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
+        redirect_to [@topic.forum, @topic], :notice => t('edited', :scope => 'forem.post')
+      else
+        flash.now.alert = t("forem.post.not_edited")
+        render :action => "edit"
       end
     end
 
