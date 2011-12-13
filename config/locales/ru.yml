@@ -1,0 +1,159 @@
+ru:
+  forem:
+    access_denied: У вас недостаточно прав на это.
+    admin:
+      area: Административная зона
+      welcome: Добро пожаловать в Административную Зону forem
+      forum:
+        index: Управление форумами
+        new: Создание нового форума
+        new_link: Новый форум
+        deleted: Выбранный форум был удален.
+        created: Этот форум был создан.
+        not_created: Этот форум не может быть создан.
+        updated: Этот форум был изменен.
+        not_updated: Этот форум не может быть изменен.
+      forums:
+        edit: Редактировать
+        delete: Удалить
+        forum: Форум
+        category: Категория
+        topics: Темы
+        posts: Записи
+        delete_confirm: Вы уверены что хотите удалить этот форум?
+        index:
+          last_post: Последняя запись
+          none: Отсутствует
+      category:
+        index: Управление категориями
+        new: Создание новой категории
+        new_link: Новая категория
+        deleted: Выделенная категория была удалена.
+        created: Эта категория была создана.
+        not_created: Эта категория не может быть создана.
+        updated: Эта категория была изменена.
+        not_updated: Эта категория не может быть изменена.
+      categories:
+        edit: Редактировать
+        delete: Удалить
+        category: Категория
+        delete_confirm: Вы уверены что хотите удалить эту категорию?
+    common:
+      pages: Страницы
+    errors:
+      not_signed_in: Вы должны сначала авторизоваться.
+      access_denied: Доступ запрещен.
+    forum:
+      header: "Просмотр %{title}"
+      forums: Форумы
+      new: Создание нового форума
+      edit: "Редактирование форума %{title}"
+      topics_count:
+        zero: 0 тем
+        one: 1 тема
+        other: "%{count} тем"
+      posts_count:
+        zero: 0 записей
+        one: 1 запись
+        other: "%{count} записей"
+    forums:
+      index:
+        title: Форумы
+        forum: Форум
+        topics: Темы
+        posts: Записи
+        views: Просмотров
+        last_post: 'Последняя запись:'
+        none: Отсутствует
+    topic:
+      headings:
+        topic: Тема
+        latest: Последняя
+        posts: Записи
+        views: Просмотры
+      reply: Ответить
+      quote: Цитировать
+      delete: Удалить
+      created: Эта тема была создана.
+      new: Создание новой темы
+      edit: Редактирование темы
+      not_created: Эта тема не может быть создана.
+      deleted: Эта тема была удалена.
+      cannot_delete: Вы не можете удалить тему, которую не создавали.
+      updated: Эта тема была изменена.
+      not_updated: Эта тема не может быть изменена.
+      none: В настоящий момент в этом форуме нет ни одной темы.
+      links:
+        new: Новая тема
+        back_to_topics: Назад к списку тем
+        edit: Редактирование темы
+      not_found: Тема, которую вы ищете не может быть найдена.
+      hidden:
+        'true': Эта тема теперь скрыта.
+        'false': Эта тема теперь не срыта.
+      locked:
+        'true': Эта тема теперь закрыта.
+        'false': Эта тема теперь открыта.
+      pinned:
+        'true': Эта тема теперь прикреплена.
+        'false': Эта тема теперь не прикреплена.
+    topics:
+      show:
+        reply: Ответить
+        delete: Удалить
+        reply_to_topic: Ответить на тему
+        hide:
+          'true': Показать
+          'false': Скрыть
+        lock:
+          'true': Открыть
+          'false': Закрыть
+        pin:
+          'true': Открепить
+          'false': Прикрепить
+    post:
+      buttons:
+        reply: Ответить
+      created: Ваш ответ был опубликован.
+      new: Ответить
+      not_created: Ваш ответ не был опубликован.
+      not_created_topic_locked: Вы не можете ответить на закрытую тему.
+      deleted: Ваш ответ был удален.
+      deleted_with_topic: Ответ в теме был удален. Тема также была удалена.
+      cannot_delete: Вы не можете удалить чужой ответ.
+      in_reply_to: В ответ на
+  helpers:
+    submit:
+      forum:
+        create: Создать форум
+        update: Изменить форум
+      topic:
+        create: Создать тему
+        update: Изменить тему
+  simple_form:
+    labels:
+      forum:
+        title: Заголовок
+        description: Описание
+      topic:
+        subject: Тема
+        locked: Закрыта
+        pinned: Прикреплена
+        hidden: Скрыта
+        posts:
+          text: Текст
+      post:
+        text: Текст
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Форумы
+        description: Управление форумами
+
+  # General stuff
+  time_ago_in_words: "%{time} назад"
+  ago: " назад"
+  ago_by: " назад"
+  by: ''
+  started_by: "Начата "
+  are_you_sure: Вы уверены?
