@@ -1,24 +1,43 @@
 zh-CN:
   forem:
+    access_denied: "你没有被授权"
     admin:
       area: "管理论坛"
+      welcome: "欢迎来到Forem管理页面"
       forum:
-        edit: "编辑板块： %{title} "
-        index: 管理板块
-        new: 新建板块
-        new_link: 新建板块
-        deleted: 选择的板块已被删除
-        created: 板块被创建
-        not_created: 板块不能被新建
-        updated: 板块已更新
-        not_updated: 板块不能被更新
+        index: 管理版块
+        new: 新建版块
+        new_link: 新建版块
+        deleted: 选择的版块已被删除
+        created: 版块被创建
+        not_created: 版块不能被新建
+        updated: 版块已更新
+        not_updated: 版块不能被更新
       forums:
         edit: 编辑
         delete: 删除
         forum: 论坛
+        category: 分类
         topics: 帖子
         posts: 回复
-        delete_confirm: 你确定删除这个板块吗?
+        delete_confirm: 你确定删除这个版块吗?
+        index:
+          last_post: 最后回复
+          none: 没有了
+      category:
+        index: 管理版块分类
+        new: 新建分类
+        new_link: 新建分类
+        deleted: 被选中的分类被删除了。
+        created: 这个分类被创建了。
+        not_created: 这个版块的分类不能被创建。
+        updated: 这个版块的分类被更新了。
+        not_updated: 这个版块的分类不能被更新。
+      categories:
+        edit: 编辑
+        delete: 删除
+        category: 分类
+        delete_confirm: 你确定要删除这个版块的分类吗？
     common:
       pages: 页面
     errors:
@@ -26,7 +45,9 @@ zh-CN:
       access_denied: 不能访问
     forum:
       header: "查看 %{title}"
-      forums: 板块
+      forums: 版块
+      new: 新建一个版块
+      edit: "编辑版块：%{title}"
       topics_count:
         zero: 0 帖子
         one: 1 帖子
@@ -37,12 +58,23 @@ zh-CN:
         other: "%{count} 回复"
     forums:
       index:
-        title: 板块
-        forum: 板块
+        title: 版块
+        forum: 版块
         topics: 帖子
         posts: 回复
         views: 查看次数
         last_post: 最新的回复
+        none: 无
+      listing:
+        title: 版块
+        forums: 版块
+        topics: 帖子
+        posts: 回复
+        views: 查看次数
+        last_post: 最新的回复
+        none: 无
+      forum:
+        last_post: 最后回复
     topic:
       headings:
         topic: "帖子"
@@ -54,6 +86,7 @@ zh-CN:
       delete: 删除
       created: 帖子被创建
       new: 新建一个帖子
+      edit: 编辑帖子
       not_created: 帖子不能被新建
       deleted: 你的帖子被删除了
       cannot_delete: 你不能删除别人的帖子
@@ -88,27 +121,53 @@ zh-CN:
         pin:
           'true': 取消置顶该帖子
           'false': 置顶该帖子
-        
-        
     post:
       buttons:
         reply: 回复
+        edit: 编辑
       created: 你的回复发表了
       new: 回复
+      edit: 编辑
       not_created: 你的回复不能被发表
       not_created_topic_locked: 你不能回复被锁定的回复
+      edited: 你的回复编辑成功。
+      not_edited: 你的回复不能被编辑。
       deleted: 你的回复被删除了
+      deleted_with_topic: 帖子也被删除
       cannot_delete: 你不能删除别人的回复
       in_reply_to: "回复给"
+  helpers:
+    submit:
+      forum:
+        create: 新建版块
+        update: 更新版块
+      topic:
+        create: 新建帖子
+        update: 更新帖子
+  simple_form:
+    labels:
+      forum:
+        title: 标题
+        description: 描述
+      topic:
+        subject: 标题
+        locked: 锁定
+        pinned: 置顶
+        hidden: 隐藏
+        posts:
+          text: 内容
+      post:
+        text: 内容
   refinery:
     plugins:
       refinery_forem:
-        title: 板块
-        description: 管理板块
+        title: 版块
+        description: 管理版块
 
   # General stuff
   time_ago_in_words: "%{time} 前"
   ago: " 前"
   ago_by: " 前 回复者: "
+  by: 由
   started_by: "创建者: "
   are_you_sure: "确定吗？"

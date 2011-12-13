@@ -5,9 +5,12 @@ describe "forums" do
 
   it "listing all" do
     visit forums_path
-    page.should have_content("Welcome to Forem!")
-    page.should have_content("A placeholder forum.")
-
+    within(".forum") do
+      page.should have_content("Welcome to Forem!")
+      within(".description") do
+        page.should have_content("A placeholder forum.")
+      end
+    end
   end
 
   context "visiting a forum" do
@@ -17,16 +20,7 @@ describe "forums" do
       FactoryGirl.create(:post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
       @topic_3 = FactoryGirl.create(:topic, :subject => "PINNED!", :forum => forum, :pinned => true)
       @topic_4 = FactoryGirl.create(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
-      visit forum_path(forum.id)
-    end
-
-    it "shows the title" do
-      within("#forum h2") do
-        page.should have_content("Welcome to Forem!")
-      end
-      within("#forum small") do
-        page.should have_content("A placeholder forum.")
-      end
+      visit forum_path(forum)
     end
 
     it "lists pinned topics first" do
