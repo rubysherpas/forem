@@ -6,6 +6,10 @@ module Forem
       as_formatted_html(text)
     end
 
+    def forem_quote(text)
+      as_quoted_text(text)
+    end
+
     def forem_markdown(text, *options)
       #TODO: delete deprecated method
       Rails.logger.warn("DEPRECATION: forem_markdown is replaced by forem_format() + forem-markdown_formatter gem, and will be removed")
