@@ -61,4 +61,21 @@ describe Forem::Topic do
       Forem::Topic.by_most_recent_post.to_a.map(&:id).should == [@topic1.id, @topic2.id, @topic3.id]
     end
   end
+
+  describe "helper methods" do
+    describe "#subscribe_user" do
+      it "subscribes a user to the topic" do
+        user = FactoryGirl.create(:user)
+        @topic.subscribe_user(user.id)
+        @topic.subscriptions.last.subscriber.should == user
+      end
+
+      it "only subscribes users once" do
+        user = FactoryGirl.create(:user)
+        @topic.subscribe_user(@topic.user_id)
+        @topic.subscribe_user(@topic.user_id)
+        @topic.subscriptions.size.should == 1
+      end
+    end
+  end
 end

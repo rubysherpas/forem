@@ -54,7 +54,7 @@ module Forem
       views.find_by_user_id(user.id)
     end
 
-    # Track when users last viewed topics
+    #, :branch=>'formatted_quotes' Track when users last viewed topics
     def register_view_by(user)
       if user
         view = views.find_or_create_by_user_id(user.id)
@@ -63,7 +63,13 @@ module Forem
     end
     
     def subscribe_poster
-      self.subscriptions.create!(:subscriber_id => self.user_id)
+      subscribe_user self.user_id
+    end
+
+    def subscribe_user user_id
+      if !self.subscriptions.exists?(:subscriber_id=>user_id)
+        self.subscriptions.create!(:subscriber_id => user_id)
+      end
     end
 
     protected
