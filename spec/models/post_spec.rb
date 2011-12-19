@@ -23,5 +23,12 @@ describe Forem::Post do
       assert post.owner_or_admin?(post.user)
       assert post.owner_or_admin?(admin)
     end
+
+    it "subscribes repliers" do
+      user = FactoryGirl.create(:user)
+      post.user = user
+      post.topic.should_receive(:subscribe_user).with(post.user_id)
+      post.subscribe_replier
+    end
   end
 end

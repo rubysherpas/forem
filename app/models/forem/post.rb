@@ -17,5 +17,9 @@ module Forem
     def owner_or_admin?(other_user)
       self.user == other_user || other_user.forem_admin?
     end
+
+    def subscribe_replier
+      self.topic.subscribe_user self.user_id
+    end
   end
 end
