@@ -1,1 +1,1 @@
-Forem.user_class = User
+Forem.user_class = "User"
