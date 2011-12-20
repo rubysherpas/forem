@@ -5,14 +5,7 @@ module Forem
     include CanCan::Ability
 
     def initialize(user)
-      # TODO: Discover why we have to do this.
-      # It appears that whatever's passing through the object is using
-      # a cached version of the User class
-      user = if user
-        Forem.user_class.find(user.id)
-      else
-        Forem.user_class.new # anonymous user
-      end
+      user ||= Forem.user_class.new
 
       can :read, Forem::Category do |category|
         user.can_read_forem_category?(category)
