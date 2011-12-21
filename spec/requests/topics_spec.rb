@@ -63,6 +63,25 @@ describe "topics" do
         flash_notice!("Your topic has been deleted.")
       end
 
+			it "can subscribe to a topic" do
+        visit forum_topic_path(other_topic.forum, other_topic)
+        within(selector_for(:topic_menu)) do
+          click_link("Subscribe")
+        end
+        flash_notice!("You have subscribed to this topic.")
+				page.should have_content("Unsubscribe")
+			end
+
+			it "can unsubscribe from an subscribed topic" do
+				other_topic.subscribe_user(user)
+        visit forum_topic_path(other_topic.forum, other_topic)
+        within(selector_for(:topic_menu)) do
+          click_link("Unsubscribe")
+        end
+        flash_notice!("You have unsubscribed from this topic.")
+				page.should have_content("Subscribe")
+			end
+
       it "cannot delete topics by others" do
         visit forum_topic_path(other_topic.forum, other_topic)
         within(selector_for(:topic_menu)) do
