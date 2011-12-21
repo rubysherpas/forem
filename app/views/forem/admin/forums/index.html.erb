@@ -28,7 +28,7 @@
             <%= t('.none') %>
           <% end %>
         </td>
-        <td><%= forum.category.name %></td>
+        <td><%= forum.category.try(:name) || "No category" %></td>
         <td><%= forum.topics.count %></td>
         <td><%= forum.posts.count %></td>
       </tr>
