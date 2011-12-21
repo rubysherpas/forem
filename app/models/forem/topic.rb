@@ -67,10 +67,18 @@ module Forem
     end
 
     def subscribe_user user_id
-      if !self.subscriptions.exists?(:subscriber_id=>user_id)
-        self.subscriptions.create!(:subscriber_id => user_id)
+      if !self.has_subscriber?(user_id)         
+				self.subscriptions.create!(:subscriber_id => user_id)
       end
     end
+
+		def has_subscriber? user_id
+			self.subscriptions.exists?(:subscriber_id=>user_id)
+		end
+
+		def subscription_for user_id
+			self.subscriptions.first(:conditions => { :subscriber_id=>user_id })
+		end
 
     protected
     def set_first_post_user
