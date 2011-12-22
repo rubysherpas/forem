@@ -8,6 +8,7 @@ require "forem"
 # Otherwise it will bomb out because it cannot find Devise::SessionsController
 require "devise"
 require "devise/rails"
+require 'jquery-rails'
 
 module Dummy
   class Application < Rails::Application
@@ -40,6 +41,7 @@ module Dummy
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
+    config.assets.enabled = true
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
   end

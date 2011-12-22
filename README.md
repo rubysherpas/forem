@@ -77,9 +77,12 @@ You will then be able to edit the forem views inside the `app/views/forem` of yo
 
 We currently have support for the following languages:
 
+* Brazillian (pt-BR)
 * Chinese (zh-CN)
 * English
+* German
 * Italian
+* Russian
 * Polish
 
 Patches for new translations are very much welcome!
