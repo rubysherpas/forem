@@ -55,7 +55,7 @@ module Forem
         image = "foo.jpg"
         Forem.stub(:default_gravatar_image => image)
 
-        expected = "http://test.host/images/foo.jpg"
+        expected = "http://test.host/assets/foo.jpg"
         helper.default_gravatar.should eq(expected)
       end
 
