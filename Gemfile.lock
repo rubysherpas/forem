@@ -75,6 +75,9 @@ GEM
       rdiscount
     hike (1.2.1)
     i18n (0.6.0)
+    jquery-rails (1.0.19)
+      railties (~> 3.0)
+      thor (~> 0.14)
     json_pure (1.5.4)
       spruz (~> 0.2.8)
     kaminari (0.12.4)
@@ -168,6 +171,7 @@ DEPENDENCIES
   forem!
   forem-rdiscount
   forem-theme-base!
+  jquery-rails
   launchy
   rails (~> 3.1.0)
   rspec-rails (~> 2.6)

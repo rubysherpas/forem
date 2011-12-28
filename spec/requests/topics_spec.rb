@@ -89,6 +89,19 @@ describe "topics" do
         end
       end
 
+      # Regression test for #100
+      it "can delete topics by others if an admin" do
+        topic.user = Factory(:user) # Assign alternate user
+        topic.save
+
+        user.update_attribute(:forem_admin, true)
+        visit forum_topic_path(topic.forum, topic)
+        within(selector_for(:topic_menu)) do
+          click_link("Delete")
+        end
+        flash_notice!("Your topic has been deleted.")
+      end
+
       context "creating a topic" do
         it "creates a view" do
           lambda do

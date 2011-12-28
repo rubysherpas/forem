@@ -47,7 +47,6 @@ describe "When a post is displayed " do
       post.text = "> **strong text**\n\n"
       post.save!
       visit forum_topic_path(forum, topic)
-      save_and_open_page
       page.should have_css('blockquote strong', :text=>'strong text')
     end
   end
