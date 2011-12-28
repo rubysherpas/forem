@@ -14,6 +14,8 @@ Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
+  config.include(MailerMacros)
+  config.before(:each) { reset_email }
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
