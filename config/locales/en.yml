@@ -82,6 +82,8 @@ en:
       cannot_delete: You cannot delete a topic you do not own.
       updated: This topic has been updated.
       not_updated: This topic could not be updated.
+      subscribed: You have subscribed to this topic.
+      unsubscribed: You have unsubscribed from this topic.
       none: There are no topics in this forum currently.
       links:
         new: New topic
@@ -101,6 +103,8 @@ en:
       show:
         reply: Reply
         delete: Delete
+        subscribe: Subscribe
+        unsubscribe: Unsubscribe
         reply_to_topic: Reply to Topic
         hide:
           'true': Show this topic
