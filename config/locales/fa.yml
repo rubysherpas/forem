@@ -1,0 +1,163 @@
+en:
+  forem:
+    access_denied: "شما به انجام این عملیات مجاز نیستید."
+    admin:
+      area: بخش مدیریت
+      welcome: "به بخش مدیریت خوش آمدید."
+      forum:
+        index: مدیریت انجمن ها
+        new: ایجاد انجمن جدید
+        new_link: انجمن جدید
+        deleted: انجمن انتخاب شده حذف شد.
+        created: انجمن ایجاد شد.
+        not_created: امکان ایجاد این انجمن وجود ندارد.
+        updated: این انجمن بروز رسانی شد.
+        not_updated: امکان بروز رسانی این انجمن وجود ندارد.
+      forums:
+        edit: ویرایش
+        delete: حذف
+        forum: انجمن
+        category: دسته بندی
+        topics: موضوعات
+        posts: مطالب
+        delete_confirm: آیا از حذف این انجمن مطمئن هستید؟
+        index:
+          last_post: آخرین مطلب
+          none: هیچ کدام
+      category:
+        index: مدیریت دسته بندی های انجمن
+        new: ایجاد یک دسته بندی جدید
+        new_link: دسته بندی جدید
+        deleted: دسته بندی انتخاب شده حذف شد.
+        created: دسته بندی جدید ایجاد شد.
+        not_created: امکان ایجاد دسته بندی جدید وجود ندارد.
+        updated: این دسته بندی بروز رسانی شد.
+        not_updated: امکان بروز رسانی این دسته بندی وجود ندارد.
+      categories:
+        edit: ویرایش
+        delete: حذف
+        category: دسته بندی
+        delete_confirm: آیا از حذف این دسته بندی مطمئن هستید؟
+    common:
+      pages: صفحات
+    errors:
+      not_signed_in: ابتدا باید در انجمن وارد شوید.
+      access_denied: دسترسی مقدور نیست.
+    forum:
+      header: "%{title} نمایش"
+      forums: انجمن ها
+      new: ایجاد انجمن جدید
+      edit: "%{title} ویرایش انجمن"
+      topics_count:
+        zero: ۰ موضوع
+        one: ۱ موضوع
+        other: "موضوع %{count}"
+      posts_count:
+        zero: ۰ مطلب
+        one: ۱ مطلب
+        other: "مطلب %{count}"
+    forums:
+      index:
+        title: انجمن ها
+        forum: انجمن
+        topics: موضوعات
+        posts: مطالب
+        views: نمایش ها
+        last_post: 'آخرین مطلب:'
+        none: هیچ کدام
+    topic:
+      headings:
+        topic: موضوع
+        latest: آخرین
+        posts: مطالب
+        views: نمایش ها
+      reply: ‍‍پاسخ
+      quote: نقل و قول
+      delete: حذف
+      created: موضوع جدید ایجاد شد
+      new: ایجاد موضوع جدید
+      edit: ویرایش موضوع
+      not_created: امکان ایجاد این موضوع وجود ندارد.
+      deleted: موضوع شما حذف شد.
+      cannot_delete: شما نمی توانید موضوعی را که توسط شما ایجاد نشده، حذف کنید.
+      updated: این موضوع بروز رسانی شد.
+      not_updated: امکان بروز رسانی این موضوع وجود ندارد.
+      none: هم اکنون هیچ موضوعی در این انجمن وجود ندارد.
+      links:
+        new: موضوع جدید
+        back_to_topics: بازگشت به صفحه موضوعات
+        edit: ویرایش موضوع
+      not_found: موضوع مورد نظر شما پیدا نشد.
+      hidden:
+        'true': این موضوع پنهان است.
+        'false': این موضوع پنهان نیست.
+      locked:
+        'true': این موضوع قفل شده است.
+        'false': این موضوع باز است.
+      pinned:
+        'true': این موضوع پین دار شده است.
+        'false': این موضوع فاقد پین است.
+    topics:
+      show:
+        reply: پاسخ
+        delete: حذف
+        reply_to_topic: پاسخ به این موضوع
+        hide:
+          'true': نمایش این موضوع
+          'false': پنهان کردن این موضوع
+        lock:
+          'true': باز کردن موضوع
+          'false': قفل کردن موضوع
+        pin:
+          'true': برداشتن پین از این موضوع
+          'false': پین دار کردن این موضوع
+    post:
+      buttons:
+        reply: ارسال پاسخ
+        edit: ویرایش
+      created: پاسخ شما ارسال شد.
+      new: ارسال پاسخ
+      edit: ویرایش
+      not_created: امکان ارسال پاسخ شما وجود ندارد.
+      not_created_topic_locked: شما نمی توانید به یک موضوع قفل شده، پاسخی ارسال کنید.
+      edited: مطلب شما ویرایش شد.
+      not_edited: امکان ویرایش مطلب شما وجود ندارد.
+      deleted: مطلب شما حذف شد.
+      deleted_with_topic: موضوع به همراه تنها مطلب موجود در آن پاک شد.
+      cannot_delete: شما نمی توانید مطلبی را که توسط شما ایجاد نشده، حذف کنید.
+      in_reply_to: در پاسخ به
+  helpers:
+    submit:
+      forum:
+        create: ایجاد انجمن
+        update: بروز رسانی انجمن
+      topic:
+        create: ایجاد موضوع
+        update: بروز رسانی موضوع
+  simple_form:
+    labels:
+      forum:
+        title: عنوان
+        description: توضیحات
+      topic:
+        subject: موضوع
+        locked: قفل شده
+        pinned: پین دار شده
+        hidden: پنهان شده
+        posts:
+          text: متن
+      post:
+        text: متن
+  refinery:
+    plugins:
+      refinery_forem:
+        title: انجمن ها
+        description: مدیریت انجمن ها
+
+  # General stuff
+  time_ago_in_words: "قبل %{time}"
+  ago: " قبل"
+  ago_by: " قبل توسط"
+  by: توسط
+  started_by: "آغاز شده توسط "
+  are_you_sure: مطمئن هستید؟
