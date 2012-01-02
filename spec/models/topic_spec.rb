@@ -72,8 +72,8 @@ describe Forem::Topic do
 
       it "only subscribes users once" do
         user = FactoryGirl.create(:user)
-        @topic.subscribe_user(@topic.user_id)
-        @topic.subscribe_user(@topic.user_id)
+        @topic.subscribe_user(user.id)
+        @topic.subscribe_user(user.id)
         @topic.subscriptions.size.should == 1
       end
     end
