@@ -67,7 +67,7 @@ module Forem
     end
 
     def subscribe_user user_id
-      if !self.has_subscriber?(user_id)         
+      if user_id && !self.has_subscriber?(user_id)         
 				self.subscriptions.create!(:subscriber_id => user_id)
       end
     end

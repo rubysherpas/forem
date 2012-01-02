@@ -21,7 +21,9 @@ module Forem
     end
 
     def subscribe_replier
-      self.topic.subscribe_user self.user_id if self.topic
+      if self.topic && self.user
+        self.topic.subscribe_user self.user.id
+      end
     end
 
 		def email_topic_subscribers

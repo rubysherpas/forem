@@ -5,7 +5,8 @@ describe Forem::Subscription do
     before(:each) do
       Forem::Topic.any_instance.stub(:set_first_post_user)
       attr = {
-        :subject => "A topic"
+        :subject => "A topic",
+        :user_id=>Factory.create(:user).id
       }
       @topic = Forem::Topic.create!(attr)
     end
