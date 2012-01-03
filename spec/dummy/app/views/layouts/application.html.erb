@@ -11,7 +11,7 @@
     <div id='flash_<%= key %>'><%= message %></div>
   <% end %>
   <% if user_signed_in? %>
-    Signed in as <%= current_user %>
+    Signed in as <%= forem_user %>
     <%= link_to "Sign out", main_app.destroy_user_session_path, :method => :delete %>
   <% end %>
 
