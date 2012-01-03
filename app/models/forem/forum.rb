@@ -9,8 +9,8 @@ module Forem
     validates :title, :presence => true
     validates :description, :presence => true
 
-    def last_post_for(current_user)
-      current_user && current_user.forem_admin? ? posts.last : last_visible_post
+    def last_post_for(forem_user)
+      forem_user && forem_user.forem_admin? ? posts.last : last_visible_post
     end
 
     def last_visible_post

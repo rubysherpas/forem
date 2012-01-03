@@ -7,7 +7,7 @@ class Forem::ApplicationController < ApplicationController
   end
 
   def current_ability
-    Forem::Ability.new(current_user)
+    Forem::Ability.new(forem_user)
   end
 
   private
