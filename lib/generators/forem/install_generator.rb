@@ -95,7 +95,7 @@ Here's what happened:\n\n}
         output += step("Forem's migrations were copied over into db/migrate.\n")
         output += step("We created a new migration called AddForemAdminToTable.
    This creates a new field called \"forem_admin\" on your #{user_class} model's table.\n")
-        output += step("A new method called `forem_user` was instered into your ApplicationController.
+        output += step("A new method called `forem_user` was inserted into your ApplicationController.
    This lets Forem know what the current user of your application is.\n")
         output += step("A new file was created at config/initializers/forem.rb
    This is where you put Forem's configuration settings.\n")
