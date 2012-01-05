@@ -16,7 +16,7 @@ describe Forem::Post do
 	context "after creation" do
 		it "subscribes the current poster" do
 			@topic = FactoryGirl.create(:topic)
-			@post = FactoryGirl.create( :post, :topic=>@topic )
+			@post = FactoryGirl.create(:post, :topic => @topic)
 			@topic.subscriptions.last.subscriber.should == @post.user
 		end
 
@@ -29,11 +29,11 @@ describe Forem::Post do
 		it "only emails other subscribers" do
 			@user1 = FactoryGirl.create(:user)
 			@user2 = FactoryGirl.create(:user)
-			@topic = FactoryGirl.create( :topic )
-			@post = FactoryGirl.create( :post, :topic=>@topic, :user=>@user2 )
-			subs = [ Forem::Subscription.create(:topic=>@topic, :subscriber=>@user1), Forem::Subscription.create(:topic=>@topic, :subscriber=>@user2)]
+			@topic = FactoryGirl.create(:topic)
+			@post = FactoryGirl.create(:post, :topic => @topic, :user => @user2)
+			subs = [ Forem::Subscription.create(:topic => @topic, :subscriber => @user1), Forem::Subscription.create(:topic => @topic, :subscriber => @user2)]
 			@post.topic.stub(:subscriptions).and_return(subs);
-			@post.topic.stub_chain([:subscriptions, :includes]).and_return(subs);
+			@post.topic.stub_chain([:subscriptions, :includes]).and_return(subs)
 
 			@post.topic.subscriptions.first.should_receive(:send_notification)
 			@post.topic.subscriptions.last.should_not_receive(:send_notification)
