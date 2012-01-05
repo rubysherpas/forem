@@ -9,10 +9,10 @@
       <%= link_to t(".delete"), forum_topic_path(@forum, @topic), :method => :delete, :confirm => t("are_you_sure") %>
     <% end %>
 		<% if forem_user %>
-			<% if !@topic.has_subscriber?(forem_user.id) %>
-				<%= link_to t(".subscribe"), topic_subscriptions_path(@topic), :method=> :post %>
+			<% if !@topic.subscriber?(forem_user.id) %>
+				<%= link_to t(".subscribe"), topic_subscriptions_path(@topic), :method => :post %>
 			<% else %>
-				<%= link_to t(".unsubscribe"), topic_subscription_path(@topic, @topic.subscription_for(forem_user.id)), :method=> :delete %>
+				<%= link_to t(".unsubscribe"), topic_subscription_path(@topic, @topic.subscription_for(forem_user.id)), :method => :delete %>
 			<% end %>
 		<% end %>
   </menu>

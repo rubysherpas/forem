@@ -22,7 +22,7 @@ module Forem
 
     def subscribe_replier
       if self.topic && self.user
-        self.topic.subscribe_user self.user.id
+        self.topic.subscribe_user(self.user.id)
       end
     end
 
