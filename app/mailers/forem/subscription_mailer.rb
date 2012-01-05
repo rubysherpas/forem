@@ -1,7 +1,7 @@
 module Forem
   class SubscriptionMailer < ActionMailer::Base
 		# TODO: Make this configurable upon installation
-    default :from => "from@example.com"
+    default :from => Forem.email_from_address
 
     def topic_reply(post_id, subscriber_id)
 			# only pass id to make it easier to send emails using resque

@@ -4,7 +4,7 @@ require 'kaminari'
 
 module Forem
   mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,
-                 :user_profile_links
+                 :user_profile_links, :email_from_address
 
 
   def self.user_class

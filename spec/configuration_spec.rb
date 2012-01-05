@@ -20,4 +20,14 @@ describe Forem do
       Forem.default_gravatar_image.should be_nil
     end
   end
+
+  describe ".email_from_address" do
+    it "can be set and retrieved" do
+      Forem.email_from_address = "foo"
+      Forem.email_from_address.should eq("foo")
+
+      Forem.email_from_address = nil
+      Forem.email_from_address.should be_nil
+    end
+  end
 end
