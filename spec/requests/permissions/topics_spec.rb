@@ -38,4 +38,16 @@ describe 'topic permissions' do
       access_denied!
     end
   end
+
+  context "without permission to read a topic" do
+    before do
+      sign_in(user)
+      User.any_instance.stub(:can_read_forem_topic?).and_return(false)
+    end
+
+    it "cannot subscribe to a topic" do
+      visit subscribe_topic_path(topic)
+      access_denied!
+    end
+  end
 end

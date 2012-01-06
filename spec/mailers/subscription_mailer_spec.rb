@@ -12,5 +12,9 @@ describe Forem::SubscriptionMailer do
 			mail.subject.should eq("A topic you are subscribed to has received a reply")
       mail.body.encoded.should match(forum_topic_url(topic.forum, topic))
 		end
+
+    it "contains an unsubscribe link" do
+      mail.body.encoded.should match(unsubscribe_topic_path(topic))
+    end
 	end
 end

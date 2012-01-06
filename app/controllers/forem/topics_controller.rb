@@ -2,7 +2,7 @@ module Forem
   class TopicsController < Forem::ApplicationController
     helper 'forem/posts'
     before_filter :authenticate_forem_user, :except => [:show]
-    before_filter :find_forum
+    before_filter :find_forum, :except => [:subscribe, :unsubscribe]
 
     def show
       begin
@@ -46,6 +46,22 @@ module Forem
       end
 
       redirect_to @topic.forum
+    end
+
+    def subscribe
+      @topic = Topic.find(params[:id])
+      authorize! :read, @topic
+      @topic.subscribe_user(forem_user.id)
+			flash[:notice] = t("forem.topic.subscribed")
+      redirect_to forum_topic_url(@topic.forum, @topic)
+    end
+
+    def unsubscribe
+      @topic = Topic.find(params[:id])
+      authorize! :read, @topic
+      @topic.unsubscribe_user(forem_user.id)
+			flash[:notice] = t("forem.topic.unsubscribed")
+      redirect_to forum_topic_url(@topic.forum, @topic)
     end
 
     private
