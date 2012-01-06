@@ -72,6 +72,10 @@ module Forem
       end
     end
 
+    def unsubscribe_user(user_id)
+      subscriptions.where(:subscriber_id => user_id).destroy_all
+    end
+
 		def subscriber?(user_id)
 			subscriptions.exists?(:subscriber_id => user_id)
 		end

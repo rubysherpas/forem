@@ -7,7 +7,10 @@ Forem::Engine.routes.draw do
 
   resources :topics do
     resources :posts
-		resources :subscriptions
+    member do
+      get :subscribe
+      get :unsubscribe
+    end
   end
 
   resources :categories
