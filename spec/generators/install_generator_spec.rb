@@ -69,4 +69,16 @@ describe Forem::Generators::InstallGenerator do
     application_controller.should include(expected_forem_user_method)
   end
 
+  it "seeds the database" do
+    Forem::Forum.count.should == 0
+    Forem::Topic.count.should == 0
+
+    FactoryGirl.create(:user)
+    FactoryGirl.create(:category)
+    Forem::Engine.load_seed
+
+    Forem::Forum.count.should == 1
+    Forem::Topic.count.should == 1
+  end
+
 end
