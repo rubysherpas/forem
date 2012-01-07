@@ -26,7 +26,7 @@ describe Forem::Generators::InstallGenerator do
 
       FileUtils.rm("config/initializers/forem.rb")
       File.open("config/initializers/forem.rb", "w+") do |f|
-        f.write "Forem.user_class = User"
+        f.write "Forem.user_class = 'User'"
       end
     end
 
