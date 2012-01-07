@@ -49,7 +49,7 @@ describe Forem::Generators::InstallGenerator do
       described_class.start(["--user-class=User", "--no-migrate", "--current-user-helper=current_user"], :destination => Rails.root)
     end
 
-    # Ensure forem migrations have been cpied over
+    # Ensure forem migrations have been copied over
     migrations.should_not be_empty
 
     # Ensure forem admin migration has been created
