@@ -52,7 +52,7 @@ module Forem
       @topic = Topic.find(params[:id])
       authorize! :read, @topic
       @topic.subscribe_user(forem_user.id)
-			flash[:notice] = t("forem.topic.subscribed")
+      flash[:notice] = t("forem.topic.subscribed")
       redirect_to forum_topic_url(@topic.forum, @topic)
     end
 
@@ -60,7 +60,7 @@ module Forem
       @topic = Topic.find(params[:id])
       authorize! :read, @topic
       @topic.unsubscribe_user(forem_user.id)
-			flash[:notice] = t("forem.topic.unsubscribed")
+      flash[:notice] = t("forem.topic.unsubscribed")
       redirect_to forum_topic_url(@topic.forum, @topic)
     end
 
