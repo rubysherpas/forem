@@ -78,6 +78,12 @@ module Forem
         end
       end
 
+      def seed_database
+        unless options["no-migrate"]
+          puts "Creating default forum and topic"
+          Forem::Engine.load_seed
+        end
+      end
 
       def mount_engine
         puts "Mounting Forem::Engine at \"/forums\" in config/routes.rb..."
@@ -101,7 +107,8 @@ Here's what happened:\n\n}
    This is where you put Forem's configuration settings.\n")
         
         unless options["no-migrate"]
-output += step("`rake db:migrate` was run, running all the migrations against your database.")
+output += step("`rake db:migrate` was run, running all the migrations against your database.\n")
+        output += step("Seed forum and topic were loaded into your database.\n")
         end
         output += step("The engine was mounted in your config/routes.rb file using this line:
 
