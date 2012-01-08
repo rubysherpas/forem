@@ -72,9 +72,6 @@ module Forem
       rescue ActiveRecord::RecordNotFound
         flash.alert = t("forem.topic.not_found")
         redirect_to @forum and return
-      rescue CanCan::AccessDenied
-        flash.alert = t("forem.errors.access_denied")
-        redirect_to @forum and return
       end
     end
 
