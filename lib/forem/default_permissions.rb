@@ -29,6 +29,12 @@ module Forem
         end
       end
 
+      unless method_defined?(:can_read_forem_topic?)
+        def can_read_forem_topic?(topic)
+          true
+        end
+      end
+
       unless method_defined?(:can_reply_to_forem_topic?)
         def can_reply_to_forem_topic?(topic)
           true
