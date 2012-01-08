@@ -12,7 +12,7 @@ module Forem
       end
 
       can :read, Forem::Topic do |topic|
-        user_can_read_forem_forem?(topic.forum) && user.can_read_forem_topic?(topic)
+        user_can_read_forem_forum?(topic.forum) && user.can_read_forem_topic?(topic)
       end
 
       if user.can_read_forem_forums?
