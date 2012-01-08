@@ -4,7 +4,7 @@ describe Forem::SubscriptionMailer do
   describe "topic_reply" do
     let(:user) { Factory(:user) }
     let(:topic) { Factory(:topic) }
-    let(:post) { Factory(:post, :topic=>topic) }
+    let(:post) { Factory(:post, :topic => topic) }
     let(:mail) { Forem::SubscriptionMailer.topic_reply(post.id, user.id) }
 
   it "sends an email announcing a forum post update" do
