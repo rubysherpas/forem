@@ -14,7 +14,7 @@ describe Forem::SubscriptionMailer do
   end
 
     it "contains an unsubscribe link" do
-      mail.body.encoded.should match(unsubscribe_topic_path(topic))
+      mail.body.encoded.should match(unsubscribe_forum_topic_path(topic.forum, topic))
     end
   end
 end

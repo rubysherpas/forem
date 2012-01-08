@@ -46,7 +46,7 @@ describe 'topic permissions' do
     end
 
     it "cannot subscribe to a topic" do
-      visit subscribe_topic_path(topic)
+      visit subscribe_forum_topic_path(topic.forum, topic)
       access_denied!
     end
   end
