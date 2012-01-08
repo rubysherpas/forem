@@ -17,6 +17,8 @@ RSpec.configure do |config|
   config.include(MailerMacros)
   config.before(:each) { reset_email }
 
+  config.include Devise::TestHelpers, :type => :controller
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

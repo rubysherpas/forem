@@ -2,16 +2,10 @@ module Forem
   class TopicsController < Forem::ApplicationController
     helper 'forem/posts'
     before_filter :authenticate_forem_user, :except => [:show]
-    before_filter :find_forum, :except => [:subscribe, :unsubscribe]
+    before_filter :find_forum
 
     def show
-      begin
-        scope = forem_admin? ? @forum.topics : @forum.topics.visible
-        @topic = scope.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        flash.alert = t("forem.topic.not_found")
-        redirect_to @forum
-      else
+      if find_topic
         register_view
         @posts = @topic.posts.page(params[:page]).per(20)
       end
@@ -49,25 +43,39 @@ module Forem
     end
 
     def subscribe
-      @topic = Topic.find(params[:id])
-      authorize! :read, @topic
-      @topic.subscribe_user(forem_user.id)
-      flash[:notice] = t("forem.topic.subscribed")
-      redirect_to forum_topic_url(@topic.forum, @topic)
+      if find_topic
+        @topic.subscribe_user(forem_user.id)
+        flash[:notice] = t("forem.topic.subscribed")
+        redirect_to forum_topic_url(@topic.forum, @topic)
+      end
     end
 
     def unsubscribe
-      @topic = Topic.find(params[:id])
-      authorize! :read, @topic
-      @topic.unsubscribe_user(forem_user.id)
-      flash[:notice] = t("forem.topic.unsubscribed")
-      redirect_to forum_topic_url(@topic.forum, @topic)
+      if find_topic
+        @topic.unsubscribe_user(forem_user.id)
+        flash[:notice] = t("forem.topic.unsubscribed")
+        redirect_to forum_topic_url(@topic.forum, @topic)
+      end
     end
 
     private
     def find_forum
       @forum = Forem::Forum.find(params[:forum_id])
       authorize! :read, @forum
+    end
+
+    def find_topic
+      begin
+        scope = forem_admin? ? @forum.topics : @forum.topics.visible
+        @topic = scope.find(params[:id])
+        authorize! :read, @topic
+      rescue ActiveRecord::RecordNotFound
+        flash.alert = t("forem.topic.not_found")
+        redirect_to @forum and return
+      rescue CanCan::AccessDenied
+        flash.alert = t("forem.errors.access_denied")
+        redirect_to @forum and return
+      end
     end
 
     def register_view
