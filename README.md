@@ -81,6 +81,7 @@ We currently have support for the following languages:
 * Chinese (zh-CN)
 * English
 * German
+* Farsi (Persian)
 * Italian
 * Russian
 * Polish
