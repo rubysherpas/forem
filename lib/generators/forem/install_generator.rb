@@ -79,6 +79,7 @@ module Forem
       end
 
       def seed_database
+        load "#{Rails.root}/config/initializers/forem.rb"
         unless options["no-migrate"]
           puts "Creating default forum and topic"
           Forem::Engine.load_seed
