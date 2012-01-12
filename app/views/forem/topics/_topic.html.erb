@@ -7,7 +7,7 @@
       <span class='pin icon'></span>
     <% end %>
     <% if forem_user && view = topic.view_for(forem_user) %>
-      <% if topic.posts.where("created_at > ?", view.updated_at).any? %>
+      <% if topic.posts.exists?(["created_at > ?", view.updated_at]) %>
         <span class='new_posts icon'>new</span>
       <% end %>
     <% end %>
