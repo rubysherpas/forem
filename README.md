@@ -34,7 +34,7 @@ Run `rails g forem:install` and answer any questions that pop up. There's sensib
 And you're done! Yaaay!
 
 For more information on installing, please [see the "Installation" wiki
-page](https://github.com/radar/forem/wiki/Installation)
+page](https://github.com/radar/forem/wiki/Installing---Upgrading)
 
 ## Features
 
