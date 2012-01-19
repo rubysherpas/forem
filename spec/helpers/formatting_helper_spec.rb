@@ -47,9 +47,9 @@ describe Forem::FormattingHelper do
        end
     end
 
-    describe "RDiscount" do
+    describe "Redcarpet" do
        let(:markdown) { "**strong text**" }
-       before { Forem.formatter = Forem::Formatters::RDiscount }
+       before { Forem.formatter = Forem::Formatters::Redcarpet }
 
        describe "uses <blockquote> if no blockquote method" do
          subject { helper.as_quoted_text(markdown) }

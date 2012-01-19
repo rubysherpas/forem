@@ -9,6 +9,7 @@ PATH
   specs:
     forem (0.1)
       cancan
+      forem-redcarpet (= 1.0.0)
       kaminari
       rails (~> 3.1)
       simple_form
@@ -48,6 +49,7 @@ GEM
     addressable (2.2.6)
     arel (2.2.1)
     bcrypt-ruby (3.0.0)
+    blankslate (2.1.2.4)
     builder (3.0.0)
     cancan (1.6.7)
     capybara (1.0.1)
@@ -71,8 +73,9 @@ GEM
       factory_girl (~> 2.1.0)
       railties (>= 3.0.0)
     ffi (1.0.9)
-    forem-rdiscount (1.0.0)
-      rdiscount
+    forem-redcarpet (1.0.0)
+      pygments.rb (= 0.2.4)
+      redcarpet (= 2.0.1)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.19)
@@ -95,6 +98,8 @@ GEM
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
     polyglot (0.3.2)
+    pygments.rb (0.2.4)
+      rubypython (~> 0.5.3)
     rack (1.3.2)
     rack-cache (1.0.3)
       rack (>= 0.4)
@@ -120,8 +125,8 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
-    rdiscount (1.6.8)
     rdoc (3.9.4)
+    redcarpet (2.0.1)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -135,6 +140,9 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+    rubypython (0.5.3)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
     rubyzip (0.9.4)
     selenium-webdriver (2.5.0)
       childprocess (>= 0.2.1)
@@ -171,7 +179,6 @@ DEPENDENCIES
   devise
   factory_girl_rails (>= 1.2.0)
   forem!
-  forem-rdiscount
   forem-theme-base!
   jquery-rails
   launchy

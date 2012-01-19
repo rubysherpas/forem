@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'forem/formatters/rdiscount'
+require 'forem/formatters/redcarpet'
 
 describe "When a post is displayed " do
   let(:forum) { FactoryGirl.create(:forum) }
@@ -26,7 +26,7 @@ describe "When a post is displayed " do
   end
 
   describe "rdiscount formatter" do
-    before { Forem.formatter = Forem::Formatters::RDiscount }
+    before { Forem.formatter = Forem::Formatters::Redcarpet }
     after { Forem.formatter = nil }
 
     it "renders marked up text" do
