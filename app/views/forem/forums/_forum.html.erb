@@ -3,12 +3,12 @@
     <td>
       <%= link_to forum.title, forum_path(forum), :class => "title" %>
       <div class='description'><%= forum.description %></div>
-      <%= t('.last_post') -%>
+      <%= t('forem.forums.index.last_post') -%>
       <span class='last_post'>
           <% if last_post = forum.last_post_for(forem_user) -%>
             <%= link_to(last_post.topic, forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= t('time_ago_in_words', :time => time_ago_in_words(last_post.created_at)) -%>
           <% else %>
-            <%= t('.none') -%>
+            <%= t('forem.forums.index.none') -%>
           <% end %>
         </span>
     </td>
