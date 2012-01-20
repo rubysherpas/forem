@@ -10,7 +10,7 @@ PATH
     forem (0.1)
       cancan
       kaminari
-      rails (~> 3.1.0)
+      rails (~> 3.1)
       simple_form
 
 GEM
@@ -80,8 +80,10 @@ GEM
       thor (~> 0.14)
     json_pure (1.5.4)
       spruz (~> 0.2.8)
-    kaminari (0.12.4)
-      rails (>= 3.0.0)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mail (2.3.0)
@@ -173,6 +175,6 @@ DEPENDENCIES
   forem-theme-base!
   jquery-rails
   launchy
-  rails (~> 3.1.0)
+  rails (~> 3.1)
   rspec-rails (~> 2.6)
   sqlite3
