@@ -65,6 +65,9 @@ Here's a comprehensive list of the features currently in Forem:
 * [Integration with
   RefineryCMS](https://github.com/radar/forem/wiki/Integration-with-RefineryCMS)
 
+If there's a feature you think would be great to add to Forem, let us know on [the Issues
+page](https://github.com/radar/forem/issues)
+
 ## Customisation
 
 If you want to customise Forem, you can copy over the views using the (Devise-inspired) `forem:views` generator:
