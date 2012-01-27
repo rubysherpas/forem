@@ -9,11 +9,8 @@ module Forem
 
   def self.user_class
     if @@user_class.is_a?(Class)
-      warn("user_class will no longer take a Class object after January 20th, 2012."  +
-            " Please pass the user_class= method a String object instead, like this:" +
-            " Forem.user_class = 'User'. See http://github.com/radar/forem/issues/88" +
-            " for an explanation why.")
-      @@user_class
+      raise "You can no longer set Forem.user_class to be a class. Please use a string instead.\n\n " +
+            "See https://github.com/radar/forem/issues/88 for more information."
     elsif @@user_class.is_a?(String)
       @@user_class.constantize
     end
