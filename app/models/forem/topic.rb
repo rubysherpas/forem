@@ -15,13 +15,28 @@ module Forem
     before_save :set_first_post_user
     after_create :subscribe_poster
 
-    scope :visible, where(:hidden => false)
-    scope :by_pinned, order('forem_topics.pinned DESC, forem_topics.id')
-    scope :by_most_recent_post, joins(:posts).select("DISTINCT forem_posts.topic_id, forem_topics.*, forem_posts.created_at").order('forem_posts.created_at DESC, forem_topics.id')
-    scope :by_pinned_or_most_recent_post, includes(:posts).
-                                          order('forem_topics.pinned DESC').
-                                          order('forem_posts.created_at DESC').
-                                          order('forem_topics.id')
+    class << self
+      def visible
+        where(:hidden => false)
+      end
+
+      def by_pinned
+        order('forem_topics.pinned DESC, forem_topics.id')
+      end
+
+      def by_most_recent_post
+        joins(:posts).
+        select("DISTINCT forem_posts.topic_id, forem_topics.*, forem_posts.created_at").
+        order('forem_posts.created_at DESC, forem_topics.id')
+      end
+
+      def by_pinned_or_most_recent_post
+        includes(:posts).
+        order('forem_topics.pinned DESC').
+        order('forem_posts.created_at DESC').
+        order('forem_topics.id')
+      end
+    end
 
     def to_s
       subject
@@ -61,13 +76,13 @@ module Forem
         view.increment!("count")
       end
     end
-    
+
     def subscribe_poster
       subscribe_user(self.user_id)
     end
 
     def subscribe_user(user_id)
-      if user_id && !subscriber?(user_id)         
+      if user_id && !subscriber?(user_id)
         subscriptions.create!(:subscriber_id => user_id)
       end
     end

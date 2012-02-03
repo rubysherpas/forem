@@ -10,7 +10,11 @@ module Forem
 
     delegate :forum, :to => :topic
 
-    scope :by_created_at, order("created_at asc")
+    class << self
+      def by_created_at
+        order("created_at asc")
+      end
+    end
 
     validates :text, :presence => true
     after_create :subscribe_replier
