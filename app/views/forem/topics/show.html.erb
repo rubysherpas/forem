@@ -10,9 +10,9 @@
     <% end %>
     <% if forem_user %>
       <% if !@topic.subscriber?(forem_user.id) %>
-        <%= link_to t(".subscribe"), subscribe_forum_topic_path(@topic) %>
+        <%= link_to t(".subscribe"), subscribe_forum_topic_path(@forum, @topic) %>
       <% else %>
-        <%= link_to t(".unsubscribe"), unsubscribe_forum_topic_path(@topic) %>
+        <%= link_to t(".unsubscribe"), unsubscribe_forum_topic_path(@forum, @topic) %>
       <% end %>
     <% end %>
   </menu>
