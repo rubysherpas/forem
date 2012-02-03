@@ -68,7 +68,7 @@ module Forem
 
     def subscribe_user(user_id)
       if user_id && !subscriber?(user_id)         
-				subscriptions.create!(:subscriber_id => user_id)
+        subscriptions.create!(:subscriber_id => user_id)
       end
     end
 
@@ -76,13 +76,13 @@ module Forem
       subscriptions.where(:subscriber_id => user_id).destroy_all
     end
 
-		def subscriber?(user_id)
-			subscriptions.exists?(:subscriber_id => user_id)
-		end
+    def subscriber?(user_id)
+      subscriptions.exists?(:subscriber_id => user_id)
+    end
 
-		def subscription_for user_id
-			subscriptions.first(:conditions => { :subscriber_id=>user_id })
-		end
+    def subscription_for user_id
+      subscriptions.first(:conditions => { :subscriber_id=>user_id })
+    end
 
     protected
     def set_first_post_user

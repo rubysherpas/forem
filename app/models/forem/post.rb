@@ -13,8 +13,8 @@ module Forem
     scope :by_created_at, order("created_at asc")
 
     validates :text, :presence => true
-  	after_create :subscribe_replier
-  	after_create :email_topic_subscribers
+    after_create :subscribe_replier
+    after_create :email_topic_subscribers
 
     def owner_or_admin?(other_user)
       self.user == other_user || other_user.forem_admin?
@@ -26,14 +26,14 @@ module Forem
       end
     end
 
-  	def email_topic_subscribers
-  		if self.topic
-  			self.topic.subscriptions.includes(:subscriber).each do |subscription|
-  				if subscription.subscriber != self.user
-  					subscription.send_notification(self.id)
-  				end
-  			end
-  		end
-  	end
+    def email_topic_subscribers
+      if self.topic
+        self.topic.subscriptions.includes(:subscriber).each do |subscription|
+          if subscription.subscriber != self.user
+            subscription.send_notification(self.id)
+          end
+        end
+      end
+    end
   end
 end
