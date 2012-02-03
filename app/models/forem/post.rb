@@ -10,6 +10,7 @@ module Forem
 
     delegate :forum, :to => :topic
 
+    scope :visible, joins(:topic).where("forem_topics.hidden" => false)
     scope :by_created_at, order("created_at asc")
 
     validates :text, :presence => true
