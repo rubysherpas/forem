@@ -1,7 +1,7 @@
 module Forem
   module PostsHelper
     def avatar(user, options = {})
-      if (avatar = user.try(:avatar)).present?
+      if (avatar = user.try(:avatar_url)).present?
         image_tag(avatar, :alt => "Avatar")
       elsif (email = user.try(:email)).present?
         image_tag(avatar_url(email, options), :alt => "Gravatar")
