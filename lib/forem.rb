@@ -3,7 +3,8 @@ require 'forem/default_permissions'
 require 'kaminari'
 
 module Forem
-  mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,
+  mattr_accessor :user_class, :theme, :formatter,
+                 :avatar_user_method, :default_gravatar, :default_gravatar_image,
                  :user_profile_links, :email_from_address
 
 
