@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218000641) do
+ActiveRecord::Schema.define(:version => 20120208194733) do
 
   create_table "forem_categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20111218000641) do
     t.string  "encrypted_password", :limit => 128, :default => "",    :null => false
     t.string  "login"
     t.boolean "forem_admin",                       :default => false
+    t.string  "custom_avatar_url"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
