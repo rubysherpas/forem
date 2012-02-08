@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe Forem do
+  describe ".avatar_user_method" do
+    it "can be set and retrieved" do
+      Forem.avatar_user_method = "foo"
+      Forem.avatar_user_method.should eq("foo")
+
+      Forem.avatar_user_method = nil
+      Forem.avatar_user_method.should be_nil
+    end
+  end
+
   describe ".default_gravatar" do
     it "can be set and retrieved" do
       Forem.default_gravatar = "foo"
