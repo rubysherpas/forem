@@ -6,4 +6,3 @@ Rails.application.routes.draw do
 
   mount Forem::Engine, :at => "/forem"
 end
-
