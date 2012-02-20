@@ -21,6 +21,9 @@ module ::Forem
         Forem.user_class.has_many :forem_memberships, :class_name => "Forem::Membership", :foreign_key => "member_id"
         Forem.user_class.has_many :forem_groups, :through => :forem_memberships, :class_name => "Forem::Group", :source => :group
       end
+
+      # add forem helpers to main application
+      ::ApplicationController.send :helper, Forem::Engine.helpers
     end
   end
 end
