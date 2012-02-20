@@ -14,6 +14,9 @@ module ::Forem
       if Forem.user_class
         Forem.user_class.send :include, Forem::DefaultPermissions
       end
+
+      # add forem helpers to main application
+      ::ApplicationController.send :helper, Forem::Engine.helpers
     end
   end
 end
