@@ -32,6 +32,7 @@ module Forem
 
       def by_pinned_or_most_recent_post
         joins(:posts).
+        select("DISTINCT forem_topics.id, forem_topics.*").
         order('forem_topics.pinned DESC').
         order('forem_posts.created_at DESC').
         order('forem_topics.id')
