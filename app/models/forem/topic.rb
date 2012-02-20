@@ -31,7 +31,7 @@ module Forem
       end
 
       def by_pinned_or_most_recent_post
-        includes(:posts).
+        joins(:posts).
         order('forem_topics.pinned DESC').
         order('forem_posts.created_at DESC').
         order('forem_topics.id')
