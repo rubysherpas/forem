@@ -99,7 +99,7 @@ File an issue and we'll get around to it when we can.
 
 Forem is implemented as a Rails engine and its specs are run in the context of a dummy Rails app. The process for getting the specs to run is similar to setting up a regular rails app:
 
-    bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare
+    bundle exec rake forem:dummy_app
 
 Once this setup has been done, Forem's specs can be run by executing this command:
 
