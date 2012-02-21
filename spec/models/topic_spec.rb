@@ -12,6 +12,12 @@ describe Forem::Topic do
   it "is valid with valid attributes" do
     @topic.should be_valid
   end
+
+  context "creation" do
+    it "is automatically pending review" do
+      @topic.should be_pending_review
+    end
+  end
   
   describe "validations" do
     it "requires a subject" do
@@ -22,13 +28,11 @@ describe Forem::Topic do
   
   describe "protected attributes" do
     it "cannot assign pinned" do
-      topic = Forem::Topic.new(:pinned => true)
-      topic.pinned.should be_false
+      lambda { Forem::Topic.new(:pinned => true) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
-    
+
     it "cannot assign locked" do
-      topic = Forem::Topic.new(:locked => true)
-      topic.locked.should be_false
+      lambda { Forem::Topic.new(:locked => true) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 

@@ -22,6 +22,7 @@
     <%= link_to t(".lock.#{@topic.locked}"), toggle_lock_admin_topic_path(@topic), :method => :put %> |
     <%= link_to t(".pin.#{@topic.pinned}"), toggle_pin_admin_topic_path(@topic), :method => :put %>
   <% end %>
+  <div class="moderation"><%= t(".pending_review") %></div>
   <%= forem_paginate @posts %>
   <div id='posts'>
     <%= render :partial => "forem/posts/post", :collection => @posts %>

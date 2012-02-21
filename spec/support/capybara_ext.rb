@@ -47,7 +47,7 @@ module CapybaraExt
     when :post_actions
       "#{selector_for(:first_post)} .actions"
     when :topic_moderation
-      ".topic .moderation"
+      "#topic .moderation"
     when :post_moderation
       ".post .moderation"
     else

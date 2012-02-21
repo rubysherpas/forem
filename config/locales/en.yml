@@ -106,6 +106,7 @@ en:
         subscribe: Subscribe
         unsubscribe: Unsubscribe
         reply_to_topic: Reply to Topic
+        pending_review: This topic is currently pending review. Only the user who created it and moderators can view it.
         hide:
           'true': Show this topic
           'false': Hide this topic
@@ -130,6 +131,9 @@ en:
       deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: In reply to
+    posts:
+      post:
+        pending_review: This post is currently pending review. Only the user who posted it and moderators can view it.
   helpers:
     submit:
       forum:
