@@ -111,6 +111,5 @@ describe "moderation" do
         post.user.reload.forem_state.should == "approved"
       end
     end
-
   end
 end
