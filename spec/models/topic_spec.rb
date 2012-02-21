@@ -22,13 +22,11 @@ describe Forem::Topic do
   
   describe "protected attributes" do
     it "cannot assign pinned" do
-      topic = Forem::Topic.new(:pinned => true)
-      topic.pinned.should be_false
+      lambda { Forem::Topic.new(:pinned => true) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
-    
+
     it "cannot assign locked" do
-      topic = Forem::Topic.new(:locked => true)
-      topic.locked.should be_false
+      lambda { Forem::Topic.new(:locked => true) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 
