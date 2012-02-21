@@ -39,6 +39,11 @@ describe Forem::Post do
       @post.topic.subscriptions.last.should_not_receive(:send_notification)
       @post.email_topic_subscribers
     end
+
+    it "is placed into moderation if it is the user's first post" do
+      post = FactoryGirl.create(:post)
+      post.should be_pending_review
+    end
   end
 
   context "helper methods" do
