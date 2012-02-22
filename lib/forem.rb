@@ -1,10 +1,11 @@
 require 'forem/engine'
+require 'forem/autocomplete'
 require 'forem/default_permissions'
 require 'kaminari'
 
 module Forem
   mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,
-                 :user_profile_links, :email_from_address
+                 :user_profile_links, :email_from_address, :autocomplete_field
 
 
   def self.user_class
@@ -14,5 +15,9 @@ module Forem
     elsif @@user_class.is_a?(String)
       @@user_class.constantize
     end
+  end
+
+  def self.autocomplete_field
+    @@autocomplete_field || "email"
   end
 end

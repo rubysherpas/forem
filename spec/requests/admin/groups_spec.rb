@@ -3,14 +3,13 @@ require 'spec_helper'
 describe 'groups' do
   before do
     sign_in(Factory(:admin))
-
-    visit root_path
-    click_link "Admin Area"
-    click_link "Manage Groups"
   end
 
   context "creating a group" do
     before do
+      visit root_path
+      click_link "Admin Area"
+      click_link "Manage Groups"
       click_link "New Group"
     end
 

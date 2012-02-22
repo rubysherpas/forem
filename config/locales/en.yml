@@ -28,6 +28,9 @@ en:
         index: Manage Groups
         created: The group was successfully created.
         not_created: Group could not be created.
+      groups:
+        show:
+          add_member: Add
       category:
         index: Manage Forum Categories
         new: Creating a new Forum Category

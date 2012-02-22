@@ -1,6 +1,10 @@
 module Forem
   module Admin
     class GroupsController < BaseController
+      def index
+        @groups = Group.all
+      end
+
       def new
         @group = Group.new
       end

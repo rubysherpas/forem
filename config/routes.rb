@@ -18,7 +18,9 @@ Forem::Engine.routes.draw do
 
   namespace :admin do
     root :to => "base#index"
-    resources :groups
+    resources :groups do
+      resources :members
+    end
     resources :forums
     resources :categories
     resources :topics do
@@ -28,5 +30,7 @@ Forem::Engine.routes.draw do
         put :toggle_pin
       end
     end
+
+    get 'users/autocomplete', :to => "users#autocomplete"
   end
 end
