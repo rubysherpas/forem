@@ -11,6 +11,11 @@ module Forem
       @forum = Forem::Forum.find(params[:id])
       @topics = forem_admin? ? @forum.topics : @forum.topics.visible
       @topics = @topics.by_pinned_or_most_recent_post.page(params[:page]).per(20)
+
+      respond_to do |format|
+        format.html
+        format.atom { render :layout => false }
+      end
     end
   end
 end

@@ -72,6 +72,11 @@ Here's a comprehensive list of the features currently in Forem:
 If there's a feature you think would be great to add to Forem, let us know on [the Issues
 page](https://github.com/radar/forem/issues)
 
+## Auto Discovery Links
+If you would like to add auto discovery links for the built in forum Atom feeds, then add the following method inside your &lt;head&gt; tag:
+
+    <%= forem_atom_auto_discovery_link_tag %>
+
 ## Customisation
 
 If you want to customise Forem, you can copy over the views using the (Devise-inspired) `forem:views` generator:

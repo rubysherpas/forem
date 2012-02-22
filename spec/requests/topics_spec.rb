@@ -147,5 +147,10 @@ describe "topics" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("div.icon > img[alt='Gravatar']")
     end
+
+    it "should have an autodiscover link tag" do
+      visit forum_topic_path(forum, topic)
+      assert page.has_selector?("link[title='ATOM']")
+    end
   end
 end
