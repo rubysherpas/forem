@@ -24,6 +24,10 @@ en:
         index:
           last_post: Last post
           none: None
+      group:
+        index: Manage Groups
+        created: The group was successfully created.
+        not_created: Group could not be created.
       category:
         index: Manage Forum Categories
         new: Creating a new Forum Category

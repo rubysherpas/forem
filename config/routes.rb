@@ -18,6 +18,7 @@ Forem::Engine.routes.draw do
 
   namespace :admin do
     root :to => "base#index"
+    resources :groups
     resources :forums
     resources :categories
     resources :topics do
