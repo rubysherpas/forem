@@ -27,7 +27,6 @@ describe "moderation" do
       click_button "Reply"
 
       flash_notice!("Your reply has been posted.")
-      page!
       assert_seen("This post is currently pending review. Only the user who posted it and moderators can view it.", :within => :post_moderation)
     end
   end
