@@ -32,7 +32,7 @@ describe "managing forums" do
       it "is valid with title and description" do
         fill_in "Title", :with => "FIRST FORUM"
         fill_in "Description", :with => "The first placeholder forum."
-        select "Category", :with => category.id
+        select "Category", :with => forum.category.id
         click_button 'Create Forum'
 
         flash_notice!("This forum has been created.")
