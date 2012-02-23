@@ -25,4 +25,16 @@ describe 'groups' do
       flash_alert!("Group could not be created.")
     end
   end
+
+  context "deleting a group" do
+    before do
+      Factory(:group)
+      visit admin_groups_path
+    end
+
+    specify do
+      click_link "Delete"
+      flash_notice!("The selected group has been deleted.")
+    end
+  end
 end

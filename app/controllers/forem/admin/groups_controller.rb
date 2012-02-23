@@ -23,6 +23,13 @@ module Forem
       def show
         @group = Group.find(params[:id])
       end
+
+      def destroy
+        @group = Group.find(params[:id])
+        @group.destroy
+        flash[:notice] = t("forem.admin.group.deleted")
+        redirect_to admin_groups_path
+      end
     end
   end
 end

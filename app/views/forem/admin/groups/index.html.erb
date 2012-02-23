@@ -12,8 +12,8 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td></td>
-        <td></td>
+        <td><%= link_to t('edit'), admin_group_path(group) %></td>
+        <td><%= link_to t('delete'), admin_group_path(group), :method => :delete %></td>
         <td><%= link_to group.name, admin_group_path(group) %></td>
       </tr>
     <% end %>
