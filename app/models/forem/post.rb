@@ -1,6 +1,6 @@
 module Forem
   class Post < ActiveRecord::Base
-    belongs_to :topic
+    belongs_to :topic, :touch => true
     belongs_to :user, :class_name => Forem.user_class.to_s
     belongs_to :reply_to, :class_name => "Post"
 
