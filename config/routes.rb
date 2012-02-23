@@ -21,7 +21,11 @@ Forem::Engine.routes.draw do
     resources :groups do
       resources :members
     end
-    resources :forums
+
+    resources :forums do
+      resources :moderators
+    end
+
     resources :categories
     resources :topics do
       member do

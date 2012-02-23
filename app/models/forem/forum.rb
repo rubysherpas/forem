@@ -5,6 +5,9 @@ module Forem
     has_many :posts, :through => :topics, :dependent => :destroy
     has_many :views, :through => :topics, :dependent => :destroy
 
+    has_many :moderator_groups
+    has_many :moderators, :through => :moderator_groups, :source => :group, :class_name => "Group"
+
     validates :category, :presence => true
     validates :title, :presence => true
     validates :description, :presence => true

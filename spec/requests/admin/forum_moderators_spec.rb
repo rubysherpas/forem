@@ -3,16 +3,20 @@ require 'spec_helper'
 describe "forum moderators" do
   before do
     sign_in(Factory(:admin))
-    Factory(:user, :login => "bob")
-    Factory(:forum)
+    user = Factory(:user, :login => "bob")
+    group = Factory(:group, :name => "The Mods")
+    group.members << user
 
-    visit root_path
-    click_link "Admin Area"
-    click_link "Forums"
-    click_link "Moderators"
+    forum = Factory(:forum)
+
+    visit edit_admin_forum_path(forum)
   end
 
-  it "can assign a group as a moderator", :js => true do
-    pending
+  it "can assign a group as a moderators" do
+    check "The Mods"
+    click_button "Update Forum"
+    within(".forum .moderators") do
+      page.should have_content("The Mods")
+    end
   end
 end
