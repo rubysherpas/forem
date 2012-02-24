@@ -2,9 +2,12 @@
 
 <h3><%= t('posts_count', :count => @posts.count, :scope => 'forem.general') %></h3>
 
-<div id='posts'>
-  <% @posts.limit(25).group_by(&:topic).each do |topic, posts| %>
-    <h4><%= topic.forum.title %> &raquo; <%= topic.subject %></h4>
-    <%= render posts %>
-  <% end %>
-</div>
+<%= form_tag forum_moderate_posts_url(forum), :method => :put do %>
+  <div id='posts'>
+    <% @posts.limit(25).group_by(&:topic).each do |topic, posts| %>
+      <h4><%= topic.forum.title %> &raquo; <%= topic.subject %></h4>
+      <%= render posts %>
+    <% end %>
+  </div>
+  <%= submit_tag "Moderate" %>
+<% end %>

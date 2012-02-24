@@ -7,14 +7,16 @@ module Forem
       @topics = Topic.pending_review
     end
 
-    def post
-      post = Post.find(params[:id])
+    def posts
+      Post.moderate!(params[:posts] || [])
+      flash[:notice] = t('forem.posts.moderation.success')
+      redirect_to forum_moderator_tools_path(forum)
     end
 
     private
 
     def forum
-      @forum = Forum.find(params[:id])
+      @forum = Forum.find(params[:forum_id])
     end
 
     helper_method :forum

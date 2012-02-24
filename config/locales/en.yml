@@ -146,9 +146,10 @@ en:
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: In reply to
     posts:
-      moderation_tools:
+      moderation:
         moderate: Moderate
         approve: Approve
+        success: The selected posts have been moderated.
       post:
         pending_review: This post is currently pending review. Only the user who posted it and moderators can view it.
   helpers:

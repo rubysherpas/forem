@@ -35,6 +35,14 @@ module Forem
       def topic_not_pending_review
         joins(:topic).where("forem_topics.pending_review" => false)
       end
+
+      def moderate!(posts)
+        posts.each do |post_id, moderation|
+          # We use find_by_id here just in case a post has been deleted.
+          post = Post.find_by_id(post_id)
+          post.send("#{moderation[:moderation_option]}!") if post
+        end
+      end
     end
 
     validates :text, :presence => true
@@ -47,6 +55,10 @@ module Forem
 
     def approved?
       !pending_review?
+    end
+
+    def approve!
+      update_attribute(:pending_review, false)
     end
 
     def subscribe_replier
