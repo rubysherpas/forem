@@ -26,16 +26,17 @@ module Forem
 
       def by_most_recent_post
         joins(:posts).
-        select("DISTINCT forem_posts.topic_id, forem_topics.*, forem_posts.created_at").
-        order('forem_posts.created_at DESC, forem_topics.id')
+        select("forem_topics.*, forem_posts.created_at").
+        order('forem_posts.created_at DESC, forem_topics.id').
+        group('forem_topics.id')
       end
 
       def by_pinned_or_most_recent_post
         joins(:posts).
-        select("DISTINCT forem_topics.id, forem_topics.*, forem_posts.*").
         order('forem_topics.pinned DESC').
         order('forem_posts.created_at DESC').
-        order('forem_topics.id')
+        order('forem_topics.id').
+        group('forem_topics.id')
       end
     end
 
