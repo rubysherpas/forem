@@ -32,7 +32,9 @@ describe "moderation" do
 
     it "has their first post moderated" do
       topic = Factory(:topic, :forum => forum)
+      topic.approve!
       visit forum_topic_path(forum, topic)
+
       click_link "Reply"
       fill_in "Text", :with => "I am replying to a topic."
       click_button "Reply"
