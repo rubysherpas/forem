@@ -8,9 +8,6 @@ Forem::Engine.routes.draw do
         get :unsubscribe
       end
     end
-
-    member do
-    end
   end
 
   resources :topics do

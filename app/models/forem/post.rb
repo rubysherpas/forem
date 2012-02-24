@@ -52,6 +52,7 @@ module Forem
           post.send("#{moderation[:moderation_option]}!") if post
         end
       end
+
     end
 
     def owner_or_admin?(other_user)
@@ -67,9 +68,13 @@ module Forem
       user.update_attribute(:forem_state, "approved") if user.forem_state != "approved"
     end
 
-    private
-
     protected
+
+    def subscribe_replier
+      if self.topic && self.user
+        self.topic.subscribe_user(self.user.id)
+      end
+    end
 
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).find_each do |subscription|
