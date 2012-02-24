@@ -3,7 +3,7 @@ require 'forem/formatters/redcarpet'
 
 describe "When a post is displayed " do
   let(:forum) { FactoryGirl.create(:forum) }
-  let(:topic) { FactoryGirl.create(:topic, :forum => forum, :posts => [post]) }
+  let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :posts => [post]) }
   let(:post) { FactoryGirl.create(:approved_post)}
 
   describe "default formatter" do
