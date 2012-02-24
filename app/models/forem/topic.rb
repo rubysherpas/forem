@@ -14,6 +14,7 @@ module Forem
 
     before_save :set_first_post_user
     after_create :subscribe_poster
+    after_create :skip_pending_review_if_user_approved
 
     class << self
       def visible
@@ -126,6 +127,10 @@ module Forem
     def set_first_post_user
       post = self.posts.first
       post.user = self.user
+    end
+
+    def skip_pending_review_if_user_approved
+      self.update_attribute(:pending_review, false) if user.forem_state == 'approved'
     end
   end
 end

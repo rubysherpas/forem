@@ -20,14 +20,14 @@ describe "moderation" do
     end
 
     it "subsequent topics bypass the moderation queue" do
-      pending
-      user.stub :state => "approved"
+      User.any_instance.stub(:forem_state).and_return("approved")
+      visit new_forum_topic_path(forum)
       fill_in "Subject", :with => "SECOND TOPIC"
       fill_in "Text", :with => "User's second words"
       click_button "Create Topic"
 
       flash_notice!("This topic has been created.")
-      assert_not_seen("This topic is currently pending review.")
+      page.should_not have_content("This topic is currently pending review.")
     end
 
     it "has their first post moderated" do

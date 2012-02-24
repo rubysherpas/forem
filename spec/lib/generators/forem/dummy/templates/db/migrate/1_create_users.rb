@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
     t.string  :encrypted_password, :limit => 128, :default => "",    :null => false
     t.string  :login
     t.boolean :forem_admin,                       :default => false
+    t.string :forem_state, :default => "pending_review"
   end
 
   add_index :users, :email, :unique => true
