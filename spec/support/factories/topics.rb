@@ -5,9 +5,10 @@ FactoryGirl.define do
     t.user {|u| u.association(:user) }
     t.posts { |p| [p.association(:post)]}
 
-    factory :approved_topic do
-      t.pending_review false
+    trait :approved do
+      pending_review false
     end
-  end
 
+    factory :approved_topic, :traits => [:approved]
+  end
 end
