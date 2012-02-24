@@ -3,7 +3,7 @@
 <h3><%= t('posts_count', :count => @posts.count, :scope => 'forem.general') %></h3>
 
 <div id='posts'>
-  <% @posts.limit(10).group_by(&:topic).each do |topic, posts| %>
+  <% @posts.limit(25).group_by(&:topic).each do |topic, posts| %>
     <h4><%= topic.forum.title %> &raquo; <%= topic.subject %></h4>
     <%= render posts %>
   <% end %>
