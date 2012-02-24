@@ -63,6 +63,7 @@ module Forem
 
     def approve!
       update_attribute(:pending_review, false)
+      user.update_attribute(:forem_state, "approved") if user.forem_state != "approved"
     end
 
     def subscribe_replier

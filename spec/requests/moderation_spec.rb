@@ -96,6 +96,7 @@ describe "moderation" do
       click_button "Moderate"
 
       flash_notice!("The selected posts have been moderated.")
+      post.user.reload.forem_state.should == "approved"
     end
   end
 end
