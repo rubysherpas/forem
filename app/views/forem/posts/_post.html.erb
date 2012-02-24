@@ -10,7 +10,10 @@
 
   <div class='contents'>
     <% if post.pending_review? %>
-      <div class='moderation'><%= t(".pending_review") %></div>
+      <div class='moderation'>
+        <%= t(".pending_review") %>
+        <%= render "forem/posts/moderation_tools", :post => post %>
+      </div>
     <% end %>
     <a href='#post-<%= post.id %>'>
       <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>

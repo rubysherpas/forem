@@ -1,0 +1,9 @@
+<%= form_for post, :url => moderate_post_path(post.topic.forum, post) do |f| %>
+  <p>
+    <%= f.radio_button "moderation_option", "approve" %>
+    <%= f.label "moderation_option_approve", t('.approve') %>
+  </p>
+  <br>
+  <%= f.submit t('.moderate') %>
+<% end %>
+<br>
