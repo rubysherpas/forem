@@ -134,7 +134,7 @@ describe "topics" do
 
   context "viewing a topic" do
     let(:topic) do
-      FactoryGirl.create(:topic, :forum => forum, :user => user)
+      FactoryGirl.create(:approved_topic, :forum => forum, :user => user)
     end
 
     it "is free for all" do
