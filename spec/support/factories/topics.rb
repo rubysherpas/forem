@@ -4,5 +4,10 @@ FactoryGirl.define do
     t.forum {|f| f.association(:forum) }
     t.user {|u| u.association(:user) }
     t.posts { |p| [p.association(:post)]}
+
+    factory :approved_topic do
+      t.pending_review false
+    end
   end
+
 end
