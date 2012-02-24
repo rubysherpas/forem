@@ -15,11 +15,11 @@ describe "forums" do
 
   context "visiting a forum" do
     before do
-      @topic_1 = FactoryGirl.create(:topic, :subject => "Unpinned", :forum => forum)
-      @topic_2 = FactoryGirl.create(:topic, :subject => "Most Recent", :forum => forum)
-      FactoryGirl.create(:post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
-      @topic_3 = FactoryGirl.create(:topic, :subject => "PINNED!", :forum => forum, :pinned => true)
-      @topic_4 = FactoryGirl.create(:topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
+      @topic_1 = FactoryGirl.create(:approved_topic, :subject => "Unpinned", :forum => forum)
+      @topic_2 = FactoryGirl.create(:approved_topic, :subject => "Most Recent", :forum => forum)
+      FactoryGirl.create(:approved_post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
+      @topic_3 = FactoryGirl.create(:approved_topic, :subject => "PINNED!", :forum => forum, :pinned => true)
+      @topic_4 = FactoryGirl.create(:approved_topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
       visit forum_path(forum)
     end
 
