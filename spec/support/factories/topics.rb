@@ -6,7 +6,7 @@ FactoryGirl.define do
     t.posts { |p| [p.association(:post)]}
 
     trait :approved do
-      pending_review false
+      after_create { |topic| topic.approve! }
     end
 
     factory :approved_topic, :traits => [:approved]
