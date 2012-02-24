@@ -26,6 +26,12 @@ module Forem
         where(:pending_review => false)
       end
 
+      def approved_or_pending_review_for(user)
+        where("(forem_posts.pending_review = ? AND forem_posts.user_id != ?) OR
+               (forem_posts.pending_review = ? AND forem_posts.user_id = ?)",
+               false, user.id, true, user.id)
+      end
+
       def topic_not_pending_review
         joins(:topic).where("forem_topics.pending_review" => false)
       end

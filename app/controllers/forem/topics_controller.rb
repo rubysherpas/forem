@@ -9,7 +9,7 @@ module Forem
         register_view
         @posts = @topic.posts
         unless forem_admin? || @forum.moderator?(forem_user)
-          @posts = @posts.approved
+          @posts = @posts.approved_or_pending_review_for(forem_user)
         end
         @posts = @posts.page(params[:page]).per(20)
       end
@@ -70,7 +70,7 @@ module Forem
 
     def find_topic
       begin
-        scope = forem_admin? || @forum.moderator?(forem_user) ? @forum.topics : @forum.topics.visible.approved
+        scope = forem_admin? || @forum.moderator?(forem_user) ? @forum.topics : @forum.topics.visible.approved_or_pending_review_for(forem_user)
         @topic = scope.find(params[:id])
         authorize! :read, @topic
       rescue ActiveRecord::RecordNotFound

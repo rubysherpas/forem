@@ -12,7 +12,7 @@ module Forem
       @topics = if forem_admin? || @forum.moderator?(forem_user)
         @forum.topics
       else
-        @forum.topics.visible.approved
+        @forum.topics.visible.approved_or_pending_review_for(forem_user)
       end
 
       @topics = @topics.by_pinned_or_most_recent_post.page(params[:page]).per(20)
