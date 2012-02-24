@@ -130,7 +130,7 @@ module Forem
     end
 
     def skip_pending_review_if_user_approved
-      self.update_attribute(:pending_review, false) if user.forem_state == 'approved'
+      self.update_attribute(:pending_review, false) if user && user.forem_state == 'approved'
     end
   end
 end
