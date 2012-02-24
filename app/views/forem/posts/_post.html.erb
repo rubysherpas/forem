@@ -12,7 +12,13 @@
     <% if post.pending_review? %>
       <div class='moderation'>
         <%= t(".pending_review") %>
-        <%= render "forem/posts/moderation_tools", :post => post %>
+        <% if local_assigns[:mass_moderation] %>
+          <%= render "forem/posts/moderation_tools", :post => post %>
+        <% else %>
+          <%= form_tag forum_moderate_posts_path(post.topic.forum), :method => :put do %>
+            <%= render "forem/posts/moderation_tools", :post => post %>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
     <a href='#post-<%= post.id %>'>

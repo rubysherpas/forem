@@ -78,25 +78,39 @@ describe "moderation" do
     end
 
     let!(:forum) { Factory(:forum) }
+    let!(:topic) { Factory(:topic, :forum => forum) }
+    let!(:post) { Factory(:post, :topic => topic) }
 
     before do
       forum.moderators << group
       sign_in(moderator)
-    end
-
-    it "can approve a post by a new user" do
-      topic = Factory(:topic, :forum => forum)
       topic.approve!
-      post = Factory(:post, :topic => topic)
-
-      visit forum_path(forum)
-      click_link "Moderation Tools"
-
-      choose "Approve"
-      click_button "Moderate"
-
-      flash_notice!("The selected posts have been moderated.")
-      post.user.reload.forem_state.should == "approved"
     end
+
+    context "mass moderation" do
+      it "can approve a post by a new user" do
+
+        visit forum_path(forum)
+        click_link "Moderation Tools"
+
+        choose "Approve"
+        click_button "Moderate"
+
+        flash_notice!("The selected posts have been moderated.")
+        post.user.reload.forem_state.should == "approved"
+      end
+    end
+
+    context "singular moderation" do
+      it "can approve a post by a new user" do
+        visit forum_topic_path(forum, topic)
+        choose "Approve"
+        click_button "Moderate"
+
+        flash_notice!("The selected posts have been moderated.")
+        post.user.reload.forem_state.should == "approved"
+      end
+    end
+
   end
 end
