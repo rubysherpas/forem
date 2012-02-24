@@ -4,9 +4,9 @@ describe "topics" do
 
   let(:forum) { FactoryGirl.create(:forum) }
   let(:user) { FactoryGirl.create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com") }
-  let(:topic) { FactoryGirl.create(:topic, :forum => forum, :user => user) }
+  let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
   let(:other_user) { FactoryGirl.create(:user, :login => 'other_forem_user') }
-  let(:other_topic) { FactoryGirl.create(:topic, :subject => 'Another forem topic', :user => other_user, :forum => forum) }
+  let(:other_topic) { FactoryGirl.create(:approved_topic, :subject => 'Another forem topic', :user => other_user, :forum => forum) }
 
   context "not signed in" do
     it "cannot create a new topic" do
