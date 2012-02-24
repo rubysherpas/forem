@@ -56,7 +56,7 @@ describe Forem::Topic do
     it "switches pending review status" do
       topic.approve!
       topic.pending_review.should be_false
-      topic.posts.first.pending_review.should be_false
+      topic.posts.by_created_at.first.should_not be_pending_review
     end
   end
 
