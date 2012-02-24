@@ -120,11 +120,10 @@ describe "moderation" do
       visit forum_path(forum)
       click_link "Moderation Tools"
 
-      within(".edit_post") do
-        choose "Approve"
-      end
+      choose "Approve"
+      click_button "Moderate"
 
-      flash_notice!("The selected post has been approved.")
+      flash_notice!("The selected posts have been moderated.")
     end
   end
 end

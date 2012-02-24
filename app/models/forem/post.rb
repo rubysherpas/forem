@@ -52,7 +52,6 @@ module Forem
           post.send("#{moderation[:moderation_option]}!") if post
         end
       end
-
     end
 
     def owner_or_admin?(other_user)
