@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "posts" do
   let(:forum) { FactoryGirl.create(:forum) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:topic) { FactoryGirl.create(:topic, :forum => forum, :user => user) }
+  let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
   
   context "not signed in users" do
     it "cannot begin to post a reply" do
