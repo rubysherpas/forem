@@ -46,6 +46,12 @@ module Forem
           !topic.hidden? || forem_admin?
         end
       end
+
+      unless method_defined?(:can_moderate_forem_forum?)
+        def can_moderate_forem_forum?(forum)
+          forum.moderator?(self)
+        end
+      end
     end
   end
 end

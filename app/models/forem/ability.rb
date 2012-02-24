@@ -32,6 +32,10 @@ module Forem
       can :edit_post, Forem::Forum do |forum|
         user.can_edit_forem_posts?(forum)
       end
+
+      can :moderate, Forem::Forum do |forum|
+        user.can_moderate_forem_forum?(forum) || user.forem_admin?
+      end
     end
   end
 end

@@ -1,5 +1,15 @@
 en:
   forem:
+    general:
+      forum: Forum
+      topics: Topics
+      topic: Topic
+      posts: Posts
+      posts_count:
+        zero: No posts
+        one: 1 post
+        other: "%{count} posts"
+
     access_denied: "You are not allowed to do that."
     admin:
       area: Admin Area
@@ -16,10 +26,7 @@ en:
       forums:
         edit: Edit
         delete: Delete
-        forum: Forum
         category: Category
-        topics: Topics
-        posts: Posts
         delete_confirm: Are you sure you want to delete this forum?
         index:
           last_post: Last post
@@ -64,12 +71,11 @@ en:
         zero: 0 posts
         one: 1 post
         other: "%{count} posts"
+      moderator_tools: "Moderation Tools"
     forums:
       index:
         title: Forums
         forum: Forum
-        topics: Topics
-        posts: Posts
         views: Views
         last_post: 'Last Post:'
         none: None
@@ -140,6 +146,9 @@ en:
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: In reply to
     posts:
+      moderation_tools:
+        moderate: Moderate
+        approve: Approve
       post:
         pending_review: This post is currently pending review. Only the user who posted it and moderators can view it.
   helpers:
@@ -177,3 +186,4 @@ en:
   by: by
   started_by: "Started by "
   are_you_sure: Are you sure?
+

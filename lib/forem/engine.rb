@@ -15,6 +15,11 @@ module ::Forem
         Forem.user_class.send :extend, Forem::Autocomplete
 
         Forem.user_class.send :include, Forem::DefaultPermissions
+
+        Forem.user_class.has_many :forem_posts, :class_name => "Forem::Post", :foreign_key => "user_id"
+        Forem.user_class.has_many :forem_topics, :class_name => "Forem::Topic", :foreign_key => "user_id"
+        Forem.user_class.has_many :memberships, :class_name => "Forem::Membership", :foreign_key => "member_id"
+        Forem.user_class.has_many :groups, :through => :memberships, :class_name => "Forem::Group"
       end
     end
   end

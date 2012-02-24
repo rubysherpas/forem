@@ -8,11 +8,17 @@ Forem::Engine.routes.draw do
         get :unsubscribe
       end
     end
+
+    member do
+      get '/moderation', :to => "moderation#index", :as => :moderator_tools
+    end
   end
 
   resources :topics do
     resources :posts
   end
+
+  put 'forums/:forum_id/posts/:id/moderate', :to => "moderation#post", :as => :moderate_post
 
   resources :categories
 

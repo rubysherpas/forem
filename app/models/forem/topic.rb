@@ -26,17 +26,24 @@ module Forem
 
       def by_most_recent_post
         joins(:posts).
-        select("forem_topics.*, forem_posts.created_at").
-        order('forem_posts.created_at DESC, forem_topics.id').
-        group('forem_topics.id')
+        select("DISTINCT forem_topics.id, forem_posts.created_at, forem_topics.*").
+        order('forem_posts.created_at DESC, forem_topics.id')
       end
 
       def by_pinned_or_most_recent_post
+        select("DISTINCT forem_topics.id, forem_posts.created_at, forem_topics.*").
         joins(:posts).
         order('forem_topics.pinned DESC').
         order('forem_posts.created_at DESC').
-        order('forem_topics.id').
-        group('forem_topics.id')
+        order('forem_topics.id')
+      end
+
+      def pending_review
+        where(:pending_review => true)
+      end
+
+      def approved
+        where(:pending_review => false)
       end
     end
 
@@ -60,6 +67,11 @@ module Forem
 
     def unpin!
       update_attribute(:pinned, false)
+    end
+
+    def approve!
+      update_attribute(:pending_review, false)
+      posts.by_created_at.first.update_attribute(:pending_review, false)
     end
 
     # A Topic cannot be replied to if it's locked.

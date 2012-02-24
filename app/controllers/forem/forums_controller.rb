@@ -9,7 +9,12 @@ module Forem
 
     def show
       @forum = Forem::Forum.find(params[:id])
-      @topics = forem_admin? ? @forum.topics : @forum.topics.visible
+      @topics = if forem_admin? || @forum.moderator?(forem_user)
+        @forum.topics
+      else
+        @forum.topics.visible.approved
+      end
+
       @topics = @topics.by_pinned_or_most_recent_post.page(params[:page]).per(20)
     end
   end

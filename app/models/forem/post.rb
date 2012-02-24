@@ -1,5 +1,8 @@
 module Forem
   class Post < ActiveRecord::Base
+    # Used in the moderation tools partial
+    attr_accessor :moderation_option
+
     belongs_to :topic
     belongs_to :user, :class_name => Forem.user_class.to_s
     belongs_to :reply_to, :class_name => "Post"
@@ -14,6 +17,18 @@ module Forem
       def by_created_at
         order("created_at asc")
       end
+
+      def pending_review
+        where(:pending_review => true)
+      end
+
+      def approved
+        where(:pending_review => false)
+      end
+
+      def topic_not_pending_review
+        joins(:topic).where("forem_topics.pending_review" => false)
+      end
     end
 
     validates :text, :presence => true
@@ -22,6 +37,10 @@ module Forem
 
     def owner_or_admin?(other_user)
       self.user == other_user || other_user.forem_admin?
+    end
+
+    def approved?
+      !pending_review?
     end
 
     def subscribe_replier

@@ -6,7 +6,7 @@ module Forem
     has_many :views, :through => :topics, :dependent => :destroy
 
     has_many :moderator_groups
-    has_many :moderators, :through => :moderator_groups, :source => :group, :class_name => "Group"
+    has_many :moderators, :through => :moderator_groups, :source => :group
 
     validates :category, :presence => true
     validates :title, :presence => true
@@ -18,6 +18,10 @@ module Forem
 
     def last_visible_post
       posts.where("forem_topics.hidden = ?", false).last
+    end
+
+    def moderator?(user)
+      (user.group_ids & self.moderator_ids).any?
     end
   end
 end

@@ -50,6 +50,16 @@ describe Forem::Topic do
     end
   end
 
+  describe "approving" do
+    let(:topic) { Factory(:topic) }
+
+    it "switches pending review status" do
+      topic.approve!
+      topic.pending_review.should be_false
+      topic.posts.first.pending_review.should be_false
+    end
+  end
+
   describe ".by_most_recent_post" do
     before do
       Forem::Topic.delete_all
