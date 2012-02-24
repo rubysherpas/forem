@@ -11,5 +11,4 @@ FactoryGirl.define do
 
     factory :approved_topic, :traits => [:approved]
   end
-
 end
