@@ -68,7 +68,7 @@ describe "posts" do
     context "editing posts in topics" do
       before do
         sign_in(user)
-        topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
+        topic.posts << FactoryGirl.create(:approved_post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
         second_post = topic.posts[1]
       end
 
