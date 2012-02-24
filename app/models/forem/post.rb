@@ -28,9 +28,9 @@ module Forem
 
       def approved_or_pending_review_for(user)
         if user
-          where("(forem_posts.pending_review = ? AND forem_posts.user_id != ?) OR
-                 (forem_posts.pending_review = ? AND forem_posts.user_id = ?)",
-                 false, user.id, true, user.id)
+          where("(forem_posts.pending_review = ?) OR " +
+                 "(forem_posts.pending_review = ? AND forem_posts.user_id = ?)",
+                 false, true, user.id)
         else
           approved
         end
