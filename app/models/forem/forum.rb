@@ -21,7 +21,7 @@ module Forem
     end
 
     def moderator?(user)
-      user && (user.group_ids & self.moderator_ids).any?
+      user && (user.forem_group_ids & self.moderator_ids).any?
     end
   end
 end
