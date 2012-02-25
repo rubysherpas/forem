@@ -27,7 +27,6 @@ module Forem
 
       def by_most_recent_post
         includes(:posts).
-        select("DISTINCT forem_topics.id, forem_posts.created_at, forem_topics.*").
         order('forem_posts.created_at DESC, forem_topics.id')
       end
 
