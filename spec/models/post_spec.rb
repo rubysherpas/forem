@@ -40,7 +40,6 @@ describe Forem::Post do
 
       @post.topic.subscriptions.first.should_receive(:send_notification)
       @post.topic.subscriptions.last.should_not_receive(:send_notification)
-      @post.email_topic_subscribers
     end
   end
 
