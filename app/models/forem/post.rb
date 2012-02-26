@@ -32,7 +32,7 @@ module Forem
     end
 
     def email_topic_subscribers
-      topic.subscriptions.includes(:subscriber).each do |subscription|
+      topic.subscriptions.includes(:subscriber).find_each do |subscription|
         if subscription.subscriber != user
           subscription.send_notification(self)
         end
