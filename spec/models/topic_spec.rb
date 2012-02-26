@@ -44,7 +44,7 @@ describe Forem::Topic do
   end
 
   describe "approving" do
-    let(:topic) { Factory(:topic) }
+    let(:topic) { Factory(:topic, :user => stub_model(User)) }
 
     it "switches pending review status" do
       topic.approve!
