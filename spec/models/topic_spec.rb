@@ -47,6 +47,7 @@ describe Forem::Topic do
     let(:topic) { Factory(:topic, :user => stub_model(User)) }
 
     it "switches pending review status" do
+      Forem::Post.any_instance.stub(:subscribe_replier)
       topic.approve!
       topic.pending_review.should be_false
       topic.posts.by_created_at.first.should_not be_pending_review
