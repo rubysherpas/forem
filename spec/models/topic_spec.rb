@@ -63,6 +63,7 @@ describe Forem::Topic do
   describe ".by_most_recent_post" do
     before do
       Forem::Topic.delete_all
+      Forem::Post.any_instance.stub(:email_topic_subscribers)
       @topic1 = Forem::Topic.create :subject => "POST"
       FactoryGirl.create(:post, :topic => @topic1, :created_at => 1.seconds.ago)
       @topic2 = Forem::Topic.create :subject => "POST"
