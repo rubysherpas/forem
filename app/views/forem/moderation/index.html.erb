@@ -6,11 +6,7 @@
   <div id='posts'>
     <% @posts.limit(25).group_by(&:topic).each do |topic, posts| %>
       <h4><%= topic.forum.title %> &raquo; <%= topic.subject %></h4>
-<<<<<<< HEAD
       <%= render posts, :mass_moderation => true %>
-=======
-      <%= render posts %>
->>>>>>> Posts can now be approved by a moderator
     <% end %>
   </div>
   <%= submit_tag "Moderate" %>
