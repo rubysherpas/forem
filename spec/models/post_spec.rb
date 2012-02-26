@@ -25,6 +25,7 @@ describe Forem::Post do
     it "emails subscribers after post creation" do
       @post = FactoryGirl.build(:post)
       @post.should_receive(:email_topic_subscribers)
+      @post.should_receive(:subscribe_replier)
       @post.save
     end
 
