@@ -82,7 +82,7 @@ module Forem
     end
 
     def set_topic_last_post_at
-      self.topic.last_post_at = Time.now
+      self.topic.last_post_at = self.created_at
     end
   end
 end
