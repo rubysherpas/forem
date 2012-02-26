@@ -17,7 +17,7 @@ describe "forums" do
     before do
       @topic_1 = FactoryGirl.create(:approved_topic, :subject => "Unpinned", :forum => forum)
       @topic_2 = FactoryGirl.create(:approved_topic, :subject => "Most Recent", :forum => forum)
-      FactoryGirl.create(:approved_post, :topic => @topic_2, :created_at => Time.now + 30.seconds)
+      @topic_2.update_attribute(:last_post_at, Time.now + 30.seconds)
       @topic_3 = FactoryGirl.create(:approved_topic, :subject => "PINNED!", :forum => forum, :pinned => true)
       @topic_4 = FactoryGirl.create(:approved_topic, :subject => "HIDDEN!", :forum => forum, :hidden => true)
       visit forum_path(forum)
