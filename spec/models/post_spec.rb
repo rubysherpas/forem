@@ -23,23 +23,20 @@ describe Forem::Post do
     end
 
     it "emails subscribers after post creation" do
-      @post = FactoryGirl.build(:post)
+      @post = FactoryGirl.build(:post, :topic => topic)
       @post.should_receive(:email_topic_subscribers)
       @post.should_receive(:subscribe_replier)
       @post.save
     end
 
     it "only emails other subscribers" do
-      @user1 = FactoryGirl.create(:user)
       @user2 = FactoryGirl.create(:user)
       @topic = FactoryGirl.create(:topic)
-      @post = FactoryGirl.create(:post, :topic => @topic, :user => @user2)
-      subs = [ Forem::Subscription.create(:topic => @topic, :subscriber => @user1), Forem::Subscription.create(:topic => @topic, :subscriber => @user2)]
-      @post.topic.stub(:subscriptions).and_return(subs);
-      @post.topic.stub_chain([:subscriptions, :includes]).and_return(subs)
 
-      @post.topic.subscriptions.first.should_receive(:send_notification)
-      @post.topic.subscriptions.last.should_not_receive(:send_notification)
+      @post = FactoryGirl.build(:post, :topic => @topic, :user => @user2)
+
+      Forem::Subscription.any_instance.should_receive(:send_notification).once
+      @post.save!
     end
   end
 
