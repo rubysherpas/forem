@@ -120,8 +120,10 @@ describe "moderation" do
       visit forum_path(forum)
       click_link "Moderation Tools"
 
-      choose "Approve"
-      click_button "Moderate"
+      within("#post_#{post.id}") do
+        choose "Approve"
+        click_button "Moderate"
+      end
 
       flash_notice!("The selected posts have been moderated.")
       post.user.reload.forem_state.should == "approved"
