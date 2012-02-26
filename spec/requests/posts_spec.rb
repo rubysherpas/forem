@@ -113,7 +113,7 @@ describe "posts" do
 
       context "topic contains two posts" do
         before do
-          topic.posts << FactoryGirl.create(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
+          topic.posts << FactoryGirl.build(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
 
         end
 
