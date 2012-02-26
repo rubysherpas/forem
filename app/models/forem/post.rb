@@ -67,17 +67,13 @@ module Forem
     end
 
     def subscribe_replier
-      if self.topic && self.user
-        self.topic.subscribe_user(self.user.id)
-      end
+      topic.subscribe_user(user.id)
     end
 
     def email_topic_subscribers
-      if self.topic
-        self.topic.subscriptions.includes(:subscriber).each do |subscription|
-          if subscription.subscriber != self.user
-            subscription.send_notification(self.id)
-          end
+      topic.subscriptions.includes(:subscriber).each do |subscription|
+        if subscription.subscriber != user
+          subscription.send_notification(id)
         end
       end
     end
