@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Forem::Post do
-  let(:post) { FactoryGirl.create(:post, :topic => stub_model(Forem::Topic)) }
-  let(:reply) { FactoryGirl.create(:post, :reply_to => post) }
+  let(:topic) { stub_model(Forem::Topic) }
+  let(:post) { FactoryGirl.create(:post, :topic => topic) }
+  let(:reply) { FactoryGirl.create(:post, :reply_to => post, :topic => topic) }
 
   context "upon deletion" do
     it "clears the reply_to_id for all replies" do
