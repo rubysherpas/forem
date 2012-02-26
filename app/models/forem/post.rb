@@ -13,6 +13,7 @@ module Forem
     validates :text, :presence => true
     after_create :subscribe_replier
     after_create :email_topic_subscribers
+    after_create :set_topic_last_post_at
 
     class << self
       def by_created_at
@@ -24,6 +25,8 @@ module Forem
       self.user == other_user || other_user.forem_admin?
     end
 
+    private
+
     def subscribe_replier
       topic.subscribe_user(user.id)
     end
@@ -34,6 +37,10 @@ module Forem
           subscription.send_notification(id)
         end
       end
+    end
+
+    def set_topic_last_post_at
+      self.topic.last_post_at = Time.now
     end
   end
 end
