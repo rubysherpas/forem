@@ -10,15 +10,15 @@ module Forem
 
     delegate :forum, :to => :topic
 
+    validates :text, :presence => true
+    after_create :subscribe_replier
+    after_create :email_topic_subscribers
+
     class << self
       def by_created_at
         order("created_at asc")
       end
     end
-
-    validates :text, :presence => true
-    after_create :subscribe_replier
-    after_create :email_topic_subscribers
 
     def owner_or_admin?(other_user)
       self.user == other_user || other_user.forem_admin?
