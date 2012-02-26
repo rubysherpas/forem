@@ -69,9 +69,7 @@ module Forem
 
     private
 
-    def subscribe_replier
-      topic.subscribe_user(user.id)
-    end
+    protected
 
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).find_each do |subscription|
@@ -79,6 +77,10 @@ module Forem
           subscription.send_notification(self)
         end
       end
+    end
+
+    def subscribe_replier
+      topic.subscribe_user(user.id)
     end
 
     def set_topic_last_post_at
