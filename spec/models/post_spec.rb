@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Forem::Post do
-  let(:topic) { stub_model(Forem::Topic) }
+  let(:forum) { stub_model(Forem::Forum) }
+  let(:topic) { stub_model(Forem::Topic, :forum => forum) }
   let(:post) { FactoryGirl.create(:post, :topic => topic) }
   let(:reply) { FactoryGirl.create(:post, :reply_to => post, :topic => topic) }
 
