@@ -68,15 +68,7 @@ module Forem
       user.update_attribute(:forem_state, "approved") if user.forem_state != "approved"
     end
 
-<<<<<<< HEAD
     protected
-=======
-    private
-
-    def set_topic_last_post_at
-      self.topic.last_post_at = Time.now
-    end
->>>>>>> Set topic last_post_at when posts are created to enable ordering by post without a join
 
     def subscribe_replier
       if self.topic && self.user
