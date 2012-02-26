@@ -76,7 +76,7 @@ module Forem
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).each do |subscription|
         if subscription.subscriber != user
-          subscription.send_notification(id)
+          subscription.send_notification(self)
         end
       end
     end
