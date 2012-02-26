@@ -3,8 +3,8 @@ require 'forem/formatters/redcarpet'
 
 describe "When a post is displayed " do
   let(:forum) { FactoryGirl.create(:forum) }
-  let(:topic) { FactoryGirl.create(:topic, :forum => forum, :posts => [post]) }
-  let(:post) { FactoryGirl.create(:post)}
+  let(:topic) { FactoryGirl.create(:topic, :forum => forum) }
+  let(:post) { FactoryGirl.create(:post, :topic => topic)}
 
   describe "default formatter" do
     it "renders untagged plain text" do
