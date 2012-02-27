@@ -49,7 +49,7 @@ module CapybaraExt
     when :topic_moderation
       "#topic .moderation"
     when :post_moderation
-      "#post .moderation"
+      ".post .moderation"
     else
       pending "No selector defined for #{identifier}. Please define one in spec/support/capybara_ext.rb"
     end
