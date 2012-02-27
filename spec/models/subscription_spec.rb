@@ -4,7 +4,7 @@ describe Forem::Subscription do
   describe "topic subscriptions" do
     before(:each) do
       Forem::Topic.any_instance.stub(:set_first_post_user)
-      Forem::Topic.any_instance.stub(:user).and_return(User)
+      Forem::Topic.any_instance.stub(:user).and_return(stub_model(User))
       attr = {
         :subject => "A topic",
       }
