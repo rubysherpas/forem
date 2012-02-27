@@ -111,22 +111,5 @@ describe "moderation" do
         post.user.reload.forem_state.should == "approved"
       end
     end
-
-    it "can approve a post by a new user" do
-      topic = Factory(:topic, :forum => forum)
-      topic.approve!
-      post = Factory(:post, :topic => topic)
-
-      visit forum_path(forum)
-      click_link "Moderation Tools"
-
-      within("#post_#{post.id}") do
-        choose "Approve"
-        click_button "Moderate"
-      end
-
-      flash_notice!("The selected posts have been moderated.")
-      post.user.reload.forem_state.should == "approved"
-    end
   end
 end
