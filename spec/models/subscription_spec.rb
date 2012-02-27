@@ -6,18 +6,19 @@ describe Forem::Subscription do
       Forem::Topic.any_instance.stub(:set_first_post_user)
       Forem::Topic.any_instance.stub(:user).and_return(stub_model(User))
       Forem::Topic.any_instance.stub(:user_id).and_return(1)
-      attr = {
-        :subject => "A topic",
-      }
-      @topic = Forem::Topic.create!(attr)
     end
+
+    let(:attributes) do
+      { :subject => "A topic" }
+    end
+
+    let(:topic) { Forem::Topic.new(attributes) }
 
     it "creates a subscription when a topic is created" do
-      @topic.subscriptions.count.should == 1
-    end
-
-    it "adds the topic subscriber to the subscription" do
-      @topic.subscriptions.first.subscriber.should == @topic.user
+      topic.stub(:subscriptions).and_return(subscriptions = stub)
+      subscriptions.should_receive(:exists?).and_return(false)
+      topic.subscriptions.should_receive(:create!).with(:subscriber_id => topic.user_id)
+      topic.run_callbacks(:create)
     end
   end
 end
