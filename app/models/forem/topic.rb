@@ -15,6 +15,17 @@ module Forem
     before_save :set_first_post_user
     after_create :subscribe_poster
     after_create :skip_pending_review_if_user_approved
+    after_save :approve_user_and_posts, :if => :approved?
+
+    state_machine :initial => 'pending_review', :use_transactions => false do
+      event :spam do
+        transition :to => 'spam'
+      end
+
+      event :approve do
+        transition :to => 'approved'
+      end
+    end
 
     class << self
       def visible
@@ -38,18 +49,18 @@ module Forem
       end
 
       def pending_review
-        where(:pending_review => true)
+        where(:state => 'pending_review')
       end
 
       def approved
-        where(:pending_review => false)
+        where(:state => 'approved')
       end
 
       def approved_or_pending_review_for(user)
         if user
-          where("forem_topics.pending_review = ? OR " +
-                "(forem_topics.pending_review = ? AND forem_topics.user_id = ?)",
-                 false, true, user.id)
+          where("forem_topics.state = ? OR " +
+                "(forem_topics.state = ? AND forem_topics.user_id = ?)",
+                 'approved', 'pending_review', user.id)
         else
           approved
         end
@@ -76,11 +87,6 @@ module Forem
 
     def unpin!
       update_attribute(:pinned, false)
-    end
-
-    def approve!
-      update_attribute(:pending_review, false)
-      posts.by_created_at.first.update_attribute(:pending_review, false)
     end
 
     # A Topic cannot be replied to if it's locked.
@@ -129,7 +135,12 @@ module Forem
     end
 
     def skip_pending_review_if_user_approved
-      self.update_attribute(:pending_review, false) if user && user.forem_state == 'approved'
+      self.update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
+    end
+
+    def approve_user_and_posts
+      self.posts.by_created_at.first.approve!
+      self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
     end
   end
 end

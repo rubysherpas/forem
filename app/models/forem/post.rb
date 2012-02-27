@@ -19,31 +19,47 @@ module Forem
     after_create :subscribe_replier
     after_create :email_topic_subscribers
 
+    after_save :approve_user, :if => :approved?
+
+    state_machine :initial => 'pending_review', :use_transactions => false do
+      event :spam do
+        transition :to => 'spam'
+      end
+
+      event :approve do
+        transition :to => 'approved'
+      end
+    end
+
     class << self
       def by_created_at
         order("created_at asc")
       end
 
       def pending_review
-        where(:pending_review => true)
+        where(:state => 'pending_review')
       end
 
       def approved
-        where(:pending_review => false)
+        where(:state => 'approved')
+      end
+
+      def spam
+        where(:state => 'spam')
       end
 
       def approved_or_pending_review_for(user)
         if user
-          where("(forem_posts.pending_review = ?) OR " +
-                 "(forem_posts.pending_review = ? AND forem_posts.user_id = ?)",
-                 false, true, user.id)
+          where("(forem_posts.state = ?) OR " +
+                 "(forem_posts.state = ? AND forem_posts.user_id = ?)",
+                 'approved', 'pending_review', user.id)
         else
           approved
         end
       end
 
       def topic_not_pending_review
-        joins(:topic).where("forem_topics.pending_review" => false)
+        joins(:topic).where("forem_topics.state" => 'approved')
       end
 
       def moderate!(posts)
@@ -60,12 +76,7 @@ module Forem
     end
 
     def approved?
-      !pending_review?
-    end
-
-    def approve!
-      update_attribute(:pending_review, false)
-      user.update_attribute(:forem_state, "approved") if user.forem_state != "approved"
+      state == 'approved'
     end
 
     protected
@@ -90,6 +101,10 @@ module Forem
 
     def set_topic_last_post_at
       self.topic.last_post_at = self.created_at
+    end
+
+    def approve_user
+      user.update_attribute(:forem_state, "approved") if user && user.forem_state != "approved"
     end
   end
 end

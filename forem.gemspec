@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'kaminari'
   s.add_dependency 'cancan'
   s.add_dependency 'forem-redcarpet', '1.0.0'
+  s.add_dependency 'state_machine', '1.1.2'
 end

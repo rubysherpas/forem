@@ -6,7 +6,7 @@ FactoryGirl.define do
     t.posts_attributes { [Factory.attributes_for(:post)] }
 
     trait :approved do
-      after_create { |topic| topic.approve! }
+      state 'approved'
     end
 
     factory :approved_topic, :traits => [:approved]

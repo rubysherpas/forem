@@ -3,8 +3,8 @@ FactoryGirl.define do
     t.text "This is a brand new post!"
     t.user {|u| u.association(:user) }
 
-    trait :approved do
-      pending_review false
+    trait :approved do |post|
+     post.state 'approved'
     end
 
     factory :approved_post, :traits => [:approved]
