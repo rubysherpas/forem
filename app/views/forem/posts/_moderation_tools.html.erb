@@ -1,0 +1,9 @@
+<%= fields_for "posts[#{post.id}]" do |f| %>
+  <p>
+    <%= f.radio_button "moderation_option", "approve" %>
+    <%= f.label "moderation_option_approve", t('approve', :scope => 'forem.posts.moderation') %>
+  </p>
+  <br>
+  <%= f.submit t('moderate', :scope => 'forem.posts.moderation') %>
+<% end %>
+<br>

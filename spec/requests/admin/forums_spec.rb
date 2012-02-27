@@ -30,6 +30,7 @@ describe "managing forums" do
       end
 
       it "is valid with title and description" do
+        category = Factory(:category)
         fill_in "Title", :with => "FIRST FORUM"
         fill_in "Description", :with => "The first placeholder forum."
         select "Category", :with => forum.category.id

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "posts" do
   let(:forum) { FactoryGirl.create(:forum) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:topic) { FactoryGirl.create(:topic, :forum => forum, :user => user) }
+  let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
   
   context "not signed in users" do
     it "cannot begin to post a reply" do
@@ -68,7 +68,8 @@ describe "posts" do
     context "editing posts in topics" do
       before do
         sign_in(user)
-        topic.posts << FactoryGirl.build(:post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
+        other_user = FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com")
+        topic.posts << FactoryGirl.build(:approved_post, :user => other_user)
         second_post = topic.posts[1]
       end
 

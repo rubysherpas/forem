@@ -12,6 +12,12 @@ describe Forem::Topic do
   it "is valid with valid attributes" do
     @topic.should be_valid
   end
+
+  context "creation" do
+    it "is automatically pending review" do
+      @topic.should be_pending_review
+    end
+  end
   
   describe "validations" do
     it "requires a subject" do
@@ -34,6 +40,17 @@ describe Forem::Topic do
     it "should show pinned topics up top" do
       ordering = Forem::Topic.by_pinned.order_values
       ordering.should include("forem_topics.pinned DESC")
+    end
+  end
+
+  describe "approving" do
+    let(:topic) { Factory(:topic, :user => stub_model(User)) }
+
+    it "switches pending review status" do
+      Forem::Post.any_instance.stub(:subscribe_replier)
+      topic.approve!
+      topic.pending_review.should be_false
+      topic.posts.by_created_at.first.should_not be_pending_review
     end
   end
 

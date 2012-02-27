@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'topic permissions' do
   let!(:forum) { Factory(:forum) }
-  let!(:topic) { Factory(:topic, :forum => forum) }
+  let!(:topic) { Factory(:approved_topic, :forum => forum) }
   let!(:user) { Factory(:user) }
 
   context "without permission to create a new topic" do

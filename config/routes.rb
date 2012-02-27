@@ -14,11 +14,24 @@ Forem::Engine.routes.draw do
     resources :posts
   end
 
+  get 'forums/:forum_id/moderation', :to => "moderation#index", :as => :forum_moderator_tools
+  # For mass moderation of posts
+  put 'forums/:forum_id/moderate/posts', :to => "moderation#posts", :as => :forum_moderate_posts
+  # Moderation of a single post
+  put 'forums/:forum_id/posts/:id/moderate', :to => "posts#moderate", :as => :moderate_forum_post
+
   resources :categories
 
   namespace :admin do
     root :to => "base#index"
-    resources :forums
+    resources :groups do
+      resources :members
+    end
+
+    resources :forums do
+      resources :moderators
+    end
+
     resources :categories
     resources :topics do
       member do
@@ -27,5 +40,7 @@ Forem::Engine.routes.draw do
         put :toggle_pin
       end
     end
+
+    get 'users/autocomplete', :to => "users#autocomplete"
   end
 end

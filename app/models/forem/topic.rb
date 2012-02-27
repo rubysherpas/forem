@@ -14,6 +14,7 @@ module Forem
 
     before_save :set_first_post_user
     after_create :subscribe_poster
+    after_create :skip_pending_review_if_user_approved
 
     class << self
       def visible
@@ -34,6 +35,24 @@ module Forem
         order('forem_topics.pinned DESC').
         order('forem_topics.last_post_at DESC').
         order('forem_topics.id')
+      end
+
+      def pending_review
+        where(:pending_review => true)
+      end
+
+      def approved
+        where(:pending_review => false)
+      end
+
+      def approved_or_pending_review_for(user)
+        if user
+          where("forem_topics.pending_review = ? OR " +
+                "(forem_topics.pending_review = ? AND forem_topics.user_id = ?)",
+                 false, true, user.id)
+        else
+          approved
+        end
       end
     end
 
@@ -57,6 +76,11 @@ module Forem
 
     def unpin!
       update_attribute(:pinned, false)
+    end
+
+    def approve!
+      update_attribute(:pending_review, false)
+      posts.by_created_at.first.update_attribute(:pending_review, false)
     end
 
     # A Topic cannot be replied to if it's locked.
@@ -102,6 +126,10 @@ module Forem
     def set_first_post_user
       post = self.posts.first
       post.user = self.user
+    end
+
+    def skip_pending_review_if_user_approved
+      self.update_attribute(:pending_review, false) if user && user.forem_state == 'approved'
     end
   end
 end
