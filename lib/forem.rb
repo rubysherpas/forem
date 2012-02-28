@@ -2,7 +2,7 @@ require 'forem/engine'
 require 'forem/autocomplete'
 require 'forem/default_permissions'
 require 'kaminari'
-require 'state_machine'
+require 'workflow'
 
 module Forem
   mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,

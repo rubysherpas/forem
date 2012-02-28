@@ -1,5 +1,16 @@
 module Forem
   class Post < ActiveRecord::Base
+    include Workflow
+    workflow_column :state
+    workflow do
+      state :pending_review do
+        event :spam, :transitions_to => :spam
+        event :approve, :transitions_to => :approved
+      end
+      state :spam
+      state :approved
+    end
+
     # Used in the moderation tools partial
     attr_accessor :moderation_option
 
@@ -23,15 +34,6 @@ module Forem
     after_save :approve_user, :if => :approved?
     after_save :blacklist_user, :if => :spam?
 
-    state_machine :initial => 'pending_review', :use_transactions => false do
-      event :spam do
-        transition :to => 'spam'
-      end
-
-      event :approve do
-        transition :to => 'approved'
-      end
-    end
 
     class << self
       def by_created_at
