@@ -12,8 +12,8 @@
           <% end %>
         </span>
     </td>
-    <td class="topics-count"><%= forum.topics.count %></td>
-    <td class="posts-count"><%= forum.posts.count %></td>
+    <td class="topics-count"><%= forum.topics.approved.count %></td>
+    <td class="posts-count"><%= forum.posts.approved.count %></td>
     <td class="views-count"><%= forum.views.sum(:count) %></td>
   </tr>
 <% end %>
