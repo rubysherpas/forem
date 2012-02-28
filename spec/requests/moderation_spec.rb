@@ -121,11 +121,11 @@ describe "moderation" do
       it "can mark a post as spam" do
         visit forum_path(forum)
         click_link "Moderation Tools"
-        pending
 
         choose "Spam"
         click_button "Moderate"
         flash_notice!("The selected posts have been moderated.")
+        post.reload
         post.should be_spam
         post.user.reload.forem_state.should == "spam"
       end

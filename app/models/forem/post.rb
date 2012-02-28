@@ -21,6 +21,7 @@ module Forem
     after_create :skip_pending_review_if_user_approved
 
     after_save :approve_user, :if => :approved?
+    after_save :blacklist_user, :if => :spam?
 
     state_machine :initial => 'pending_review', :use_transactions => false do
       event :spam do
@@ -111,5 +112,10 @@ module Forem
     def approve_user
       user.update_attribute(:forem_state, "approved") if user && user.forem_state != "approved"
     end
+
+    def blacklist_user
+      user.update_attribute(:forem_state, "spam") if user
+    end
+
   end
 end
