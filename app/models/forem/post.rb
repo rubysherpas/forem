@@ -26,9 +26,10 @@ module Forem
 
     validates :text, :presence => true
 
+    before_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
+
     after_create :set_topic_last_post_at
     after_create :subscribe_replier
-    after_create :email_topic_subscribers
     after_create :skip_pending_review_if_user_approved
 
     after_save :approve_user, :if => :approved?
@@ -97,6 +98,7 @@ module Forem
           subscription.send_notification(self)
         end
       end
+      self.update_attribute(:notified, true)
     end
 
     def subscribe_replier

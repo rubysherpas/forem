@@ -22,10 +22,22 @@ describe Forem::Post do
       @topic.subscriptions.last.subscriber.should == @post.user
     end
 
-    it "emails subscribers after post creation" do
+    it "does not email subscribers after post creation if not approved" do
+      @post = FactoryGirl.build(:post, :topic => topic)
+      @post.should_not be_approved
+      @post.should_not_receive(:email_topic_subscribers)
+      @post.save
+    end
+
+    it "only emails subscribers when post is approved" do
       @post = FactoryGirl.build(:post, :topic => topic)
       @post.should_receive(:email_topic_subscribers)
-      @post.should_receive(:subscribe_replier)
+      @post.approve!
+    end
+
+    it "does not send out notifications if notifications have already been sent" do
+      @post = FactoryGirl.create(:approved_post, :topic => topic)
+      @post.should_not_receive(:email_topic_subscribers)
       @post.save
     end
 
@@ -33,9 +45,9 @@ describe Forem::Post do
       @user2 = FactoryGirl.create(:user)
       @topic = FactoryGirl.create(:topic)
 
-      @post = FactoryGirl.build(:post, :topic => @topic, :user => @user2)
-
       Forem::Subscription.any_instance.should_receive(:send_notification).once
+      @post = FactoryGirl.build(:approved_post, :topic => @topic, :user => @user2)
+
       @post.save!
     end
   end

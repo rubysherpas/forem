@@ -7,3 +7,4 @@ class ApproveAllTopicsAndPosts < ActiveRecord::Migration
   def down
   end
 end
+
