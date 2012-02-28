@@ -13,6 +13,7 @@
     <% end %>
   </td>
   <td class='byline'>
+    <%= new_since_last_view_text(topic) %>
     <div class='subject'><%= link_to topic.subject, forum_topic_path(@forum, topic) %></div>
     <div class='started-by'><%= t "started_by" %><%= topic.posts.by_created_at.first.user %></div>
   </td>

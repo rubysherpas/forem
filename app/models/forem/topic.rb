@@ -78,6 +78,11 @@ module Forem
       end
     end
 
+    def new_for(user) 
+      views.find_by_user_id(user.id).nil?
+    end
+    
+
     def subscribe_poster
       subscribe_user(self.user_id)
     end

@@ -47,6 +47,13 @@ describe "forums" do
         topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .new_posts")
         topic_subjects.should_not be_empty
       end
+
+      it "calls out new topics since last visit" do
+        FactoryGirl.create(:topic, :subject => "New Since Visit", :forum => forum)
+        visit forum_path(forum)
+        new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
+        new_topics.should_not be_empty
+      end
     end
   end
 end
