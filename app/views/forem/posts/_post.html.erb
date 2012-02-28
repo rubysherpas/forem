@@ -9,6 +9,17 @@
   </div>
 
   <div class='contents'>
+    <a href='#post-<%= post.id %>'>
+      <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
+    </a>
+    <%= forem_format(post.text) %>
+
+    <% if post.reply_to %>
+      <span class='in_reply_to'>
+        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+      </span>
+    <% end %>
+
     <% if post.pending_review? %>
       <div class='moderation'>
         <%= t(".pending_review") %>
@@ -20,16 +31,6 @@
           <% end %>
         <% end %>
       </div>
-    <% end %>
-    <a href='#post-<%= post.id %>'>
-      <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
-    </a>
-    <%= forem_format(post.text) %>
-
-    <% if post.reply_to %>
-      <span class='in_reply_to'>
-        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
-      </span>
     <% end %>
 
     <ul class='actions'>
