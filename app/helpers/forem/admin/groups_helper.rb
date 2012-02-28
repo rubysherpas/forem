@@ -1,4 +1,6 @@
 module Forem
-  module Admin::GroupsHelper
+  module Admin
+    module GroupsHelper
+    end
   end
 end
