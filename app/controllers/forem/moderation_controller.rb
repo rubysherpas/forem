@@ -10,7 +10,7 @@ module Forem
     def posts
       Post.moderate!(params[:posts] || [])
       flash[:notice] = t('forem.posts.moderation.success')
-      redirect_to forum_moderator_tools_path(forum)
+      redirect_to :back
     end
 
     private
