@@ -24,7 +24,7 @@ module Forem
     helper_method :forum
 
     def ensure_moderator_or_admin
-      unless forum.moderator?(forem_user) || forem_admin?
+      if !forum.moderator?(forem_user) && !forem_admin?
         raise CanCan::AccessDenied
       end
     end
