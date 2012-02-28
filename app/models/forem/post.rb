@@ -18,6 +18,7 @@ module Forem
     after_create :set_topic_last_post_at
     after_create :subscribe_replier
     after_create :email_topic_subscribers
+    after_create :skip_pending_review_if_user_approved
 
     after_save :approve_user, :if => :approved?
 
@@ -101,6 +102,10 @@ module Forem
 
     def set_topic_last_post_at
       self.topic.last_post_at = self.created_at
+    end
+
+    def skip_pending_review_if_user_approved
+      self.update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
     end
 
     def approve_user

@@ -19,16 +19,6 @@ describe "moderation" do
       assert_seen("This topic is currently pending review. Only the user who created it and moderators can view it.", :within => :topic_moderation)
     end
 
-    it "subsequent topics bypass the moderation queue" do
-      User.any_instance.stub(:forem_state).and_return("approved")
-      visit new_forum_topic_path(forum)
-      fill_in "Subject", :with => "SECOND TOPIC"
-      fill_in "Text", :with => "User's second words"
-      click_button "Create Topic"
-
-      flash_notice!("This topic has been created.")
-      page.should_not have_content("This topic is currently pending review.")
-    end
 
     it "has their first post moderated" do
       topic = Factory(:topic, :forum => forum)
@@ -64,6 +54,32 @@ describe "moderation" do
 
       visit forum_topic_path(forum, topic)
       page.should_not have_content("BUY VIAGRA")
+    end
+
+    context "approved users" do
+      before do
+        User.any_instance.stub(:forem_state).and_return("approved")
+      end
+
+      it "subsequent topics bypass the moderation queue" do
+        visit new_forum_topic_path(forum)
+        fill_in "Subject", :with => "SECOND TOPIC"
+        fill_in "Text", :with => "User's second words"
+        click_button "Create Topic"
+        flash_notice!("This topic has been created.")
+        page.should_not have_content("This topic is currently pending review.")
+      end
+
+      it "subsequent posts bypass the moderation queue" do
+        topic = Factory(:approved_topic, :forum => forum)
+        visit forum_topic_path(forum, topic)
+        click_link "Reply"
+        fill_in "Text", :with => "Freedom!!"
+        click_button "Reply"
+        page!
+        flash_notice!("Your reply has been posted.")
+        page.should_not have_content("This post is currently pending review.")
+      end
     end
 
   end
