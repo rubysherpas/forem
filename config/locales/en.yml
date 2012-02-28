@@ -9,6 +9,9 @@ en:
         zero: No posts
         one: 1 post
         other: "%{count} posts"
+      flagged_for_spam: Your account has been flagged for spam.
+      cannot_create_topic: You cannot create a new topic at this time.
+      cannot_create_post: You cannot create a new post at this time.
 
     access_denied: "You are not allowed to do that."
     admin:

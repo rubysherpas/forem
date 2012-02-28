@@ -76,9 +76,27 @@ describe "moderation" do
         click_link "Reply"
         fill_in "Text", :with => "Freedom!!"
         click_button "Reply"
-        page!
         flash_notice!("Your reply has been posted.")
         page.should_not have_content("This post is currently pending review.")
+      end
+    end
+
+    context "spam users" do
+      before do
+        User.any_instance.stub(:forem_state).and_return("spam")
+      end
+
+      it "cannot start a new topic" do
+        visit forum_path(forum)
+        click_link "New topic"
+        flash_alert!("Your account has been flagged for spam. You cannot create a new topic at this time.")
+      end
+
+      it "cannot reply to a topic" do
+        topic = Factory(:approved_topic, :forum => forum)
+        visit forum_topic_path(forum, topic)
+        click_link "Reply"
+        flash_alert!("Your account has been flagged for spam. You cannot create a new post at this time.")
       end
     end
 
