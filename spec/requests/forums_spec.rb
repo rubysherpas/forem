@@ -37,8 +37,8 @@ describe "forums" do
 
     context "when logged in" do
       before do
-        user = Factory(:user)
-        sign_in(user)
+        @user = Factory(:user)
+        sign_in(@user)
       end
       it "calls out topics that have been posted to since your last visit, if you've visited" do
         visit forum_topic_path(forum.id, @topic_2)
@@ -49,10 +49,13 @@ describe "forums" do
       end
 
       it "calls out new topics since last visit" do
-        FactoryGirl.create(:topic, :subject => "New Since Visit", :forum => forum)
+        forum.register_view_by(@user)
+        forum.view_for(@user).update_attribute(:updated_at, 3.days.ago)
+        FactoryGirl.create(:topic, :subject => "New Since Visit", :forum => forum, :created_at=>1.day.ago)
+
         visit forum_path(forum)
         new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
-        new_topics.should_not be_empty
+        new_topics.size.should eq(4) # should include the one just created
       end
     end
   end

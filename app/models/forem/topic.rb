@@ -1,9 +1,10 @@
 module Forem
   class Topic < ActiveRecord::Base
+    include Forem::Concerns::Viewable
+
     attr_protected :pinned, :locked
 
     belongs_to :forum
-    has_many   :views
     has_many   :subscriptions
     belongs_to :user, :class_name => Forem.user_class.to_s
 
@@ -65,22 +66,6 @@ module Forem
     def can_be_replied_to?
       !locked?
     end
-
-    def view_for(user)
-      views.find_by_user_id(user.id)
-    end
-
-    # Track when users last viewed topics
-    def register_view_by(user)
-      if user
-        view = views.find_or_create_by_user_id(user.id)
-        view.increment!("count")
-      end
-    end
-
-    def new_for(user) 
-      views.find_by_user_id(user.id).nil?
-    end
     
 
     def subscribe_poster
@@ -103,6 +88,11 @@ module Forem
 
     def subscription_for user_id
       subscriptions.first(:conditions => { :subscriber_id=>user_id })
+    end
+
+    def new_for(user) 
+      # topic hasn't been viewed and form
+      views.find_by_user_id(user.id).nil?
     end
 
     protected
