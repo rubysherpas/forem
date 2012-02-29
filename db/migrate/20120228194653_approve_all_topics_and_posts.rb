@@ -1,7 +1,7 @@
 class ApproveAllTopicsAndPosts < ActiveRecord::Migration
   def up
-    Forem::Topic.find_each { |t| t.update_attribute(:state => "approved") }
-    Forem::Post.find_each { |p| p.update_attribute(:state => "approved") }
+    Forem::Topic.update_all :state => "approved"
+    Forem::Post.update_all :state => "approved"
   end
 
   def down
