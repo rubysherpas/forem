@@ -95,7 +95,7 @@ module Forem
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).find_each do |subscription|
         if subscription.subscriber != user
-          subscription.send_notification(self)
+          subscription.send_notification(self.id)
         end
       end
       self.update_attribute(:notified, true)
