@@ -26,7 +26,7 @@ module Forem
 
     validates :text, :presence => true
 
-    before_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
+    after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
 
     after_create :set_topic_last_post_at
     after_create :subscribe_replier
