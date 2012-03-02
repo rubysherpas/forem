@@ -48,29 +48,23 @@ describe "forums" do
         topic_subjects.should_not be_empty
       end
 
-      context "checking new topics" do
-        before do
-          forum.register_view_by(@user)
-          forum.view_for(@user).update_attribute(:past_viewed_at, 3.days.ago)
-          @topic_1.created_at = 1.day.ago
-          @topic_2.created_at = 1.day.ago
-          @topic_3.created_at = 1.day.ago
-          @topic_4.created_at = 4.days.ago
-        end
+      it "calls out new topics since last visit" do
+        forum.topics.clear
+        forum.register_view_by(@user)
+        forum.view_for(@user).update_attribute(:updated_at, 3.days.ago)
 
-        it "calls out new topics since last visit" do
-          visit forum_path(forum)
-          new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
-          new_topics.size.should eq(3)
-        end
+        new_topic = FactoryGirl.create(:topic, :subject => "New Since Visit", :forum => forum, :created_at=>1.day.ago)
+        old_topic = FactoryGirl.create(:topic, :subject => "Already Viewed", :forum => forum, :created_at=>4.day.ago)
 
-        it "doesn't call out a topic that has been viewed" do
-          visit forum_path(forum)
-          visit forum_topic_path(forum, @topic_1)
-          visit forum_path(forum)
-          new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
-          new_topics.size.should eq(2) 
-        end
+        visit forum_path(forum)
+        new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
+        new_topics.size.should eq(1) # should include the one just created
+
+        visit forum_topic_path(forum, topic)
+
+        visit forum_path(forum)
+        new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
+        new_topics.size.should eq(3) # should include the one just created
       end
     end
   end
