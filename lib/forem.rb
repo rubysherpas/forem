@@ -1,7 +1,6 @@
 require 'forem/engine'
 require 'forem/autocomplete'
 require 'forem/default_permissions'
-require 'kaminari'
 require 'workflow'
 
 module Forem
