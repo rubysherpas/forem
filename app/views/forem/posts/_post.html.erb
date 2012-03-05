@@ -20,7 +20,7 @@
       </span>
     <% end %>
 
-    <% if post.pending_review? %>
+    <% if post.pending_review? && post.topic.posts.by_created_at.first != post %>
       <div class='moderation'>
         <%= t(".pending_review") %>
         <% if local_assigns[:mass_moderation] %>

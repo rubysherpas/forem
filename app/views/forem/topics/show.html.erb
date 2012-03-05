@@ -24,7 +24,12 @@
   <% end %>
 
   <% if @topic.pending_review? %>
-    <div class="moderation"><%= t(".pending_review") %></div>
+    <div class="moderation" id='topic_moderation'>
+      <%= t(".pending_review") %>
+      <%= form_for @topic, :url => moderate_forum_topic_path(@topic.forum, @topic), :method => :put do |f| %>
+        <%= render "forem/moderation/options", :f => f %>
+      <% end %>
+    </div>
   <% end %>
 
   <%= forem_paginate @posts %>

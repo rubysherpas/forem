@@ -15,6 +15,13 @@ module Forem
       redirect_to :back
     end
 
+    def topic
+      topic = forum.topics.find(params[:topic_id])
+      topic.moderate!(params[:topic][:moderation_option])
+      flash[:notice] = t("forem.topic.moderation.success")
+      redirect_to :back
+    end
+
     private
 
     def forum

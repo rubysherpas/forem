@@ -11,6 +11,8 @@ module Forem
       state :approved
     end
 
+    attr_accessor :moderation_option
+
     attr_accessible :subject, :posts_attributes
 
     belongs_to :forum
@@ -88,6 +90,10 @@ module Forem
 
     def unpin!
       update_attribute(:pinned, false)
+    end
+
+    def moderate!(option)
+      send("#{option}!")
     end
 
     # A Topic cannot be replied to if it's locked.

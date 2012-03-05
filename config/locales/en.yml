@@ -88,6 +88,8 @@ en:
         latest: Latest
         posts: Posts
         views: Views
+      moderation:
+        success: The selected topic has been moderated.
       reply: Reply
       quote: Quote
       delete: Delete
