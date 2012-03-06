@@ -26,8 +26,10 @@
   <% if @topic.pending_review? %>
     <div class="moderation" id='topic_moderation'>
       <%= t(".pending_review") %>
-      <%= form_for @topic, :url => moderate_forum_topic_path(@topic.forum, @topic), :method => :put do |f| %>
-        <%= render "forem/moderation/options", :f => f %>
+      <% if forem_admin_or_moderator?(@topic.forum) %>
+        <%= form_for @topic, :url => moderate_forum_topic_path(@topic.forum, @topic), :method => :put do |f| %>
+          <%= render "forem/moderation/options", :f => f %>
+        <% end %>
       <% end %>
     </div>
   <% end %>

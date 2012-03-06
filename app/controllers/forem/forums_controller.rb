@@ -9,7 +9,7 @@ module Forem
 
     def show
       @forum = Forem::Forum.find(params[:id])
-      @topics = if forem_admin? || @forum.moderator?(forem_user)
+      @topics = if forem_admin_or_moderator?(@forum)
         @forum.topics
       else
         @forum.topics.visible.approved_or_pending_review_for(forem_user)
