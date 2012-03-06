@@ -46,7 +46,7 @@ module Forem
       end
 
       def approved
-        where(:state => 'approved')
+        where(:state => 'approved').where(:forem_topics => { :state => 'approved' })
       end
 
       def spam
