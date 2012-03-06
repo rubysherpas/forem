@@ -20,7 +20,7 @@ module Forem
     has_many   :subscriptions
     belongs_to :user, :class_name => Forem.user_class.to_s
 
-    has_many :posts, :dependent => :destroy, :order => "created_at ASC"
+    has_many :posts, :dependent => :destroy, :order => "forem_posts.created_at ASC"
     accepts_nested_attributes_for :posts
 
     validates :subject, :presence => true
