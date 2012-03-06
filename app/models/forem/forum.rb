@@ -13,7 +13,7 @@ module Forem
     validates :description, :presence => true
 
     def last_post_for(forem_user)
-      forem_user && forem_user.forem_admin? ? posts.last : last_visible_post
+      forem_user && forem_user.forem_admin? || moderator?(forem_user) ? posts.last : last_visible_post
     end
 
     def last_visible_post
