@@ -38,7 +38,7 @@ module Forem
 
     class << self
       def by_created_at
-        order("created_at asc")
+        order("forem_posts.created_at asc")
       end
 
       def pending_review
