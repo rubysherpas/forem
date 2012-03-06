@@ -46,6 +46,8 @@ module Forem
       end
 
       def approved
+        includes(:topic).
+        select("forem_posts.*, forem_topics.state").
         where(:state => 'approved').where(:forem_topics => { :state => 'approved' })
       end
 
