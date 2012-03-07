@@ -9,14 +9,14 @@ en:
         zero: Aucun message
         one: 1 message
         other: "%{count} messages"
-      flagged_for_spam: Votre compte a été marquéYour account has been flagged for spam.
+      flagged_for_spam: Votre compte a été signalé pour le spam.
       cannot_create_topic: Vous ne pouvez pas créer un nouveau sujet actuellement.
       cannot_create_post: Vous ne pouvez pas ajouter un message actuellement.
 
-    access_denied: "Vous n'êtes pas autorisé à faire ceci."
+    access_denied: "Vous n'êtes pas autorisé à faire cela."
     admin:
-      area: Section Administration
-      welcome: "Bienvenue dans la section d'administration de Forem."
+      area: Section d'administration
+      welcome: "Bienvenue dans la section d'administration de forem."
       forum:
         index: Gérer les forums
         new: Créer un nouveau forum
@@ -36,7 +36,7 @@ en:
           none: Aucun
       group:
         index: Gérer les groupes
-        created: Le groupe a été créé.
+        created: Le groupe a été créé avec succès.
         not_created: Le groupe n'a pas pu être créé.
         deleted: Le groupe sélectionné a été supprimé.
       groups:
@@ -44,13 +44,13 @@ en:
           add_member: Ajouter
       category:
         index: Gérer les catégories de forum
-        new: Creation d'une nouvelle catégorie de forum
+        new: Création d'une nouvelle catégorie de forum
         new_link: Nouvelle catégorie de forum
-        deleted: Le catégorie de forum a été supprimée.
-        created: Cette catégorie de forum a été ajouté.
-        not_created: Cette catégorie de forum n'a pas pu être ajouté.
+        deleted: La catégorie de forum a été supprimée.
+        created: Cette catégorie de forum a été ajoutée.
+        not_created: Cette catégorie de forum n'a pas pu être ajoutée.
         updated: Cette catégorie de forum a été mise à jour.
-        not_updated: Cette catégorie de forum ne peut pas être mise à jour.
+        not_updated: Cette catégorie de forum n'a pas pu être mise à jour.
       categories:
         edit: Modifier
         delete: Supprimer
@@ -62,7 +62,7 @@ en:
       not_signed_in: Vous devez vous authentifier d'abord.
       access_denied: Accès interdit.
     forum:
-      header: "Consultation %{title}"
+      header: "Voir %{title}"
       forums: Forums
       new: Création d'un nouveau forum
       edit: "Mis à jour du forum : %{title}"
@@ -91,7 +91,7 @@ en:
       moderation:
         success: Le sujet sélectionné a été modéré.
       reply: Répondre
-      quote: Citation
+      quote: Citer
       delete: Supprimer
       created: Ce sujet a été ajouté..
       new: Création d'un nouveau sujet
@@ -102,8 +102,8 @@ en:
       updated: Ce sujet a été mise à jour.
       not_updated: Ce sujet n'a pu être mis a jour.
       subscribed: Vous êtes maintenant inscrit à ce sujet.
-      unsubscribed: Vous n'est plus inscrit à ce sujet.
-      none: Il n'y pas de sujet dans ce forum.
+      unsubscribed: Vous vous êtes désabonné de ce sujet.
+      none: Il n'y aucun sujet dans ce forum actuellement.
       links:
         new: Nouveau sujet
         back_to_topics: Retour aux sujets
@@ -117,7 +117,7 @@ en:
         'false': Ce sujet est maintenant dévérouillé.
       pinned:
         'true': Ce sujet est maintenant épinglé.
-        'false': "Ce sujet n'est plus épinglé."
+        'false': "Ce sujet est désormais désépinglé."
     topics:
       show:
         reply: Répondre
