@@ -19,7 +19,7 @@ jQuery(function($) {
     $('#members').append('<li>' + user + '</li>')
   }
 
-  $('#add_member').click(add_member);
+  $('#add_member').click(addMember);
   $('#new_member').keypress(function(e){
     if (e.which == 13) {
       addMember();
