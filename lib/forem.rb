@@ -20,4 +20,8 @@ module Forem
   def self.autocomplete_field
     @@autocomplete_field || "email"
   end
+
+  def self.per_page
+    @@per_page || 20
+  end
 end
