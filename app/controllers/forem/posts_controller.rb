@@ -80,7 +80,7 @@ module Forem
     end
 
     def last_page
-      if @topic.posts && Forem.per_page
+      if Forem.per_page
         (@topic.posts.count.to_f / Forem.per_page.to_f).ceil
       end
     end
