@@ -12,7 +12,7 @@ module Forem
         unless forem_admin_or_moderator?(@forum)
           @posts = @posts.approved_or_pending_review_for(forem_user)
         end
-        @posts = @posts.page(params[:page]).per(20)
+        @posts = @posts.page(params[:page]).per(Forem.per_page)
       end
     end
 
