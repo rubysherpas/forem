@@ -90,11 +90,6 @@ module Forem
       subscriptions.first(:conditions => { :subscriber_id=>user_id })
     end
 
-    def new_for(user) 
-      # topic hasn't been viewed and form
-      views.find_by_user_id(user.id).nil?
-    end
-
     protected
     def set_first_post_user
       post = self.posts.first
