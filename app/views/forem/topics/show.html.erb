@@ -5,7 +5,7 @@
     <% if @topic.can_be_replied_to? && can?(:reply, @topic) %>
       <%= link_to t(".reply"), new_topic_post_path(@topic) %>
     <% end %>
-    <% if @topic.user == forem_user || forem_admin? %>
+    <% if (@topic.user and @topic.user == forem_user) || forem_admin? %>
       <%= link_to t(".delete"), forum_topic_path(@forum, @topic), :method => :delete, :confirm => t("are_you_sure") %>
     <% end %>
     <% if forem_user %>
