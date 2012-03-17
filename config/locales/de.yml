@@ -1,8 +1,23 @@
 de:
   forem:
+    general:
+      forum: Forum
+      topics: Themen
+      topic: Thema
+      posts: Beiträge
+      posts_count:
+        zero: 0 Beiträge
+        one: 1 Beitrag
+        other: "%{count} Beiträge"
+      flagged_for_spam: Ihr Konto wurde wegen Spam markiert.
+      cannot_create_topic: Zur Zeit können Sie kein neues Thema erstellen.
+      cannot_create_post: Zur Zeit können Sie keinen neue Beitrag erstellen.
+
+    access_denied: "Sie haben hierzu keine ausreichende Berechtigung."
     admin:
+      area: Administrations Bereich
+      welcome: "Willkommen im Foren Admin-Bereich."
       forum:
-        edit: "Das Forum \"%{title}\" bearbeiten"
         index: Foren verwalten
         new: Neues Forum erstellen
         new_link: Neues Forum
@@ -11,6 +26,36 @@ de:
         not_created: Das Forum konnte nicht erstellt werden.
         updated: Das Forum wurde geändert.
         not_updated: Das Forum konnte nicht geändert werden.
+      forums:
+        edit: Bearbeiten
+        delete: Löschen
+        category: Kategorie
+        delete_confirm: Sind Sie sicher, dass Sie dieses Forum unwiderruflich löschen möchten?
+        index:
+          last_post: Letzter Eintrag
+          none: Kein
+      group:
+        index: Gruppenenverwaltung
+        created: Gruppe erfolgreich erstellt.
+        not_created: Gruppe konnte nicht erstellt werden.
+        deleted: Ausgewählte Gruppe wurde gelöscht.
+      groups:
+        show:
+          add_member: Hinzufügen
+      category:
+        index: Kategorienverwaltung
+        new: Neue Kategorie erzeugen
+        new_link: Neue Kategorie
+        deleted: Ausgewählte Kategorie wurde gelöscht.
+        created: Kategorie erfolgreich angelegt.
+        not_created: Kategorie konnte nicht angelegt werden.
+        updated: Kategorie erfolgreich aktualisiert.
+        not_updated: Kategorie konnte nicht aktualisiert werden.
+      categories:
+        edit: Bearbeiten
+        delete: Löschen
+        category: Kategorie
+        delete_confirm: Sind Sie sicher, dass Sie dieses Kategorie unwiderruflich löschen möchten?
     common:
       pages: Seiten
     errors:
@@ -19,75 +64,123 @@ de:
     forum:
       header: "Angezeigt wird %{title}"
       forums: Foren
+      new: Neues Forum anlegen
+      edit: "Bearbeiten des Forums %{title}"
       topics_count:
-        zero: 0 Topics
-        one: 1 Topic
-        other: "%{count} Topics"
+        zero: 0 Themen
+        one: 1 Thema
+        other: "%{count} Themen"
       posts_count:
-        zero: 0 Posts
-        one: 1 Posts
-        other: "%{count} Posts"
+        zero: 0 Beiträge
+        one: 1 Beiträge
+        other: "%{count} Beiträge"
+      moderator_tools: "Moderations Werkzeuge"
     forums:
       index:
         title: Foren
         forum: Forum
-        topics: Topics
-        posts: Posts
-        views: Views
+        views: Aufrufe
         last_post: Letzter Post
+        none: Keins
     topic:
       headings:
-        topic: "Topic"
+        topic: "Thema"
         latest: "Neuester"
-        posts: "Posts"
-        views: "Views"
-      created: Der Topic wurde erstellt.
-      new: Einen neuen Topic erstellen
-      not_created: Der Topic konnte nicht erstellt werden.
-      deleted: Der Topic wurde gelöscht.
-      cannot_delete: Sie können keinen Topic löschen, den sie nicht erstellt haben.
-      updated: Der Topic wurde geändert.
-      not_updated: Der Topic konnte nicht geändert werden.
-      none: Es gibt im Moment keine Topics in diesem Forum.
+        posts: "Beiträge"
+        views: "Aufrufe"
+      moderation:
+        success: Das ausgewählte Thema wurde vom Moderator bearbeitet.
+      reply: Antworten
+      quote: zitieren
+      delete: Löschen
+      created: Das Thema wurde erstellt.
+      new: Ein neues Thema erstellen
+      edit: Thema bearbeiten
+      not_created: Das Thema konnte nicht erstellt werden.
+      deleted: Das Thema wurde gelöscht.
+      cannot_delete: Sie können kein Thema löschen, das Sie nicht erstellt haben.
+      updated: Das Thema wurde geändert.
+      not_updated: Das Thema konnte nicht geändert werden.
+      subscribed: Sie haben diese Thema abonniert.
+      unsubscribed: Sie erhalten keine weiteren Informationen zu diesem Thema.
+      none: Es gibt im Moment keine Themen in diesem Forum.
       links:
-        new: Neuer Topic
-        back_to_topics: Zurück zu den Topics
-        edit: Topic bearbeiten
-      not_found: Der angeforderte Topic konnte nicht gefunden werden.
+        new: Neues Thema
+        back_to_topics: Zurück zu den Themen
+        edit: Thema bearbeiten
+      not_found: Das angeforderte Thema konnte nicht gefunden werden.
       hidden:
-        'true': Der Topic ist jetzt unsichtbar.
-        'false': Der Topic ist jetzt sichtbar.
+        'true': Das Thema ist jetzt unsichtbar.
+        'false': Das Thema ist jetzt sichtbar.
       locked:
-        'true': Der Topic ist jetzt gesperrt.
-        'false': Der Topic ist jetzt entsperrt.
+        'true': Das Thema ist jetzt gesperrt.
+        'false': Das Thema ist jetzt entsperrt.
       pinned:
-        'true': Der Topic ist jetzt angeheftet.
-        'false': Der Topic ist jetzt nicht angeheftet.
+        'true': Das Thema ist jetzt angeheftet.
+        'false': Das Thema ist jetzt nicht angeheftet.
     topics:
       show:
         reply: 'Antworten'
         delete: 'Löschen'
-        reply_to_topic: 'Auf diesen Topic antworten'
+        subscribe: Abonnieren
+        unsubscribe: Abbestellen
+        reply_to_topic: 'Auf dieses Thema antworten'
+        pending_review: Dieses Thema wird zur Zeit überprüft. Nur der Ersteller und Moderatoren können es betrachten.
         hide:
-          'true': Diesen Topic wieder anzeigen
-          'false': Diesen Topic verstecken
+          'true': Dieses Thema wieder anzeigen
+          'false': Dieses Thema verstecken
         lock:
-          'true': Diesen Topic entsperren
-          'false': Diesen Topic sperren
+          'true': Dieses Thema entsperren
+          'false': Dieses Thema sperren
         pin:
-          'true': Diesen Topic nicht mehr anheften
-          'false': Diesen Topic anheften
-        
-        
+          'true': Dieses Thema nicht mehr anheften
+          'false': Dieses Thema anheften
     post:
       buttons:
         reply: Antwort erstellen
+        edit: Bearbeiten
       created: Ihre Antwort wurde erstellt.
       new: Antwort erstellen
+      edit: Bearbeiten
       not_created: Ihre Antwort konnte nicht erstellt werden.
-      not_created_topic_locked: Sie können nicht auf einen gesperrten Topic antworten.
-      deleted: Ihr Post wurde gelöscht.
-      cannot_delete: Sie können keinen Post löschen, der nicht von Ihnen stammt.
+      not_created_topic_locked: Sie können nicht auf eines gesperrtes Thema antworten.
+      edited: Ihr Eintrag wurde bearbeiten.
+      not_edited: Ihr Eintrag konnte nicht bearbeitet werden.
+      deleted: Ihr Eintrag wurde gelöscht.
+      deleted_with_topic: Einziger Eintrag im Thema wurde gelöscht. Das Thema wurde entfernt.
+      cannot_delete: Sie können keinen Eintrag löschen, der nicht von Ihnen stammt.
+      in_reply_to: Antwort auf
+    posts:
+      moderation:
+        moderate: Moderieren
+        approve: Bestätigen
+        success: Die markierten Beiträge wurden moderiert.
+      post:
+        pending_review: Dieses Thema wird zur Zeit überprüft. Nur der Ersteller und Moderatoren können es betrachten.
+    moderation:
+      title: "Moderations Werkzeuge for %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Forum anlegen
+        update: Forum aktualisieren
+      topic:
+        create: Thema anlegen
+        update: Thema aktualisieren
+  simple_form:
+    labels:
+      forum:
+        title: Titel
+        description: Beschreibung
+      topic:
+        subject: Thema
+        locked: Gesperrt
+        pinned: Angeheftet
+        hidden: Verborgen
+        posts:
+          text: Text
+      post:
+        text: Text
   refinery:
     plugins:
       refinery_forem:
@@ -96,3 +189,8 @@ de:
 
   # General stuff
   time_ago_in_words: "vor %{time}"
+  ago: " her"
+  ago_by: " her von"
+  by: von
+  started_by: "Gestartet von "
+  are_you_sure: Sind sie sicher?
