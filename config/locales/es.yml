@@ -16,7 +16,7 @@ es:
     access_denied: "No tiene permiso para hacer eso."
     admin:
       area: Admin Area
-      welcome: "Bienvenido al area de administrador de forem."
+      welcome: "Bienvenido al área de administrador de forem."
       forum:
         index: Organizar Forums
         new: Crear un nuevo forum
@@ -30,7 +30,7 @@ es:
         edit: Editar
         delete: Borrar
         category: Categoría
-        delete_confirm: Está seguro de que quiere borrar el forum?
+        delete_confirm: ¿Está seguro de que quiere borrar el forum?
         index:
           last_post: Ultimo mesaje
           none: Ningúno
@@ -43,19 +43,19 @@ es:
         show:
           add_member: Agregar
       category:
-        index: Organizar las Categorias Forum
-        new: Crear una nueva Categoria de Forum
-        new_link: Nueva Categoria de Forum
-        deleted: La categoria de forum seleccionado ha sido borrada.
-        created:  La categoria de forum ha sido creada.
-        not_created: Esta categoria de forum no ha podido ser creada.
-        updated: La categoria de forum ha sido modificada.
-        not_updated: Esta categoria de forum no pudo ser modificada.
+        index: Organizar las categorías Forum
+        new: Crear una nueva categoría de Forum
+        new_link: Nueva categoría de Forum
+        deleted: La categoría de forum seleccionado ha sido borrada.
+        created:  La categoría de forum ha sido creada.
+        not_created: Esta categoría de forum no ha podido ser creada.
+        updated: La categoría de forum ha sido modificada.
+        not_updated: Esta categoría de forum no pudo ser modificada.
       categories:
         edit: Editar
         delete: Borrar
-        category: Categoria
-        delete_confirm: Esta seguro de que quiere borar esta categoria de forum?
+        category: categoría
+        delete_confirm: ¿Esta seguro de que quiere borrar ésta categoría de forum?
     common:
       pages: Páginas
     errors:
@@ -193,5 +193,5 @@ es:
   ago_by: " atras por"
   by: por
   started_by: "Iniciado por "
-  are_you_sure: Esta seguro?
+  are_you_sure: ¿Esta seguro?
 
