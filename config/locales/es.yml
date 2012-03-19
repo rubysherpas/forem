@@ -1,0 +1,197 @@
+es:
+  forem:
+    general:
+      forum: Forum
+      topics: Temas
+      topic: Tema
+      posts: Mensajes
+      posts_count:
+        zero: Sin mensajes
+        one: 1 mensaje
+        other: "%{count} mensajes"
+      flagged_for_spam: Su cuenta ha sido marcada en correo no deseado.
+      cannot_create_topic: Usted no puede crear un tema nuevo en este momento.
+      cannot_create_post: Usted no puede crear un mesaje nuevo en este momento.
+
+    access_denied: "No tiene permiso para hacer eso."
+    admin:
+      area: Admin Area
+      welcome: "Bienvenido al area de administrador de forem."
+      forum:
+        index: Organizar Forums
+        new: Crear un nuevo forum
+        new_link: Forum Nuevo
+        deleted: El forum seleccionado ha sido borrado.
+        created: El forum ha sido creado.
+        not_created: El forum no pudo ser creado.
+        updated: El forum ha sido modificado.
+        not_updated: El forum no pudo ser modificado.
+      forums:
+        edit: Editar
+        delete: Borrar
+        category: Categoría
+        delete_confirm: Está seguro de que quiere borrar el forum?
+        index:
+          last_post: Ultimo mesaje
+          none: Ningúno
+      group:
+        index: Organizar Grupos
+        created: El grupo ha sido creado.
+        not_created: El grupo no pudo ser creado.
+        deleted: El grupo seleccionado ha sido borrado.
+      groups:
+        show:
+          add_member: Agregar
+      category:
+        index: Organizar las Categorias Forum
+        new: Crear una nueva Categoria de Forum
+        new_link: Nueva Categoria de Forum
+        deleted: La categoria de forum seleccionado ha sido borrada.
+        created:  La categoria de forum ha sido creada.
+        not_created: Esta categoria de forum no ha podido ser creada.
+        updated: La categoria de forum ha sido modificada.
+        not_updated: Esta categoria de forum no pudo ser modificada.
+      categories:
+        edit: Editar
+        delete: Borrar
+        category: Categoria
+        delete_confirm: Esta seguro de que quiere borar esta categoria de forum?
+    common:
+      pages: Páginas
+    errors:
+      not_signed_in: Primero debe registrarse.
+      access_denied: Accesso negado.
+    forum:
+      header: "Vista Actual %{title}"
+      forums: Forums
+      new: Creando un forum nuevo
+      edit: "Modificando %{title} forum"
+      topics_count:
+        zero: 0 temas
+        one: 1 tema
+        other: "%{count} temas"
+      posts_count:
+        zero: 0 mesajes
+        one: 1 mesaje
+        other: "%{count} mesajes"
+      moderator_tools: "Instrumentos de Moderador"
+    forums:
+      index:
+        title: Forums
+        forum: Forum
+        views: Vistas
+        last_post: 'Ultimo Mesaje:'
+        none: Ningúno
+    topic:
+      headings:
+        topic: Tema
+        latest: Ultimo
+        posts: Mesajes
+        views: Vistas
+      moderation:
+        success: El tema seleccionado ha sido modificado por el moderador.
+      reply: Responder
+      quote: Comentar
+      delete: Borrar
+      created: Este tema ha sido creado.
+      new: Creando tema nuevo
+      edit: Modificar tema
+      not_created: Este tema no pudo ser creado.
+      deleted: Su tema ha sido borrado.
+      cannot_delete: Usted no puede borrar un tema que no es suyo.
+      updated: Este tema ha sido modificado.
+      not_updated: Este tema no pudo ser modificado.
+      subscribed: Usted se ha registrado en este tema.
+      unsubscribed: Usted ya no esta registrado en este tema.
+      none: Actualemente no hay temas en este forum.
+      links:
+        new: Tema nuevo
+        back_to_topics: Volver a temas
+        edit: Modificar tema
+      not_found: El tema que esta buscando no pudo ser encontrado
+      hidden:
+        'true': Este tema esta escondido.
+        'false': Este tema es a hora visible.
+      locked:
+        'true': Este tema ha sido bloqueado.
+        'false': Este tema ha sido desbloqueado.
+      pinned:
+        'true': Este tema ha sido marcado.
+        'false': Esta tema esta desmarcado.
+    topics:
+      show:
+        reply: Responder
+        delete: Borrar
+        subscribe: Suscribir
+        unsubscribe: Remover Subscripcion
+        reply_to_topic: Responder a Tema
+        pending_review: Este tema esta actualemente pendiente de revision. Solamente el autor y moderadores tienen acceso.
+        hide:
+          'true': Mostrar Tema
+          'false': Ocultar Tema
+        lock:
+          'true': Desbloquear Tema
+          'false': Bloquear Tema
+        pin:
+          'true': Desmarcar Tema
+          'false': Marcar Tema
+    post:
+      buttons:
+        reply: Responder
+        edit: Modificar
+      created: Su respuesta ha sido publicada.
+      new: Responder
+      edit: Modificar
+      not_created: Su respuesta no pudo ser publicada.
+      not_created_topic_locked: Usted no puedo un tema bloqueado.
+      edited: Su mesaje ha sido modificado.
+      not_edited: Su mesaje no pudo ser modificado.
+      deleted: Su mesaje ha sido borrado.
+      deleted_with_topic: El unico mensaje del tema ha sido borrado. Tema eliminado.
+      cannot_delete: Usted no puede borrar un mensaje ajeno
+      in_reply_to: En respuesta a
+    posts:
+      moderation:
+        moderate: Moderar
+        approve: Aprovar
+        success: Los temas seleccionados han sido moderados
+      post:
+        pending_review: Este mensaje esta en revision. Solamente el autor y los moderadores pueden verlo.
+    moderation:
+      title: "Instrumentos de moderacion para %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Crear Forum
+        update: Modificar Forum
+      topic:
+        create: Crear Tema
+        update: Modificar Tema
+  simple_form:
+    labels:
+      forum:
+        title: Título
+        description: Descripción
+      topic:
+        subject: Tema
+        locked: Bloqueado
+        pinned: Marcado
+        hidden: Escondido
+        posts:
+          text: Texto
+      post:
+        text: Texto
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Forums
+        description: Organizar forums
+
+  # General stuff
+  time_ago_in_words: "%{time} atras"
+  ago: " atras"
+  ago_by: " atras por"
+  by: por
+  started_by: "Iniciado por "
+  are_you_sure: Esta seguro?
+
