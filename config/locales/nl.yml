@@ -1,0 +1,197 @@
+nl:
+  forem:
+    general:
+      forum: Forum
+      topics: Discussies
+      topic: Discussie
+      posts: Reacties
+      posts_count:
+        zero: Geen reacties
+        one: 1 reactie
+        other: "%{count} reacties"
+      flagged_for_spam: Je account is gemarkeerd als spam.
+      cannot_create_topic: Je kunt op dit moment geen nieuwe discussie starten.
+      cannot_create_post: Je kunt op dit moment geen nieuwe reactie plaatsen.
+
+    access_denied: "Je hebt geen rechten om dat te doen."
+    admin:
+      area: Beheerders gedeelte
+      welcome: "Welkom bij forem's beheerders gedeelte."
+      forum:
+        index: Beheer Forums
+        new: Maak een nieuw forum
+        new_link: Nieuw Forum
+        deleted: Het geselecteerde forum is verwijderd.
+        created: Het forum is aangemaakt.
+        not_created: Het forum kon niet worden aangemaakt.
+        updated: Het forum is gewijzigd.
+        not_updated: Het forum kon niet worden gewijzigd.
+      forums:
+        edit: Bewerk
+        delete: Verwijder
+        category: Categorie
+        delete_confirm: Weet je zeker dat je dit forum wilt verwijderen?
+        index:
+          last_post: Laatste reactie
+          none: Geen
+      group:
+        index: Beheer Groepen
+        created: De groep is succesvol aangemakt.
+        not_created: Groep kon niet worden aangemaakt.
+        deleted: De geselecteerde groep is verwijderd.
+      groups:
+        show:
+          add_member: Toevoegen
+      category:
+        index: Beheer Forum Categorieën
+        new: Nieuwe Forum Categorie aanmaken
+        new_link: Nieuwe Forum Categorie
+        deleted: De geselecteerde forum categorie is verwijderd.
+        created: De forum categorie is aangemaakt.
+        not_created: De forum categorie kon niet worden aangemaakt.
+        updated: De forum categorie is bijgewerkt.
+        not_updated: De forum categorie kon niet worden bijgewerkt.
+      categories:
+        edit: Bewerk
+        delete: Verwijder
+        category: Categorie
+        delete_confirm: Weet je zeker dat je deze forum categorie wilt verwijderen?
+    common:
+      pages: Pagina's
+    errors:
+      not_signed_in: Je moet eerst inloggen.
+      access_denied: Toegang geweigerd.
+    forum:
+      header: "%{title} wordt getoond"
+      forums: Forums
+      new: Nieuw forum aanmaken
+      edit: "Bewerk het %{title} forum"
+      topics_count:
+        zero: 0 discussies
+        one: 1 discussie
+        other: "%{count} discussies"
+      posts_count:
+        zero: 0 reacties
+        one: 1 reactie
+        other: "%{count} reacties"
+      moderator_tools: "Moderatie hulpmiddelen"
+    forums:
+      index:
+        title: Forums
+        forum: Forum
+        views: maal bekeken
+        last_post: 'Laatste Reactie:'
+        none: Geen
+    topic:
+      headings:
+        topic: Discussie
+        latest: Laatste
+        posts: Reactie
+        views: Views
+      moderation:
+        success: De geselecteerde discussie is gemodereerd.
+      reply: Reactie
+      quote: Quote
+      delete: Verwijderen
+      created: Deze discussie is aangemaakt.
+      new: Nieuwe discussie aanmaken
+      edit: Discussie bewerken
+      not_created: Deze discussie kon niet worden aangemaakt.
+      deleted: Je discussie is verwijderd.
+      cannot_delete: Je kunt een discussie waar je geen eigenaar van bent niet verwijderen.
+      updated: Deze discussie is bijgewerkt.
+      not_updated: Deze discussie kon niet worden bijgewerkt.
+      subscribed: Je bent geabonneerd op deze discussie.
+      unsubscribed: Je bent niet langer geabonneerd op deze discussie.
+      none: Er zijn momenteel geen discussies in deze forum categorie.
+      links:
+        new: Nieuwe discussie
+        back_to_topics: Terug naar discussies
+        edit: Bewerk discussie
+      not_found: De discussie kon niet worden gevonden.
+      hidden:
+        'true': Deze discussie is nu verborgen.
+        'false': Deze discussie is nu zichtbaar.
+      locked:
+        'true': Deze discussie is nu op vergrendeld.
+        'false': Deze discussie is nu ontgrendeld.
+      pinned:
+        'true': Deze discussie is nu vastgepind.
+        'false':Deze discussie is nu niet meer vastgepind.
+    topics:
+      show:
+        reply: Reactie
+        delete: Verwijderen
+        subscribe: Abonneren
+        unsubscribe: Abonnement opzeggen
+        reply_to_topic: Reageer op deze Discussie
+        pending_review: Deze discussie is momenteel in afwachting van beoordeling. Alleen de auteur en beheerders kunnen deze bekijken.
+        hide:
+          'true': Toon deze discussie
+          'false': Verberg deze discussie
+        lock:
+          'true': Vergrendel deze discussie
+          'false': Ontgrendel deze discussie
+        pin:
+          'true': Verwijder pin van deze discussie
+          'false': Pin deze discussie vast
+    post:
+      buttons:
+        reply: Plaats reactie
+        edit: Bewerk
+      created: Je reactie is geplaatst.
+      new: Plaats reactie
+      edit: Bewerk
+      not_created: Je reactie kon niet worden geplaatst.
+      not_created_topic_locked: Je kunt geen reactie plaatsen op een vergrendelde discussie.
+      edited: Je reactie is bijgewerkt.
+      not_edited: Je reactie kon niet worden bijgewerkt.
+      deleted: Je reactie is verwijderd.
+      deleted_with_topic: Enige bericht in discussie verwijderd. Discussie ook verwijderd.
+      cannot_delete: Je kunt een reactie niet verwijderen als je niet de auteur bent.
+      in_reply_to: Als reactie op
+    posts:
+      moderation:
+        moderate: Modereer
+        approve: Goedkeuren
+        success: De geselecteerde reactie is gemodereerd.
+      post:
+        pending_review: Deze reactie is momenteel in afwachting van beoordeling. Alleen de auteur en beheerders kunnen deze bekijken.
+    moderation:
+      title: "Moderatie hulpmiddelen voor %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Creëer Forum
+        update: Bewerk Forum
+      topic:
+        create: Creëer Discussie
+        update: Bewerk Discussie
+  simple_form:
+    labels:
+      forum:
+        title: Titel
+        description: Beschrijving
+      topic:
+        subject: Onderwerp
+        locked: Vergrendeled
+        pinned: Vastgepind
+        hidden: Verborgen
+        posts:
+          text: Tekst
+      post:
+        text: Tekst
+  refinery:
+    plugins:
+      refinery_forem:
+        title: Forums
+        description: Beheer forums
+
+  # General stuff
+  time_ago_in_words: "%{time} geleden"
+  ago: " geleden"
+  ago_by: " geleden door"
+  by: door
+  started_by: "Gestart door "
+  are_you_sure: Weet je het zeker?
+
