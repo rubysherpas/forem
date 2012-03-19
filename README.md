@@ -98,6 +98,7 @@ We currently have support for the following languages:
 * Russian
 * Polish
 * Dutch
+* Spanish
 
 Patches for new translations are very much welcome!
 
