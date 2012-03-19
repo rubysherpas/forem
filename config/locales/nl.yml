@@ -52,7 +52,7 @@ nl:
         updated: De forum categorie is bijgewerkt.
         not_updated: De forum categorie kon niet worden bijgewerkt.
       categories:
-        edit: Bewerl
+        edit: Bewerk
         delete: Verwijder
         category: Categorie
         delete_confirm: Weet je zeker dat je deze forum categorie wilt verwijderen?
