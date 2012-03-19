@@ -97,6 +97,7 @@ We currently have support for the following languages:
 * Italian
 * Russian
 * Polish
+* Dutch
 
 Patches for new translations are very much welcome!
 
