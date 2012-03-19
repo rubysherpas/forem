@@ -117,7 +117,7 @@ nl:
         'false': Deze discussie is nu ontgrendeld.
       pinned:
         'true': Deze discussie is nu vastgepind.
-        'false':Deze discussie is nu niet meer vastgepind.
+        'false': Deze discussie is nu niet meer vastgepind.
     topics:
       show:
         reply: Reactie
