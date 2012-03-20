@@ -1,4 +1,5 @@
 .bundle/
+.idea/
 pkg/
 *.sqlite3
 *.log
