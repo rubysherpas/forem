@@ -15,6 +15,8 @@ module Forem
 
     attr_accessible :subject, :posts_attributes
 
+    include ::Forem::UrlSlug
+
     belongs_to :forum
     has_many   :views
     has_many   :subscriptions

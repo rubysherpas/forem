@@ -1,5 +1,6 @@
 require 'forem/engine'
 require 'forem/autocomplete'
+require 'forem/url_slug'
 require 'forem/default_permissions'
 require 'workflow'
 
@@ -18,6 +19,6 @@ module Forem
   end
 
   def self.autocomplete_field
-    @@autocomplete_field || "email"
+    @@autocomplete_field || :email
   end
 end

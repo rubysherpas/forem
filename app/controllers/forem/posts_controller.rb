@@ -69,7 +69,7 @@ module Forem
     private
 
     def find_topic
-      @topic = Forem::Topic.find(params[:topic_id])
+      @topic = Forem::Topic.find(Forem::Topic.param_to_id(params[:topic_id]))
     end
 
     def block_spammers
