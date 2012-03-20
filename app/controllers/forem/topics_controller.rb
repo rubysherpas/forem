@@ -36,7 +36,7 @@ module Forem
     end
 
     def destroy
-      @topic = @forum.topics.find(params[:id])
+      @topic = @forum.topics.find_by_slug!(params[:id])
       if forem_user == @topic.user || forem_user.forem_admin?
         @topic.destroy
         flash[:notice] = t("forem.topic.deleted")
@@ -65,14 +65,14 @@ module Forem
 
     private
     def find_forum
-      @forum = Forem::Forum.find(params[:forum_id])
+      @forum = Forem::Forum.find_by_slug!(params[:forum_id])
       authorize! :read, @forum
     end
 
     def find_topic
       begin
         scope = forem_admin_or_moderator?(@forum) ? @forum.topics : @forum.topics.visible.approved_or_pending_review_for(forem_user)
-        @topic = scope.find(params[:id])
+        @topic = scope.find_by_slug!(params[:id])
         authorize! :read, @topic
       rescue ActiveRecord::RecordNotFound
         flash.alert = t("forem.topic.not_found")

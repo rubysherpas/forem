@@ -43,7 +43,7 @@ module Forem
 
       private
         def find_category
-          @category = Forem::Category.find(params[:id])
+          @category = Forem::Category.find_by_slug!(params[:id])
         end
 
     end

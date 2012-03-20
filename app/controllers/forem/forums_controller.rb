@@ -8,7 +8,7 @@ module Forem
     end
 
     def show
-      @forum = Forem::Forum.find(Forem::Forum.id_from_param(params[:id]))
+      @forum = Forem::Forum.find_by_slug!(params[:id])
       @topics = if forem_admin_or_moderator?(@forum)
         @forum.topics
       else

@@ -45,7 +45,7 @@ module Forem
       private
 
         def find_forum
-          @forum = Forem::Forum.find(params[:id])
+          @forum = Forem::Forum.find_by_slug!(params[:id])
         end
 
     end
