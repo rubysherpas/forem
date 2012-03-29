@@ -53,8 +53,12 @@ describe Forem::Generators::InstallGenerator do
     migrations.should_not be_empty
 
     # Ensure forem admin migration has been created
-    forem_admin_migration = File.readlines(migrations.last)
+    forem_admin_migration = File.readlines(migrations[-2])
     forem_admin_migration[3].strip.should == "add_column :users, :forem_admin, :boolean, :default => false"
+
+    # Ensure forem state migration has been created
+    forem_state_migration = File.readlines(migrations[-1])
+    forem_state_migration[3].strip.should == "add_column :users, :forem_state, :string, :default => 'pending_review'"
 
     # Ensure initializer has been created
     forem_initializer = File.readlines("#{Rails.root}/config/initializers/forem.rb")

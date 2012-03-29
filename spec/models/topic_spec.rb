@@ -12,6 +12,12 @@ describe Forem::Topic do
   it "is valid with valid attributes" do
     @topic.should be_valid
   end
+
+  context "creation" do
+    it "is automatically pending review" do
+      @topic.should be_pending_review
+    end
+  end
   
   describe "validations" do
     it "requires a subject" do
@@ -21,44 +27,35 @@ describe Forem::Topic do
   end
   
   describe "protected attributes" do
-    it "cannot assign pinned" do
-      topic = Forem::Topic.new(:pinned => true)
-      topic.pinned.should be_false
-    end
-    
-    it "cannot assign locked" do
-      topic = Forem::Topic.new(:locked => true)
-      topic.locked.should be_false
+    protected_attributes = [:pinned, :locked, :pending_review]
+    protected_attributes.each do |attr|
+      it "cannot assign #{attr}" do
+        lambda { Forem::Topic.new(attr => true) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end
     end
   end
 
   describe "pinning" do
-    before(:each) do
-      Forem::Topic.delete_all
-      @topic1 = FactoryGirl.create(:topic)
-      @topic2 = FactoryGirl.create(:topic)
-    end
-
     it "should show pinned topics up top" do
-      Forem::Topic.by_pinned.first.should == @topic1
-      @topic2.pin!
-      Forem::Topic.by_pinned.first.should == @topic2
+      ordering = Forem::Topic.by_pinned.order_values
+      ordering.should include("forem_topics.pinned DESC")
+    end
+  end
+
+  describe "approving" do
+    let(:topic) { Factory(:topic, :user => stub_model(User)) }
+
+    it "switches pending review status" do
+      Forem::Post.any_instance.stub(:subscribe_replier)
+      topic.approve!
+      topic.posts.by_created_at.first.should_not be_pending_review
     end
   end
 
   describe ".by_most_recent_post" do
-    before do
-      Forem::Topic.delete_all
-      @topic1 = Forem::Topic.create :subject => "POST"
-      FactoryGirl.create(:post, :topic => @topic1, :created_at => 1.seconds.ago)
-      @topic2 = Forem::Topic.create :subject => "POST"
-      FactoryGirl.create(:post, :topic => @topic2, :created_at => 5.seconds.ago)
-      @topic3 = Forem::Topic.create :subject => "POST"
-      FactoryGirl.create(:post, :topic => @topic3, :created_at => 10.seconds.ago)
-    end
-
     it "should show topics by most recent post" do
-      Forem::Topic.by_most_recent_post.to_a.map(&:id).should == [@topic1.id, @topic2.id, @topic3.id]
+      ordering = Forem::Topic.by_most_recent_post.order_values
+      ordering.should include("forem_topics.last_post_at DESC")
     end
   end
 

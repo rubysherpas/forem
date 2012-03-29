@@ -2,6 +2,7 @@ module Forem
   class PostsController < Forem::ApplicationController
     before_filter :authenticate_forem_user
     before_filter :find_topic
+    before_filter :block_spammers, :only => [:new, :create]
 
     def new
       authorize! :reply, @topic
@@ -69,6 +70,13 @@ module Forem
 
     def find_topic
       @topic = Forem::Topic.find(params[:topic_id])
+    end
+
+    def block_spammers
+      if forem_user.forem_state == "spam"
+        flash[:alert] = t('forem.general.flagged_for_spam') + ' ' + t('forem.general.cannot_create_post')
+        redirect_to :back
+      end
     end
   end
 end

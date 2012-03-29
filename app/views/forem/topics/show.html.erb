@@ -22,6 +22,18 @@
     <%= link_to t(".lock.#{@topic.locked}"), toggle_lock_admin_topic_path(@topic), :method => :put %> |
     <%= link_to t(".pin.#{@topic.pinned}"), toggle_pin_admin_topic_path(@topic), :method => :put %>
   <% end %>
+
+  <% if @topic.pending_review? %>
+    <div class="moderation" id='topic_moderation'>
+      <%= t(".pending_review") %>
+      <% if forem_admin_or_moderator?(@topic.forum) %>
+        <%= form_for @topic, :url => moderate_forum_topic_path(@topic.forum, @topic), :method => :put do |f| %>
+          <%= render "forem/moderation/options", :f => f %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
   <%= forem_paginate @posts %>
   <div id='posts'>
     <%= render :partial => "forem/posts/post", :collection => @posts %>

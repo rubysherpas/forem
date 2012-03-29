@@ -51,5 +51,17 @@ describe Forem::Forum do
       end
     end
 
+    context "moderator?" do
+      it "no user is no moderator" do
+        @forum.moderator?(nil).should be_false
+      end
+
+      it "is a moderator if group ids intersect" do
+        @forum.stub :moderator_ids => [1,2]
+        user = stub :forem_group_ids => [2,3]
+        @forum.moderator?(user).should be_true
+      end
+
+    end
   end
 end

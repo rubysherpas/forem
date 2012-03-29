@@ -1,19 +1,34 @@
 module Forem
   class Topic < ActiveRecord::Base
-    attr_protected :pinned, :locked
+    include Workflow
+    workflow_column :state
+    workflow do
+      state :pending_review do
+        event :spam, :transitions_to => :spam
+        event :approve, :transitions_to => :approved
+      end
+      state :spam
+      state :approved
+    end
+
+    attr_accessor :moderation_option
+
+    attr_accessible :subject, :posts_attributes
 
     belongs_to :forum
     has_many   :views
     has_many   :subscriptions
     belongs_to :user, :class_name => Forem.user_class.to_s
 
-    has_many :posts, :dependent => :destroy, :order => "created_at ASC"
+    has_many :posts, :dependent => :destroy, :order => "forem_posts.created_at ASC"
     accepts_nested_attributes_for :posts
 
     validates :subject, :presence => true
 
     before_save :set_first_post_user
     after_create :subscribe_poster
+    after_create :skip_pending_review_if_user_approved
+    after_save :approve_user_and_posts, :if => :approved?
 
     class << self
       def visible
@@ -21,20 +36,37 @@ module Forem
       end
 
       def by_pinned
-        order('forem_topics.pinned DESC, forem_topics.id')
+        order('forem_topics.pinned DESC').
+        order('forem_topics.id')
       end
 
       def by_most_recent_post
-        joins(:posts).
-        select("DISTINCT forem_posts.topic_id, forem_topics.*, forem_posts.created_at").
-        order('forem_posts.created_at DESC, forem_topics.id')
+        order('forem_topics.last_post_at DESC').
+        order('forem_topics.id')
       end
 
       def by_pinned_or_most_recent_post
-        includes(:posts).
         order('forem_topics.pinned DESC').
-        order('forem_posts.created_at DESC').
+        order('forem_topics.last_post_at DESC').
         order('forem_topics.id')
+      end
+
+      def pending_review
+        where(:state => 'pending_review')
+      end
+
+      def approved
+        where(:state => 'approved')
+      end
+
+      def approved_or_pending_review_for(user)
+        if user
+          where("forem_topics.state = ? OR " +
+                "(forem_topics.state = ? AND forem_topics.user_id = ?)",
+                 'approved', 'pending_review', user.id)
+        else
+          approved
+        end
       end
     end
 
@@ -58,6 +90,10 @@ module Forem
 
     def unpin!
       update_attribute(:pinned, false)
+    end
+
+    def moderate!(option)
+      send("#{option}!")
     end
 
     # A Topic cannot be replied to if it's locked.
@@ -103,6 +139,18 @@ module Forem
     def set_first_post_user
       post = self.posts.first
       post.user = self.user
+    end
+
+    def skip_pending_review_if_user_approved
+      self.update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
+    end
+
+    def approve_user_and_posts
+      if state_changed?
+        first_post = self.posts.by_created_at.first
+        first_post.approve! unless first_post.approved?
+        self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
+      end
     end
   end
 end

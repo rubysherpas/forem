@@ -1,5 +1,18 @@
 en:
   forem:
+    general:
+      forum: Forum
+      topics: Topics
+      topic: Topic
+      posts: Posts
+      posts_count:
+        zero: No posts
+        one: 1 post
+        other: "%{count} posts"
+      flagged_for_spam: Your account has been flagged for spam.
+      cannot_create_topic: You cannot create a new topic at this time.
+      cannot_create_post: You cannot create a new post at this time.
+
     access_denied: "You are not allowed to do that."
     admin:
       area: Admin Area
@@ -16,14 +29,19 @@ en:
       forums:
         edit: Edit
         delete: Delete
-        forum: Forum
         category: Category
-        topics: Topics
-        posts: Posts
         delete_confirm: Are you sure you want to delete this forum?
         index:
           last_post: Last post
           none: None
+      group:
+        index: Manage Groups
+        created: The group was successfully created.
+        not_created: Group could not be created.
+        deleted: The selected group has been deleted.
+      groups:
+        show:
+          add_member: Add
       category:
         index: Manage Forum Categories
         new: Creating a new Forum Category
@@ -56,12 +74,11 @@ en:
         zero: 0 posts
         one: 1 post
         other: "%{count} posts"
+      moderator_tools: "Moderation Tools"
     forums:
       index:
         title: Forums
         forum: Forum
-        topics: Topics
-        posts: Posts
         views: Views
         last_post: 'Last Post:'
         none: None
@@ -71,6 +88,8 @@ en:
         latest: Latest
         posts: Posts
         views: Views
+      moderation:
+        success: The selected topic has been moderated.
       reply: Reply
       quote: Quote
       delete: Delete
@@ -106,6 +125,7 @@ en:
         subscribe: Subscribe
         unsubscribe: Unsubscribe
         reply_to_topic: Reply to Topic
+        pending_review: This topic is currently pending review. Only the user who created it and moderators can view it.
         hide:
           'true': Show this topic
           'false': Hide this topic
@@ -130,6 +150,15 @@ en:
       deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: In reply to
+    posts:
+      moderation:
+        moderate: Moderate
+        approve: Approve
+        success: The selected posts have been moderated.
+      post:
+        pending_review: This post is currently pending review. Only the user who posted it and moderators can view it.
+    moderation:
+      title: "Moderation tools for %{forum}"
   helpers:
     submit:
       forum:
@@ -165,3 +194,4 @@ en:
   by: by
   started_by: "Started by "
   are_you_sure: Are you sure?
+

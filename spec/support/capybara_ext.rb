@@ -46,6 +46,10 @@ module CapybaraExt
       "#posts #post_2"
     when :post_actions
       "#{selector_for(:first_post)} .actions"
+    when :topic_moderation
+      "#topic .moderation"
+    when :post_moderation
+      ".post .moderation"
     else
       pending "No selector defined for #{identifier}. Please define one in spec/support/capybara_ext.rb"
     end
