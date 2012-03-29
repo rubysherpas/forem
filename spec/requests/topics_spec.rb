@@ -147,7 +147,6 @@ describe "topics" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("div.icon > img[alt='Gravatar']")
     end
-<<<<<<< HEAD
     
     it "should show a custom avatar when set" do
       Forem.stub(:avatar_user_method => "custom_avatar_url")
@@ -162,12 +161,11 @@ describe "topics" do
       visit forum_topic_path(forum, other_topic)
       assert page.has_no_selector?("div.icon > img[alt='Gravatar']")
       assert page.has_no_selector?("div.icon > img[alt='Avatar']")
-=======
+    end
 
     it "should have an autodiscover link tag" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("link[title='ATOM']")
->>>>>>> upstream/master
     end
   end
 end
