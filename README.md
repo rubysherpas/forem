@@ -11,6 +11,10 @@ Forem is an engine for Rails that aims to be the best little forum system ever.
 The end goal is to have an engine that can be dropped into an application that
 provides the basic functionality of forums, topics and posts.
 
+**We are currently undergoing large changes.** If you want to use this project, please
+keep this in mind. You can view a list of the intended changes on our [Version 1.0
+Roadmap](https://github.com/radar/forem/wiki/1.0-Roadmap)
+
 # Demo
 
 A demo application can be found at [http://forem.heroku.com](http://forem.heroku.com), and the source for this application can be found on the [forem.heroku.com
@@ -68,6 +72,11 @@ Here's a comprehensive list of the features currently in Forem:
 If there's a feature you think would be great to add to Forem, let us know on [the Issues
 page](https://github.com/radar/forem/issues)
 
+## Auto Discovery Links
+If you would like to add auto discovery links for the built in forum Atom feeds, then add the following method inside your &lt;head&gt; tag:
+
+    <%= forem_atom_auto_discovery_link_tag %>
+
 ## Customisation
 
 If you want to customise Forem, you can copy over the views using the (Devise-inspired) `forem:views` generator:
@@ -88,6 +97,8 @@ We currently have support for the following languages:
 * Italian
 * Russian
 * Polish
+* Dutch
+* Spanish
 
 Patches for new translations are very much welcome!
 
@@ -99,7 +110,7 @@ File an issue and we'll get around to it when we can.
 
 Forem is implemented as a Rails engine and its specs are run in the context of a dummy Rails app. The process for getting the specs to run is similar to setting up a regular rails app:
 
-    bundle exec rake -f spec/dummy/Rakefile db:drop db:create db:migrate db:test:prepare
+    bundle exec rake forem:dummy_app
 
 Once this setup has been done, Forem's specs can be run by executing this command:
 

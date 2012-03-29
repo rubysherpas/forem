@@ -3,11 +3,16 @@ module Forem
     helper 'forem/posts'
     before_filter :authenticate_forem_user, :except => [:show]
     before_filter :find_forum
+    before_filter :block_spammers, :only => [:new, :create]
 
     def show
       if find_topic
         register_view
-        @posts = @topic.posts.page(params[:page]).per(20)
+        @posts = @topic.posts
+        unless forem_admin_or_moderator?(@forum)
+          @posts = @posts.approved_or_pending_review_for(forem_user)
+        end
+        @posts = @posts.page(params[:page]).per(20)
       end
     end
 
@@ -66,7 +71,7 @@ module Forem
 
     def find_topic
       begin
-        scope = forem_admin? ? @forum.topics : @forum.topics.visible
+        scope = forem_admin_or_moderator?(@forum) ? @forum.topics : @forum.topics.visible.approved_or_pending_review_for(forem_user)
         @topic = scope.find(params[:id])
         authorize! :read, @topic
       rescue ActiveRecord::RecordNotFound
@@ -77,6 +82,13 @@ module Forem
 
     def register_view
       @topic.register_view_by(forem_user)
+    end
+
+    def block_spammers
+      if forem_user.forem_state == "spam"
+        flash[:alert] = t('forem.general.flagged_for_spam') + ' ' + t('forem.general.cannot_create_topic')
+        redirect_to :back
+      end
     end
   end
 end

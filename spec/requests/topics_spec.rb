@@ -4,9 +4,9 @@ describe "topics" do
 
   let(:forum) { FactoryGirl.create(:forum) }
   let(:user) { FactoryGirl.create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com", :custom_avatar_url => 'avatar.png') }
-  let(:topic) { FactoryGirl.create(:topic, :forum => forum, :user => user) }
+  let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
   let(:other_user) { FactoryGirl.create(:user, :login => 'other_forem_user') }
-  let(:other_topic) { FactoryGirl.create(:topic, :subject => 'Another forem topic', :user => other_user, :forum => forum) }
+  let(:other_topic) { FactoryGirl.create(:approved_topic, :subject => 'Another forem topic', :user => other_user, :forum => forum) }
 
   context "not signed in" do
     it "cannot create a new topic" do
@@ -134,7 +134,7 @@ describe "topics" do
 
   context "viewing a topic" do
     let(:topic) do
-      FactoryGirl.create(:topic, :forum => forum, :user => user)
+      FactoryGirl.create(:approved_topic, :forum => forum, :user => user)
     end
 
     it "is free for all" do
@@ -147,6 +147,7 @@ describe "topics" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("div.icon > img[alt='Gravatar']")
     end
+<<<<<<< HEAD
     
     it "should show a custom avatar when set" do
       Forem.stub(:avatar_user_method => "custom_avatar_url")
@@ -161,6 +162,12 @@ describe "topics" do
       visit forum_topic_path(forum, other_topic)
       assert page.has_no_selector?("div.icon > img[alt='Gravatar']")
       assert page.has_no_selector?("div.icon > img[alt='Avatar']")
+=======
+
+    it "should have an autodiscover link tag" do
+      visit forum_topic_path(forum, topic)
+      assert page.has_selector?("link[title='ATOM']")
+>>>>>>> upstream/master
     end
   end
 end

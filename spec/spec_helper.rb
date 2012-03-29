@@ -19,9 +19,12 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+  config.before(:each) do
+    if example.metadata[:js]
+      DatabaseCleaner.strategy = :truncation
+    else
+      DatabaseCleaner.strategy = :transaction
+    end
   end
 
   config.before(:each) do
