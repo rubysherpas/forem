@@ -50,6 +50,17 @@ describe Forem::Post do
 
       @post.save!
     end
+
+    it "sets topics last_post_at value" do
+      topic = FactoryGirl.create(:topic)
+      post1 = FactoryGirl.create(:post, :topic => topic)
+      topic.reload
+      topic.last_post_at.should == post1.created_at
+
+      post2 = FactoryGirl.create(:post, :topic => topic)
+      topic.reload
+      topic.last_post_at.should == post2.created_at
+    end
   end
 
   context "helper methods" do
