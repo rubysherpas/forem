@@ -149,7 +149,9 @@ module Forem
       if state_changed?
         first_post = self.posts.by_created_at.first
         first_post.approve! unless first_post.approved?
-        self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
+        if self.user
+          self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
+        end
       end
     end
   end
