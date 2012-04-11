@@ -120,7 +120,7 @@ describe "topics" do
           # expect do
           #   visit forum_topic_path(forum, topic)
           # end.to change(view.reload, :count)
-          # 
+          #
           # But instead must go long-form:
 
           view = ::Forem::View.last
@@ -143,26 +143,25 @@ describe "topics" do
       assert_seen(topic.posts.first.text, :within => :post_text)
     end
 
-    it "should show a gravatar" do
-      visit forum_topic_path(forum, topic)
-      assert page.has_selector?("div.icon > img[alt='Gravatar']")
-    end
-    
-    it "should show a custom avatar when set" do
-      Forem.stub(:avatar_user_method => "custom_avatar_url")
-      
+    it "should show an avatar from gravatar" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("div.icon > img[alt='Avatar']")
     end
-    
+
+    it "should show a custom avatar when set" do
+      Forem.stub(:avatar_user_method => "custom_avatar_url")
+
+      visit forum_topic_path(forum, topic)
+      assert page.has_selector?("div.icon > img[alt='Avatar']")
+    end
+
     it "should show no avatar with custom method empty" do
       Forem.stub(:avatar_user_method => "custom_avatar_url")
-      
+
       visit forum_topic_path(forum, other_topic)
-      assert page.has_no_selector?("div.icon > img[alt='Gravatar']")
       assert page.has_no_selector?("div.icon > img[alt='Avatar']")
     end
-    
+
     it "should have an autodiscover link tag" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("link[title='ATOM']")
