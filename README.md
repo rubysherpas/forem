@@ -135,5 +135,6 @@ If all the tests are passing (they usually are), then you're good to go! Develop
 * [Alabama Intel](http://alabamaintel.com)
 * [PixieEngine](http://pixieengine.com/community)
 * [2012 Presidential Election](http://www.2012-presidential-election.info/network/)
+* [Huntington's Disease Youth Organization](http://hdyo.org/)
 
 If you want yours added here, just ask!
