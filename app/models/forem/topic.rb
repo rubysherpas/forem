@@ -1,5 +1,7 @@
 module Forem
   class Topic < ActiveRecord::Base
+    include Forem::Concerns::Viewable
+
     include Workflow
     workflow_column :state
     workflow do
@@ -15,8 +17,9 @@ module Forem
 
     attr_accessible :subject, :posts_attributes
 
+    attr_protected :pinned, :locked
+
     belongs_to :forum
-    has_many   :views
     has_many   :subscriptions
     belongs_to :user, :class_name => Forem.user_class.to_s
 
@@ -101,17 +104,6 @@ module Forem
       !locked?
     end
 
-    def view_for(user)
-      views.find_by_user_id(user.id)
-    end
-
-    # Track when users last viewed topics
-    def register_view_by(user)
-      if user
-        view = views.find_or_create_by_user_id(user.id)
-        view.increment!("count")
-      end
-    end
 
     def subscribe_poster
       subscribe_user(self.user_id)

@@ -15,13 +15,5 @@ module Forem
         forum.posts.approved.count
       end
     end
-
-    def views_count(forum)
-      if forem_admin_or_moderator?(forum)
-        forum.views.count
-      else
-        forum.views.visible.count
-      end
-    end
   end
 end

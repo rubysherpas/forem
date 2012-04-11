@@ -9,6 +9,8 @@ module Forem
 
     def show
       @forum = Forem::Forum.find(params[:id])
+      register_view
+
       @topics = if forem_admin_or_moderator?(@forum)
         @forum.topics
       else
@@ -21,6 +23,11 @@ module Forem
         format.html
         format.atom { render :layout => false }
       end
+    end
+
+    private
+    def register_view
+      @forum.register_view_by(forem_user)
     end
   end
 end

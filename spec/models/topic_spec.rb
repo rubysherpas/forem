@@ -74,5 +74,43 @@ describe Forem::Topic do
         @topic.subscriptions.size.should == 1
       end
     end
+
+    describe "#register_view_by" do
+      before do
+        @user = FactoryGirl.create(:user)
+      end
+
+      it "increments the overall topic view count" do
+        count = @topic.views_count
+        @topic.register_view_by(@user)
+        @topic.views_count.should eq(count+1)
+      end
+
+      it "increments the users view count for the topic" do
+        @topic.views.create(:user => @user, :count => 1)
+        @topic.register_view_by(@user)
+
+        @topic.view_for(@user).count.should eq(2)
+      end
+
+      it "doesn't update the view time if less than 15 minutes ago" do
+        cur_time = Time.now.utc
+        @topic.views.create(:user => @user, :current_viewed_at => cur_time)
+        @topic.register_view_by(@user)
+
+        @topic.view_for(@user).current_viewed_at.to_i.should eq(cur_time.to_i)
+      end
+
+      it "does update the view time if more than 15 minutes ago" do
+        t = Time.parse("03/01/2012 10:00")
+        Time.stub(:now).and_return(t)
+
+        last_hour = 1.hour.ago.utc
+        @topic.views.create(:user => @user, :current_viewed_at => last_hour)
+        @topic.register_view_by(@user)
+
+        @topic.view_for(@user).current_viewed_at.to_i.should eq(t.to_i)
+      end
+    end
   end
 end
