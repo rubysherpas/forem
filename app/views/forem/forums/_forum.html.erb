@@ -14,6 +14,6 @@
     </td>
     <td class="topics-count"><%= topics_count(forum) %></td>
     <td class="posts-count"><%= posts_count(forum) %></td>
-    <td class="views-count"><%= forem_admin? ? forum.views.sum(:count) : forum.views.visible.sum(:count) %></td>
+    <td class="views-count"><%= views_count(forum) %></td>
   </tr>
 <% end %>
