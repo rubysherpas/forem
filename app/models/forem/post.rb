@@ -24,6 +24,8 @@ module Forem
 
     delegate :forum, :to => :topic
 
+    scope :visible, joins(:topic).where("forem_topics.hidden" => false)
+
     validates :text, :presence => true
 
     after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
