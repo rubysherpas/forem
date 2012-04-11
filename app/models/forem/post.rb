@@ -24,8 +24,6 @@ module Forem
 
     delegate :forum, :to => :topic
 
-    scope :visible, joins(:topic).where("forem_topics.hidden" => false)
-
     validates :text, :presence => true
 
     after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
@@ -39,36 +37,40 @@ module Forem
 
 
     class << self
-      def by_created_at
-        order("forem_posts.created_at asc")
-      end
-
-      def pending_review
-        where(:state => 'pending_review')
-      end
-
       def approved
         includes(:topic).
-        select("forem_posts.*, forem_topics.state").
-        where(:state => 'approved').where(:forem_topics => { :state => 'approved' })
-      end
-
-      def spam
-        where(:state => 'spam')
+        select("#{quoted_table_name}.*").
+        select(Topic.arel_table[:state].eq('approved'))
       end
 
       def approved_or_pending_review_for(user)
         if user
-          where("(forem_posts.state = ?) OR " +
-                 "(forem_posts.state = ? AND forem_posts.user_id = ?)",
-                 'approved', 'pending_review', user.id)
+          where arel_table[:state].eq('approved').or(
+                  arel_table[:state].eq('pending_review').and(arel_table[:user_id].eq(user.id))
+                )
         else
           approved
         end
       end
 
+      def by_created_at
+        order arel_table[:created_at]
+      end
+
+      def pending_review
+        where :state => 'pending_review'
+      end
+
+      def spam
+        where :state => 'spam'
+      end
+
+      def visible
+        joins(:topic).where Topic.arel_table[:hidden].eq(false)
+      end
+
       def topic_not_pending_review
-        joins(:topic).where("forem_topics.state" => 'approved')
+        joins(:topic).where Topic.arel_table[:state].eq('approved')
       end
 
       def moderate!(posts)
