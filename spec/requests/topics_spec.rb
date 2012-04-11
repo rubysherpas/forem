@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "topics" do
 
   let(:forum) { FactoryGirl.create(:forum) }
-  let(:user) { FactoryGirl.create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com") }
+  let(:user) { FactoryGirl.create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com", :custom_avatar_url => 'avatar.png') }
   let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
   let(:other_user) { FactoryGirl.create(:user, :login => 'other_forem_user') }
   let(:other_topic) { FactoryGirl.create(:approved_topic, :subject => 'Another forem topic', :user => other_user, :forum => forum) }
@@ -147,7 +147,22 @@ describe "topics" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("div.icon > img[alt='Gravatar']")
     end
-
+    
+    it "should show a custom avatar when set" do
+      Forem.stub(:avatar_user_method => "custom_avatar_url")
+      
+      visit forum_topic_path(forum, topic)
+      assert page.has_selector?("div.icon > img[alt='Avatar']")
+    end
+    
+    it "should show no avatar with custom method empty" do
+      Forem.stub(:avatar_user_method => "custom_avatar_url")
+      
+      visit forum_topic_path(forum, other_topic)
+      assert page.has_no_selector?("div.icon > img[alt='Gravatar']")
+      assert page.has_no_selector?("div.icon > img[alt='Avatar']")
+    end
+    
     it "should have an autodiscover link tag" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("link[title='ATOM']")
