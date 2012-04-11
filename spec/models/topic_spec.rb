@@ -8,7 +8,7 @@ describe Forem::Topic do
     }
     @topic = Forem::Topic.create!(@attr)
   end
-  
+
   it "is valid with valid attributes" do
     @topic.should be_valid
   end
@@ -18,17 +18,16 @@ describe Forem::Topic do
       @topic.should be_pending_review
     end
   end
-  
+
   describe "validations" do
     it "requires a subject" do
       @topic.subject = nil
       @topic.should_not be_valid
     end
   end
-  
+
   describe "protected attributes" do
-    protected_attributes = [:pinned, :locked, :pending_review]
-    protected_attributes.each do |attr|
+    [:pinned, :locked].each do |attr|
       it "cannot assign #{attr}" do
         lambda { Forem::Topic.new(attr => true) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
       end
