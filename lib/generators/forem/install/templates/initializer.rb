@@ -1,5 +1,6 @@
 Forem.user_class = "<%= user_class %>"
 Forem.email_from_address = "please-change-me@example.com"
+Forem.per_page = 20
 
 # If you want to change the layout that Forem uses, uncomment and customize these lines:
 #

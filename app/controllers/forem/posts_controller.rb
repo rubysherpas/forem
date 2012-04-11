@@ -23,7 +23,7 @@ module Forem
       @post.user = forem_user
       if @post.save
         flash[:notice] = t("forem.post.created")
-        redirect_to [@topic.forum, @topic]
+        redirect_to forum_topic_url(@topic.forum, @topic, :page => last_page)
       else
         params[:reply_to_id] = params[:post][:reply_to_id]
         flash.now.alert = t("forem.post.not_created")
@@ -77,6 +77,10 @@ module Forem
         flash[:alert] = t('forem.general.flagged_for_spam') + ' ' + t('forem.general.cannot_create_post')
         redirect_to :back
       end
+    end
+
+    def last_page
+      (@topic.posts.count.to_f / Forem.per_page.to_f).ceil
     end
   end
 end

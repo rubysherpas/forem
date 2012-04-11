@@ -32,6 +32,18 @@ describe "posts" do
         end
       end
 
+      context "to a topic with multiple pages" do
+        it "redirects to the last page" do
+          Forem.stub(:per_page).and_return(1)
+
+          fill_in "Text", :with => "Witty and insightful commentary."
+          click_button "Post Reply"         
+
+          page.should have_content("Witty and insightful commentary")
+          page.should_not have_content(topic.posts.first.text)
+        end
+      end
+
       context "to an unlocked topic" do
         it "can post a reply" do
           fill_in "Text", :with => "Witty and insightful commentary."

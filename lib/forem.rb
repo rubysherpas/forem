@@ -8,7 +8,7 @@ require 'workflow'
 
 module Forem
   mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,
-                 :user_profile_links, :email_from_address, :autocomplete_field
+                 :user_profile_links, :email_from_address, :autocomplete_field, :per_page
 
 
   def self.user_class
@@ -22,5 +22,9 @@ module Forem
 
   def self.autocomplete_field
     @@autocomplete_field || "email"
+  end
+
+  def self.per_page
+    @@per_page || 20
   end
 end
