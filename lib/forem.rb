@@ -12,20 +12,22 @@ module Forem
                  :avatar_user_method, :per_page
 
 
-  def self.user_class
-    if @@user_class.is_a?(Class)
-      raise "You can no longer set Forem.user_class to be a class. Please use a string instead.\n\n " +
-            "See https://github.com/radar/forem/issues/88 for more information."
-    elsif @@user_class.is_a?(String)
-      @@user_class.constantize
+  class << self
+    def autocomplete_field
+      @@autocomplete_field || "email"
     end
-  end
 
-  def self.autocomplete_field
-    @@autocomplete_field || "email"
-  end
+    def per_page
+      @@per_page || 20
+    end
 
-  def self.per_page
-    @@per_page || 20
+    def user_class
+      if @@user_class.is_a?(Class)
+        raise "You can no longer set Forem.user_class to be a class. Please use a string instead.\n\n " +
+              "See https://github.com/radar/forem/issues/88 for more information."
+      elsif @@user_class.is_a?(String)
+        @@user_class.constantize
+      end
+    end
   end
 end
