@@ -6,7 +6,7 @@ class AddForemViewFields < ActiveRecord::Migration
     add_column :forem_forums, :views_count, :integer, :default=>0
 
     Forem::Topic.find_each do |topic|
-      topic.update_column(:views_count, topics.views.sum(:count))
+      topic.update_column(:views_count, topic.views.sum(:count))
     end
 
     Forem::Forum.find_each do |forum|
