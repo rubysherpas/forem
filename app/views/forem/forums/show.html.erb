@@ -1,3 +1,4 @@
+<% content_for :forem_page_title, t('forem.forum.page_title', forum: @forum.title, category: @forum.category.name) %>
 <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
 
 <% if @topics.num_pages > 1 %>

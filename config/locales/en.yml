@@ -1,5 +1,6 @@
 en:
   forem:
+    page_title: Forums
     general:
       forum: Forum
       topics: Topics
@@ -61,7 +62,10 @@ en:
     errors:
       not_signed_in: You must sign in first.
       access_denied: Access denied.
+    category:
+      page_title: "%{category} forums"
     forum:
+      page_title: "%{category} forums - %{forum}"
       header: "Viewing %{title}"
       forums: Forums
       new: Creating a new forum
@@ -83,6 +87,7 @@ en:
         last_post: 'Last Post:'
         none: None
     topic:
+      page_title: "%{subject} - %{forum} - %{category} forums"
       headings:
         topic: Topic
         latest: Latest

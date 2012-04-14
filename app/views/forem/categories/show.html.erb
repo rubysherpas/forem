@@ -1,2 +1,3 @@
+<% content_for :forem_page_title, t('forem.category.page_title', category: @category.name) %>
 <h2><%= link_to t('forem.forum.forums'), forums_path %> &raquo; <%= link_to @category, @category %></h2>
 <%= render @category %>
