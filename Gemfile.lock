@@ -11,6 +11,7 @@ PATH
       cancan
       coffee-script
       forem-redcarpet (= 1.0.0)
+      friendly_id (~> 4.0.1)
       haml
       rails (~> 3.1)
       simple_form
@@ -84,6 +85,7 @@ GEM
     forem-redcarpet (1.0.0)
       pygments.rb (= 0.2.4)
       redcarpet (= 2.0.1)
+    friendly_id (4.0.4)
     haml (3.1.4)
     hike (1.2.1)
     i18n (0.6.0)

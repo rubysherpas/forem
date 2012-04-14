@@ -73,6 +73,9 @@ module Forem
       begin
         scope = forem_admin_or_moderator?(@forum) ? @forum.topics : @forum.topics.visible.approved_or_pending_review_for(forem_user)
         @topic = scope.find(params[:id])
+        if @topic.slug != params[:id]
+          redirect_to @topic, status: :moved_permanently
+        end
         authorize! :read, @topic
       rescue ActiveRecord::RecordNotFound
         flash.alert = t("forem.topic.not_found")
