@@ -4,6 +4,9 @@ module Forem
 
     def show
       @category = Category.find(params[:id])
+      if @category.slug != params[:id]
+        redirect_to @category, status: :moved_permanently
+      end
     end
   end
 end

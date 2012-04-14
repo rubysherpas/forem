@@ -1,9 +1,0 @@
-<%= simple_form_for [:admin, @forum] do |f| %>
-  <%= f.association :category, :include_blank => false %>
-  <%= f.input :title %>
-  <%= f.input :description, :as => :text %>
-
-  <h3>Moderator Groups</h3>
-  <%= f.association :moderators, :as => :check_boxes %>
-  <%= f.submit %>
-<% end %>

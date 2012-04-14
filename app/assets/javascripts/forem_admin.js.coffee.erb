@@ -1,4 +1,4 @@
-var Forem = {};
+# =require_tree ./forem/admin/
 
 <%
   path = Rails.application.routes.named_routes[:forem].path
@@ -6,4 +6,6 @@ var Forem = {};
   path = path.respond_to?(:spec) ? path.spec.to_s : path
 %>
 
-Forem.base_path = <%= path.inspect %>
+window['Forem'] =
+  basePath: "<%= path %>"
+

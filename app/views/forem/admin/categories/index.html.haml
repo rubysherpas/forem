@@ -1,0 +1,21 @@
+%h2= t("forem.admin.category.index")
+
+= link_to t("forem.admin.category.new_link"), new_admin_category_path
+
+%table#forums.forums.subdued
+  %thead
+    %tr
+      %th= t('edit', :scope => 'forem.admin.categories')
+      %th= t('delete', :scope => 'forem.admin.categories')
+      %th= t('category', :scope => 'forem.admin.categories')
+  %tbody
+    - @categories.each do |category|
+      %tr.forum{class: cycle("odd", "even")}
+        %td= link_to t('edit', :scope => 'forem.admin.categories'), edit_admin_category_path(category)
+        %td
+          = link_to t('delete', :scope => 'forem.admin.categories'), admin_category_path(category),
+                    :method => :delete, :confirm => t("delete_confirm", :scope => "forem.admin.categories")
+        %td= category.name
+
+%a{href: admin_forums_path}= t('forem.admin.forum.index')
+

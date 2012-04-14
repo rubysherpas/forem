@@ -1,0 +1,16 @@
+%h2= t('forem.admin.group.index')
+
+%a{href: new_admin_group_path} New Group
+
+%table#groups.subdued
+  %thead
+    %tr
+      %th= t('edit', :scope => 'forem.admin.groups')
+      %th= t('delete', :scope => 'forem.admin.groups')
+      %th= t('name', :scope => 'forem.admin.groups')
+  %tbody
+    - @groups.each do |group|
+      %tr
+        %td= link_to t('edit'), admin_group_path(group)
+        %td= link_to t('delete'), admin_group_path(group), :method => :delete
+        %td= link_to group.name, admin_group_path(group)

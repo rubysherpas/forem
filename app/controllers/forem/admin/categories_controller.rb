@@ -4,7 +4,7 @@ module Forem
       before_filter :find_category, :only => [:edit, :update, :destroy]
 
       def index
-        @category = Forem::Category.all
+        @categories = Forem::Category.all
       end
 
       def new
@@ -18,7 +18,7 @@ module Forem
           redirect_to admin_categories_path
         else
           flash.now.alert = t("forem.admin.category.not_created")
-          render :action => "new"
+          render :new
         end
       end
 
@@ -31,7 +31,7 @@ module Forem
           redirect_to admin_categories_path
         else
           flash.now.alert = t("forem.admin.category.not_updated")
-          render :action => "edit"
+          render :edit
         end
       end
 

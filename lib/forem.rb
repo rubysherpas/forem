@@ -1,6 +1,8 @@
 # Fix for #185 and build issues
 require 'active_support/core_ext/kernel/singleton_class'
 
+require 'friendly_id'
+
 require 'forem/engine'
 require 'forem/autocomplete'
 require 'forem/default_permissions'
@@ -14,7 +16,7 @@ module Forem
 
   class << self
     def autocomplete_field
-      @@autocomplete_field || "email"
+      @@autocomplete_field || :email
     end
 
     def per_page

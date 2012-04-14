@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dummy</title>
+  <title><%= yield(:forem_page_title) %></title>
   <%= stylesheet_link_tag :application %>
-  <%= javascript_include_tag :application %>
   <%= csrf_meta_tags %>
   <%= forem_atom_auto_discovery_link_tag %>
 </head>
@@ -18,6 +17,13 @@
 
 
 <%= yield %>
+
+<%= javascript_include_tag :application %>
+
+<% if controller_path =~ /admin/ %>
+  <%= javascript_include_tag :forem_admin_vendor %>
+  <%= javascript_include_tag :forem_admin %>
+<% end %>
 
 </body>
 </html>

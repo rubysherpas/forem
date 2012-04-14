@@ -1,5 +1,8 @@
 module Forem
   class Topic < ActiveRecord::Base
+    extend FriendlyId
+    friendly_id :subject, use: :slugged
+
     include Forem::Concerns::Viewable
 
     include Workflow

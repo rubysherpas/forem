@@ -9,6 +9,12 @@ module Forem
 
     def show
       @forum = Forem::Forum.find(params[:id])
+
+      if @forum.slug != params[:id]
+        redirect_to @forum, status: :moved_permanently
+        return
+      end
+
       register_view
 
       @topics = if forem_admin_or_moderator?(@forum)

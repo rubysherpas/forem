@@ -1,5 +1,8 @@
 module Forem
   class Forum < ActiveRecord::Base
+    extend FriendlyId
+    friendly_id :title, use: :slugged
+
     include Forem::Concerns::Viewable
 
     belongs_to :category

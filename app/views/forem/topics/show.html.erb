@@ -1,3 +1,4 @@
+<% content_for :forem_page_title, t('forem.topic.page_title', subject: @topic.subject, forum: @topic.forum.title, category: @topic.forum.category.name) %>
 <div id='topic' class='<%= 'un' unless @topic.locked? %>locked'>
   <%= render :partial => 'forem/topics/head', :locals => { :topic => @topic } %>
 
