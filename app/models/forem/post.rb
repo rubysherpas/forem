@@ -93,7 +93,7 @@ module Forem
     protected
 
     def subscribe_replier
-      if self.topic && self.user
+      if self.topic && self.user && self.user.forem_auto_subscribe
         self.topic.subscribe_user(self.user.id)
       end
     end
