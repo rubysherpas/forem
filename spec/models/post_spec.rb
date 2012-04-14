@@ -16,10 +16,20 @@ describe Forem::Post do
   end
 
   context "after creation" do
-    it "subscribes the current poster" do
+    it "subscribes the current poster if forem_auto_subscribe is set to true" do
       @topic = FactoryGirl.create(:topic)
       @post = FactoryGirl.create(:post, :topic => @topic)
       @topic.subscriptions.last.subscriber.should == @post.user
+    end
+    
+    it "doesn't subscribe the current poster if forem_auto_subscribe is set to false" do
+      @topic = FactoryGirl.create(:topic)
+      @post = FactoryGirl.create(:post, :topic => @topic)
+      
+      @user_not_autosubscribed = FactoryGirl.create(:not_autosubscribed)
+      @post = FactoryGirl.build(:approved_post, :topic => @topic, :user => @user_not_autosubscribed)
+      
+      @topic.subscriptions.last.subscriber.should_not == @post.user_not_autosubscribed
     end
 
     it "does not email subscribers after post creation if not approved" do
