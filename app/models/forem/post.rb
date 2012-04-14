@@ -29,7 +29,7 @@ module Forem
     after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
 
     after_create :set_topic_last_post_at
-    after_create :subscribe_replier
+    after_create :subscribe_replier, :if => Proc.new { |p| p.user.forem_auto_subscribe }
     after_create :skip_pending_review_if_user_approved
 
     after_save :approve_user, :if => :approved?
@@ -93,7 +93,7 @@ module Forem
     protected
 
     def subscribe_replier
-      if self.topic && self.user && self.user.forem_auto_subscribe
+      if self.topic && self.user
         self.topic.subscribe_user(self.user.id)
       end
     end
