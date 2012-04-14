@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
 
 
   s.add_dependency 'rails', '~>3.1'
+  s.add_dependency 'haml'
+  s.add_dependency 'coffee-script'
   s.add_dependency 'simple_form'
   s.add_dependency 'cancan'
   s.add_dependency 'forem-redcarpet', '1.0.0'

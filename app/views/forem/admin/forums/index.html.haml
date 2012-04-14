@@ -1,0 +1,40 @@
+%h1= t("forem.admin.forum.index")
+
+%a{href: new_admin_forum_path}= t("forem.admin.forum.new_link")
+
+- @forums.group_by(&:category).each do |category, forums|
+  %h2= category.try(:name) || t('.no_category')
+
+  %table#forums.forums.subdued
+    %thead
+      %tr
+        %th= t 'forem.admin.forums.edit'
+        %th= t 'forem.admin.forums.delete'
+        %th= t 'forem.general.forum'
+        %th= t 'forem.general.topics'
+        %th= t 'forem.general.posts'
+    %tbody
+      - forums.each do |forum|
+        %tr.forum{class: cycle("odd", "even")}
+          %td= link_to t('edit', :scope => 'forem.admin.forums'), edit_admin_forum_path(forum)
+          %td= link_to t('delete', :scope => 'forem.admin.forums'), admin_forum_path(forum), :method => :delete, :confirm => t("delete_confirm", :scope => "forem.admin.forums")
+          %td
+            = link_to forum.title, forum_path(forum)
+            .description= forum.description
+            = t('.last_post')
+            - if last_post = forum.posts.last
+              %a{href: forum_topic_path(forum, last_post.topic)}= last_post.topic
+              by #{last_post.user} #{time_ago_in_words(last_post.created_at)}
+            - else
+              = t('.none')
+            %br
+            %span.moderators
+              %strong #{t('.moderators')}:
+              - if forum.moderators.present?
+                = forum.moderators.map { |moderator| link_to moderator, [:admin, moderator] }.to_sentence
+              - else
+                = t('.none')
+
+          %td= forum.topics.count
+          %td= forum.posts.count
+

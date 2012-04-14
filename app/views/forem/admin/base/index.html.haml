@@ -1,0 +1,9 @@
+%h1= t('forem.admin.area')
+
+%p= t('forem.admin.welcome')
+
+%ul
+  %li= link_to t('forem.admin.forum.index'), admin_forums_path
+  %li= link_to t('forem.admin.category.index'), admin_categories_path
+  %li= link_to t('forem.admin.group.index'), admin_groups_path
+
