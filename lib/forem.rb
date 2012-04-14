@@ -14,7 +14,7 @@ module Forem
 
   class << self
     def autocomplete_field
-      @@autocomplete_field || "email"
+      @@autocomplete_field || :email
     end
 
     def per_page

@@ -6,7 +6,7 @@ module Forem
       unless group.members.exists?(user.id)
         group.members << user
       end
-      render :status => :ok
+      render text: 'OK', status: :ok
     end
 
     private
