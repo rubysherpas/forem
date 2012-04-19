@@ -55,11 +55,11 @@ describe Forem::Post do
       topic = FactoryGirl.create(:topic)
       post1 = FactoryGirl.create(:post, :topic => topic)
       topic.reload
-      topic.last_post_at.should == post1.created_at
+      topic.last_post_at.to_s.should == post1.created_at.to_s
 
       post2 = FactoryGirl.create(:post, :topic => topic)
       topic.reload
-      topic.last_post_at.should == post2.created_at
+      topic.last_post_at.to_s.should == post2.created_at.to_s
     end
   end
 
