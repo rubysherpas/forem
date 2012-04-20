@@ -1,12 +1,12 @@
 module Forem
   class Topic < ActiveRecord::Base
     include Forem::Concerns::Viewable
-
     include Workflow
+
     workflow_column :state
     workflow do
       state :pending_review do
-        event :spam, :transitions_to => :spam
+        event :spam,    :transitions_to => :spam
         event :approve, :transitions_to => :approved
       end
       state :spam
@@ -17,21 +17,19 @@ module Forem
 
     attr_accessible :subject, :posts_attributes
 
-    attr_protected :pinned, :locked
-
     belongs_to :forum
-    has_many   :subscriptions
     belongs_to :user, :class_name => Forem.user_class.to_s
+    has_many   :subscriptions
+    has_many   :posts, :dependent => :destroy, :order => "forem_posts.created_at ASC"
 
-    has_many :posts, :dependent => :destroy, :order => "forem_posts.created_at ASC"
     accepts_nested_attributes_for :posts
 
     validates :subject, :presence => true
 
-    before_save :set_first_post_user
+    before_save  :set_first_post_user
+    after_save   :approve_user_and_posts, :if => :approved?
     after_create :subscribe_poster
     after_create :skip_pending_review_if_user_approved
-    after_save :approve_user_and_posts, :if => :approved?
 
     class << self
       def visible
@@ -138,11 +136,11 @@ module Forem
     end
 
     def approve_user_and_posts
-      if state_changed?
-        first_post = self.posts.by_created_at.first
-        first_post.approve! unless first_post.approved?
-        self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
-      end
+      return unless state_changed?
+
+      first_post = self.posts.by_created_at.first
+      first_post.approve! unless first_post.approved?
+      self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
     end
   end
 end

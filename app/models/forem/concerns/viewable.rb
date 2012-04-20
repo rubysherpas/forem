@@ -15,17 +15,17 @@ module Forem
 
       # Track when users last viewed topics
       def register_view_by(user)
-        if user
-          view = views.find_or_create_by_user_id(user.id)
-          view.increment!("count")
-          increment!(:views_count)
+        return unless user
 
-          # update current viewed at if more than 15 minutes ago
-          if view.current_viewed_at < 15.minutes.ago
-            view.past_viewed_at = view.current_viewed_at
-            view.current_viewed_at = Time.now
-            view.save
-          end
+        view = views.find_or_create_by_user_id(user.id)
+        view.increment!("count")
+        increment!(:views_count)
+
+        # update current viewed at if more than 15 minutes ago
+        if view.current_viewed_at < 15.minutes.ago
+          view.past_viewed_at    = view.current_viewed_at
+          view.current_viewed_at = Time.now
+          view.save
         end
       end
     end
