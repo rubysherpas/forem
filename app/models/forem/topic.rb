@@ -99,7 +99,6 @@ module Forem
 
     # A Topic cannot be replied to if it's locked.
     def can_be_replied_to?
-      #!locked?
       not locked?
     end
 
