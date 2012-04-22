@@ -29,7 +29,7 @@ describe Forem::Post do
       @user_not_autosubscribed = FactoryGirl.create(:not_autosubscribed)
       @post = FactoryGirl.build(:approved_post, :topic => @topic, :user => @user_not_autosubscribed)
       
-      @topic.subscriptions.last.subscriber.should_not == @post.user_not_autosubscribed
+      @topic.subscriptions.last.subscriber.should_not == @post.user
     end
 
     it "does not email subscribers after post creation if not approved" do
