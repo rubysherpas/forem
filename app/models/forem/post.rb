@@ -1,10 +1,11 @@
 module Forem
   class Post < ActiveRecord::Base
     include Workflow
+
     workflow_column :state
     workflow do
       state :pending_review do
-        event :spam, :transitions_to => :spam
+        event :spam,    :transitions_to => :spam
         event :approve, :transitions_to => :approved
       end
       state :spam
@@ -15,26 +16,24 @@ module Forem
     attr_accessor :moderation_option
 
     belongs_to :topic
-    belongs_to :user, :class_name => Forem.user_class.to_s
+    belongs_to :user,     :class_name => Forem.user_class.to_s
     belongs_to :reply_to, :class_name => "Post"
 
-    has_many :replies, :class_name => "Post",
+    has_many :replies, :class_name  => "Post",
                        :foreign_key => "reply_to_id",
-                       :dependent => :nullify
-
-    delegate :forum, :to => :topic
+                       :dependent   => :nullify
 
     validates :text, :presence => true
 
-    after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
+    delegate :forum, :to => :topic
 
     after_create :set_topic_last_post_at
     after_create :subscribe_replier
     after_create :skip_pending_review_if_user_approved
 
-    after_save :approve_user, :if => :approved?
+    after_save :approve_user,   :if => :approved?
     after_save :blacklist_user, :if => :spam?
-
+    after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
 
     class << self
       def approved

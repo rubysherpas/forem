@@ -3,15 +3,13 @@ module Forem
     include Forem::Concerns::Viewable
 
     belongs_to :category
-    has_many :topics, :dependent => :destroy
-    has_many :posts, :through => :topics, :dependent => :destroy
 
-    has_many :moderator_groups
+    has_many :topics,     :dependent => :destroy
+    has_many :posts,      :through => :topics, :dependent => :destroy
     has_many :moderators, :through => :moderator_groups, :source => :group
+    has_many :moderator_groups
 
-    validates :category, :presence => true
-    validates :title, :presence => true
-    validates :description, :presence => true
+    validates :category, :title, :description, :presence => true
 
     def last_post_for(forem_user)
       forem_user && forem_user.forem_admin? || moderator?(forem_user) ? posts.last : last_visible_post
