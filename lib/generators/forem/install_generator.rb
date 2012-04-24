@@ -44,6 +44,11 @@ module Forem
         template "forem_state_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_state.rb"
       end
 
+      def add_forem_autosubscribe_migration
+        puts "Adding forem_auto_subscribe migration..."
+        template "forem_auto_subscribe_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_state.rb"
+      end
+
       def determine_current_user_helper
         if options["current-user-helper"]
           current_user_helper = options["current-user-helper"]
