@@ -4,9 +4,13 @@ unless user.nil?
                                :title => "Default",
                                :description => "Default forem created by install")
 
+  post = Forem::Post.find_or_initialize_by_text("Hello World")
+  post.user = user
+
   topic = Forem::Topic.find_or_initialize_by_subject("Welcome to Forem")
   topic.forum = forum
   topic.user = user
-  topic.posts_attributes = [{:text => "Hello World", :user_id => user.id}]
+  topic.posts = [ post ]
+
   topic.save!
 end
