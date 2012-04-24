@@ -20,7 +20,7 @@ describe "moderation" do
     end
 
     it "subsequent posts bypass the moderation queue" do
-      topic = Factory(:approved_topic, :forum => forum)
+      topic = FactoryGirl.create(:approved_topic, :forum => forum)
       visit forum_topic_path(forum, topic)
       click_link "Reply"
       fill_in "Text", :with => "Freedom!!"

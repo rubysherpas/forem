@@ -37,7 +37,7 @@ describe "forums" do
 
     context "when logged in" do
       before do
-        @user = Factory(:user)
+        @user = FactoryGirl.create(:user)
         sign_in(@user)
       end
       it "calls out topics that have been posted to since your last visit, if you've visited" do

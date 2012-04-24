@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "category permissions" do
-  let!(:category) { Factory(:category) }
-  let!(:forum) { Factory(:forum, :category => category) }
+  let!(:category) { FactoryGirl.create(:category) }
+  let!(:forum) { FactoryGirl.create(:forum, :category => category) }
 
   context "without ability to read a category" do
     before do

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'groups' do
   before do
-    sign_in(Factory(:admin))
+    sign_in(FactoryGirl.create(:admin))
   end
 
   context "creating a group" do
@@ -28,7 +28,7 @@ describe 'groups' do
 
   context "deleting a group" do
     before do
-      Factory(:group)
+      FactoryGirl.create(:group)
       visit admin_groups_path
     end
 

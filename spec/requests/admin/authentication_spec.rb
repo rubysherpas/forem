@@ -10,7 +10,7 @@ describe 'authentication' do
 
   context "admin users" do
     before do
-      user = Factory(:admin)
+      user = FactoryGirl.create(:admin)
       sign_in(user)
     end
 

@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe "moderation" do
   context" of topics" do
-    let!(:moderator) { Factory(:user, :login => "moderator") }
+    let!(:moderator) { FactoryGirl.create(:user, :login => "moderator") }
     let!(:group) do
-      group = Factory(:group)
+      group = FactoryGirl.create(:group)
       group.members << moderator
       group.save!
       group
     end
 
-    let!(:forum) { Factory(:forum) }
-    let!(:topic) { Factory(:topic, :forum => forum) }
+    let!(:forum) { FactoryGirl.create(:forum) }
+    let!(:topic) { FactoryGirl.create(:topic, :forum => forum) }
 
     before do
       forum.moderators << group

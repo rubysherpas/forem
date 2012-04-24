@@ -91,7 +91,7 @@ describe "topics" do
 
       # Regression test for #100
       it "can delete topics by others if an admin" do
-        topic.user = Factory(:user) # Assign alternate user
+        topic.user = FactoryGirl.create(:user) # Assign alternate user
         topic.save
 
         user.update_attribute(:forem_admin, true)

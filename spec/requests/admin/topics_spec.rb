@@ -8,7 +8,7 @@ describe "topics" do
   let(:other_forum) {FactoryGirl.create(:forum, :title => "Second Forum", :description => "A Forum", :category_id => category.id )}
 
   before do
-    admin = Factory(:admin)
+    admin = FactoryGirl.create(:admin)
     sign_in(admin)
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Forem::Forum do
   before(:each) do
-    category = Factory(:category)
+    category = FactoryGirl.create(:category)
     @attr = {
       :title => "A forum",
       :description => "My sweet forum of goodness",

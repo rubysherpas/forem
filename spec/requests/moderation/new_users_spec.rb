@@ -21,7 +21,7 @@ describe "moderation" do
 
 
     it "has their first post moderated" do
-      topic = Factory(:topic, :forum => forum)
+      topic = FactoryGirl.create(:topic, :forum => forum)
       topic.approve!
       visit forum_topic_path(forum, topic)
 
@@ -39,7 +39,7 @@ describe "moderation" do
     end
 
     it "cannot see a unapproved topic by another user" do
-      topic = Factory(:topic, :forum => forum, :subject => "In review")
+      topic = FactoryGirl.create(:topic, :forum => forum, :subject => "In review")
       visit forum_path(forum)
       page.should_not have_content("In review")
 
@@ -48,8 +48,8 @@ describe "moderation" do
     end
 
     it "cannot see an unapproved posts by another user" do
-      topic = Factory(:topic, :forum => forum)
-      post = Factory(:post, :topic => topic, :text => "BUY VIAGRA")
+      topic = FactoryGirl.create(:topic, :forum => forum)
+      post = FactoryGirl.create(:post, :topic => topic, :text => "BUY VIAGRA")
       topic.approve!
 
       visit forum_topic_path(forum, topic)

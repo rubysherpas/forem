@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'forum permissions' do
-  let!(:forum) { Factory(:forum) }
-  let!(:topic) { Factory(:topic, :forum => forum) }
+  let!(:forum) { FactoryGirl.create(:forum) }
+  let!(:topic) { FactoryGirl.create(:topic, :forum => forum) }
 
   it "can't see forums it can't access" do
     User.any_instance.stub(:can_read_forem_forums?).and_return(false)

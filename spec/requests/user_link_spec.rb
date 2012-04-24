@@ -2,8 +2,8 @@ require 'spec_helper'
 
 # Test for #83
 describe "user links" do
-  let(:topic) { Factory(:approved_topic) }
-  let(:post) { Factory(:approved_post, :topic => topic) }
+  let(:topic) { FactoryGirl.create(:approved_topic) }
+  let(:post) { FactoryGirl.create(:approved_post, :topic => topic) }
 
   context "with user_profile_links on" do
     before { Forem.user_profile_links = true }

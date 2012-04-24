@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Forem::TopicsController do
   context "attempting to subscribe to a hidden topic" do
     before do
-      user = Factory(:user)
+      user = FactoryGirl.create(:user)
       sign_in(:user, user)
 
       forum = stub_model(Forem::Forum)
