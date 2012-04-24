@@ -11,6 +11,8 @@ module Forem
 
     validates :category, :title, :description, :presence => true
 
+    attr_accessible :category_id, :title, :description, :moderator_ids
+
     def last_post_for(forem_user)
       forem_user && forem_user.forem_admin? || moderator?(forem_user) ? posts.last : last_visible_post
     end
