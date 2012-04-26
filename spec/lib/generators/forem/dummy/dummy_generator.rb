@@ -56,11 +56,6 @@ module Forem
       inject_into_file "#{dummy_path}/config/application.rb",
                   "\nrequire 'kaminari'\n",
                   :before => "module Dummy"
-
-      inject_into_file "#{dummy_path}/config/application.rb",
-                  "\n  config.active_record.whitelist_attributes = true\n",
-                  :before => "end\nend\n",
-                  :verbose => false
     end
 
     protected
