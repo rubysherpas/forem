@@ -46,7 +46,7 @@ module Forem
 
       def add_forem_autosubscribe_migration
         puts "Adding forem_auto_subscribe migration..."
-        template "forem_auto_subscribe_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_autosubscribe_to_user.rb"
+        template "forem_auto_subscribe_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_auto_subscribe_to_user.rb"
       end
 
       def determine_current_user_helper
