@@ -148,11 +148,6 @@ fa:
           text: متن
       post:
         text: متن
-  refinery:
-    plugins:
-      refinery_forem:
-        title: انجمن ها
-        description: مدیریت انجمن ها
 
   # General stuff
   time_ago_in_words: "قبل %{time}"

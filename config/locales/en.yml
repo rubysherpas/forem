@@ -181,11 +181,6 @@ en:
           text: Text
       post:
         text: Text
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Forums
-        description: Manage forums
 
   # General stuff
   time_ago_in_words: "%{time} ago"
