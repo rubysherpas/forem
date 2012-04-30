@@ -47,7 +47,6 @@ GEM
     addressable (2.2.7)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bcrypt-ruby (3.0.1-x86-mingw32)
     blankslate (2.1.2.4)
     builder (3.0.0)
     cancan (1.6.7)
