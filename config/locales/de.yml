@@ -181,11 +181,6 @@ de:
           text: Text
       post:
         text: Text
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Foren
-        description: Foren verwalten
 
   # General stuff
   time_ago_in_words: "vor %{time}"

@@ -148,11 +148,6 @@ ru:
           text: Текст
       post:
         text: Текст
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Форумы
-        description: Управление форумами
 
   # General stuff
   time_ago_in_words: "%{time} назад"

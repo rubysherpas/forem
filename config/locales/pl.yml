@@ -131,11 +131,6 @@ pl:
           text: Tekst
       post:
         text: Tekst
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Fora
-        description: Zarządzaj forami
 
   # General stuff
   time_ago_in_words: "%{time} temu"

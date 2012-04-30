@@ -88,11 +88,6 @@ it:
       not_created_topic_locked: Non puoi rispondere ad un argomento bloccato.
       deleted: La tua disussione è stata eliminata.
       cannot_delete: Non puoi cancellare una discussione che non hai creato.
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Forum
-        description: Gestisci forum
 
   # General stuff
   time_ago_in_words: "%{time} fa"
