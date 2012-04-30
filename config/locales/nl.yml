@@ -181,11 +181,6 @@ nl:
           text: Tekst
       post:
         text: Tekst
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Forums
-        description: Beheer forums
 
   # General stuff
   time_ago_in_words: "%{time} geleden"

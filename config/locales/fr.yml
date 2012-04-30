@@ -181,11 +181,6 @@ fr:
           text: Texte
       post:
         text: Texte
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Forums
-        description: Gérer les forums
 
   # General stuff
   time_ago_in_words: "il y a %{time}"

@@ -101,11 +101,6 @@ pt-BR:
       deleted_with_topic: "Única postagem removida. Por isso, o tópico também foi removido."
       cannot_delete: Você não pode remover uma postagem de outra pessoa.
       in_reply_to: Em resposta a
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Fórums
-        description: Gerenciar fórums
 
   # General stuff
   time_ago_in_words: "%{time} atrás"

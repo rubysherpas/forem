@@ -181,11 +181,6 @@ es:
           text: Texto
       post:
         text: Texto
-  refinery:
-    plugins:
-      refinery_forem:
-        title: Forums
-        description: Organizar forums
 
   # General stuff
   time_ago_in_words: "%{time} atras"

@@ -158,11 +158,6 @@ zh-CN:
           text: 内容
       post:
         text: 内容
-  refinery:
-    plugins:
-      refinery_forem:
-        title: 版块
-        description: 管理版块
 
   # General stuff
   time_ago_in_words: "%{time} 前"
