@@ -28,6 +28,12 @@ Installing Forem is easy.
 
     gem 'forem', :git => "git://github.com/radar/forem.git"
 
+And then one of `kaminari` or `will_paginate`
+
+    gem 'kaminari', '0.13.0'
+    # OR
+    gem 'will_paginate', '3.0.3'
+
 ## Run the installer
 
 **Ensure that you first of all have a `User` model and some sort of authentication system set up**. We would recommend going with [Devise](http://github.com/plataformatec/devise), but it's up to
