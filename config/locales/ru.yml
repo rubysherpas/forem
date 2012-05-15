@@ -35,7 +35,7 @@ ru:
           last_post: Последний ответ
           none: Отсутствует
       group:
-        index: Упрвление группами
+        index: Управление группами
         created: Группа была успешно создана.
         not_created: Группа не может быть создана.
         deleted: Выбранная группа была успешно удалена.
@@ -71,22 +71,22 @@ ru:
         one: 1 тема
         other: "%{count} тем"
       posts_count:
-        zero: 0 записей
-        one: 1 запись
-        other: "%{count} записей"
+        zero: нет ответов
+        one: 1 ответ
+        other: "%{count} ответов"
       moderator_tools: "Инструменты модерации"
     forums:
       index:
         title: Форумы
         forum: Форум
         views: Просмотров
-        last_post: 'Последняя запись:'
+        last_post: 'Последний ответ:'
         none: Отсутствует
     topic:
       headings:
         topic: Тема
         latest: Последняя
-        posts: Записи
+        posts: Ответы
         views: Просмотры
       moderation:
         success: Выбранная тема была отмодерирована.
