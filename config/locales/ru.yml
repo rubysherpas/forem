@@ -1,5 +1,18 @@
 ru:
   forem:
+    general:
+      forum: Форум
+      topics: Темы
+      topic: Тема
+      posts: Ответы
+      posts_count:
+        zero: нет ответов
+        one: 1 ответ
+        other: "%{count} ответов"
+      flagged_for_spam: Ваш аккаунт отмечен как спамовый.
+      cannot_create_topic: Вы не можете сейчас создать тему.
+      cannot_create_post: Вы не можете сейчас создать новый ответ.
+
     access_denied: Доступ запрещен.
     admin:
       area: Администрирование
@@ -16,14 +29,19 @@ ru:
       forums:
         edit: Редактировать
         delete: Удалить
-        forum: Форум
         category: Категория
-        topics: Темы
-        posts: Записи
         delete_confirm: Вы уверены что хотите удалить этот форум?
         index:
-          last_post: Последняя запись
+          last_post: Последний ответ
           none: Отсутствует
+      group:
+        index: Упрвление группами
+        created: Группа была успешно создана.
+        not_created: Группа не может быть создана.
+        deleted: Выбранная группа была успешно удалена.
+      groups:
+        show:
+          add_member: Добавить
       category:
         index: Управление категориями
         new: Создание новой категории
@@ -56,12 +74,11 @@ ru:
         zero: 0 записей
         one: 1 запись
         other: "%{count} записей"
+      moderator_tools: "Инструменты модерации"
     forums:
       index:
         title: Форумы
         forum: Форум
-        topics: Темы
-        posts: Записи
         views: Просмотров
         last_post: 'Последняя запись:'
         none: Отсутствует
@@ -71,6 +88,8 @@ ru:
         latest: Последняя
         posts: Записи
         views: Просмотры
+      moderation:
+        success: Выбранная тема была отмодерирована.
       reply: Ответить
       quote: Цитировать
       delete: Удалить
@@ -82,6 +101,8 @@ ru:
       cannot_delete: Вы не можете удалить тему, которую не создавали.
       updated: Тема изменена.
       not_updated: Тема не может быть изменена.
+      subscribed: Вы подписались на эту тему.
+      unsubscribed: Вы отписались от этой темы.
       none: В настоящий момент в этом форуме нет ни одной темы.
       links:
         new: Новая тема
@@ -101,7 +122,10 @@ ru:
       show:
         reply: Ответить
         delete: Удалить
+        subscribe: Подписаться
+        unsubscribe: Отписаться
         reply_to_topic: Ответить
+        pending_review: Эта тема ожидает проверки. Только автор темы и модератор могут её просмотреть.
         hide:
           'true': Показать
           'false': Скрыть
@@ -126,6 +150,15 @@ ru:
       deleted_with_topic: Ответ в теме удален. Тема также удалена.
       cannot_delete: Вы не можете удалить чужой ответ.
       in_reply_to: В ответ на
+    posts:
+      moderation:
+        moderate: Модерировать
+        approve: Подтвердить
+        success: Выбранные ответы были отмодерированы.
+      post:
+        pending_review: Этот ответ ожидает проверки. Только автор и модератор могут его просмотреть.
+    moderation:
+      title: "Инструменты модерации для %{forum}"
   helpers:
     submit:
       forum:
