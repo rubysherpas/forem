@@ -9,8 +9,6 @@ PATH
   specs:
     forem (1.0.0.beta1)
       cancan
-      forem-redcarpet (= 1.0.0)
-      kaminari
       rails (~> 3.1)
       simple_form
       workflow (= 0.8.0)
@@ -180,8 +178,10 @@ DEPENDENCIES
   devise
   factory_girl_rails (>= 1.2.0)
   forem!
+  forem-redcarpet (= 1.0.0)
   forem-theme-base!
   jquery-rails
+  kaminari
   launchy
   rails (~> 3.1)
   rspec-rails (~> 2.6)
