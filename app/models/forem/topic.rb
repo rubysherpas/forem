@@ -1,5 +1,16 @@
 module Forem
   class Topic < ActiveRecord::Base
+    include Workflow
+    workflow_column :state
+    workflow do
+      state :pending_review do
+        event :spam, :transitions_to => :spam
+        event :approve, :transitions_to => :approved
+      end
+      state :spam
+      state :approved
+    end
+
     attr_accessible :subject, :posts_attributes
 
     belongs_to :forum
@@ -16,16 +27,6 @@ module Forem
     after_create :subscribe_poster
     after_create :skip_pending_review_if_user_approved
     after_save :approve_user_and_posts, :if => :approved?
-
-    state_machine :initial => 'pending_review', :use_transactions => false do
-      event :spam do
-        transition :to => 'spam'
-      end
-
-      event :approve do
-        transition :to => 'approved'
-      end
-    end
 
     class << self
       def visible
@@ -139,8 +140,11 @@ module Forem
     end
 
     def approve_user_and_posts
-      self.posts.by_created_at.first.approve!
-      self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
+      if state_changed?
+        first_post = self.posts.by_created_at.first
+        first_post.approve! unless first_post.approved?
+        self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
+      end
     end
   end
 end

@@ -1,9 +1,14 @@
 module Forem
   module PostsHelper
-    def avatar(user, options = {})
-      if (email = user.try(:email)).present?
-        image_tag(avatar_url(email, options), :alt => "Gravatar")
+    def forem_avatar(user, options = {})
+      image = if Forem.avatar_user_method
+        # Try to use the user's custom avatar method
+        user.try Forem.avatar_user_method.to_sym
+      else
+        avatar_url user.try(:email), options
       end
+
+      image_tag image, :alt => "Avatar" if image.present?
     end
 
     def avatar_url(email, options = {})
