@@ -140,7 +140,7 @@ en:
         reply: Post Reply
         edit: Edit
       created: Your reply has been posted.
-      new: Post reply
+      new: Post reply to
       edit: Edit
       not_created: Your reply could not be posted.
       not_created_topic_locked: You cannot reply to a locked topic.
