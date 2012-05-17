@@ -16,6 +16,14 @@ module Forem
       forem_format(text)
     end
 
+    def forem_pages_widget(collection)
+      if collection.num_pages > 1
+        ("<div class='pages'>\n" +
+        t('forem.common.pages') + ':' + forem_paginate(collection) + "\n" +
+        "</div>").html_safe
+      end
+    end
+
     def forem_paginate(collection, options={})
       if respond_to?(:will_paginate)
         # If parent app is using Will Paginate, we need to use it also
