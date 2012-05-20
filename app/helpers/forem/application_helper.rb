@@ -18,9 +18,9 @@ module Forem
 
     def forem_pages_widget(collection)
       if collection.num_pages > 1
-        ("<div class='pages'>\n" +
-        t('forem.common.pages') + ':' + forem_paginate(collection) + "\n" +
-        "</div>").html_safe
+        content_tag :div, :class => 'pages' do
+          (t('forem.common.pages') + ':' + forem_paginate(collection)).html_safe
+        end
       end
     end
 
