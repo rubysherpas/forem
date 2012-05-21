@@ -45,6 +45,10 @@ describe "posts" do
       end
 
       context "to an unlocked topic" do
+        it "shows the topic we are replying to" do
+          page.should have_content(topic.posts.first.text)
+        end
+
         it "can post a reply" do
           fill_in "Text", :with => "Witty and insightful commentary."
           click_button "Post Reply"
