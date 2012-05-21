@@ -1,10 +1,7 @@
 <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
 
-<% if @topics.num_pages > 1 %>
-  <div class='pages'>
-    <%= t('forem.common.pages') -%>: <%= forem_paginate @topics %>
-  </div>
-<% end %>
+<%= forem_pages_widget(@topics) %>
+
 <table class='topics subdued' cellspacing='0'>
   <thead>
     <tr>
@@ -22,3 +19,5 @@
     <%= render @topics %>
   </tbody>
 </table>
+
+<%= forem_pages_widget(@topics) %>
