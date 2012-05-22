@@ -96,14 +96,15 @@ You will then be able to edit the forem views inside the `app/views/forem` of yo
 We currently have support for the following languages:
 
 * Brazillian (pt-BR)
+* Bulgarian
 * Chinese (zh-CN)
-* English
-* German
-* Farsi (Persian)
-* Italian
-* Russian
-* Polish
 * Dutch
+* English
+* Farsi (Persian)
+* German
+* Italian
+* Polish
+* Russian
 * Spanish
 
 Patches for new translations are very much welcome!
