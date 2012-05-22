@@ -1,0 +1,192 @@
+bg:
+  forem:
+    general:
+      forum: Форум
+      topics: Теми
+      topic: Тема
+      posts: Съобщения
+      posts_count:
+        zero: Няма съобщения
+        one: 1 съобщение
+        other: "%{count} съобщения"
+      flagged_for_spam: Вашият акаунт бе маркиран за спам.
+      cannot_create_topic: Не може да създадете нова тема сега.
+      cannot_create_post: Не може да създадете ново съобщение сега.
+
+    access_denied: "Нямате достъп до тази операция."
+    admin:
+      area: Администравен Панел
+      welcome: "Добре дошли в административния панел на Форем"
+      forum:
+        index: Управление на форуми
+        new: Създаване на нов форум
+        new_link: Нов форум
+        deleted: Избраният форум беше изтрит.
+        created: Този форум беше създаден.
+        not_created: Този форум не беше създаден.
+        updated: Този форум беше обновен.
+        not_updated: Този форум не беше обновен.
+      forums:
+        edit: Редактиране
+        delete: Изтриване
+        category: Категория
+        delete_confirm: Сигурен ли сте, че искате да изтриете този форум?
+        index:
+          last_post: Последно съобщение
+          none: Няма
+      group:
+        index: Управление на групи
+        created: Групата беше създадена успешно.
+        not_created: Групата не можа да бъде създадена.
+        deleted: Избраната група беше изтрита.
+      groups:
+        show:
+          add_member: Добавяне
+      category:
+        index: Управление на форумните категории
+        new: Създаване на нова форумна категория
+        new_link: Нова форумна категория
+        deleted: Избраната форумна категория беше изтрита.
+        created: Форумната категория беше създадена.
+        not_created: Форумната категория не може да бъде създадена.
+        updated: Форумната категория беше обновена.
+        not_updated: Форумната категория не може да бъде обновена.
+      categories:
+        edit: Редактирай
+        delete: Изтрий
+        category: Категория
+        delete_confirm: Сигурен ли сте, че искате да изтриете тази категория?
+    common:
+      pages: Страници
+    errors:
+      not_signed_in: Трябва да влезете в профила си.
+      access_denied: Достъпът е отказан.
+    forum:
+      header: "Преглед на %{title}"
+      forums: Форуми
+      new: Създаване на нов форум
+      edit: "Редактиране на форум %{title}"
+      topics_count:
+        zero: 0 теми
+        one: 1 тема
+        other: "%{count} теми"
+      posts_count:
+        zero: 0 съобщения
+        one: 1 съобщение
+        other: "%{count} съобщения"
+      moderator_tools: "Модераторски инструменти"
+    forums:
+      index:
+        title: Форуми
+        forum: Форум
+        views: Преглеждания
+        last_post: 'Последно съобщение:'
+        none: Няма
+    topic:
+      headings:
+        topic: Тема
+        latest: Последно
+        posts: Съобщения
+        views: Преглеждания
+      moderation:
+        success: Избраната тема беше модерирана.
+      reply: Отговори
+      quote: Цитирай
+      delete: Изтрий
+      created: Темата беше създадена.
+      new: Създаване на нова тема
+      edit: Изтриване на тема
+      not_created: Темата не беше създадена.
+      deleted: Вашата тема беше изтрита.
+      cannot_delete: Не можете да изтриете тема, която не притежавате.
+      updated: Темата беше обновена.
+      not_updated: Темата не беше обновена.
+      subscribed: Вие се абонирахте за темата.
+      unsubscribed: Вие прекратихте абонамента си за темата.
+      none: В момента няма теми в този форум.
+      links:
+        new: Нова тема
+        back_to_topics: Обратно към темите
+        edit: Редактирай тема
+      not_found: Темата, която търсите не може да бъде открита.
+      hidden:
+        'true': Темата сега е скрита.
+        'false': Темата сега е видима.
+      locked:
+        'true': Темата е заключена.
+        'false': Темата е отключена.
+      pinned:
+        'true': Темата е закована.
+        'false': Темата е разкована.
+    topics:
+      show:
+        reply: Отговори
+        delete: Изтрий
+        subscribe: Абонирай се
+        unsubscribe: Прекъсни абонамент
+        reply_to_topic: Отговори на тема
+        pending_review: Тази тема очаква ревю. Само авторът и модераторите могат да я видят.
+        hide:
+          'true': Покажи тази тема
+          'false': Скрий тази тема
+        lock:
+          'true': Отключи тази тема
+          'false': Заключи тази тема
+        pin:
+          'true': Разкови тази тема
+          'false': Закови тази тема
+    post:
+      buttons:
+        reply: Публикувай отговор
+        edit: Редактирай
+      created: Вашият отговор беше публикуван.
+      new: Публикувай отговор до
+      edit: Редактирай
+      not_created: Вашият отговор не може да бъде публикуван.
+      not_created_topic_locked: Не може да отговаряте в заключена тема.
+      edited: Съобщението ви беше редактирано.
+      not_edited: Съобщението ви не може да бъде редактирано.
+      deleted: Съобщението ви беше изтрито.
+      deleted_with_topic: Изтриване на единствено съобщение в тема. Прилежащата тема също беше изтрита.
+      cannot_delete: Не може да изтриете чуждо съобщение.
+      in_reply_to: В отговор на
+    posts:
+      moderation:
+        moderate: Модерирай
+        approve: Одобри
+        success: Избраните съобщения бяха модерирани.
+      post:
+        pending_review: Това съобщение очаква ревю. Само авторът му и модераторите могат да го видят.
+    moderation:
+      title: "Модераторски инструменти за %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Създай форум
+        update: Обнови форум
+      topic:
+        create: Създай тема
+        update: Обнови тема
+  simple_form:
+    labels:
+      forum:
+        title: Име
+        description: Описание
+      topic:
+        subject: Заглавие
+        locked: Заключена
+        pinned: Закована
+        hidden: Скрита
+        posts:
+          text: Текст
+      post:
+        text: Текст
+
+  # General stuff
+  time_ago_in_words: "Преди %{time}"
+  ago: " "
+  ago_by: " от"
+  by: от
+  started_by: "Стартирана от "
+  are_you_sure: Сигурен ли сте?
+
