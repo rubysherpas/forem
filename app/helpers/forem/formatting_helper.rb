@@ -18,7 +18,11 @@ module Forem
     end
 
     def as_sanitized_text(text)
-      sanitize(text, :tags=>%W(p), :attributes=>[])
+      if Forem.formatter.respond_to?(:sanitize)
+        Forem.formatter.sanitize(text)
+      else
+        sanitize(text, :tags=>%W(p), :attributes=>[])
+      end
     end
   end
 end
