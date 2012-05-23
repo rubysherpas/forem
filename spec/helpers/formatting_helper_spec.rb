@@ -63,6 +63,8 @@ describe Forem::FormattingHelper do
       describe "uses formatter quoting method if exists" do
          subject { helper.as_quoted_text(raw_html) }
          before { Forem.formatter.stub('respond_to?').with(:blockquote).and_return(true) }
+         before { Forem.formatter.stub('respond_to?').with(:sanitize).and_return(false) }
+
          before { Forem.formatter.stub(:blockquote).and_return("> #{markdown}") }
 
          it "quotes the original content" do
@@ -70,6 +72,17 @@ describe Forem::FormattingHelper do
          end
          it {should be_html_safe}
        end
+
+      describe "uses formatter sanitize method if exists" do
+        subject { helper.as_formatted_html(markdown) }
+
+        before { Forem.formatter.stub('respond_to?').with(:blockquote).and_return(false) }
+        before { Forem.formatter.stub('respond_to?').with(:sanitize).and_return(true) }
+        before { Forem.formatter.stub(:sanitize).and_return("sanitized it") }
+
+        it {subject.should == "<p>sanitized it</p>"}
+
+      end
     end
   end
 end
