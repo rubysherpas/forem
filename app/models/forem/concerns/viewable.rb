@@ -24,6 +24,8 @@ module Forem
         # update current viewed at if more than 15 minutes ago
         if view.current_viewed_at.nil?
           view.past_viewed_at = view.current_viewed_at = Time.now
+        end
+
         if view.current_viewed_at < 15.minutes.ago
           view.past_viewed_at    = view.current_viewed_at
           view.current_viewed_at = Time.now
