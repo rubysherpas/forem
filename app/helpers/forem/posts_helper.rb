@@ -1,6 +1,6 @@
 module Forem
   module PostsHelper
-    def avatar(user, options = {})
+    def forem_avatar(user, options = {})
       image = if Forem.avatar_user_method
         # Try to use the user's custom avatar method
         user.try Forem.avatar_user_method.to_sym
