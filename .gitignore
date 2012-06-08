@@ -10,3 +10,4 @@ tmp
 *.sw*
 spec/dummy
 *.rbc
+.idea
