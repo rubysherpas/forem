@@ -112,21 +112,10 @@ describe "topics" do
         it "increments a view" do
           # register a view
           visit forum_topic_path(forum, topic)
-
-          # expect does not work as expected.
-          # the view object is not reloaded when it's re-checked, but cached instead
-          # Therefore we cannot do this:
-          #
-          # expect do
-          #   visit forum_topic_path(forum, topic)
-          # end.to change(view.reload, :count)
-          #
-          # But instead must go long-form:
-
           view = ::Forem::View.last
-          view.count.should eql(1)
-          visit forum_topic_path(forum, topic)
-          view.reload.count.should eql(2)
+          expect do
+            visit forum_topic_path(forum, topic)
+          end.to change{ view.reload.count }.by(1)
         end
       end
     end
