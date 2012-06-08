@@ -77,8 +77,10 @@ module Forem
       def moderate!(posts)
         posts.each do |post_id, moderation|
           # We use find_by_id here just in case a post has been deleted.
-          post = Post.find_by_id(post_id)
-          post.send("#{moderation[:moderation_option]}!") if post
+          if moderation[:moderation_option]
+            post = Post.find_by_id(post_id)
+            post.send("#{moderation[:moderation_option]}!") if post
+          end
         end
       end
     end

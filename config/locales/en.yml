@@ -159,6 +159,7 @@ en:
         pending_review: This post is currently pending review. Only the user who posted it and moderators can view it.
     moderation:
       title: "Moderation tools for %{forum}"
+      failure: Please select an option for moderation.
   helpers:
     submit:
       forum:

@@ -26,7 +26,18 @@ describe "moderation" do
           click_button "Moderate"
         end
         flash_notice!("The selected topic has been moderated.")
-        page.should_not have_content("This topic is currently pending review.")
+        page.should have_no_content("This topic is currently pending review.")
+      end
+
+      context "when moderation option not selected" do
+        it "should show message" do
+          visit forum_topic_path(forum, topic)
+          within("#topic_moderation") do
+            click_button "Moderate"
+          end
+          flash_alert!("Please select an option for moderation.")
+          page.should have_content("This topic is currently pending review.")
+        end
       end
     end
   end
