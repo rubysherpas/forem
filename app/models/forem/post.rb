@@ -108,10 +108,6 @@ module Forem
       self.update_attribute(:notified, true)
     end
 
-    def subscribe_replier
-      topic.subscribe_user(user.id)
-    end
-
     def set_topic_last_post_at
       self.topic.update_attribute(:last_post_at, self.created_at)
     end
