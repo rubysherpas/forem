@@ -10,15 +10,23 @@ module Forem
     end
 
     def posts
-      Post.moderate!(params[:posts] || [])
-      flash[:notice] = t('forem.posts.moderation.success')
+      if params[:posts]
+        Post.moderate!(params[:posts])
+        flash[:notice] = t('forem.posts.moderation.success')
+      else
+        flash[:alert] = t("forem.moderation.failure")
+      end
       redirect_to :back
     end
 
     def topic
       topic = forum.topics.find(params[:topic_id])
-      topic.moderate!(params[:topic][:moderation_option])
-      flash[:notice] = t("forem.topic.moderation.success")
+      if params[:topic] && params[:topic][:moderation_option]
+        topic.moderate!(params[:topic][:moderation_option])
+        flash[:notice] = t("forem.topic.moderation.success")
+      else
+        flash[:alert] = t("forem.moderation.failure")
+      end
       redirect_to :back
     end
 

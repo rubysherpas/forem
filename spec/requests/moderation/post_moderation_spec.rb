@@ -59,6 +59,13 @@ describe "moderation" do
         flash_notice!("The selected posts have been moderated.")
         post.user.reload.forem_state.should == "approved"
       end
+      it "when moderation option not selected" do
+        visit forum_topic_path(forum, topic)
+        click_button "Moderate"
+
+        flash_alert!("Please select an option for moderation.")
+        post.user.reload.forem_state.should == "pending_review"
+      end
     end
   end
 end
