@@ -16,9 +16,13 @@ module Forem
     end
 
     def topic
-      topic = forum.topics.find(params[:topic_id])
-      topic.moderate!(params[:topic][:moderation_option])
-      flash[:notice] = t("forem.topic.moderation.success")
+      if params[:topic]
+        topic = forum.topics.find(params[:topic_id])
+        topic.moderate!(params[:topic][:moderation_option])
+        flash[:notice] = t("forem.topic.moderation.success")
+      else
+        flash[:error] = t("forem.topic.moderation.no_option_selected")
+      end
       redirect_to :back
     end
 

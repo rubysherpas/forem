@@ -30,4 +30,11 @@ describe Forem::ModerationController do
     flash[:alert].should be_nil
   end
 
+  # Regression test for #238
+  it "is prompted to select an option when no option selected" do
+    controller.stub :forem_admin? => true
+    put :topic
+    flash[:notice].should == I18n.t("forem.topic.moderation.no_option_selected")
+  end
+
 end

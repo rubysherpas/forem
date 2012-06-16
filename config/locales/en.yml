@@ -90,6 +90,7 @@ en:
         views: Views
       moderation:
         success: The selected topic has been moderated.
+        no_option_selected: No moderation option was selected.
       reply: Reply
       quote: Quote
       delete: Delete
