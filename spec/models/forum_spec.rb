@@ -41,13 +41,44 @@ describe Forem::Forum do
       let(:user) { FactoryGirl.create(:user) }
       let(:admin) { FactoryGirl.create(:admin) }
 
-      it "finds the last visible post" do
-        @forum.last_visible_post.should == visible_topic.posts.last
+
+      context "finding the last visible post for a user" do
+        it "does not find non-approved posts" do
+          @forum.last_visible_post(user).should be_nil
+        end
+
+        context "with approved topic + post" do
+          before do
+            visible_topic.state = 'approved'
+            visible_topic.posts.first.state = 'approved'
+            visible_topic.save
+          end
+
+          it "finds the last post for a user" do
+            @forum.last_visible_post(user).should == visible_topic.posts.last
+            # visible post doesn't contain hidden topics, duh
+            @forum.last_visible_post(admin).should == visible_topic.posts.last
+          end
+        end
       end
 
-      it "finds the last visible post for a user" do
-        @forum.last_post_for(user).should == visible_topic.posts.last
-        @forum.last_post_for(admin).should == hidden_topic.posts.last
+      context "finding the last post for a user" do
+        it "does not find non-approved posts" do
+          @forum.last_post_for(user).should be_nil
+        end
+
+        context "with approved topic + post" do
+          before do
+            visible_topic.state = 'approved'
+            visible_topic.posts.first.state = 'approved'
+            visible_topic.save
+          end
+
+          it "finds the last post for a user" do
+            @forum.last_post_for(user).should == visible_topic.posts.last
+            @forum.last_post_for(admin).should == hidden_topic.posts.last
+          end
+        end
       end
     end
 

@@ -14,11 +14,11 @@ module Forem
     attr_accessible :category_id, :title, :description, :moderator_ids
 
     def last_post_for(forem_user)
-      forem_user && forem_user.forem_admin? || moderator?(forem_user) ? posts.last : last_visible_post
+      forem_user && (forem_user.forem_admin? || moderator?(forem_user)) ? posts.last : last_visible_post(forem_user)
     end
 
-    def last_visible_post
-      posts.where("forem_topics.hidden = ?", false).last
+    def last_visible_post(forem_user)
+      posts.approved_or_pending_review_for(forem_user).last
     end
 
     def moderator?(user)
