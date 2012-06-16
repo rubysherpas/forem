@@ -1,21 +1,16 @@
 require 'spec_helper'
 
 describe Forem::Category do
-  before(:each) do
-    @attr = {
-      :name=> "Test Category",
-    }
-    @category = Forem::Category.create!(@attr)
-  end
+  let!(:category) { FactoryGirl.create(:category) }
 
   it "is valid with valid attributes" do
-    @category.should be_valid
+    category.should be_valid
   end
 
   describe "validations" do
     it "requires a name" do
-      @category.name = nil
-      @category.should_not be_valid
+      category.name = nil
+      category.should_not be_valid
     end
   end
 
