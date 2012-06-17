@@ -7,7 +7,7 @@ module Forem
       @post = Post.find(post_id)
       @user = Forem.user_class.find(subscriber_id)
 
-      mail(:to => @user.email, :subject => "A topic you are subscribed to has received a reply")
+      mail(:to => @user.email, :subject => I18n.t('forem.topic.received_reply'))
     end
   end
 end
