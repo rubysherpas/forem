@@ -1,0 +1,35 @@
+module Forem
+  module GeneratorMacros
+    def cleanup!
+      Dir.chdir(Rails.root) do
+        FileUtils.rm_rf("db/migrate")
+
+        FileUtils.rm("config/initializers/forem.rb")
+        File.open("config/initializers/forem.rb", "w+") do |f|
+          f.write "Forem.user_class = 'User'"
+        end
+      end
+
+      backup_or_restore = example.metadata[:run] ? "restore" : "backup"
+      backup_or_restore = "#{backup_or_restore}_file"
+      ["#{Rails.root}/app/controllers/application_controller.rb",
+       "#{Rails.root}/config/routes.rb"].each do |file|
+        send(backup_or_restore, file)
+      end
+    end
+    
+    def backup_file(file)
+      FileUtils.cp(file, file + ".bak")
+    end
+
+    def restore_file(file)
+      FileUtils.mv(file + ".bak", file)
+    end
+  end
+end
+
+RSpec.configure do |c|
+  c.include Forem::GeneratorMacros, :example_group => {
+    :file_path => c.escaped_path(%w[spec (generators)])
+  }
+end
