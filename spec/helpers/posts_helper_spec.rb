@@ -10,7 +10,7 @@ module Forem
         let(:opts) { {} }
 
         it 'includes the default size' do
-          expected = "//www.gravatar.com/avatar/#{email_hash}?s=60"
+          expected = "http://www.gravatar.com/avatar/#{email_hash}?s=60"
           helper.avatar_url(email, opts).should eq(expected)
         end
       end
@@ -19,7 +19,7 @@ module Forem
         let(:opts) { {:size => 99} }
 
         it 'overwrites the default size' do
-          expected = "//www.gravatar.com/avatar/#{email_hash}?s=99"
+          expected = "http://www.gravatar.com/avatar/#{email_hash}?s=99"
           helper.avatar_url(email, opts).should eq(expected)
         end
       end
@@ -28,7 +28,7 @@ module Forem
         let(:opts) { {:default => 'mm'} }
 
         it 'includes a default parameter' do
-          expected = "//www.gravatar.com/avatar/#{email_hash}?d=mm&s=60"
+          expected = "http://www.gravatar.com/avatar/#{email_hash}?d=mm&s=60"
           helper.avatar_url(email, opts).should eq(expected)
         end
       end
@@ -37,7 +37,17 @@ module Forem
         let(:opts) { {:default => 'mm', :size => '99'} }
 
         it 'includes a default parameter and overwrites the default size' do
-          expected = "//www.gravatar.com/avatar/#{email_hash}?d=mm&s=99"
+          expected = "http://www.gravatar.com/avatar/#{email_hash}?d=mm&s=99"
+          helper.avatar_url(email, opts).should eq(expected)
+        end
+      end
+
+      context 'with any email and ssl' do
+        let(:opts) { {} }
+
+        it 'should have the secure url' do
+          helper.request.env['HTTPS'] = 'on'
+          expected = "https://secure.gravatar.com/avatar/#{email_hash}?s=60"
           helper.avatar_url(email, opts).should eq(expected)
         end
       end
