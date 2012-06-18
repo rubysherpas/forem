@@ -7,6 +7,6 @@ class AddForemAutoSubscribe < ActiveRecord::Migration
   end
 
   def user_class
-    ActiveSupport::Inflector.pluralize(Forem.user_class.name.downcase).to_sym
+    Forem.user_class.table_name.downcase.to_sym
   end
 end
