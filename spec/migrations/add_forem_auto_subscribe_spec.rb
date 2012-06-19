@@ -1,5 +1,4 @@
 require 'spec_helper.rb'
-require 'support/shared_context_for_migrations.rb'
 
 Dir.chdir(Rails.root) do
  `rake railties:install:migrations`
