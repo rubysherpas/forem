@@ -35,7 +35,7 @@ describe Forem::ModerationController do
     @request.env['HTTP_REFERER'] = Capybara.default_host
     controller.stub :forem_admin? => true
     put :topic
-    flash[:notice].should == I18n.t("forem.topic.moderation.no_option_selected")
+    flash[:error].should == I18n.t("forem.topic.moderation.no_option_selected")
   end
 
 end
