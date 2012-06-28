@@ -12,33 +12,6 @@ describe Forem::Generators::InstallGenerator do
     example.metadata[:run] = true
   end
 
-  def backup_file(file)
-    FileUtils.cp(file, file + ".bak")
-  end
-
-  def restore_file(file)
-    FileUtils.mv(file + ".bak", file)
-  end
-
-  def cleanup!
-    Dir.chdir(Rails.root) do
-      FileUtils.rm_rf("db/migrate")
-
-      FileUtils.rm("config/initializers/forem.rb")
-      File.open("config/initializers/forem.rb", "w+") do |f|
-        f.write "Forem.user_class = 'User'"
-      end
-    end
-
-    backup_or_restore = example.metadata[:run] ? "restore" : "backup"
-    backup_or_restore = "#{backup_or_restore}_file"
-    ["#{Rails.root}/app/controllers/application_controller.rb",
-     "#{Rails.root}/config/routes.rb"].each do |file|
-      send(backup_or_restore, file)
-    end
-  end
-
-
   def migrations
     Dir["#{Rails.root}/db/migrate/*.rb"].sort
   end
@@ -51,18 +24,6 @@ describe Forem::Generators::InstallGenerator do
 
     # Ensure forem migrations have been copied over
     migrations.should_not be_empty
-
-    # Ensure forem admin migration has been created
-    forem_admin_migration = File.readlines(migrations[-3])
-    forem_admin_migration[3].strip.should == "add_column :users, :forem_admin, :boolean, :default => false"
-
-    # Ensure forem state migration has been created
-    forem_state_migration = File.readlines(migrations[-2])
-    forem_state_migration[3].strip.should == "add_column :users, :forem_state, :string, :default => 'pending_review'"
-
-    # Ensure forem auto subscribe migration has been created
-    forem_state_migration = File.readlines(migrations[-1])
-    forem_state_migration[3].strip.should == "add_column :users, :forem_auto_subscribe, :boolean, :default => false"
 
     # Ensure initializer has been created
     forem_initializer = File.readlines("#{Rails.root}/config/initializers/forem.rb")

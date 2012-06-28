@@ -12,7 +12,7 @@ module Forem
       def install_migrations
         puts "Copying over Forem migrations..."
         Dir.chdir(Rails.root) do
-          `rake forem:install:migrations`
+          `rake railties:install:migrations`
         end
       end
 
@@ -29,24 +29,6 @@ module Forem
         else
           @user_class = @user_class
         end
-      end
-
-
-      def add_forem_admin_migration
-
-        puts "Adding forem_admin migration..."
-
-        template "forem_admin_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_admin.rb"
-      end
-
-      def add_forem_state_migration
-        puts "Adding forem_state migration..."
-        template "forem_state_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_state.rb"
-      end
-
-      def add_forem_autosubscribe_migration
-        puts "Adding forem_auto_subscribe migration..."
-        template "forem_auto_subscribe_migration.rb", "#{Rails.root}/db/migrate/#{next_migration_number}_add_forem_auto_subscribe_to_user.rb"
       end
 
       def determine_current_user_helper
@@ -117,7 +99,7 @@ Here's what happened:\n\n}
    This lets Forem know what the current user of your application is.\n")
         output += step("A new file was created at config/initializers/forem.rb
    This is where you put Forem's configuration settings.\n")
-        
+
         unless options["no-migrate"]
 output += step("`rake db:migrate` was run, running all the migrations against your database.\n")
         output += step("Seed forum and topic were loaded into your database.\n")
