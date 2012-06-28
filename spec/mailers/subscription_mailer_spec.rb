@@ -9,7 +9,7 @@ describe Forem::SubscriptionMailer do
 
   it "sends an email announcing a forum post update" do
     mail.to.should eq([user.email])
-    mail.subject.should eq("A topic you are subscribed to has received a reply")
+    mail.subject.should eq(::I18n.t('received_reply', :scope => 'forem.topic'))
     mail.body.encoded.should match(forum_topic_url(topic.forum, topic))
   end
 
