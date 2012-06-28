@@ -32,6 +32,7 @@ describe Forem::ModerationController do
 
   # Regression test for #238
   it "is prompted to select an option when no option selected" do
+    @request.env['HTTP_REFERER'] = Capybara.default_host
     controller.stub :forem_admin? => true
     put :topic
     flash[:notice].should == I18n.t("forem.topic.moderation.no_option_selected")
