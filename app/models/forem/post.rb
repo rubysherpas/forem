@@ -30,7 +30,7 @@ module Forem
     delegate :forum, :to => :topic
 
     after_create :set_topic_last_post_at
-    after_create :subscribe_replier, :if => Proc.new { |p| p.user && p.user.forem_auto_subscribe? }
+    after_create :subscribe_replier, :if => :user_auto_subscribe?
     after_create :skip_pending_review_if_user_approved
 
     after_save :approve_user,   :if => :approved?
@@ -82,6 +82,10 @@ module Forem
           post.send("#{moderation[:moderation_option]}!") if post
         end
       end
+    end
+
+    def user_auto_subscribe?
+      user && user.respond_to?(:forem_auto_subscribe) && user.forem_auto_subscribe?
     end
 
     def owner_or_admin?(other_user)
