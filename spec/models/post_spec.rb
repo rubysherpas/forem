@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'timecop'
 
 describe Forem::Post do
   let!(:forum) { stub_model(Forem::Forum) }
@@ -55,9 +56,12 @@ describe Forem::Post do
       new_post = new_topic.posts.last
       new_topic.reload
       new_topic.last_post_at.to_s.should == new_post.created_at.to_s
-      new_post_2 = FactoryGirl.create(:post, :topic => new_topic)
-      new_topic.reload
-      new_topic.last_post_at.to_s.should == new_post_2.created_at.to_s
+      # Regression test for #255. Issue introduced by 46345c4
+      Timecop.freeze(Time.now + 1.minute) do
+        new_post_2 = FactoryGirl.create(:post, :topic => new_topic)
+        new_topic.reload
+        new_topic.last_post_at.to_s.should == new_post_2.created_at.to_s
+      end
     end
   end
 

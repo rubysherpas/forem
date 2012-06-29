@@ -114,9 +114,7 @@ module Forem
     end
 
     def set_topic_last_post_at
-      if self.topic.read_attribute(:last_post_at).nil?
-        self.topic.update_attribute(:last_post_at, self.created_at)
-      end
+      self.topic.update_attribute(:last_post_at, self.created_at)
     end
 
     def skip_pending_review_if_user_approved

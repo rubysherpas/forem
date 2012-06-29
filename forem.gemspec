@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'devise'
   s.add_development_dependency 'kaminari'
+  s.add_development_dependency 'timecop', '0.3.5'
 
   s.add_dependency 'rails', '~> 3.1'
   s.add_dependency 'simple_form'
