@@ -8,7 +8,7 @@ PATH
   remote: .
   specs:
     forem (1.0.0.beta1)
-      cancan
+      cancan (= 1.6.7)
       forem-redcarpet (= 1.0.0)
       rails (~> 3.1)
       simple_form
@@ -151,7 +151,7 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
-    simple_form (2.0.1)
+    simple_form (2.0.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     sprockets (2.1.2)
