@@ -14,7 +14,11 @@ module Forem
     attr_accessible :category_id, :title, :description, :moderator_ids
 
     def last_post_for(forem_user)
-      forem_user && (forem_user.forem_admin? || moderator?(forem_user)) ? posts.last : last_visible_post(forem_user)
+      if forem_user && (forem_user.forem_admin? || moderator?(forem_user))
+        posts.last
+      else
+        last_visible_post(forem_user)
+      end
     end
 
     def last_visible_post(forem_user)
