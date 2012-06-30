@@ -12,7 +12,7 @@ module Forem
       def install_migrations
         puts "Copying over Forem migrations..."
         Dir.chdir(Rails.root) do
-          `rake railties:install:migrations`
+          `rake forem:install:migrations`
         end
       end
 
