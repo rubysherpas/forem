@@ -159,7 +159,7 @@ sv:
         spam: Spam
         success: De valda inläggen har modererats.
       post:
-        pending_review: Den här inlägget väntar för tillfället på genomgång. Bara användaren som gjorde inlägget och moderatorer kan se det.
+        pending_review: Det här inlägget väntar för tillfället på genomgång. Bara användaren som gjorde inlägget och moderatorer kan se det.
     moderation:
       title: "Moderatorverktyg för %{forum}"
   helpers:
