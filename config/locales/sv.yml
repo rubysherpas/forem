@@ -1,0 +1,195 @@
+sv:
+  forem:
+    general:
+      forum: Forum
+      topics: Trådar
+      topic: Tråd
+      posts: Inlägg
+      posts_count:
+        zero: Inga inlägg
+        one: 1 inlägg
+        other: "%{count} inlägg"
+      flagged_for_spam: Ditt konto har flaggats för spam.
+      cannot_create_topic: Du kan inte skapa en ny tråd vid detta tillfälle.
+      cannot_create_post: Du kan inte göra ett nytt inlägg vid detta tillfälle.
+
+    access_denied: "Du har inte tillåtelse att göra det."
+    admin:
+      area: Administratörsområde
+      welcome: "Välkommen till forems administratörsområde."
+      forum:
+        index: Hanter Forum
+        new: Skapar ett nytt forum
+        new_link: Nytt Forum
+        deleted: Det valda forumet har tagits bort. 
+        created: Det här forumet har skapats.
+        not_created: Det här forumet kunde inte skapas.
+        updated: Det där forumet har uppdaterats.
+        not_updated: Det här forumet kunde inte uppdateras.
+      forums:
+        edit: Redigera
+        delete: Ta bort
+        category: Kategori
+        delete_confirm: Är du säker på att du vill ta bort det här forumet?
+        index:
+          last_post: Sista inlägget
+          none: Inget
+      group:
+        index: Hantera Grupper
+        created: Gruppen har skapats.
+        not_created: Gruppen kunde inte skapas.
+        deleted: Den valda gruppen har tagits bort.
+      groups:
+        show:
+          add_member: Lägg till
+      category:
+        index: Hantera Forumkategorier
+        new: Skapar en ny Forumkategori
+        new_link: Ny Forumkategori
+        deleted: Den valda forumkategorin har tagits bort.
+        created: Den här forumkategorin har skapats.
+        not_created: Den här forumkategorin kunde inte skapas.
+        updated: Den där forumkategorin har uppdaterats.
+        not_updated: Den här forumkategorin kunde inte uppdateras.
+      categories:
+        edit: Redigera
+        delete: Ta bort
+        category: Kategori
+        delete_confirm: Är du säker på att du vill ta bort den här kategorin?
+    common:
+      pages: Sidor
+    errors:
+      not_signed_in: Du måste logga in först.
+      access_denied: Åtkomst nekad.
+    forum:
+      header: "Visar %{title}"
+      forums: Forum
+      new: Skapar ett nytt forum
+      edit: "Redigerar %{title}-forumet"
+      topics_count:
+        zero: 0 trådar
+        one: 1 tråd
+        other: "%{count} trådar"
+      posts_count:
+        zero: 0 inlägg
+        one: 1 inlägg
+        other: "%{count} inlägg"
+      moderator_tools: "Moderatorverktyg"
+    forums:
+      index:
+        title: Forum
+        forum: Forum
+        views: Visningar
+        last_post: 'Sista inlägget:'
+        none: Inget
+    topic:
+      headings:
+        topic: Tråd
+        latest: Senaste
+        posts: Inlägg
+        views: Visningar
+      moderation:
+        success: Den valda tråden har modererats.
+        no_option_selected: Inget moderationsval var valt.
+      received_reply: En tråd som du prenumererar på har fått ett nytt inlägg.
+      reply: Svara
+      quote: Citera
+      delete: Ta bort
+      created: Den här tråden har skapats.
+      new: Skapar en ny tråd
+      edit: Redigerar tråd
+      not_created: Den här tråden kunde inte skapas.
+      deleted: Din tråd har tagits bort.
+      cannot_delete: Du kan inte ta bort en tråd som du inte äger.
+      updated: Den här tråden har uppdaterats.
+      not_updated: Den här tråden kunde inte uppdateras.
+      subscribed: Du har börjat prenumerera på den här tråden.
+      unsubscribed: Du har slutat prenumerera på den här tråden.
+      none: Det finns för tillfället inga trådar i det här forumet.
+      links:
+        new: Ny tråd
+        back_to_topics: Tillbaka till trådar
+        edit: Redigera tråd
+      not_found: Tråden som du letar efter kunde inte hittas.
+      hidden:
+        'true': Den här tråden är nu gömd.
+        'false': Den här tråden är nu synlig.
+      locked:
+        'true': Den här tråden är nu låst.
+        'false': Den här tråden är nu upplåst.
+      pinned:
+        'true': Den här tråden är nu fastnålad.
+        'false': Den här tråden är nu inte längre fastnålad.
+    topics:
+      show:
+        reply: Svara
+        delete: Ta bort
+        subscribe: Prenumerera
+        unsubscribe: Avprenumerera
+        reply_to_topic: Svara på Tråd
+        pending_review: Den här tråden väntar för tillfället på genomgång. Bara användaren som skapade tråden och moderatorer kan se den.
+        hide:
+          'true': Visa den här tråden
+          'false': Göm den här tråden
+        lock:
+          'true': Lås upp den här tråden
+          'false': Lås den här tråden
+        pin:
+          'true': Ta bort fastnålningen av den är tråden
+          'false': Nåla fast den här tråden
+    post:
+      buttons:
+        reply: Svara
+        edit: Redigera
+      created: Ditt svar har postats
+      new: Posta svar till
+      edit: Redigera
+      not_created: Ditt svar kunde inte postas.
+      not_created_topic_locked: Du kan inte svara på en låst tråd.
+      edited: Ditt inlägg har redigerats.
+      not_edited: Ditt inlägg kunde inte redigeras.
+      deleted: Ditt inlägg har tagits bort.
+      deleted_with_topic: Det enda inlägget i tråden är borttaget. Tråden tas också bort.
+      cannot_delete: Du kan inte ta bort ett inlägg som du inte äger.
+      in_reply_to: I svar på
+    posts:
+      moderation:
+        moderate: Moderera
+        approve: Godkänn
+        spam: Spam
+        success: De valda inläggen har modererats.
+      post:
+        pending_review: Det här inlägget väntar för tillfället på genomgång. Bara användaren som gjorde inlägget och moderatorer kan se det.
+    moderation:
+      title: "Moderatorverktyg för %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Skapa Forum
+        update: Uppdatera Forum
+      topic:
+        create: Skapa Tråd
+        update: Uppdatera Tråd
+  simple_form:
+    labels:
+      forum:
+        title: Titel
+        description: Beskrivning
+      topic:
+        subject: Ämne
+        locked: Låst
+        pinned: Fastnålad
+        hidden: Gömd
+        posts:
+          text: Text
+      post:
+        text: Text
+
+  # General stuff
+  time_ago_in_words: "%{time} sedan"
+  ago: " sedan"
+  ago_by: " sedan av"
+  by: av
+  started_by: "Startad av "
+  are_you_sure: Är du säker?
+
