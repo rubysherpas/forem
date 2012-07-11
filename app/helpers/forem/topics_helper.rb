@@ -1,6 +1,7 @@
 module Forem
   module TopicsHelper
-    def link_to_latest_post(post)
+    def link_to_latest_post(topic)
+      post = relevant_posts(topic).last
       text = "#{time_ago_in_words(post.created_at)} #{t("ago_by")} #{post.user}"
       link_to text, forum_topic_path(post.topic.forum, post.topic, :anchor => "post-#{post.id}")
     end
@@ -17,5 +18,15 @@ module Forem
         end
       end
     end
+
+    def relevant_posts(topic)
+      posts = topic.posts.by_created_at.scoped
+      if forem_admin_or_moderator?(topic.forum)
+        posts
+      else
+        posts.approved
+      end
+    end
+
   end
 end

@@ -18,6 +18,7 @@ RSpec.configure do |config|
   config.before(:each) { reset_email }
 
   config.include Devise::TestHelpers, :type => :controller
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:each) do
     if example.metadata[:js]

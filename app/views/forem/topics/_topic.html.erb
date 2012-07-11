@@ -15,11 +15,11 @@
   <td class='byline'>
     <%= new_since_last_view_text(topic) %>
     <div class='subject'><%= link_to topic.subject, forum_topic_path(@forum, topic) %></div>
-    <div class='started-by'><%= t "started_by" %><%= topic.posts.by_created_at.first.user %></div>
+    <div class='started-by'><%= t "started_by" %><%= relevant_posts(topic).first.user %></div>
   </td>
   <td class='latest-post'>
-    <%= link_to_latest_post(topic.posts.by_created_at.last) -%>
+    <%= link_to_latest_post(topic) -%>
   </td>
-  <td class='posts-count'><%= topic.posts.count %></td>
+  <td class='posts-count'><%= relevant_posts(topic).count %></td>
   <td class='views-count'><%= topic.views_count %></td>
 </tr>
