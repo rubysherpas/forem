@@ -4,13 +4,13 @@ describe "posts" do
   let(:forum) { FactoryGirl.create(:forum) }
   let(:user) { FactoryGirl.create(:user) }
   let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
-  
+
   context "not signed in users" do
     it "cannot begin to post a reply" do
       visit new_topic_post_path(topic)
       flash_alert!("You must sign in first.")
     end
-    
+
     it "cannot delete posts" do
       first_post = topic.posts[0]
       delete topic_post_path(topic, first_post), :id => first_post.id.to_s
@@ -37,7 +37,7 @@ describe "posts" do
           Forem.stub(:per_page).and_return(1)
 
           fill_in "Text", :with => "Witty and insightful commentary."
-          click_button "Post Reply"         
+          click_button "Post Reply"
 
           page.should have_content("Witty and insightful commentary")
           page.should_not have_content(topic.posts.first.text)
