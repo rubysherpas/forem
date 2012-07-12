@@ -9,8 +9,13 @@ module ::Forem
       end
     end
 
-    # Fix for #88
-    config.to_prepare do
+    def self.activate
+
+      Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+
+      # Fix for #88
       if Forem.user_class
         Forem.user_class.send :extend, Forem::Autocomplete
 
@@ -25,6 +30,8 @@ module ::Forem
       # add forem helpers to main application
       ::ApplicationController.send :helper, Forem::Engine.helpers
     end
+
+    config.to_prepare &method(:activate).to_proc
   end
 end
 
