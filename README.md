@@ -98,7 +98,7 @@ All of Forem’s business logic (models, controllers, helpers, etc) can easily b
 Standard practice for including such changes in your application or extension is to create a file within the relevant app/models or app/controllers directory with the original class name with _decorator appended.
 
 ### Adding a custom method to the Post model:
-    # app/models/forem/post_decorator.rb
+    # app/decorators/models/forem/post_decorator.rb
 
     Forem::Post.class_eval do
       def some_method
@@ -107,7 +107,7 @@ Standard practice for including such changes in your application or extension is
     end
 
 ### Adding a custom method to the PostsController:
-    # app/controllers/forem/posts_controller_decorator.rb
+    # app/decorators/controllers/forem/posts_controller_decorator.rb
 
     Forem::PostsController.class_eval do
       def some_action
