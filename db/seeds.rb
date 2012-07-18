@@ -1,3 +1,5 @@
+Forem::Category.create(:name => 'General')
+
 user = Forem.user_class.first
 unless user.nil?
   forum = Forem::Forum.find_or_create_by_title( :category_id => Forem::Category.first.id, 
