@@ -9,8 +9,7 @@ module ::Forem
       end
     end
 
-    def self.activate
-
+    config.to_prepare do
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
@@ -30,8 +29,6 @@ module ::Forem
       # add forem helpers to main application
       ::ApplicationController.send :helper, Forem::Engine.helpers
     end
-
-    config.to_prepare &method(:activate).to_proc
   end
 end
 
