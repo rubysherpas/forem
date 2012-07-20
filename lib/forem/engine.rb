@@ -10,8 +10,8 @@ module ::Forem
     end
 
     config.to_prepare do
-      Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
-        Rails.configuration.cache_classes ? require(c) : load(c)
+      Dir.glob(Rails.root + "app/decorators/**/*_decorator*.rb").each do |c|
+        require_dependency(c)
       end
 
       # Fix for #88
