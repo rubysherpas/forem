@@ -34,6 +34,7 @@ en:
         index:
           last_post: Last post
           none: None
+          moderators: Moderators
       group:
         index: Manage Groups
         created: The group was successfully created.
@@ -192,4 +193,3 @@ en:
   by: by
   started_by: "Started by "
   are_you_sure: Are you sure?
-

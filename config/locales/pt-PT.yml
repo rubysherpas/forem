@@ -1,0 +1,195 @@
+pt-PT:
+  forem:
+    general:
+      forum: Fórum
+      topics: Tópicos
+      topic: Tópico
+      posts: Mensagens
+      posts_count:
+        zero: Sem mensagens
+        one: 1 mensagem
+        other: "%{count} mensagens"
+      flagged_for_spam: A tua conta foi marcada como spammer.
+      cannot_create_topic: Neste momento não podes criar esse tópico.
+      cannot_create_post: Neste momento não podes criar uma nova mensagem.
+
+    access_denied: "Não tens permissões para essa acção."
+    admin:
+      area: Área de administração
+      welcome: "Bem vindo à área de administração"
+      forum:
+        index: Gestão de Foruns
+        new: Criar novos Fóruns
+        new_link: Novo Fórum
+        deleted: Fórum apagado com sucesso.
+        created: Fórum criado com sucesso.
+        not_created: Não foi possível criar o fórum.
+        updated: Fórum actualizado com sucesso.
+        not_updated: Não foi possível actualizar o grupo.
+      forums:
+        edit: Editar
+        delete: Apagar
+        category: Categoria
+        delete_confirm: Tens a certeza que queres apagar este fórum?
+        index:
+          last_post: Última mensagem
+          none: Nenhuma
+          moderators: Moderadores
+      group:
+        index: Gerir Grupos
+        created: Grupo criado com sucesso.
+        not_created: Não foi possível criar este grupo.
+        deleted: Grupo apagado com sucesso.
+      groups:
+        show:
+          add_member: Adicionar
+      category:
+        index: Gerir Categorias do Fórum
+        new: Criar Categoria para o Fórum
+        new_link: Criar Categoria
+        deleted: Categoria apagada com sucesso.
+        created: Categoria criada com sucesso.
+        not_created: Não foi possível criar esta categoria.
+        updated: Categoria editada com sucesso.
+        not_updated: Não foi possível editar esta categoria.
+      categories:
+        edit: Editar
+        delete: Apagar
+        category: Categoria
+        delete_confirm: Tens a certeza que queres apagar esta categoria?
+    common:
+      pages: Páginas
+    errors:
+      not_signed_in: Precisas de te logar primeiro.
+      access_denied: Acesso negado.
+    forum:
+      header: "A visualizar %{title}"
+      forums: Fórums
+      new: Criar um novo Fórum
+      edit: "Editando o Fórum %{title}"
+      topics_count:
+        zero: 0 tópicos
+        one: 1 tópico
+        other: "%{count} tópicos"
+      posts_count:
+        zero: 0 mensagens
+        one: 1 mensagem
+        other: "%{count} mensagens"
+      moderator_tools: "Ferramentas de Moderação"
+    forums:
+      index:
+        title: Fórums
+        forum: Fórum
+        views: Páginas
+        last_post: 'Último Post:'
+        none: Nenhum
+    topic:
+      headings:
+        topic: Tópico
+        latest: Último
+        posts: Mensagens
+        views: Páginas
+      moderation:
+        success: Tópico moderado com sucesso.
+        no_option_selected: Não foi selecionada nenhuma opção de moderação.
+      received_reply: Um tópico que subscreveste recebeu uma resposta.
+      reply: Responder
+      quote: Citar
+      delete: Apagar
+      created: Tópico criado com sucesso.
+      new: Criar Tópico
+      edit: Editar Tópico
+      not_created: Não foi possível criar o tópico.
+      deleted: Tópico apagado com sucesso.
+      cannot_delete: Não podes apagar um tópico do qual não és autor.
+      updated: Tópico actualizado com sucesso.
+      not_updated: Não foi possível actualizar o tópico.
+      subscribed: Subscrição do tópico efectuada com sucesso.
+      unsubscribed: Subscrição removida com sucesso.
+      none: Fórum sem tópicos.
+      links:
+        new: Novo tópico
+        back_to_topics: Voltar aos tópicos
+        edit: Editar tópico
+      not_found: Não foi possível encontrar o tópico pesquisado.
+      hidden:
+        'true': Este tópico está agora insivível.
+        'false': Este tópico está agora visível.
+      locked:
+        'true': Este tópico está agora bloqueado.
+        'false': Este tópico foi agora desbloqueado.
+      pinned:
+        'true': Este tópico está agora fixo.
+        'false': Este tópico deixou de estar fixo.
+    topics:
+      show:
+        reply: Responder
+        delete: Apagar
+        subscribe: Subscrever
+        unsubscribe: Desubscrever
+        reply_to_topic: Responder ao Tópico
+        pending_review: Este tópico aguarda revisão. Apenas quem o criou ou moderadores podem vê-lo.
+        hide:
+          'true': Mostrar tópico
+          'false': Esconder tópico
+        lock:
+          'true': Desbloquear tópico
+          'false': Bloquear tópico
+        pin:
+          'true': Libertar tópico
+          'false': Fixar tópico
+    post:
+      buttons:
+        reply: Responder
+        edit: Editar
+      created: A tua resposta foi publicada.
+      new: Mensagem de Resposta
+      edit: Editar
+      not_created: A resposta não pode ser publicada.
+      not_created_topic_locked: Não é possível responder a um tópico bloqueado.
+      edited: Mensagem editada com sucesso.
+      not_edited: Não foi possível editar a mensagem.
+      deleted: Mensagem apagada com sucesso.
+      deleted_with_topic: Foi apagada a última mensagem do tópico. O tópico também foi apagado.
+      cannot_delete: Não podes apagar uma mensagem da qual não és autor.
+      in_reply_to: Em resposta a
+    posts:
+      moderation:
+        moderate: Moderação
+        approve: Aprovação
+        spam: Spam
+        success: As mensagens selecionadas foram moderadas.
+      post:
+        pending_review: Esta mensagem aguarda revisão. Apenas o autor ou moderadores a podem ver.
+    moderation:
+      title: "Ferramentas de moderação para %{Fórum}"   
+  helpers:
+    submit:
+      forum:
+        create: Criar Fórum
+        update: Actualizar Fórum
+      topic:
+        create: Criar Tópico
+        update: Actualizar Tópico
+  simple_form:
+    labels:
+      forum:
+        title: Titulo
+        description: Descrição
+      topic:
+        subject: Assunto
+        locked: Bloqueado
+        pinned: Fixo
+        hidden: Invisível
+        posts:
+          text: Texto
+      post:
+        text: Texto
+
+  # General stuff
+  time_ago_in_words: "%{time} atrás"
+  ago: " atrás"
+  ago_by: " atrás por"
+  by: por
+  started_by: "Iniciado por "
+  are_you_sure: Tem certeza?

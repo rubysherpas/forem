@@ -25,7 +25,7 @@
             <div class='description'><%= forum.description %></div>
             <%= t('.last_post') %>
             <% if last_post = forum.posts.last %>
-              <%= link_to(last_post.topic, forum_topic_path(forum, last_post.topic)) -%> by <%= last_post.user %> <%= time_ago_in_words(last_post.created_at) -%>
+              <%= link_to(last_post.topic, forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= time_ago_in_words(last_post.created_at) -%>
             <% else %>
               <%= t('.none') %>
             <% end %>
