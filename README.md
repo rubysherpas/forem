@@ -130,6 +130,7 @@ We currently have support for the following languages:
 * German
 * Italian
 * Polish
+* Portuguese (pt-PT)
 * Russian
 * Spanish
 
