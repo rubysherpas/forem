@@ -1,3 +1,5 @@
+require 'friendly_id'
+
 module Forem
   class Topic < ActiveRecord::Base
     include Forem::Concerns::Viewable
@@ -14,6 +16,9 @@ module Forem
     end
 
     attr_accessor :moderation_option
+
+    extend FriendlyId
+    friendly_id :subject, :use => :slugged
 
     attr_accessible :subject, :posts_attributes
 

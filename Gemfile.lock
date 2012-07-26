@@ -10,6 +10,7 @@ PATH
     forem (1.0.0.beta1)
       cancan (= 1.6.7)
       forem-redcarpet (= 1.0.0)
+      friendly_id (~> 4.0)
       rails (~> 3.1)
       simple_form
       workflow (= 0.8.0)
@@ -76,6 +77,7 @@ GEM
     forem-redcarpet (1.0.0)
       pygments.rb (= 0.2.4)
       redcarpet (= 2.0.1)
+    friendly_id (4.0.7)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.3)
