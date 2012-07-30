@@ -23,6 +23,8 @@ module Forem
       posts = topic.posts.by_created_at.scoped
       if forem_admin_or_moderator?(topic.forum)
         posts
+      elsif topic.user == current_user
+        posts.visible.approved_or_pending_review_for(topic.user)
       else
         posts.approved
       end
