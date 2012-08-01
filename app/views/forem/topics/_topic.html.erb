@@ -14,7 +14,7 @@
   </td>
   <td class='byline'>
     <%= new_since_last_view_text(topic) %>
-    <div class='subject'><%= link_to topic.subject, forum_topic_path(@forum, topic) %></div>
+    <div class='subject'><%= link_to topic.subject, forem.forum_topic_path(@forum, topic) %></div>
     <div class='started-by'><%= t "started_by" %><%= relevant_posts(topic).first.user %></div>
   </td>
   <td class='latest-post'>

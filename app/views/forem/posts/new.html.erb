@@ -12,7 +12,7 @@
   </h3>
 <% end %>
 
-<%= simple_form_for [@topic, @post] do |f| %>
+<%= simple_form_for [forem, @topic, @post] do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <%= f.submit t("forem.post.buttons.reply") %>
 <% end %>

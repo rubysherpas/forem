@@ -9,17 +9,6 @@
   </div>
 
   <div class='contents'>
-    <a href='#post-<%= post.id %>'>
-      <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
-    </a>
-    <%= forem_format(post.text) %>
-
-    <% if post.reply_to %>
-      <span class='in_reply_to'>
-        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
-      </span>
-    <% end %>
-
     <% if post.pending_review? %>
       <div class='moderation'>
         <%= t(".pending_review") %>
@@ -35,21 +24,32 @@
       </div>
     <% end %>
 
+    <a href='#post-<%= post.id %>'>
+      <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
+    </a>
+    <%= forem_format(post.text) %>
+
+    <% if post.reply_to %>
+      <span class='in_reply_to'>
+        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+      </span>
+    <% end %>
+
     <ul class='actions'>
       <% if forem_user %>
         <% if can?(:reply, post.topic) %>
           <% if post.topic.can_be_replied_to? %>
-            <li><%= link_to t('reply', :scope => 'forem.topic'), new_topic_post_path(post.topic, :reply_to_id => post.id) %></li>
+            <li><%= link_to t('reply', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id) %></li>
           <% end %>
           <% if post.topic.can_be_replied_to? %>
-            <li><%= link_to t('quote', :scope => 'forem.topic'), new_topic_post_path(post.topic, :reply_to_id => post.id, :quote => true) %></li>
+            <li><%= link_to t('quote', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id, :quote => true) %></li>
           <% end %>
         <% end %>
         <% if post.owner_or_admin?(forem_user) %>
           <% if can?(:edit_post, post.topic.forum) %>
-            <li><%= link_to t('edit', :scope => 'forem.post'), edit_topic_post_path(post.topic, post) %></li>
+            <li><%= link_to t('edit', :scope => 'forem.post'), forem.edit_topic_post_path(post.topic, post) %></li>
           <% end %>
-          <li><%= link_to t('delete', :scope => 'forem.topic'), topic_post_path(post.topic, post), :method => :delete, :confirm => t("are_you_sure") %></li>
+          <li><%= link_to t('delete', :scope => 'forem.topic'), forem.topic_post_path(post.topic, post), :method => :delete, :confirm => t("are_you_sure") %></li>
         <% end %>
       <% end %>
     </ul>

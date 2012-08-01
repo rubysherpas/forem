@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @forum] do |f| %>
+<%= simple_form_for [forem, :admin, @forum] do |f| %>
   <%= f.association :category, :include_blank => false %>
   <%= f.input :title %>
   <%= f.input :description, :as => :text %>

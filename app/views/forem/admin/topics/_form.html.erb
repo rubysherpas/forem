@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @topic] do |f| %>
+<%= simple_form_for [forem, :admin, @topic] do |f| %>
   <%= f.input :subject %>
   <%= f.association :forum , :label => "Forum" %>
   <%= f.label :locked %>
