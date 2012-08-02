@@ -50,6 +50,8 @@ module CapybaraExt
       "#topic .moderation"
     when :post_moderation
       ".post .moderation"
+    when :started_by
+      ".started-by"
     else
       pending "No selector defined for #{identifier}. Please define one in spec/support/capybara_ext.rb"
     end
