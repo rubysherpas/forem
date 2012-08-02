@@ -40,6 +40,32 @@ describe "forums" do
         @user = FactoryGirl.create(:user)
         sign_in(@user)
       end
+
+      # Regression test for #272
+      context "when forem_state is pending_review" do
+        let(:topic) { FactoryGirl.create(:topic, :forum => forum, :user => @user) }
+        let(:other_user) { FactoryGirl.create(:user, :login => "other_user") }
+        let(:other_topic) { FactoryGirl.create(:topic, :subject => "topic started by other_user with forem_state pending_review", :forum => forum, :user => other_user) }
+
+        it "should show topic if logged in user has started topic" do
+          visit forum_path(forum)
+          assert_seen("forem_user", :within => :started_by)
+        end
+
+        it "should not show topic if other user has started topic" do
+          visit forum_path(forum)
+          within(".started-by") do
+            page.should_not have_content("other_user")
+          end
+        end
+
+        it "should show topic if logged in user is forem_admin" do
+          @user.forem_admin = true
+          visit forum_path(forum)
+          assert_seen("forem_user", :within => :started_by)
+        end
+      end
+
       it "calls out topics that have been posted to since your last visit, if you've visited" do
         visit forum_topic_path(forum.id, @topic_2)
         ::Forem::View.last.update_attribute(:updated_at, 1.minute.ago)
