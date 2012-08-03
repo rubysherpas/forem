@@ -73,7 +73,7 @@ describe "topics" do
       end
 
       it "can unsubscribe from an subscribed topic" do
-        other_topic.subscribe_user(user)
+        other_topic.subscribe_user(user.id)
         visit forum_topic_path(other_topic.forum, other_topic)
         within(selector_for(:topic_menu)) do
           click_link("Unsubscribe")
