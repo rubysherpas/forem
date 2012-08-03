@@ -5,8 +5,8 @@ describe "topic listing" do
     let!(:user) { create(:user) }
     let!(:forum) { create(:forum) }
     let!(:topic) { create(:approved_topic, :forum => forum, :user => user) }
-    let!(:approved_post) { create(:approved_post, :topic => topic, :user => user) }
-    let!(:unapproved_post) { create(:post, :topic => topic, :user => user) }
+    let!(:approved_post) { create(:approved_post, :topic => topic, :user => user, :created_at => 1.day.from_now) }
+    let!(:unapproved_post) { create(:post, :topic => topic, :user => user, :created_at => 2.days.from_now) }
 
     before do
       unapproved_post.update_attribute(:state, "pending_review")
