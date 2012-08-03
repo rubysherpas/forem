@@ -125,7 +125,7 @@ describe "posts" do
     context "deleting posts in topics" do
       context "topic contains two posts" do
         before do
-          topic.posts << FactoryGirl.build(:approved_post, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
+          topic.posts << FactoryGirl.build(:approved_post, :created_at => 1.day.from_now, :user => FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com"))
 
         end
 
