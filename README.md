@@ -95,7 +95,7 @@ You will then be able to edit the forem views inside the `app/views/forem` of yo
 
 All of Forem’s business logic (models, controllers, helpers, etc) can easily be extended / overridden to meet your exact requirements using standard Ruby idioms.
 
-Standard practice for including such changes in your application or extension is to create a file within the relevant app/models or app/controllers directory with the original class name with _decorator appended.
+Standard practice for including such changes in your application or extension is to create a directory app/decorators. place file within the relevant app/decorators/models or app/decorators/controllers directory with the original class name with _decorator appended.
 
 ### Adding a custom method to the Post model:
     # app/decorators/models/forem/post_decorator.rb
