@@ -101,6 +101,15 @@ output += step("`rake db:migrate` was run, running all the migrations against yo
         output += %Q{\nAnd finally:
 
 #{step("We told you that Forem has been successfully installed and walked you through the steps.")}}
+        unless defined?(Devise)
+          output += %Q{We have detected you're not using Devise (which is OK with us, really!), so there's one extra step you'll need to do.
+
+   You'll need to define a "sign_in_path" method for Forem to use that points to the sign in path for your application. You can set Forem.sign_in_path to a String inside config/initializers/forem.rb to do this, or you can define it in your config/routes.rb file with a line like this:
+
+          get '/users/sign_in', :to => "users#sign_in"
+
+          Either way, Forem needs one of these two things in order to work properly. Please define them!}
+        end
         output += "\nIf you have any questions, comments or issues, please post them on our issues page: http://github.com/radar/forem/issues.\n\n"
         output += "Thanks for using Forem!"
         puts output
