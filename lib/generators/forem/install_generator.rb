@@ -17,7 +17,6 @@ module Forem
       end
 
       def determine_user_class
-        # Is there a cleaner way to do this?
         @user_class = options["user-class"].presence ||
                       ask("What is your user class called? [User]").presence ||
                       'User'
