@@ -18,24 +18,16 @@ module Forem
 
       def determine_user_class
         # Is there a cleaner way to do this?
-        if options["user-class"]
-          @user_class = options["user-class"]
-        else
-          @user_class = ask("What is your user class called? [User]")
-        end
-
-        if @user_class.blank?
-          @user_class = 'User'
-        end
+        @user_class = options["user-class"].presence ||
+                      ask("What is your user class called? [User]").presence ||
+                      'User'
       end
 
       def determine_current_user_helper
-        if options["current-user-helper"]
-          current_user_helper = options["current-user-helper"]
-        else
-          current_user_helper = ask("What is the current_user helper called in your app? [current_user]")
-        end
-        current_user_helper = :current_user if current_user_helper.blank?
+        current_user_helper = options["current-user-helper"].presence ||
+                              ask("What is the current_user helper called in your app? [current_user]").presence ||
+                              :current_user
+
         puts "Defining forem_user method inside ApplicationController..."
 
         forem_user_method = %Q{
