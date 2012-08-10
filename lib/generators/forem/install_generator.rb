@@ -26,8 +26,6 @@ module Forem
 
         if @user_class.blank?
           @user_class = 'User'
-        else
-          @user_class = @user_class
         end
       end
 
