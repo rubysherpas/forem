@@ -6,4 +6,5 @@ var Forem = {};
   path = path.respond_to?(:spec) ? path.spec.to_s : path
 %>
 
-Forem.base_path = <%= path.inspect %>
+/* Strips leading slashes from base_path */
+Forem.base_path = <%= path.inspect.sub(/\A\/*/, '') %>
