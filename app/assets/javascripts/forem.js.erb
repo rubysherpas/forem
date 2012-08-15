@@ -7,4 +7,4 @@ var Forem = {};
 %>
 
 /* Strips leading slashes from base_path */
-Forem.base_path = <%= path.inspect.sub(/\A\/*/, '') %>
+Forem.base_path = <%= path.inspect.sub!(/\A\/*/, '') %>
