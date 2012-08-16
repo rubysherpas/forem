@@ -13,6 +13,8 @@ module Forem
     has_many :posts,      :through => :topics, :dependent => :destroy
     has_many :moderators, :through => :moderator_groups, :source => :group
     has_many :moderator_groups
+    has_many :allowed_viewers, :through => :allowed_groups, :source => :group
+    has_many :allowed_groups
 
     validates :category, :title, :description, :presence => true
 
