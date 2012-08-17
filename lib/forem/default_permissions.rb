@@ -23,9 +23,10 @@ module Forem
 
           user = Forem.user_class.new
 
-          p forum.allowed_viewers.first.members
-          p user
-          p forum.allowed_viewers.first.members.first == user
+          require 'awesome_print'
+          ap forum.allowed_viewers.first.members
+          ap self
+          p forum.allowed_viewers.first.members.first == self
 
           has_user = forum.allowed_viewers.any? { |group| group.members.include? user }
           p has_user
