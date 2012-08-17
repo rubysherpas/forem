@@ -19,10 +19,13 @@ module Forem
 
       unless method_defined?(:can_read_forem_forum?)
         def can_read_forem_forum?(forum)
-          p forum.allowed_viewers
           return true if forum.allowed_viewers.empty?
 
           user = Forem.user_class.new
+
+          p forum.allowed_viewers.first.members
+          p user
+          p forum.allowed_viewers.first.members.first == user
 
           has_user = forum.allowed_viewers.any? { |group| group.members.include? user }
           p has_user
