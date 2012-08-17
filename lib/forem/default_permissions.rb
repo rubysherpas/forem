@@ -21,16 +21,7 @@ module Forem
         def can_read_forem_forum?(forum)
           return true if forum.allowed_viewers.empty?
 
-          user = Forem.user_class.new
-
-          require 'awesome_print'
-          ap forum.allowed_viewers.first.members
-          ap self
-          p forum.allowed_viewers.first.members.first == self
-
-          has_user = forum.allowed_viewers.any? { |group| group.members.include? user }
-          p has_user
-          has_user
+          forum.allowed_viewers.any? { |group| group.members.include? self }
         end
       end
 
