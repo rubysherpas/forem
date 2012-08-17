@@ -22,8 +22,7 @@ module Forem
           return true if forum.allowed_viewers.empty?
 
           user = Forem.user_class.new
-          p forum.allowed_viewers
-          forum.allowed_viewers.include? user
+          forum.allowed_viewers.any? { |group| group.members.include? user }
         end
       end
 
