@@ -165,7 +165,7 @@ If all the tests are passing (they usually are), then you're good to go! Develop
 
 ## Places using Forem
 
-* [Goodsmiths](http://www.goodsmiths.com/hub)
+* [Goodsmiths](https://www.goodsmiths.com/hub)
 * [Bias Project](http://biasproject.org)
 * [Alabama Intel](http://alabamaintel.com)
 * [PixieEngine](http://pixieengine.com/community)
