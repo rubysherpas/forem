@@ -3,9 +3,6 @@ module Forem
     class TopicsController < BaseController
       before_filter :find_topic
 
-      def edit
-      end
-
       def update
         @topic.subject  = params[:topic][:subject]
         @topic.pinned   = params[:topic][:pinned]

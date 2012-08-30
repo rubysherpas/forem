@@ -8,7 +8,6 @@ module Forem
     end
 
     def show
-      @forum = Forem::Forum.find(params[:id])
       register_view
 
       @topics = if forem_admin_or_moderator?(@forum)

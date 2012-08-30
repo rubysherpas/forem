@@ -1,6 +1,8 @@
 module Forem
   module Admin
     class GroupsController < BaseController
+      before_filter :find_group, :only => [:show, :destroy]
+
       def index
         @groups = Group.all
       end
@@ -20,16 +22,17 @@ module Forem
         end
       end
 
-      def show
-        @group = Group.find(params[:id])
-      end
-
       def destroy
-        @group = Group.find(params[:id])
         @group.destroy
         flash[:notice] = t("forem.admin.group.deleted")
         redirect_to admin_groups_path
       end
+
+      private
+
+        def find_group
+          @group = Group.find(params[:id])
+        end
     end
   end
 end
