@@ -22,10 +22,6 @@ module Forem
         end
       end
 
-      def edit
-
-      end
-
       def update
         if @forum.update_attributes(params[:forum])
           flash[:notice] = t("forem.admin.forum.updated")
