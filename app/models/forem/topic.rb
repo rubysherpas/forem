@@ -107,9 +107,8 @@ module Forem
       !locked?
     end
 
-
     def subscribe_poster
-      subscribe_user(self.user_id)
+      subscribe_user(user_id)
     end
 
     def subscribe_user(user_id)
@@ -132,20 +131,20 @@ module Forem
 
     protected
     def set_first_post_user
-      post = self.posts.first
-      post.user = self.user
+      post = posts.first
+      post.user = user
     end
 
     def skip_pending_review_if_user_approved
-      self.update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
+      update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
     end
 
     def approve_user_and_posts
       return unless state_changed?
 
-      first_post = self.posts.by_created_at.first
+      first_post = posts.by_created_at.first
       first_post.approve! unless first_post.approved?
-      self.user.update_attribute(:forem_state, 'approved') if self.user.forem_state != 'approved'
+      user.update_attribute(:forem_state, 'approved') if user.forem_state != 'approved'
     end
   end
 end

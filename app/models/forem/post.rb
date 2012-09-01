@@ -89,7 +89,7 @@ module Forem
     end
 
     def owner_or_admin?(other_user)
-      self.user == other_user || other_user.forem_admin?
+      user == other_user || other_user.forem_admin?
     end
 
     def approved?
@@ -99,26 +99,26 @@ module Forem
     protected
 
     def subscribe_replier
-      if self.topic && self.user
-        self.topic.subscribe_user(self.user.id)
+      if topic && user
+        topic.subscribe_user(user.id)
       end
     end
 
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).find_each do |subscription|
         if subscription.subscriber != user
-          subscription.send_notification(self.id)
+          subscription.send_notification(id)
         end
       end
-      self.update_attribute(:notified, true)
+      update_attribute(:notified, true)
     end
 
     def set_topic_last_post_at
-      self.topic.update_attribute(:last_post_at, self.created_at)
+      topic.update_attribute(:last_post_at, created_at)
     end
 
     def skip_pending_review_if_user_approved
-      self.update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
+      update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
     end
 
     def approve_user
