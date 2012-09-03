@@ -5,9 +5,7 @@ module Forem
     belongs_to :viewable, :polymorphic => true
     belongs_to :user, :class_name => Forem.user_class.to_s
 
-    validates :viewable_id,   :presence => true
-    validates :viewable_type, :presence => true
-
+    validates :viewable_id, :viewable_type, :presence => true
     attr_accessible :user, :current_viewed_at, :count
 
     def viewed_at
