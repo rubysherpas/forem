@@ -92,10 +92,6 @@ module Forem
       user == other_user || other_user.forem_admin?
     end
 
-    def approved?
-      state == 'approved'
-    end
-
     protected
 
     def subscribe_replier
