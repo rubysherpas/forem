@@ -39,10 +39,7 @@ module Forem
 
     class << self
       def approved
-        includes(:topic).
-        select("#{quoted_table_name}.*").
-        select(Topic.arel_table[:state].eq('approved'))
-        where("forem_posts.state = ?", "approved")
+        where(:state => "approved")
       end
 
       def approved_or_pending_review_for(user)
@@ -90,10 +87,6 @@ module Forem
 
     def owner_or_admin?(other_user)
       user == other_user || other_user.forem_admin?
-    end
-
-    def approved?
-      state == 'approved'
     end
 
     protected
