@@ -65,11 +65,11 @@ module Forem
       end
 
       def visible
-        joins(:topic).where Topic.arel_table[:hidden].eq(false)
+        joins(:topic).where(:forem_topics => { :hidden => false })
       end
 
       def topic_not_pending_review
-        joins(:topic).where Topic.arel_table[:state].eq('approved')
+        joins(:topic).where(:forem_topics => { :state => 'approved'})
       end
 
       def moderate!(posts)
