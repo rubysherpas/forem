@@ -16,7 +16,7 @@ describe "topics" do
 
     it "cannot delete topics" do
       delete forum_topic_path(topic.forum, topic), :id => topic.id.to_s
-      response.should redirect_to(sign_in_path)
+      response.should redirect_to('/users/sign_in')
       flash.alert.should == "You must sign in first."
     end
   end

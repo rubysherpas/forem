@@ -4,7 +4,7 @@ describe 'post permissions' do
   let(:forum) { FactoryGirl.create(:forum) }
   let(:user) { FactoryGirl.create(:user) }
   let(:topic) { FactoryGirl.create(:topic, :forum => forum, :user => user) }
-  
+
 
   context "without permission to reply" do
     before do
@@ -65,7 +65,7 @@ describe 'post permissions' do
     it "users can see the link to reply" do
       visit forum_topic_path(forum, topic)
       click_link "Reply"
-      page.current_url.should == new_topic_post_url(topic)
+      page.current_path.should == new_topic_post_path(topic)
     end
   end
 end

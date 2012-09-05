@@ -1,6 +1,6 @@
 module PermissionHelpers
   def access_denied!
-    page.current_url.should == root_url
+    page.current_path.should == root_path
     flash_alert!(I18n.t('forem.access_denied'))
   end
 end
