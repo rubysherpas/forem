@@ -24,7 +24,7 @@ module Forem
 
     def create
       authorize! :create_topic, @forum
-      @topic = @forum.topics.build(params[:topic])
+      @topic = @forum.topics.build(params[:topic], :as => :default)
       @topic.user = forem_user
       if @topic.save
         flash[:notice] = t("forem.topic.created")
