@@ -189,7 +189,7 @@ lt:
   # General stuff
   time_ago_in_words: "prieš %{time}"
   ago: " prieš"
-  ago_by: " prieš nuo"
+  ago_by: " prieš, nuo"
   by: nuo
   started_by: "Sukurta "
   are_you_sure: Ar Jūs tuo tikras?
