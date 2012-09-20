@@ -1,0 +1,195 @@
+lt:
+  forem:
+    general:
+      forum: Diskusijų lenta
+      topics: Temos
+      topic: Tema
+      posts: Pranešimai
+      posts_count:
+        zero: Nėra pranešimų
+        one: 1 pranešimas
+        other: "%{count} pranešimų"
+      flagged_for_spam: Jūsų paskyra buvo pažymėta kaip šlamštas
+      cannot_create_topic: Šiuo metu jūs negalite sukurti naujos temos.
+      cannot_create_post: Šiuo metu jūs negalite sukurti naujo pranešimo.
+
+    access_denied: "Jūs negalite atlikti šio veiksmo."
+    admin:
+      area: Administratoriaus langas
+      welcome: "Sveiki atvykę į forem's administratoriaus langą."
+      forum:
+        index: Administruokite diskusijų lentas
+        new: Sukurti naują diskusijų lentą
+        new_link: Nauja lenta
+        deleted: Pasirinkta diskusijų lenta buvo ištrinta.
+        created: Diskusijų lenta buvo sukurta.
+        not_created: Diskusijų lenta negali būti sukurta.
+        updated: Diskusijų lenta buvo atnaujinta.
+        not_updated: Diskusijų lenta negali būti atnaujinta.
+      forums:
+        edit: Redaguoti
+        delete: Trinti
+        category: Kategorija
+        delete_confirm: Ar jūs tikrai norite ištrinti šią diskusijų lentą?
+        index:
+          last_post: Paskutinis pranešimas
+          none: Nėra
+          moderators: Prižiūrėtojai
+      group:
+        index: Administruokite grupes
+        created: Grupė buvo sėkmingai sukurta.
+        not_created: Grupė nebuvo sukurta.
+        deleted: Pasirinkta grupė buvo ištrinta.
+      groups:
+        show:
+          add_member: Pridėti
+      category:
+        index: Administruokite diskusijų lentos kategorijas
+        new: Sukurti naują kategoriją
+        new_link: Nauja diskusijų lentos kategorija
+        deleted: Pasirinkta lentos kategorija buvo ištrinta.
+        created: Lentos kategorija buvo sukurta.
+        not_created: Lentos kategorija nebuvo sukurta.
+        updated: Lentos kategorija buvo atnaujinta.
+        not_updated: Lentos kategorija nebuvo atnaujinta.
+      categories:
+        edit: Redaguoti
+        delete: Trinti
+        category: Kategorija
+        delete_confirm: Ar jūs tikrai norite ištrinti šios lentos kategoriją?
+    common:
+      pages: Puslapiai
+    errors:
+      not_signed_in: Pirmiau privalote prisijungti.
+      access_denied: Priėjimas negalimas.
+    forum:
+      header: "Peržiūrima %{title}"
+      forums: Diskusijų lentos
+      new: Naujos diskusijų lentos sukūrimas
+      edit: "Redaguojama %{title} diskusijų lenta"
+      topics_count:
+        zero: 0 temų
+        one: 1 tema
+        other: "%{count} temos(-ų)"
+      posts_count:
+        zero: 0 pranešimų
+        one: 1 pranešimas
+        other: "%{count} pranešimai(-ų)"
+      moderator_tools: "Prižiūrėtojo įrankiai"
+    forums:
+      index:
+        title: Diskusijų lentos
+        forum: Diskusijų lenta
+        views: Peržiūrėta
+        last_post: 'Paskutinis pranešimas:'
+        none: Nėra
+    topic:
+      headings:
+        topic: Tema
+        latest: Vėliausias pranešimas
+        posts: Pranešimai
+        views: Peržiūros
+      moderation:
+        success: Pasirinkta tema buvo pakoreguota.
+        no_option_selected: Nepasirinktas nei vienas koregavimo variantas.
+      received_reply: Tema kurią stebite sulaukė naujo pranešimo.
+      reply: Atsakyti
+      quote: Cituoti
+      delete: Ištrinti
+      created: Tema buvo sėkmingai sukurta.
+      new: Naujos temos kūrimas
+      edit: Redaguojama tema
+      not_created: Tema nebuvo sukurta.
+      deleted: Jūsų tema buvo ištrinta.
+      cannot_delete: 'Jūs negalite ištrinti temos, kuri nepriklauso Jums.'
+      updated: Ši tema buvo atnaujinta.
+      not_updated: Negalima atnaujinti šios temos.
+      subscribed: Jūs prisiregistravote prie šios temos.
+      unsubscribed: Jūs panaikinote registraciją prie šios temos.
+      none: Nėra temų šioje diskusijų lentoje.
+      links:
+        new: Nauja tema
+        back_to_topics: Grįžti prie temų sąrašo
+        edit: Redaguoti temą
+      not_found: 'Tema, kurią pasirinkote, nebuvo rasta.'
+      hidden:
+        'true': 'Ši tema dabar yra paslėpta.'
+        'false': 'Ši tema dabar yra rodoma.'
+      locked:
+        'true': 'Ši tema dabar yra užrakinta.'
+        'false': 'Ši tema dabar yra atrakinta.'
+      pinned:
+        'true': 'Ši tema dabar yra prikabinta.'
+        'false': 'Ši tema dabar yra atkabinta.'
+    topics:
+      show:
+        reply: Atsakyti
+        delete: Ištrinti
+        subscribe: Prisiregistruoti
+        unsubscribe: Atšaukti registraciją
+        reply_to_topic: Atsakyti į temą
+        pending_review: Ši tema turi būti peržiūrėtas prieš patvirtinant arba kūrėjo arba vieno iš prižiūrėtojų.
+        hide:
+          'true': 'Rodyti temą'
+          'false': 'Slėpti temą'
+        lock:
+          'true': 'Atrakinti temą'
+          'false': 'Užrakinti temą'
+        pin:
+          'true': 'Atkabinti temą'
+          'false': 'Prikabinti temą'
+    post:
+      buttons:
+        reply: Rašyti atsakymą
+        edit: Redaguoti
+      created: Jūsų atsakymas išsaugotas.
+      new: Rašyti atsakymą
+      edit: Redaguoti
+      not_created: Jūsų atsakymas nebuvo išsaugotas.
+      not_created_topic_locked: 'Negalite atsakyti į temą, kuri yra užrakinta.'
+      edited: Jūsų pranešimo pakeitimai išsaugoti.
+      not_edited: Jūsų pranešimo pakeitimai nebuvo išsaugoti.
+      deleted: Jūsų pranešimas buvo ištrintas.
+      deleted_with_topic: Tik pranešimas temoje ištrintas. Tema taip pat ištrinta.
+      cannot_delete: Negalite ištrinti ne savo pranešimo.
+      in_reply_to: Atsakymas į
+    posts:
+      moderation:
+        moderate: Moderuoti
+        approve: Patvirtinti
+        spam: Šiukšlė
+        success: Pasirinkti pranešimai buvo moderuoti.
+      post:
+        pending_review: Šis pranešimas turi būti peržiūrėtas prieš patvirtinant arba kūrėjo arba vieno iš prižiūrėtojų.
+    moderation:
+      title: "Moderatorių įrankiai %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Sukurti diskusijų lentą
+        update: Atnaujinti diskusijų lentą
+      topic:
+        create: Sukurti temą
+        update: Atnaujinti temą
+  simple_form:
+    labels:
+      forum:
+        title: Antraštė
+        description: Aprašymas
+      topic:
+        subject: Pavadinimas
+        locked: Užrakintas
+        pinned: Prikabintas
+        hidden: Paslėptas
+        posts:
+          text: Tekstas
+      post:
+        text: Tekstas
+
+  # General stuff
+  time_ago_in_words: "prieš %{time}"
+  ago: " prieš"
+  ago_by: " prieš, nuo"
+  by: nuo
+  started_by: "Sukurta "
+  are_you_sure: Ar Jūs tuo tikras?
