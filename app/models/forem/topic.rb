@@ -127,7 +127,7 @@ module Forem
     end
 
     def subscription_for(user_id)
-      subscriptions.first(:conditions => { :subscriber_id=>user_id })
+      subscriptions.where(:subscriber_id => user_id).first
     end
 
     def last_page
