@@ -86,7 +86,7 @@ lt:
     topic:
       headings:
         topic: Tema
-        latest: Vėliausias
+        latest: Vėliausias pranešimas
         posts: Pranešimai
         views: Peržiūros
       moderation:
@@ -99,45 +99,45 @@ lt:
       created: Tema buvo sėkmingai sukurta.
       new: Naujos temos kūrimas
       edit: Redaguojama tema
-      not_created: This topic could not be created.
-      deleted: Your topic has been deleted.
-      cannot_delete: You cannot delete a topic you do not own.
-      updated: This topic has been updated.
-      not_updated: This topic could not be updated.
-      subscribed: You have subscribed to this topic.
-      unsubscribed: You have unsubscribed from this topic.
-      none: There are no topics in this forum currently.
+      not_created: Tema nebuvo sukurta.
+      deleted: Jūsų tema buvo ištrinta.
+      cannot_delete: 'Jūs negalite ištrinti temos, kuri nepriklauso Jums.'
+      updated: Ši tema buvo atnaujinta.
+      not_updated: Negalima atnaujinti šios temos.
+      subscribed: Jūs prisiregistravote prie šios temos.
+      unsubscribed: Jūs panaikinote registraciją prie šios temos.
+      none: Nėra temų šioje diskusijų lentoje.
       links:
         new: Nauja tema
         back_to_topics: Grįžti prie temų sąrašo
         edit: Redaguoti temą
-      not_found: The topic you are looking for could not be found.
+      not_found: 'Tema, kurią pasirinkote, nebuvo rasta.'
       hidden:
-        'true': This topic is now hidden.
-        'false': This topic is now visible.
+        'true': 'Ši tema dabar yra paslėpta.'
+        'false': 'Ši tema dabar yra rodoma.'
       locked:
-        'true': This topic is now locked.
-        'false': This topic is now unlocked.
+        'true': 'Ši tema dabar yra užrakinta.'
+        'false': 'Ši tema dabar yra atrakinta.'
       pinned:
-        'true': This topic is now pinned.
-        'false': This topic is now unpinned.
+        'true': 'Ši tema dabar yra prikabinta.'
+        'false': 'Ši tema dabar yra atkabinta.'
     topics:
       show:
         reply: Atsakyti
         delete: Ištrinti
-        subscribe: Subscribe
-        unsubscribe: Unsubscribe
-        reply_to_topic: Reply to Topic
-        pending_review: This topic is currently pending review. Only the user who created it and moderators can view it.
+        subscribe: Prisiregistruoti
+        unsubscribe: Atšaukti registraciją
+        reply_to_topic: Atsakyti į temą
+        pending_review: Ši tema turi būti peržiūrėtas prieš patvirtinant arba kūrėjo arba vieno iš prižiūrėtojų.
         hide:
-          'true': Rodyti temą
-          'false': Slėpti temą
+          'true': 'Rodyti temą'
+          'false': 'Slėpti temą'
         lock:
-          'true': Atrakinti temą
-          'false': Užrakinti temą
+          'true': 'Atrakinti temą'
+          'false': 'Užrakinti temą'
         pin:
-          'true': Atkabinti temą
-          'false': Prikabinti temą
+          'true': 'Atkabinti temą'
+          'false': 'Prikabinti temą'
     post:
       buttons:
         reply: Rašyti atsakymą
@@ -160,7 +160,7 @@ lt:
         spam: Šiukšlė
         success: Pasirinkti pranešimai buvo moderuoti.
       post:
-        pending_review: This post is currently pending review. Only the user who posted it and moderators can view it.
+        pending_review: Šis pranešimas turi būti peržiūrėtas prieš patvirtinant arba kūrėjo arba vieno iš prižiūrėtojų.
     moderation:
       title: "Moderatorių įrankiai %{forum}"
   helpers:
@@ -187,7 +187,7 @@ lt:
         text: Tekstas
 
   # General stuff
-  time_ago_in_words: "%{time} ago"
+  time_ago_in_words: "prieš %{time}"
   ago: " prieš"
   ago_by: " prieš nuo"
   by: nuo
