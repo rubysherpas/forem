@@ -133,6 +133,7 @@ We currently have support for the following languages:
 * Portuguese (pt-PT)
 * Russian
 * Spanish
+* Lithuanian
 
 Patches for new translations are very much welcome!
 
