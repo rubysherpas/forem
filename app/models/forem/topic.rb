@@ -130,6 +130,10 @@ module Forem
       subscriptions.first(:conditions => { :subscriber_id=>user_id })
     end
 
+    def last_page
+      (@topic.posts.count.to_f / Forem.per_page.to_f).ceil
+    end
+
     protected
     def set_first_post_user
       post = posts.first
