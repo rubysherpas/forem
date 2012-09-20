@@ -126,7 +126,7 @@ module Forem
       subscriptions.exists?(:subscriber_id => user_id)
     end
 
-    def subscription_for user_id
+    def subscription_for(user_id)
       subscriptions.first(:conditions => { :subscriber_id=>user_id })
     end
 
