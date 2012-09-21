@@ -79,4 +79,5 @@ module Forem
         redirect_to :back
       end
     end
+  end
 end
