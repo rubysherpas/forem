@@ -26,13 +26,16 @@ Installing Forem is easy.
 
 ## Specify Gem dependencies
 
-    gem 'forem', :git => "git://github.com/radar/forem.git"
+```ruby
+gem 'forem', :git => "git://github.com/radar/forem.git"
+```
 
 And then one of `kaminari` or `will_paginate`
-
-    gem 'kaminari', '0.13.0'
-    # OR
-    gem 'will_paginate', '3.0.3'
+```ruby
+gem 'kaminari', '0.13.0'
+# OR
+gem 'will_paginate', '3.0.3'
+```
 
 ## Run the installer
 
@@ -81,7 +84,9 @@ page](https://github.com/radar/forem/issues)
 ## Auto Discovery Links
 If you would like to add auto discovery links for the built in forum Atom feeds, then add the following method inside your &lt;head&gt; tag:
 
-    <%= forem_atom_auto_discovery_link_tag %>
+```erb
+<%= forem_atom_auto_discovery_link_tag %>
+```
 
 ## View Customisation
 
@@ -98,22 +103,28 @@ All of Forem’s business logic (models, controllers, helpers, etc) can easily b
 Standard practice for including such changes in your application or extension is to create a directory app/decorators. place file within the relevant app/decorators/models or app/decorators/controllers directory with the original class name with _decorator appended.
 
 ### Adding a custom method to the Post model:
-    # app/decorators/models/forem/post_decorator.rb
 
-    Forem::Post.class_eval do
-      def some_method
-        ...
-      end
-    end
+```ruby
+# app/decorators/models/forem/post_decorator.rb
+
+Forem::Post.class_eval do
+  def some_method
+    ...
+  end
+end
+```
 
 ### Adding a custom method to the PostsController:
-    # app/decorators/controllers/forem/posts_controller_decorator.rb
 
-    Forem::PostsController.class_eval do
-      def some_action
-        ...
-      end
-    end
+```ruby
+# app/decorators/controllers/forem/posts_controller_decorator.rb
+
+Forem::PostsController.class_eval do
+  def some_action
+    ...
+  end
+end
+```
 
 The exact same format can be used to redefine an existing method.
 
