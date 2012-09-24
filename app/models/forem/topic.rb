@@ -131,7 +131,7 @@ module Forem
     end
 
     def last_page
-      (@topic.posts.count.to_f / Forem.per_page.to_f).ceil
+      (self.posts.count.to_f / Forem.per_page.to_f).ceil
     end
 
     protected
