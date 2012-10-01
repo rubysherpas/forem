@@ -184,5 +184,6 @@ If all the tests are passing (they usually are), then you're good to go! Develop
 * [Huntington's Disease Youth Organization](http://hdyo.org/)
 * [Miniand Tech](https://www.miniand.com/forums)
 * [Goodsmiths](https://www.goodsmiths.com/hub)
+* [Now Novel](http://nownovel.com/bookwriting)
 
 If you want yours added here, just ask!
