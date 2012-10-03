@@ -12,7 +12,7 @@ module Forem
     private
 
     def group
-      @group ||= Group.find(params[:group_id])
+      @group ||= Forem::Group.find(params[:group_id])
     end
   end
 end

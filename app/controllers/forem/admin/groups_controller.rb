@@ -4,15 +4,15 @@ module Forem
       before_filter :find_group, :only => [:show, :destroy]
 
       def index
-        @groups = Group.all
+        @groups = Forem::Group.all
       end
 
       def new
-        @group = Group.new
+        @group = Forem::Group.new
       end
 
       def create
-        @group = Group.new(params[:group])
+        @group = Forem::Group.new(params[:group])
         if @group.save
           flash[:notice] = t("forem.admin.group.created")
           redirect_to [:admin, @group]
@@ -31,7 +31,7 @@ module Forem
       private
 
         def find_group
-          @group = Group.find(params[:id])
+          @group = Forem::Group.find(params[:id])
         end
     end
   end

@@ -10,7 +10,7 @@ module Forem
     end
 
     def posts
-      Post.moderate!(params[:posts] || [])
+      Forem::Post.moderate!(params[:posts] || [])
       flash[:notice] = t('forem.posts.moderation.success')
       redirect_to :back
     end
@@ -29,7 +29,7 @@ module Forem
     private
 
     def forum
-      @forum = Forum.find(params[:forum_id])
+      @forum = Forem::Forum.find(params[:forum_id])
     end
 
     helper_method :forum
