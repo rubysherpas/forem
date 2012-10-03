@@ -68,10 +68,10 @@ Here's a comprehensive list of the features currently in Forem:
   * Deleting own topics
   * Blocking replies to locked topics
   * Editing posts
-  * :emoji:
 * Text Formatting
   * Posts are HTML escaped and pre tagged by default.
   * [Pluggable formatters for other behaviour (Markdown, Textile)](https://github.com/radar/forem/wiki/Formatters)
+  * :point_right: :tada: :emoji: :tada: :point_left:
 * [Theme support](https://github.com/radar/forem/wiki/Theming)
 * [A flexible permissions system](https://github.com/radar/forem/wiki/Authorization-System)
 * [Translations](https://github.com/radar/forem/wiki/Translations)
