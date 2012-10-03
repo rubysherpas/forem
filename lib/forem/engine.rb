@@ -28,6 +28,14 @@ module ::Forem
 
       # add forem helpers to main application
       ::ApplicationController.send :helper, Forem::Engine.helpers
+
+    end
+
+    # Precompile any assets included straight in certain pges
+    initializer "forem.assets.precompile", :group => :all do |app|
+      app.config.assets.precompile += %w[
+        forem/admin/members.js
+      ]
     end
   end
 end
