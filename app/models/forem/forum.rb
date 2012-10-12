@@ -10,8 +10,8 @@ module Forem
     belongs_to :category
 
     has_many :topics,     :dependent => :destroy
-    has_many :posts,      :through => :topics, :dependent => :destroy
-    has_many :moderators, :through => :moderator_groups, :source => :group
+    t_has_many :posts,      :through => :topics, :dependent => :destroy
+    t_has_many :moderators, :through => :moderator_groups, :source => :group
     has_many :moderator_groups
 
     validates :category, :title, :description, :presence => true
