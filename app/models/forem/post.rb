@@ -1,6 +1,7 @@
 module Forem
   class Post < ActiveRecord::Base
     include Workflow
+    include Tenacity
 
     workflow_column :state
     workflow do

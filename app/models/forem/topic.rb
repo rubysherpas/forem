@@ -4,6 +4,7 @@ module Forem
   class Topic < ActiveRecord::Base
     include Forem::Concerns::Viewable
     include Workflow
+    include Tenacity
 
     workflow_column :state
     workflow do

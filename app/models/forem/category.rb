@@ -3,6 +3,8 @@ require 'friendly_id'
 module Forem
   class Category < ActiveRecord::Base
     extend FriendlyId
+    include Tenacity
+    
     friendly_id :name, :use => :slugged
 
     has_many :forums

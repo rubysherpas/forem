@@ -1,5 +1,7 @@
 module Forem
   class Membership < ActiveRecord::Base
+    include Tenacity
+    
     belongs_to :group
     belongs_to :member, :class_name => Forem.user_class.to_s
 

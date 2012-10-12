@@ -1,5 +1,7 @@
 module Forem
   class Subscription < ActiveRecord::Base
+    include Tenacity
+    
     belongs_to :topic
     belongs_to :subscriber, :class_name => Forem.user_class.to_s
 

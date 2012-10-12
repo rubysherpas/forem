@@ -3,6 +3,7 @@ require 'friendly_id'
 module Forem
   class Forum < ActiveRecord::Base
     include Forem::Concerns::Viewable
+    include Tenacity
 
     extend FriendlyId
     friendly_id :title, :use => :slugged

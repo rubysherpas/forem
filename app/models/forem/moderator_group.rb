@@ -1,5 +1,7 @@
 module Forem
   class ModeratorGroup < ActiveRecord::Base
+    include Tenacity
+    
     belongs_to :forum, :inverse_of => :moderator_groups
     belongs_to :group
 
