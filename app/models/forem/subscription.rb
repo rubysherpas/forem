@@ -3,7 +3,7 @@ module Forem
     include Tenacity
     
     belongs_to :topic
-    belongs_to :subscriber, :class_name => Forem.user_class.to_s
+    t_belongs_to :subscriber, :class_name => Forem.user_class.to_s
 
     validates :subscriber_id, :presence => true
 

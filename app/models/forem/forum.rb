@@ -11,7 +11,7 @@ module Forem
     belongs_to :category
 
     has_many :topics,     :dependent => :destroy
-    t_has_many :posts,      :through => :topics, :dependent => :destroy
+    has_many :posts,      :through => :topics, :dependent => :destroy, :class_name => Forem::Post.to_s
     t_has_many :moderators, :through => :moderator_groups, :source => :group
     has_many :moderator_groups
 
