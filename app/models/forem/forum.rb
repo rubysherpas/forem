@@ -13,7 +13,7 @@ module Forem
     has_many :topics,     :dependent => :destroy
     has_many :posts,      :through => :topics, :dependent => :destroy, :class_name => Forem::Post.to_s
     t_has_many :moderators, :through => :moderator_groups, :source => :group
-    has_many :moderator_groups
+    t_has_many :moderator_groups
 
     validates :category, :title, :description, :presence => true
 
