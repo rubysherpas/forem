@@ -12,7 +12,9 @@ module Forem
         event :approve, :transitions_to => :approved
       end
       state :spam
-      state :approved
+      state :approved do
+        event :approve, :transitions_to => :approved
+      end
     end
 
     attr_accessor :moderation_option

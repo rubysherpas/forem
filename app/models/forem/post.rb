@@ -9,7 +9,9 @@ module Forem
         event :approve, :transitions_to => :approved
       end
       state :spam
-      state :approved
+      state :approved do
+        event :approve, :transitions_to => :approved
+      end
     end
 
     # Used in the moderation tools partial
