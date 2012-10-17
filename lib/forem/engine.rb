@@ -14,6 +14,8 @@ module ::Forem
         require_dependency(c)
       end
 
+      require_dependency 'forem/user_class_extensions'
+
       # add forem helpers to main application
       ::ApplicationController.send :helper, Forem::Engine.helpers
 
