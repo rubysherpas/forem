@@ -3,6 +3,9 @@
   <%= f.input :title %>
   <%= f.input :description, :as => :text %>
 
+  <h3>Private for</h3>
+  <%= f.association :allowed_viewers, :as => :check_boxes %>
+
   <h3>Moderator Groups</h3>
   <%= f.association :moderators, :as => :check_boxes %>
   <%= f.submit %>

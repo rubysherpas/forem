@@ -19,7 +19,9 @@ module Forem
 
       unless method_defined?(:can_read_forem_forum?)
         def can_read_forem_forum?(forum)
-          true
+          return true if forum.allowed_viewers.empty?
+
+          forum.allowed_viewers.any? { |group| group.members.include? self }
         end
       end
 
