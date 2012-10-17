@@ -144,7 +144,7 @@ module Forem
 
     def skip_pending_review
       if !Forem.moderate_first_post || (user && user.forem_state == 'approved')
-        update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
+        update_attribute(:state, 'approved')
       end
     end
 
