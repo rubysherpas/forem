@@ -64,6 +64,10 @@ describe "moderation" do
       Forem.moderate_first_post = false
     end
 
+    after do
+      Forem.moderate_first_post = true
+    end
+
     context "as a new user" do
       before do
         sign_in(user)
