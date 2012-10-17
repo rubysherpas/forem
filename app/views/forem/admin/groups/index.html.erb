@@ -14,7 +14,7 @@
       <tr>
         <td><%= link_to t('edit'), forem.admin_group_path(group) %></td>
         <td><%= link_to t('delete'), forem.admin_group_path(group), :method => :delete %></td>
-        <td><%= link_to group.name, forem.admin_group_path(group) %></td>
+        <td><%= link_to forem_emojify(group.name), forem.admin_group_path(group) %></td>
       </tr>
     <% end %>
   </tbody>
