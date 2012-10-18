@@ -2,6 +2,10 @@ module Forem
   module Admin
     class TopicsController < BaseController
       before_filter :find_topic
+      before_filter(:only => [:toggle_lock, :toggle_pin]) { |c| c.forem_admin_or_moderator? @topic.forum }
+      before_filter :authenticate_forem_admin, :only => [:update, :destroy, :toggle_hide]
+      
+      skip_filter :authenticate_forem_admin
 
       def update
         if @topic.update_attributes(params[:topic], :as => :admin)
@@ -37,6 +41,11 @@ module Forem
         flash[:notice] = t("forem.topic.pinned.#{@topic.pinned?}")
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
+      
+      def forem_admin_or_moderator?(forum)
+        forem_user.forem_admin? || forum.moderator?(forem_user)
+      end
+      helper_method :forem_admin_or_moderator?
 
       private
         def find_topic

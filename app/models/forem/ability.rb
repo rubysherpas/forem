@@ -36,6 +36,10 @@ module Forem
       can :moderate, Forem::Forum do |forum|
         user.can_moderate_forem_forum?(forum) || user.forem_admin?
       end
+      
+      can :moderate_topic, Forem::Topic do |topic|
+        user.can_moderate_forem_topic?(topic) || user.forem_admin?
+      end
     end
   end
 end
