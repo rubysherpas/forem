@@ -43,7 +43,7 @@ module Forem
       end
       
       def forem_admin_or_moderator?(forum)
-        forem_user.forem_admin? || forum.moderator?(forem_user)
+        forem_user && (forem_user.forem_admin? || forum.moderator?(forem_user))
       end
       helper_method :forem_admin_or_moderator?
 
