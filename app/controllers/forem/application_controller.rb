@@ -37,7 +37,7 @@ or; 2) Set Forem.sign_in_path to a String value that represents the location of 
   helper_method :forem_admin?
 
   def forem_admin_or_moderator?(forum)
-    forem_user && (forem_user.forem_admin? || forum.moderator?(forem_user))
+    forem_user && (forem_user.forem_admin? || forum.moderator?(forem_user) || forem_user.forem_mod?)
   end
   helper_method :forem_admin_or_moderator?
 

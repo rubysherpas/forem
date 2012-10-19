@@ -1,6 +1,7 @@
 module Forem
   class ForumsController < Forem::ApplicationController
     load_and_authorize_resource :only => :show
+    before_filter :authenticate_forem_user
     helper 'forem/topics'
 
     def index
