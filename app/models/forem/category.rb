@@ -8,9 +8,16 @@ module Forem
     has_many :forums
     validates :name, :presence => true
     attr_accessible :name
+    
+    after_save :create_groups
 
     def to_s
       name
+    end
+    
+    def create_groups
+      Forem::Group.create(name: name)
+      Forem::Group.create(name: name + ' Admins')
     end
 
   end
