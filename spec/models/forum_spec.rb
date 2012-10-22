@@ -7,6 +7,12 @@ describe Forem::Forum do
     forum.should be_valid
   end
   
+  describe 'creation' do
+    it 'assigns corresponding admin group' do
+      forum.moderator_groups.count.should be > 0
+    end
+  end
+  
   describe "validations" do
     it "requires a title" do
       forum.title = nil

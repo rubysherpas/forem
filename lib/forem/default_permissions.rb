@@ -37,7 +37,8 @@ module Forem
 
       unless method_defined?(:can_edit_forem_posts?)
         def can_edit_forem_posts?(forum)
-          true
+          return true if forem_admin? || forem_mod?
+          false
         end
       end
 
@@ -50,6 +51,12 @@ module Forem
       unless method_defined?(:can_moderate_forem_forum?)
         def can_moderate_forem_forum?(forum)
           forum.moderator?(self)
+        end
+      end
+      
+      unless method_defined?(:can_moderate_forem_topics?)
+        def can_moderate_forem_topic?(topic)
+          check_permissions topic.forum.category.name + Forem::Group.ADMIN_POSTFIX
         end
       end
     end

@@ -6,6 +6,16 @@ describe Forem::Category do
   it "is valid with valid attributes" do
     category.should be_valid
   end
+  
+  describe 'creation' do
+    it 'makes corresponding admin group' do
+      Forem::Group.find_by_name(category.name + ' Admins').should_not be_nil
+    end
+    
+    it 'makes corresponding category group' do
+      Forem::Group.find_by_name(category.name).should_not be_nil
+    end
+  end
 
   describe "validations" do
     it "requires a name" do
