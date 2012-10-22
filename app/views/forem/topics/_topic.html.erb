@@ -1,5 +1,6 @@
 <tr class="topic <%= cycle('odd', 'even') %> <%= topic.locked? ? 'locked' : 'unlocked' %>">
-  <td class='icon'>
+  <td class='byline icon'>
+    <div class="forum-img">img</div>
     <% if topic.locked? %>
       <span class='lock icon'></span>
     <% end %>
@@ -11,15 +12,13 @@
         <span class='new_posts icon'>new</span>
       <% end %>
     <% end %>
-  </td>
-  <td class='byline'>
     <%= new_since_last_view_text(topic) %>
-    <div class='subject'><%= link_to topic.subject, forem.forum_topic_path(@forum, topic) %></div>
-    <div class='started-by'><%= t "started_by" %><%= relevant_posts(topic).first.user %></div>
-  </td>
-  <td class='latest-post'>
-    <%= link_to_latest_post(topic) -%>
+    <div class='subject forum-desc'><%= link_to topic.subject, forem.forum_topic_path(@forum, topic) %></div>
+    <div class='started-by'><%= t "By" %> <%= relevant_posts(topic).first.user.email %></div>
   </td>
   <td class='posts-count'><%= relevant_posts(topic).count %></td>
   <td class='views-count'><%= topic.views_count %></td>
+  <td class='latest-post'>
+    <%= link_to_latest_post(topic) %>
+  </td>
 </tr>
