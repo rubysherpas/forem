@@ -1,10 +1,16 @@
 <table id='forums' class='forums subdued' cellspacing='0'>
   <thead>
   <tr>
-    <th class="desc-and-last-post"><%= t('forum', :scope => 'forem.general') %></th>
+    <th class="desc-and-last-post">
+      <% if current_page?(root_path) %>
+      <%= link_to category.name, [forem, category] %>
+      <% else %>
+      <%= link_to t('forem.forum.forums'), root_path %> &rsaquo; <%= link_to @category, [forem, @category] %>
+      <% end %>
+    </th>
     <th class="topics-count"><%= t('topics', :scope => 'forem.general') %></th>
     <th class="posts-count"><%= t('posts', :scope => 'forem.general') %></th>
-    <th class="views-count"><%= t('forem.forums.index.views') %></th>
+    <th class="views-count"><%= t('forem.forums.index.last_post') %></th>
   </tr>
   </thead>
   <tbody>
