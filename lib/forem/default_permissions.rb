@@ -7,7 +7,13 @@ module Forem
     included do
       unless method_defined?(:can_read_forem_category?)
         def can_read_forem_category?(category)
-          true
+          return true if forem_admin? || forem_mod?
+          name = category.name
+          forem_groups.each do |g|
+            return true if g.name == name || name + Forem::Group.ADMIN_POSTFIX
+          end
+
+          false
         end
       end
 
