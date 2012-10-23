@@ -81,7 +81,7 @@ en:
         title: Forums
         forum: Forum
         views: Views
-        last_post: 'Last Post:'
+        last_post: 'Last Post'
         none: None
     topic:
       headings:
