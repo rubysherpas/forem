@@ -4,6 +4,14 @@
 
 *For other screenshots, please see the `doc` folder*
 
+# Fullscreen To-do
+* Allow nested categories
+* Make posts linkable with URLs (permalinks)
+* Create user profiles
+* Google Analytics and event tracking
+
+# 
+
 # Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
 *"NO U!"*
 

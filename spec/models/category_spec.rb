@@ -9,7 +9,7 @@ describe Forem::Category do
   
   describe 'creation' do
     it 'makes corresponding admin group' do
-      Forem::Group.find_by_name(category.name + ' Admins').should_not be_nil
+      Forem::Group.find_by_name(category.name + Forem::Group.ADMIN_POSTFIX).should_not be_nil
     end
     
     it 'makes corresponding category group' do
