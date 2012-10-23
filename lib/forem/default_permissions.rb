@@ -10,7 +10,7 @@ module Forem
           return true if forem_admin? || forem_mod?
           name = category.name
           forem_groups.each do |g|
-            return true if g.name == name || name + Forem::Group.ADMIN_POSTFIX
+            return true if g.name == name || name + Forem::Group::ADMIN_POSTFIX
           end
 
           false
@@ -62,7 +62,7 @@ module Forem
       
       unless method_defined?(:can_moderate_forem_topics?)
         def can_moderate_forem_topic?(topic)
-          check_permissions topic.forum.category.name + Forem::Group.ADMIN_POSTFIX
+          check_permissions topic.forum.category.name + Forem::Group::ADMIN_POSTFIX
         end
       end
     end

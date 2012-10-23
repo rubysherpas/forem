@@ -17,7 +17,7 @@ module Forem
     
     def create_groups
       Forem::Group.create(name: name)
-      Forem::Group.create(name: name + Forem::Group.ADMIN_POSTFIX)
+      Forem::Group.create(name: name + Forem::Group::ADMIN_POSTFIX)
     end
 
   end

@@ -39,7 +39,7 @@ module Forem
     private
     
     def assign_mod_group
-      g = Forem::Group.find_by_name category.name + Forem::Group.ADMIN_POSTFIX
+      g = Forem::Group.find_by_name category.name + Forem::Group::ADMIN_POSTFIX
       Forem::ModeratorGroup.create(group_id: g.id, forum_id: id)
     end
   end
