@@ -7,10 +7,10 @@ module Forem
     included do
       unless method_defined?(:can_read_forem_category?)
         def can_read_forem_category?(category)
-          return true if forem_admin? || forem_mod?
+          return true if forem_admin? || forem_mod? || category.public?
           name = category.name
           forem_groups.each do |g|
-            return true if g.name == name || name + Forem::Group::ADMIN_POSTFIX
+            return true if g.name == name || g.name == name + Forem::Group::ADMIN_POSTFIX
           end
 
           false
@@ -62,7 +62,23 @@ module Forem
       
       unless method_defined?(:can_moderate_forem_topics?)
         def can_moderate_forem_topic?(topic)
-          check_permissions topic.forum.category.name + Forem::Group::ADMIN_POSTFIX
+          return true if forem_admin? || forem_mod?
+          forem_groups.each do |g|
+            return true if g.name == topic.forum.category.name + Forem::Group::ADMIN_POSTFIX
+          end
+
+          false
+        end
+      end
+      
+      unless method_defined?(:check_permissions)
+        def check_permissions(name)
+          return true if forem_admin? || forem_mod?
+          forem_groups.each do |g|
+            return true if g.name == name || g.name == name + Forem::Group::ADMIN_POSTFIX
+          end
+
+          false
         end
       end
     end
