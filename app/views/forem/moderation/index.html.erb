@@ -5,7 +5,7 @@
 <%= form_tag forem.forum_moderate_posts_url(forum), :method => :put do %>
   <div id='posts'>
     <% @posts.limit(25).group_by(&:topic).each do |topic, posts| %>
-      <h4><%= topic.forum.title %> &raquo; <%= topic.subject %></h4>
+      <h4><%= forem_emojify(topic.forum.title) %> &raquo; <%= forem_emojify(topic.subject) %></h4>
       <%= render posts, :mass_moderation => true %>
     <% end %>
   </div>
