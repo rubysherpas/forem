@@ -12,7 +12,9 @@ module Forem
         event :approve, :transitions_to => :approved
       end
       state :spam
-      state :approved
+      state :approved do
+        event :approve, :transitions_to => :approved
+      end
     end
 
     attr_accessor :moderation_option
@@ -35,7 +37,7 @@ module Forem
     before_save  :set_first_post_user
     after_save   :approve_user_and_posts, :if => :approved?
     after_create :subscribe_poster
-    after_create :skip_pending_review_if_user_approved
+    after_create :skip_pending_review
 
     class << self
       def visible
@@ -140,8 +142,10 @@ module Forem
       post.user = user
     end
 
-    def skip_pending_review_if_user_approved
-      update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
+    def skip_pending_review
+      if user.try(:forem_needs_moderation?)
+        update_attribute(:state, 'approved')
+      end
     end
 
     def approve_user_and_posts

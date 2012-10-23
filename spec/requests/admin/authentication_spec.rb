@@ -4,7 +4,7 @@ describe 'authentication' do
   context "anonymous users" do
     it "cannot access admin area" do
       visit admin_root_path
-      flash_alert!("Access denied.")
+      flash_alert!("You must sign in first.")
     end
   end
 

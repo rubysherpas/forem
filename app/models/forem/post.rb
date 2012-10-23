@@ -9,7 +9,9 @@ module Forem
         event :approve, :transitions_to => :approved
       end
       state :spam
-      state :approved
+      state :approved do
+        event :approve, :transitions_to => :approved
+      end
     end
 
     # Used in the moderation tools partial
@@ -31,7 +33,7 @@ module Forem
 
     after_create :set_topic_last_post_at
     after_create :subscribe_replier, :if => :user_auto_subscribe?
-    after_create :skip_pending_review_if_user_approved
+    after_create :skip_pending_review
 
     after_save :approve_user,   :if => :approved?
     after_save :blacklist_user, :if => :spam?
@@ -110,8 +112,10 @@ module Forem
       topic.update_attribute(:last_post_at, created_at)
     end
 
-    def skip_pending_review_if_user_approved
-      update_attribute(:state, 'approved') if user && user.forem_state == 'approved'
+    def skip_pending_review
+      if user.try(:forem_needs_moderation?)
+        update_attribute(:state, 'approved')
+      end
     end
 
     def approve_user

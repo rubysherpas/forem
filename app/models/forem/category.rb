@@ -7,10 +7,17 @@ module Forem
 
     has_many :forums
     validates :name, :presence => true
-    attr_accessible :name
+    attr_accessible :name, :public
+    
+    after_save :create_groups
 
     def to_s
       name
+    end
+    
+    def create_groups
+      Forem::Group.create(name: name)
+      Forem::Group.create(name: name + Forem::Group::ADMIN_POSTFIX)
     end
 
   end

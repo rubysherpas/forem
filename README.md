@@ -4,6 +4,14 @@
 
 *For other screenshots, please see the `doc` folder*
 
+# Fullscreen To-do
+* Allow nested categories
+* Make posts linkable with URLs (permalinks)
+* Create user profiles
+* Google Analytics and event tracking
+
+# 
+
 # Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
 *"NO U!"*
 
@@ -71,7 +79,7 @@ Here's a comprehensive list of the features currently in Forem:
 * Text Formatting
   * Posts are HTML escaped and pre tagged by default.
   * [Pluggable formatters for other behaviour (Markdown, Textile)](https://github.com/radar/forem/wiki/Formatters)
-  * :point_right: :tada: :emoji: :tada: :point_left:
+  * :point_right: :tada: [:emoji:](http://www.emoji-cheat-sheet.com/) :tada: :point_left:
 * [Theme support](https://github.com/radar/forem/wiki/Theming)
 * [A flexible permissions system](https://github.com/radar/forem/wiki/Authorization-System)
 * [Translations](https://github.com/radar/forem/wiki/Translations)

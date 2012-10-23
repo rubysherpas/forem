@@ -37,12 +37,16 @@ en:
           moderators: Moderators
       group:
         index: Manage Groups
+        new: New Group
         created: The group was successfully created.
         not_created: Group could not be created.
         deleted: The selected group has been deleted.
       groups:
         show:
           add_member: Add
+        edit: Edit
+        delete: Delete
+        name: Name
       category:
         index: Manage Forum Categories
         new: Creating a new Forum Category

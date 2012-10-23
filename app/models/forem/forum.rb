@@ -17,6 +17,8 @@ module Forem
     validates :category, :title, :description, :presence => true
 
     attr_accessible :category_id, :title, :description, :moderator_ids
+    
+    after_create :assign_mod_group
 
     def last_post_for(forem_user)
       if forem_user && (forem_user.forem_admin? || moderator?(forem_user))
@@ -32,6 +34,13 @@ module Forem
 
     def moderator?(user)
       user && (user.forem_group_ids & moderator_ids).any?
+    end
+    
+    private
+    
+    def assign_mod_group
+      g = Forem::Group.find_by_name category.name + Forem::Group::ADMIN_POSTFIX
+      Forem::ModeratorGroup.create(group_id: g.id, forum_id: id)
     end
   end
 end
