@@ -31,6 +31,7 @@ module Forem
 
       unless method_defined?(:can_create_forem_topics?)
         def can_create_forem_topics?(forum)
+          return true if forem_admin? || forem_mod? || forum.moderator?(self)
           !forum.forem_protected?
         end
       end
@@ -50,13 +51,13 @@ module Forem
 
       unless method_defined?(:can_read_forem_topic?)
         def can_read_forem_topic?(topic)
-          !topic.hidden? || forem_admin?
+          !topic.hidden? || forem_admin? || forem_mod?
         end
       end
 
       unless method_defined?(:can_moderate_forem_forum?)
         def can_moderate_forem_forum?(forum)
-          forum.moderator?(self)
+          forum.moderator?(self) || forem_mod?
         end
       end
       

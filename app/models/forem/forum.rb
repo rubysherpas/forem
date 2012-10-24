@@ -16,7 +16,7 @@ module Forem
 
     validates :category, :title, :description, :presence => true
 
-    attr_accessible :category_id, :title, :description, :moderator_ids
+    attr_accessible :category_id, :title, :description, :moderator_ids, :forem_protected
     
     after_create :assign_mod_group
 
