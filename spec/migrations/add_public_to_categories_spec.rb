@@ -6,12 +6,12 @@ end
 
 require Dir.glob("#{Rails.root}/db/migrate/*add_public_to_categories.forem.rb").first
 
-describe AddPublicToCategories do
+describe AddForemPublicToCategories do
   include_context "user migrations"
   
   it "adds public to forem_categories" do
     subject.should_receive('column_exists?').and_return(false)
-    subject.should_receive('add_column').with(:forem_categories, :public, :boolean, {:default=>false})
+    subject.should_receive('add_column').with(:forem_categories, :forem_public, :boolean, {:default=>false})
     subject.change
   end
 end
