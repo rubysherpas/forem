@@ -5,9 +5,11 @@ module Forem
     extend FriendlyId
     friendly_id :name, :use => :slugged
 
+    has_many :categories
     has_many :forums
+    belongs_to :category
     validates :name, :presence => true
-    attr_accessible :name, :forem_public
+    attr_accessible :name, :forem_public, :category_id
     
     after_save :create_groups
 
