@@ -31,7 +31,7 @@ module Forem
 
       unless method_defined?(:can_create_forem_topics?)
         def can_create_forem_topics?(forum)
-          true
+          !forum.forem_protected?
         end
       end
 

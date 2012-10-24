@@ -7,7 +7,7 @@ module Forem
 
     has_many :forums
     validates :name, :presence => true
-    attr_accessible :name, :public
+    attr_accessible :name, :forem_public
     
     after_save :create_groups
 
