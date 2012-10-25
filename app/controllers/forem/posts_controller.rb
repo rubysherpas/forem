@@ -3,6 +3,10 @@ module Forem
     before_filter :authenticate_forem_user
     before_filter :find_topic
     before_filter :block_spammers, :only => [:new, :create]
+    
+    def show
+      @post = Forem::Post.find params[:id]
+    end
 
     def new
       authorize! :reply, @topic
