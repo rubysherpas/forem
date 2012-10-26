@@ -9,6 +9,11 @@
 * Make posts linkable with URLs (permalinks)
 * Create user profiles
 * Google Analytics and event tracking
+* Add searching
+* Add tag cloud
+* Add quick reply
+* Add WYSIWYG
+
 
 # 
 
