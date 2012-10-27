@@ -1,9 +1,3 @@
-![Forem - using the forem-theme-twist theme](https://github.com/radar/forem/raw/master/doc/twist-theme-post.png)
-
-*Forem, using the forem-theme-twist theme*
-
-*For other screenshots, please see the `doc` folder*
-
 # Fullscreen To-do
 * Allow nested categories
 * Make posts linkable with URLs (permalinks)
@@ -13,11 +7,10 @@
 * Add tag cloud
 * Add quick reply
 * Add WYSIWYG
+* Add search
+* Add tag cloud
 
-
-# 
-
-# Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
+# Forem
 *"NO U!"*
 
 Forem is an engine for Rails that aims to be the best little forum system ever.
@@ -28,11 +21,6 @@ provides the basic functionality of forums, topics and posts.
 keep this in mind. You can view a list of the intended changes on our [Version 1.0
 Roadmap](https://github.com/radar/forem/wiki/1.0-Roadmap)
 
-# Demo
-
-A demo application can be found at [http://forem.heroku.com](http://forem.heroku.com), and the source for this application can be found on the [forem.heroku.com
-repository](http://github.com/radar/forem.heroku.com)
-
 # Installation
 
 Installing Forem is easy.
@@ -40,7 +28,7 @@ Installing Forem is easy.
 ## Specify Gem dependencies
 
 ```ruby
-gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'forem', :git => "git://github.com/fullscreeninc/forem.git"
 ```
 
 And then one of `kaminari` or `will_paginate`
@@ -162,10 +150,6 @@ We currently have support for the following languages:
 
 Patches for new translations are very much welcome!
 
-## OMG BUG! / OMG FEATURE REQUEST!
-
-File an issue and we'll get around to it when we can.
-
 ## Developing on forem
 
 Forem is implemented as a Rails engine and its specs are run in the context of a dummy Rails app. The process for getting the specs to run is similar to setting up a regular rails app:
@@ -188,16 +172,3 @@ If all the tests are passing (they usually are), then you're good to go! Develop
 * Adam McDonald
 * Zak Strassburg
 * [And more](https://github.com/radar/forem/contributors)
-
-## Places using Forem
-
-* [Bias Project](http://biasproject.org)
-* [Alabama Intel](http://alabamaintel.com)
-* [PixieEngine](http://pixieengine.com/community)
-* [2012 Presidential Election](http://www.2012-presidential-election.info/network/)
-* [Huntington's Disease Youth Organization](http://hdyo.org/)
-* [Miniand Tech](https://www.miniand.com/forums)
-* [Goodsmiths](https://www.goodsmiths.com/hub)
-* [Now Novel](http://nownovel.com/bookwriting)
-
-If you want yours added here, just ask!
