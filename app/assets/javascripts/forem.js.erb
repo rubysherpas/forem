@@ -1,9 +1,3 @@
 var Forem = {};
 
-<%
-  path = main_app.routes.named_routes[:forem].path
-  # Rails 3.2 returns a Journey::Path::Pattern object, Rails 3.1 an actual path.
-  path = path.respond_to?(:spec) ? path.spec.to_s : path
-%>
-
-Forem.base_path = <%= path.inspect %>
+Forem.base_path = '/forums'
