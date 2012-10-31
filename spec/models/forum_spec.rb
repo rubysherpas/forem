@@ -25,6 +25,16 @@ describe Forem::Forum do
   end
 
   describe "helper methods" do
+    context "name" do
+      it "is aliased to title" do
+        forum.title = "foo"
+        forum.name.should eq("foo")
+
+        forum.name = 'bar'
+        forum.title.should eq("bar")
+      end
+    end
+
     # Regression tests + tests related to fix for #42
     context "last_post" do
       let!(:visible_topic) { FactoryGirl.create(:topic, :forum => forum) }
