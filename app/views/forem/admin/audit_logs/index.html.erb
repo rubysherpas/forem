@@ -6,8 +6,8 @@
     <th>Resource</th>
     <th>Resource type</th>
     <th>Resource action</th>
-    <th></th>
-    <th></th>
+    <th>Action type</th>
+    <th>User IP</th>
     <th></th>
   </tr>
 
@@ -17,9 +17,8 @@
     <td><%= audit_log.resource_id %></td>
     <td><%= audit_log.resource_type %></td>
     <td><%= audit_log.resource_action %></td>
-    <td><%= link_to 'Show', audit_log %></td>
-    <td><%= link_to 'Edit', edit_audit_log_path(audit_log) %></td>
-    <td><%= link_to 'Destroy', audit_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= audit_log.action_type %></td>
+		<td><%= audit_log.user_ip %></td>
   </tr>
 <% end %>
 </table>

@@ -1,6 +1,6 @@
 module Forem
   module Admin
-    class BaseController < ApplicationController
+    class BaseController < Forem::ApplicationLogController
       before_filter :authenticate_forem_admin
 
       def index
@@ -10,7 +10,7 @@ module Forem
       protected
       
       def audit(resource, action)
-        AuditLog.create(user_id: current_user.id, resource_id: resource.id, resource_type: resource.class.to_s, resource_action: action)
+        super(resource, action, :admin)
       end
 
       private

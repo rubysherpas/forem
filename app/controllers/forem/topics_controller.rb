@@ -27,6 +27,7 @@ module Forem
       @topic = @forum.topics.build(params[:topic], :as => :default)
       @topic.user = forem_user
       if @topic.save
+        audit(@topic, :create)
         flash[:notice] = t("forem.topic.created")
         redirect_to [@forum, @topic]
       else
@@ -38,7 +39,7 @@ module Forem
     def destroy
       @topic = @forum.topics.find(params[:id])
       if forem_user.forem_admin?
-        @topic.destroy
+        audit(@topic, :destroy) if @topic.destroy
         flash[:notice] = t("forem.topic.deleted")
       else
         flash.alert = t("forem.topic.cannot_delete")

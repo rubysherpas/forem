@@ -1,12 +1,18 @@
 require 'cancan'
 
-class Forem::ApplicationController < ApplicationController
+class Forem::ApplicationController < Forem::ApplicationLogController
   rescue_from CanCan::AccessDenied do
     redirect_to root_path, :alert => t("forem.access_denied")
   end
 
   def current_ability
     Forem::Ability.new(forem_user)
+  end
+  
+  protected
+  
+  def audit(resource, action)
+    super(resource, action, :user)
   end
 
   private
