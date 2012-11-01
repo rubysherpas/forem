@@ -1,4 +1,6 @@
 Forem::Engine.routes.draw do
+  #resources :audit_logs
+
   root :to => "forums#index"
 
   resources :forums, :only => [:index, :show] do
@@ -40,6 +42,8 @@ Forem::Engine.routes.draw do
         put :toggle_pin
       end
     end
+    
+    resources :audit_logs
 
     get 'users/autocomplete', :to => "users#autocomplete"
   end

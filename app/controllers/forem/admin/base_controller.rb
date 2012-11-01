@@ -6,6 +6,12 @@ module Forem
       def index
         # TODO: perhaps gather some stats here to show on the admin page?
       end
+      
+      protected
+      
+      def audit(resource, action)
+        AuditLog.create(user_id: current_user.id, resource_id: resource.id, resource_type: resource.class.to_s, resource_action: action)
+      end
 
       private
 

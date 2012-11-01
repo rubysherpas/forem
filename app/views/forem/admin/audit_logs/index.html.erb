@@ -1,0 +1,25 @@
+<h1>Listing audit_logs</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Resource</th>
+    <th>Resource type</th>
+    <th>Resource action</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @audit_logs.each do |audit_log| %>
+  <tr>
+    <td><%= audit_log.user_id %></td>
+    <td><%= audit_log.resource_id %></td>
+    <td><%= audit_log.resource_type %></td>
+    <td><%= audit_log.resource_action %></td>
+    <td><%= link_to 'Show', audit_log %></td>
+    <td><%= link_to 'Edit', edit_audit_log_path(audit_log) %></td>
+    <td><%= link_to 'Destroy', audit_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

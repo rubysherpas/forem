@@ -9,6 +9,7 @@ module Forem
 
       def update
         if @topic.update_attributes(params[:topic], :as => :admin)
+          audit(@topic, :update)
           flash[:notice] = t("forem.topic.updated")
           redirect_to forum_topic_path(@topic.forum, @topic)
         else
@@ -19,25 +20,25 @@ module Forem
 
       def destroy
         forum = @topic.forum
-        @topic.destroy
+        audit(@topic, :destroy) if @topic.destroy
         flash[:notice] = t("forem.topic.deleted")
         redirect_to forum_topics_path(forum)
       end
 
       def toggle_hide
-        @topic.toggle!(:hidden)
+        audit(@forum, :hide) if @topic.toggle!(:hidden)
         flash[:notice] = t("forem.topic.hidden.#{@topic.hidden?}")
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
 
       def toggle_lock
-        @topic.toggle!(:locked)
+        audit(@forum, :lock) if @topic.toggle!(:locked)
         flash[:notice] = t("forem.topic.locked.#{@topic.locked?}")
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
 
       def toggle_pin
-        @topic.toggle!(:pinned)
+        audit(@forum, :pin) if @topic.toggle!(:pinned)
         flash[:notice] = t("forem.topic.pinned.#{@topic.pinned?}")
         redirect_to forum_topic_path(@topic.forum, @topic)
       end

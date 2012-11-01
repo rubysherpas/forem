@@ -14,6 +14,7 @@ module Forem
       def create
         @group = Forem::Group.new(params[:group])
         if @group.save
+          audit(@group, :create)
           flash[:notice] = t("forem.admin.group.created")
           redirect_to [:admin, @group]
         else
@@ -23,7 +24,7 @@ module Forem
       end
 
       def destroy
-        @group.destroy
+        audit(@group, :destroy) if @group.destroy
         flash[:notice] = t("forem.admin.group.deleted")
         redirect_to admin_groups_path
       end

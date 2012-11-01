@@ -14,6 +14,7 @@ module Forem
       def create
         @category = Forem::Category.new(params[:category])
         if @category.save
+          audit(@category, :create)
           flash[:notice] = t("forem.admin.category.created")
           redirect_to admin_categories_path
         else
@@ -24,6 +25,7 @@ module Forem
 
       def update
         if @category.update_attributes(params[:category])
+          audit(@category, :update)
           flash[:notice] = t("forem.admin.category.updated")
           redirect_to admin_categories_path
         else
@@ -33,7 +35,7 @@ module Forem
       end
 
       def destroy
-        @category.destroy
+        audit(@category, :delete) if @category.destroy
         flash[:notice] = t("forem.admin.category.deleted")
         redirect_to admin_categories_path
       end

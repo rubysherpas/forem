@@ -14,6 +14,7 @@ module Forem
       def create
         @forum = Forem::Forum.new(params[:forum])
         if @forum.save
+          audit(@forum, :create)
           flash[:notice] = t("forem.admin.forum.created")
           redirect_to admin_forums_path
         else
@@ -24,6 +25,7 @@ module Forem
 
       def update
         if @forum.update_attributes(params[:forum])
+          audit(@forum, :update)
           flash[:notice] = t("forem.admin.forum.updated")
           redirect_to admin_forums_path
         else
@@ -33,7 +35,7 @@ module Forem
       end
 
       def destroy
-        @forum.destroy
+        audit(@forum, :destroy) if @forum.destroy
         flash[:notice] = t("forem.admin.forum.deleted")
         redirect_to admin_forums_path
       end
