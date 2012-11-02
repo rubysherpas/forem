@@ -4,21 +4,20 @@
   <tr>
     <th>User</th>
     <th>Resource</th>
-    <th>Resource type</th>
     <th>Resource action</th>
     <th>Action type</th>
     <th>User IP</th>
-    <th></th>
+    <th>Did on</th>
   </tr>
 
 <% @audit_logs.each do |audit_log| %>
   <tr>
     <td><%= audit_log.user_id %></td>
-    <td><%= audit_log.resource_id %></td>
-    <td><%= audit_log.resource_type %></td>
+    <td><%= audit_log.resource unless audit_log.resource.nil? %></td>
     <td><%= audit_log.resource_action %></td>
 		<td><%= audit_log.action_type %></td>
 		<td><%= audit_log.user_ip %></td>
+		<td><%= audit_log.created_at %></td>
   </tr>
 <% end %>
 </table>

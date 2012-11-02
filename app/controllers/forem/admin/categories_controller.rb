@@ -35,7 +35,7 @@ module Forem
       end
 
       def destroy
-        audit(@category, :delete) if @category.destroy
+        audit(@category, :destroy) if @category.destroy
         flash[:notice] = t("forem.admin.category.deleted")
         redirect_to admin_categories_path
       end

@@ -1,5 +1,6 @@
 module Forem
   class ApplicationLogController < ApplicationController
+    
     protected
     
     def audit(resource, action, action_type)
