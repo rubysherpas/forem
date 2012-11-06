@@ -16,7 +16,9 @@ module Forem
 
     validates :category, :title, :description, :presence => true
 
-    attr_accessible :category_id, :title, :description, :moderator_ids, :forem_protected
+    attr_accessible :category_id, :title, :description, :moderator_ids, :forem_protected, :logo
+    
+    has_attached_file :logo, :styles => { :thumb => "100x100>" }
     
     after_create :assign_mod_group
 

@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'kaminari'
   s.add_development_dependency 'timecop', '0.3.5'
 
+  s.add_dependency 'paperclip'
   s.add_dependency 'rails', '~> 3.1'
   s.add_dependency 'simple_form'
   s.add_dependency 'cancan', '1.6.7'
