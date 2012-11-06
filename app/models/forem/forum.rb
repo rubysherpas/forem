@@ -16,7 +16,7 @@ module Forem
 
     validates :category, :title, :description, :presence => true
 
-    attr_accessible :category_id, :title, :description, :moderator_ids, :forem_protected, :logo
+    attr_accessible :category_id, :title, :description, :moderator_ids, :forem_protected, :logo, :icon
     
     has_attached_file :logo,
       :path           => '/:id/:style.:extension',
