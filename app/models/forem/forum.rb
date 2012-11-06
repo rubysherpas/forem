@@ -18,7 +18,16 @@ module Forem
 
     attr_accessible :category_id, :title, :description, :moderator_ids, :forem_protected, :logo
     
-    has_attached_file :logo, :styles => { :thumb => "100x100>" }
+    has_attached_file :logo,
+      :path           => '/:id/:style.:extension',
+      :storage        => :s3,
+      :url            => ':s3_alias_url',
+      :s3_host_alias  => ENV["s3_host_alias"],
+      :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),
+      :bucket         => ENV["s3_bucket"],
+    :styles => {
+      :thumb => ['50x50#', :png]
+    }
     
     after_create :assign_mod_group
 
