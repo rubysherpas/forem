@@ -11,6 +11,10 @@ module Forem
     
     after_save :create_groups
 
+    def forums_in_alphabetical
+      forums.sort_by { |f| f.title.downcase }
+    end
+
     def to_s
       name
     end
