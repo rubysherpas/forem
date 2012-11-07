@@ -24,6 +24,15 @@ module Forem
         flash.alert = t("forem.post.not_created_topic_locked")
         redirect_to [@topic.forum, @topic] and return
       end
+
+      n = Nokogiri::HTML(params[:post][:text])
+      if n.xpath("/html/body/p/img/@class").text <=> "mceItem"
+        ytid = n.xpath("/html/body/p/img/@alt").text 
+        url = 'http://www.youtube.com/embed/'+ytid
+        params[:post][:text] = '<iframe width="425" height="350" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
+      end
+
+      params[:post][:text] = CGI.escapeHTML params[:post][:text]
       @post = @topic.posts.build(params[:post])
       @post.user = forem_user
       if @post.save
@@ -45,6 +54,13 @@ module Forem
     def update
       authorize! :edit_post, @topic.forum
       @post = Forem::Post.find(params[:id])
+      n = Nokogiri::HTML(params[:post][:text])
+      if n.xpath("/html/body/p/img/@class").text <=> "mceItem"
+        ytid = n.xpath("/html/body/p/img/@alt").text 
+        url = 'http://www.youtube.com/embed/'+ytid
+        params[:post][:text] = '<iframe width="425" height="350" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
+      end
+      params[:post][:text] = CGI.escapeHTML params[:post][:text]
       if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
         audit(@post, :update)
         redirect_to [@topic.forum, @topic], :notice => t('edited', :scope => 'forem.post')
