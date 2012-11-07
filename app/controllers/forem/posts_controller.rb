@@ -47,6 +47,7 @@ module Forem
     def update
       authorize! :edit_post, @topic.forum
       @post = Forem::Post.find(params[:id])
+
       params[:post][:text] = CGI.escapeHTML params[:post][:text]
       if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
         audit(@post, :update)
