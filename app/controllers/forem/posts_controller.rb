@@ -26,7 +26,7 @@ module Forem
       end
 
       n = Nokogiri::HTML(params[:post][:text])
-      if n.xpath("/html/body/p/img/@class").text <=> "mceItem"
+      if n.xpath("/html/body/p/img/@class").text == "mceItem"
         ytid = n.xpath("/html/body/p/img/@alt").text 
         url = 'http://www.youtube.com/embed/'+ytid
         params[:post][:text] = '<iframe width="425" height="350" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
@@ -55,7 +55,7 @@ module Forem
       authorize! :edit_post, @topic.forum
       @post = Forem::Post.find(params[:id])
       n = Nokogiri::HTML(params[:post][:text])
-      if n.xpath("/html/body/p/img/@class").text <=> "mceItem"
+      if n.xpath("/html/body/p/img/@class").text == "mceItem"
         ytid = n.xpath("/html/body/p/img/@alt").text 
         url = 'http://www.youtube.com/embed/'+ytid
         params[:post][:text] = '<iframe width="425" height="350" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
