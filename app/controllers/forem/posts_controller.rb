@@ -29,7 +29,10 @@ module Forem
       if n.xpath("/html/body/p/img/@class").text == "mceItem"
         ytid = n.xpath("/html/body/p/img/@alt").text 
         url = 'http://www.youtube.com/embed/'+ytid
-        params[:post][:text] = '<iframe width="425" height="350" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
+        old_node = n.xpath("/html/body/p/img").first
+        new_node = n.create_element 'iframe', :width => '425', :height => '350', :frameborder => '0', :src => url, :allowfullscreen => '1'
+        old_node.replace new_node
+        params[:post][:text] = n.xpath("/html/body/p").to_s
       end
 
       params[:post][:text] = CGI.escapeHTML params[:post][:text]
@@ -54,12 +57,17 @@ module Forem
     def update
       authorize! :edit_post, @topic.forum
       @post = Forem::Post.find(params[:id])
+
       n = Nokogiri::HTML(params[:post][:text])
       if n.xpath("/html/body/p/img/@class").text == "mceItem"
         ytid = n.xpath("/html/body/p/img/@alt").text 
         url = 'http://www.youtube.com/embed/'+ytid
-        params[:post][:text] = '<iframe width="425" height="350" src="' + url + '" frameborder="0" allowfullscreen></iframe>'
+        old_node = n.xpath("/html/body/p/img").first
+        new_node = n.create_element 'iframe', :width => '425', :height => '350', :frameborder => '0', :src => url, :allowfullscreen => '1'
+        old_node.replace new_node
+        params[:post][:text] = n.xpath("/html/body/p").to_s
       end
+
       params[:post][:text] = CGI.escapeHTML params[:post][:text]
       if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
         audit(@post, :update)
