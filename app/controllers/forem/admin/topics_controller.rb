@@ -26,19 +26,19 @@ module Forem
       end
 
       def toggle_hide
-        audit(@forum, :hide) if @topic.toggle!(:hidden)
+        audit(@topic, :hide) if @topic.toggle!(:hidden)
         flash[:notice] = t("forem.topic.hidden.#{@topic.hidden?}")
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
 
       def toggle_lock
-        audit(@forum, :lock) if @topic.toggle!(:locked)
+        audit(@topic, :lock) if @topic.toggle!(:locked)
         flash[:notice] = t("forem.topic.locked.#{@topic.locked?}")
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
 
       def toggle_pin
-        audit(@forum, :pin) if @topic.toggle!(:pinned)
+        audit(@topic, :pin) if @topic.toggle!(:pinned)
         flash[:notice] = t("forem.topic.pinned.#{@topic.pinned?}")
         redirect_to forum_topic_path(@topic.forum, @topic)
       end
