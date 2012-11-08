@@ -18,7 +18,7 @@ class Forem::ApplicationController < Forem::ApplicationLogController
   private
 
   def authenticate_forem_user
-    if !forem_user
+    if !forem_user && !current_user
       session["user_return_to"] = request.fullpath
       flash.alert = t("forem.errors.not_signed_in")
       devise_route = "new_#{Forem.user_class.to_s.underscore}_session_path"
