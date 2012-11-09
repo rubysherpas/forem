@@ -10,6 +10,11 @@
 * Add search
 * Add tag cloud
 
+# Bad stuffs
+* Topic and Post controller destroy modified to only let admins delete
+* CanCan permissions coded in
+* Default permissions coded in
+
 # Forem
 *"NO U!"*
 

@@ -12,6 +12,7 @@ PATH
       forem-redcarpet (= 1.0.0)
       friendly_id (~> 4.0)
       gemoji (~> 1.1.1)
+      paperclip
       rails (~> 3.1)
       simple_form
       workflow (= 0.8.0)
@@ -48,6 +49,11 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    aws-sdk (1.3.9)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     blankslate (3.1.2)
     builder (3.0.0)
@@ -61,6 +67,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
+    cocaine (0.4.2)
     database_cleaner (0.8.0)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
@@ -78,9 +85,12 @@ GEM
     forem-redcarpet (1.0.0)
       pygments.rb (= 0.2.4)
       redcarpet (= 2.0.1)
-    friendly_id (4.0.8)
-    gemoji (1.1.1)
+    friendly_id (4.0.9)
+    gemoji (1.1.2)
     hike (1.2.1)
+    httparty (0.8.3)
+      multi_json (~> 1.0)
+      multi_xml
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.1)
@@ -100,9 +110,16 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.6)
+    multi_xml (0.5.1)
     mysql2 (0.3.11)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
+    paperclip (3.1.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     pg (0.14.1)
     polyglot (0.3.3)
     pygments.rb (0.2.4)
@@ -155,7 +172,7 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
-    simple_form (2.0.3)
+    simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     sprockets (2.1.3)
@@ -170,6 +187,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.33)
+    uuidtools (2.1.3)
     warden (1.2.1)
       rack (>= 1.0)
     workflow (0.8.0)
@@ -180,6 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   capybara
   database_cleaner
   devise
@@ -190,6 +209,7 @@ DEPENDENCIES
   kaminari
   launchy
   mysql2
+  paperclip
   pg
   rails (~> 3.1)
   rspec-rails (~> 2.6)
