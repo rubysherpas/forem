@@ -26,13 +26,18 @@ module Forem
       @@per_page || 20
     end
 
+    def user_class=(obj)
+      @@user_class = obj.to_s
+    end
+
     def user_class
-      if @@user_class.is_a?(Class)
-        raise "You can no longer set Forem.user_class to be a class. Please use a string instead.\n\n " +
-              "See https://github.com/radar/forem/issues/88 for more information."
-      elsif @@user_class.is_a?(String)
-        Object.const_get(@@user_class)
-      end
+      Object.const_get(@@user_class)
+    end
+
+    # Method to work around problem defined in #329
+    # Used by associations
+    def user_class_string
+      "::" + user_class.to_s
     end
   end
 end
