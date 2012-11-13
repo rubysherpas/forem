@@ -4,7 +4,7 @@ module Forem
       before_filter :find_forum, :only => [:edit, :update, :destroy]
 
       def index
-        @forums = Forem::Forum.all
+        @forums = Forem::Forum.all(:include => :topics)
       end
 
       def new

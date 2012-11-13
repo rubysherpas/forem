@@ -51,6 +51,9 @@ module Forem
       private
         def find_topic
           @topic = Forem::Topic.find(params[:id])
+          
+        rescue Exception
+          @topic = Forem::Topic.find_by_slug params[:id]
         end
     end
   end
