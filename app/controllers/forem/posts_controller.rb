@@ -29,7 +29,7 @@ module Forem
       @post = @topic.posts.build(params[:post])
       @post.user = forem_user
       if @post.save
-        audit(@post, :create)
+        audit(@post, :create, :user)
         flash[:notice] = t("forem.post.created")
         redirect_to forum_topic_url(@topic.forum, @topic, :page => @topic.last_page)
       else
@@ -50,7 +50,7 @@ module Forem
 
       params[:post][:text] = CGI.escapeHTML params[:post][:text]
       if @post.owner_or_admin?(forem_user) and @post.update_attributes(params[:post])
-        audit(@post, :update)
+        audit(@post, :update, :mod)
         redirect_to [@topic.forum, @topic], :notice => t('edited', :scope => 'forem.post')
       else
         flash.now.alert = t("forem.post.not_edited")
@@ -61,7 +61,7 @@ module Forem
     def destroy
       @post = @topic.posts.find(params[:id])
       if forem_admin?
-        audit(@post, :destroy) if @post.destroy
+        audit(@post, :destroy, :admin) if @post.destroy
         if @post.topic.posts.count == 0
           @post.topic.destroy
           flash[:notice] = t("forem.post.deleted_with_topic")

@@ -8,12 +8,6 @@ class Forem::ApplicationController < Forem::ApplicationLogController
   def current_ability
     Forem::Ability.new(forem_user)
   end
-  
-  protected
-  
-  def audit(resource, action)
-    super(resource, action, :user)
-  end
 
   private
 
