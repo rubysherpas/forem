@@ -46,11 +46,11 @@ module Forem
 
       def approved_or_pending_review_for(user)
         if user
-          where arel_table[:state].eq('approved').or(
+          where(arel_table[:state].eq('approved').or(
                   arel_table[:state].eq('pending_review').and(arel_table[:user_id].eq(user.id))
-                )
+                )).visible
         else
-          approved
+          approved.visible
         end
       end
 

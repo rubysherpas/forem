@@ -57,7 +57,12 @@ module Forem
 
       unless method_defined?(:can_moderate_forem_forum?)
         def can_moderate_forem_forum?(forum)
-          forum.moderator?(self) || forem_mod?
+          return true if forum.moderator?(self) || forem_mod? || forem_admin?
+          forem_groups.each do |g|
+            return true if g.name == forum.category.name + Forem::Group::ADMIN_POSTFIX
+          end
+
+          false
         end
       end
       

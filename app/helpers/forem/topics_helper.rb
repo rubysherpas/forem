@@ -26,7 +26,7 @@ module Forem
       elsif topic.user == forem_user
         posts.visible.approved_or_pending_review_for(topic.user)
       else
-        posts.approved
+        posts.visible.approved
       end
     end
 
