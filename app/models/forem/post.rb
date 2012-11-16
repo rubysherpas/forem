@@ -1,6 +1,8 @@
 module Forem
   class Post < ActiveRecord::Base
     include Workflow
+    
+    TRUNCATE_LENGTH = 50
 
     workflow_column :state
     workflow do
@@ -89,6 +91,10 @@ module Forem
 
     def owner_or_admin?(other_user)
       user == other_user || other_user.forem_admin?
+    end
+    
+    def to_s
+      truncate(text.html_safe, :length => TRUNCATE_LENGTH)
     end
 
     protected

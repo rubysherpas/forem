@@ -6,7 +6,7 @@ module Forem
       # GET /audit_logs
       # GET /audit_logs.json
       def index
-        @audit_logs = AuditLog.all
+        @audit_logs = AuditLog.page params[:page]
   
         respond_to do |format|
           format.html # index.html.erb

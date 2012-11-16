@@ -29,7 +29,6 @@ module Forem
       @post = @topic.posts.build(params[:post])
       @post.user = forem_user
       if @post.save
-        audit(@post, :create, :user)
         flash[:notice] = t("forem.post.created")
         redirect_to forum_topic_url(@topic.forum, @topic, :page => @topic.last_page)
       else

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= audit_log.user_id %></td>
+  <td><%= link_to get_resource_path(audit_log.resource), audit_log.resource_list unless audit_log.resource.nil? %></td>
+	<td><%= audit_log.resource_type %></td>
+  <td><%= audit_log.resource_action %></td>
+	<td><%= audit_log.action_type %></td>
+	<td><%= audit_log.user_ip %></td>
+	<td><%= audit_log.created_at %></td>
+</tr>

@@ -27,7 +27,6 @@ module Forem
       @topic = @forum.topics.build(params[:topic], :as => :default)
       @topic.user = forem_user
       if @topic.save
-        audit(@topic, :create, :user)
         flash[:notice] = t("forem.topic.created")
         redirect_to [@forum, @topic]
       else
