@@ -10,7 +10,7 @@ Forem::Engine.routes.draw do
     end
   end
 
-  resources :topics do
+  resources :topics, :only => [:new, :create, :index, :show, :destroy] do
     resources :posts
   end
 
@@ -20,7 +20,7 @@ Forem::Engine.routes.draw do
   # Moderation of a single topic
   put 'forums/:forum_id/topics/:topic_id/moderate', :to => "moderation#topic", :as => :moderate_forum_topic
 
-  resources :categories
+  resources :categories, :only => [:index, :show]
 
   namespace :admin do
     root :to => "base#index"
