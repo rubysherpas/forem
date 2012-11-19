@@ -10,6 +10,10 @@ module Forem
     attr_accessible :name, :forem_public
     
     after_save :create_groups
+    
+    def forums
+      Forem::Forum.where(category_id: id).includes([:category])
+    end
 
     def forums_in_alphabetical
       forums.sort_by { |f| f.title.downcase }

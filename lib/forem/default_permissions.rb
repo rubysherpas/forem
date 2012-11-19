@@ -7,6 +7,7 @@ module Forem
     included do
       unless method_defined?(:can_read_forem_category?)
         def can_read_forem_category?(category)
+          return false unless accepted_terms?
           return true if forem_admin? || forem_mod? || category.forem_public?
           name = category.name
           forem_groups.each do |g|
