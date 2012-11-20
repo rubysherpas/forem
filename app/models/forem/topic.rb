@@ -32,7 +32,8 @@ module Forem
 
     accepts_nested_attributes_for :posts
 
-    validates :subject, :presence => true
+    #validates :subject, :presence => true
+    validates :subject, :length => { :minimum => 2, :maximum => 64 }
 
     before_save  :set_first_post_user
     after_save   :approve_user_and_posts, :if => :approved?
