@@ -13,7 +13,7 @@ module Forem
 
         if forum_view
           if topic_view.nil? && topic.created_at > forum_view.past_viewed_at
-            content_tag :super, "New"
+            content_tag :span, :class => "new_posts icon"
           end
         end
       end
