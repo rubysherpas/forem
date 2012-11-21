@@ -97,6 +97,15 @@ module Forem
       truncate(text.html_safe, :length => TRUNCATE_LENGTH)
     end
 
+    def topic_index
+      self.topic.posts.index(self) + 1
+    end
+
+    def topic_page
+      index = self.topic_index
+      (index.to_f / Forem.per_page.to_f).ceil
+    end
+
     protected
 
     def subscribe_replier
