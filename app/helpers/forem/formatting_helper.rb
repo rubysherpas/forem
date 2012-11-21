@@ -5,7 +5,8 @@ module Forem
       if Forem.formatter
         Forem.formatter.format(as_sanitized_text(text))
       else
-        simple_format(h(text))
+        h(text)
+        #simple_format(h(text))
       end
     end
 
