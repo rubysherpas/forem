@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'rspec-rails', '~> 2.6'
-  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'capybara', '1.1.3'
   s.add_development_dependency 'rails', '~> 3.1'
   s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'factory_girl_rails', '~> 1.7'
