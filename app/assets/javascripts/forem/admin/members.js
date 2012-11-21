@@ -5,8 +5,8 @@
 //
 (function($) {
   $(document).ready(function() {
-    group_id = $('#add_member').data('group-id');
-    $('#new_member').autocomplete({source: Forem.base_path + '/admin/users/autocomplete'})
+    group_id = $('#add_member').data('group-id')
+    $('#new_member').autocomplete({source: '/forums/admin/users/autocomplete'})
 
     $("#new_member").bind("autocompleteselect", function(event, ui) {
       $("#add_member").attr('disabled', false)
