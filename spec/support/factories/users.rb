@@ -7,6 +7,7 @@ FactoryGirl.define do
     f.forem_auto_subscribe true
 
     factory :admin do |f|
+      f.login "forem_admin"
       f.forem_admin true
     end
     
