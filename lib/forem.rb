@@ -31,7 +31,11 @@ module Forem
         raise "You can no longer set Forem.user_class to be a class. Please use a string instead.\n\n " +
               "See https://github.com/radar/forem/issues/88 for more information."
       elsif @@user_class.is_a?(String)
-        Object.const_get(@@user_class)
+        begin
+          Object.const_get(@@user_class)
+        rescue NameError
+          @@user_class.constantize
+        end
       end
     end
   end
