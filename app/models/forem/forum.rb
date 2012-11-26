@@ -20,6 +20,9 @@ module Forem
 
     alias_attribute :name, :title
 
+    # Fix for #339
+    default_scope order('title ASC')
+
     def last_post_for(forem_user)
       if forem_user && (forem_user.forem_admin? || moderator?(forem_user))
         posts.last

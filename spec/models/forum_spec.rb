@@ -6,7 +6,11 @@ describe Forem::Forum do
   it "is valid with valid attributes" do
     forum.should be_valid
   end
-  
+
+  it "is scoped by default" do
+    Forem::Forum.scoped.to_sql.should =~ /ORDER BY title ASC/
+  end
+
   describe "validations" do
     it "requires a title" do
       forum.title = nil
