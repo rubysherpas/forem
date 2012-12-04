@@ -2,8 +2,8 @@ Forem::Category.create(:name => 'General')
 
 user = Forem.user_class.first
 unless user.nil?
-  forum = Forem::Forum.find_or_create_by_title( :category_id => Forem::Category.first.id, 
-                               :title => "Default",
+  forum = Forem::Forum.find_or_create_by_name(:category_id => Forem::Category.first.id, 
+                               :name => "Default",
                                :description => "Default forem created by install")
 
   post = Forem::Post.find_or_initialize_by_text("Hello World")

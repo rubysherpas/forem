@@ -8,12 +8,12 @@ describe Forem::Forum do
   end
 
   it "is scoped by default" do
-    Forem::Forum.scoped.to_sql.should =~ /ORDER BY title ASC/
+    Forem::Forum.scoped.to_sql.should =~ /ORDER BY name ASC/
   end
 
   describe "validations" do
-    it "requires a title" do
-      forum.title = nil
+    it "requires a name" do
+      forum.name = nil
       forum.should_not be_valid
     end
 
