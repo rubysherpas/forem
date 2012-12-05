@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'timecop'
 
 describe Forem::Topic do
   before(:each) do
@@ -93,11 +94,14 @@ describe Forem::Topic do
       end
 
       it "doesn't update the view time if less than 15 minutes ago" do
-        cur_time = Time.now.utc
-        @topic.views.create(:user => @user, :current_viewed_at => cur_time)
+        frozen_time = 1.minute.ago
+        Timecop.freeze(frozen_time) do
+          @topic.views.create :user => @user
+        end
+
         @topic.register_view_by(@user)
 
-        @topic.view_for(@user).current_viewed_at.to_i.should eq(cur_time.to_i)
+        @topic.view_for(@user).current_viewed_at.to_i.should eq(frozen_time.to_i)
       end
 
       it "does update the view time if more than 15 minutes ago" do
