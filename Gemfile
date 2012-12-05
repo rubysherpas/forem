@@ -7,3 +7,6 @@ gemspec
 gem 'sqlite3', :platform => :ruby
 gem 'pg'
 gem 'mysql2'
+
+gem 'pry-rails'
+gem 'pry-nav'
