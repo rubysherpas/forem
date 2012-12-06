@@ -9,6 +9,14 @@ class Forem::ApplicationController < ApplicationController
     Forem::Ability.new(forem_user)
   end
 
+  protected
+
+  # Ensure canonical URL for a single resource
+  def ensure_canonical_url
+    resource = instance_variable_get(:"@#{controller_name.singularize}")
+    redirect_to resource, :status => :moved_permanently if resource.slug != params[:id]
+  end
+
   private
 
   def authenticate_forem_user
@@ -40,5 +48,4 @@ or; 2) Set Forem.sign_in_path to a String value that represents the location of 
     forem_user && (forem_user.forem_admin? || forum.moderator?(forem_user))
   end
   helper_method :forem_admin_or_moderator?
-
 end

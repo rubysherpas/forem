@@ -1,6 +1,7 @@
 module Forem
   class ForumsController < Forem::ApplicationController
     load_and_authorize_resource :only => :show
+    before_filter :ensure_canonical_url, :only => :show
     helper 'forem/topics'
 
     def index

@@ -21,4 +21,12 @@ describe Forem::TopicsController do
       flash[:alert].should == "The topic you are looking for could not be found."
     end
   end
+  context "visiting on a non-canonical URL" do
+    specify do
+      topic = FactoryGirl.create(:topic, :approved)
+      get :show, :forum_id => topic.forum.id, :id => topic.id
+      response.code.to_i.should == 301
+      response.body.should include forum_topic_path(topic.forum, topic)
+    end
+  end
 end
