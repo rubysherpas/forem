@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'forem/formatters/redcarpet'
 
 describe "forums" do
   let!(:forum) { FactoryGirl.create(:forum) }
@@ -9,6 +10,21 @@ describe "forums" do
       page.should have_content("Welcome to Forem!")
       within(".description") do
         page.should have_content("A placeholder forum.")
+      end
+    end
+  end
+
+  # Regression test for #352
+  context "can include Markdown within a forum's description" do
+    before { Forem.formatter = Forem::Formatters::Redcarpet }
+    after { Forem.formatter = nil }
+
+    it "includes a strong tag in a description" do
+
+      forum.update_column(:description, "The **best** forum!")
+      visit forums_path
+      within(".forum") do
+        assert find(".description").has_css?("strong")
       end
     end
   end

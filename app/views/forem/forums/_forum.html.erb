@@ -2,7 +2,7 @@
   <tr class="forum <%= cycle("odd", "even") %>">
     <td>
       <%= link_to forem_emojify(forum.title), forem.forum_path(forum), :class => "title" %>
-      <div class='description'><%= forem_emojify(forum.description) %></div>
+      <div class='description'><%= forem_format(forum.description) %></div>
       <%= t('forem.forums.index.last_post') -%>
       <span class='last_post'>
           <% if last_post = forum.last_post_for(forem_user) -%>
