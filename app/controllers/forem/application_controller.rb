@@ -4,12 +4,23 @@ class Forem::ApplicationController < Forem::ApplicationLogController
   rescue_from CanCan::AccessDenied do
     redirect_to root_path, :alert => t("forem.access_denied")
   end
+  
+  before_filter :redirect_banned_user
 
   def current_ability
     Forem::Ability.new(forem_user)
   end
 
   private
+  def redirect_banned_user
+    if forem_user.nil? || current_user.nil?
+      flash[:notice] = 'You do not have access to the forums.'
+      redirect_to sign_in_path
+    elsif forem_user.banned?
+      flash[:notice] = 'You do not have access to the forums.'
+      redirect_to main_app.root_path
+    end
+  end
 
   def authenticate_forem_user
     if !forem_user && !current_user
