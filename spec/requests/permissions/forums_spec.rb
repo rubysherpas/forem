@@ -58,7 +58,7 @@ describe 'forum permissions' do
       within("#forum h2") do
         page.should have_content("Welcome to Forem!")
       end
-      within("#forum small") do
+      within("#forum #description") do
         page.should have_content("A placeholder forum.")
       end
     end
