@@ -26,6 +26,11 @@ describe "forums" do
       within(".forum") do
         assert find(".description").has_css?("strong")
       end
+
+      visit forum_path(forum)
+      within("#forum") do
+        assert find("#description").has_css?("strong")
+      end
     end
   end
 
