@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 3.1'
   s.add_dependency 'simple_form'
-  s.add_dependency 'cancan', '1.6.7'
+  s.add_dependency 'cancan', '1.6.8'
   s.add_dependency 'forem-redcarpet', '1.0.0'
   s.add_dependency 'workflow', '0.8.0'
   s.add_dependency 'friendly_id', '~> 4.0'
