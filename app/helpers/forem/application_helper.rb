@@ -1,6 +1,9 @@
+require 'emoticon_fontify'
+
 module Forem
   module ApplicationHelper
     include FormattingHelper
+
     # processes text with installed markup formatter
     def forem_format(text, *options)
       forem_emojify(as_formatted_html(text))
@@ -34,20 +37,14 @@ module Forem
       end
     end
 
-    def forem_atom_auto_discovery_link_tag  
+    def forem_atom_auto_discovery_link_tag
       if controller_name == "topics" && action_name == "show"
         auto_discovery_link_tag(:atom)
       end
     end
 
     def forem_emojify(content)
-      h(content).to_str.gsub(/:([a-z0-9\+\-_]+):/) do |match|
-        if Emoji.names.include?($1)
-          '<img alt="' + $1 + '" height="20" src="' + asset_path("emoji/#{$1}.png") + '" style="vertical-align:middle" width="20" />'
-        else
-          match
-        end
-      end.html_safe if content.present?
+      ::EmoticonFontify.emoticon_fontify(h(content))
     end
   end
 end
