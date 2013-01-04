@@ -15,7 +15,7 @@ class Forem::ApplicationController < Forem::ApplicationLogController
   def redirect_banned_user
     if forem_user.nil? || current_user.nil?
       flash[:notice] = 'You do not have access to the forums.'
-      redirect_to sign_in_path
+      redirect_to Forem.sign_in_path
     elsif forem_user.banned?
       flash[:notice] = 'You do not have access to the forums.'
       redirect_to main_app.root_path
