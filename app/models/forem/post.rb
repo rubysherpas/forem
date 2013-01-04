@@ -90,7 +90,7 @@ module Forem
     end
 
     def owner_or_admin?(other_user)
-      user == other_user || other_user.forem_admin?
+      user == other_user || other_user.forem_admin? || topic.forum.moderator?(other_user)
     end
     
     def to_s
