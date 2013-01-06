@@ -27,7 +27,7 @@ describe "When a post is displayed " do
   describe "rdiscount formatter" do
     before {
       # MRI-specific C-extention tests
-      if RUBY_VERSION < "1.9" || RUBY_ENGINE == "ruby"
+      if Forem::Platform.mri?
         Forem.formatter = Forem::Formatters::Redcarpet
       else
         Forem.formatter = Forem::Formatters::Kramdown

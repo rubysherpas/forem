@@ -1,6 +1,7 @@
-# MRI-specific C-extention tests
-if RUBY_VERSION < "1.9" || RUBY_ENGINE == "ruby"
+# MRI-specific C-extention
+if Forem::Platform.mri?
   require "forem/formatters/redcarpet"
 else
+  # JRuby
   require "forem/formatters/kramdown"
 end
