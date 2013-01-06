@@ -33,7 +33,8 @@ describe "managing forums" do
         category = FactoryGirl.create(:category)
         fill_in "Title", :with => "FIRST FORUM"
         fill_in "Description", :with => "The first placeholder forum."
-        select "Category", :with => forum.category.id
+
+        select category.name, :from => "forum_category_id"
         click_button 'Create Forum'
 
         flash_notice!("This forum has been created.")
@@ -44,7 +45,7 @@ describe "managing forums" do
         click_button 'Create Forum'
 
         flash_alert!("This forum could not be created.")
-        find_field("forum_title").value.should eql("")
+        find_field("forum_title").value.should be_blank
       end
 
       it "is invalid without description" do
@@ -52,7 +53,7 @@ describe "managing forums" do
         click_button 'Create Forum'
 
         flash_alert!("This forum could not be created.")
-        find_field("forum_description").value.should eql("")
+        find_field("forum_description").value.chomp.should be_blank
       end
 
       it "does not keep fail flash message for next request" do
@@ -60,7 +61,8 @@ describe "managing forums" do
         click_button 'Create Forum'
         flash_alert!("This forum could not be created.")
         visit root_path
-        page.should_not have_content("This forum could not be created.")
+        # page.should_not have_content("This forum could not be created.")
+        page.html.should_not match("This forum could not be created.")
       end
     end
 
@@ -86,7 +88,8 @@ describe "managing forums" do
         click_button "Update Forum"
         flash_alert!("This forum could not be updated.")
         visit root_path
-        page.should_not have_content("This forum could not be updated.")
+        # page.should_not have_content("This forum could not be updated.")
+        page.html.should_not match("This forum could not be updated.")
       end
 
       it "deleting a forum" do

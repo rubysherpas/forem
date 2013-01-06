@@ -17,7 +17,7 @@ describe "moderation" do
         click_button "Create Topic"
 
         flash_notice!("This topic has been created.")
-        assert_seen("This topic is currently pending review. Only the user who created it and moderators can view it.", :within => :topic_moderation)
+        assert_seen("This topic is currently pending review. Only the user who created it and moderators can view it.")
       end
 
 
@@ -26,7 +26,10 @@ describe "moderation" do
         topic.approve!
         visit forum_topic_path(forum, topic)
 
-        click_link "Reply"
+        within("menu") do
+          click_link "Reply"
+        end
+
         fill_in "Text", :with => "I am replying to a topic."
         click_button "Reply"
 
@@ -36,7 +39,8 @@ describe "moderation" do
 
       it "cannot see the moderation tools" do
         visit forum_path(forum)
-        page.should_not have_content("Moderation Tools")
+        # page.should_not have_content("Moderation Tools")
+        page.html.should_not match("Moderation Tools")
       end
 
       it "cannot see a unapproved topic by another user" do
@@ -54,7 +58,8 @@ describe "moderation" do
         topic.approve!
 
         visit forum_topic_path(forum, topic)
-        page.should_not have_content("BUY VIAGRA")
+        # page.should_not have_content("BUY VIAGRA")
+        page.html.should_not match("BUY VIAGRA")
       end
     end
   end
@@ -88,7 +93,10 @@ describe "moderation" do
         topic = FactoryGirl.create(:topic, :forum => forum)
         visit forum_topic_path(forum, topic)
 
-        click_link "Reply"
+        within("menu") do
+          click_link "Reply"
+        end
+
         fill_in "Text", :with => "I am replying to a topic."
         click_button "Reply"
 

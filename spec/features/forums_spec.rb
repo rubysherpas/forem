@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'forem/formatters/redcarpet'
 
 describe "forums" do
   let!(:forum) { FactoryGirl.create(:forum) }
@@ -16,7 +15,14 @@ describe "forums" do
 
   # Regression test for #352
   context "can include Markdown within a forum's description" do
-    before { Forem.formatter = Forem::Formatters::Redcarpet }
+    before {
+      # MRI-specific C-extention tests
+      if RUBY_VERSION < "1.9" || RUBY_ENGINE == "ruby"
+        Forem.formatter = Forem::Formatters::Redcarpet
+      else
+        Forem.formatter = Forem::Formatters::Kramdown
+      end
+    }
     after { Forem.formatter = nil }
 
     it "includes a strong tag in a description" do
@@ -70,20 +76,26 @@ describe "forums" do
 
         it "should show topic if logged in user has started topic" do
           visit forum_path(forum)
-          assert_seen("forem_user", :within => :started_by)
+
+          page.all(".topics .topic .started-by").each do |div|
+            div.should have_content("forem_user")
+          end
         end
 
         it "should not show topic if other user has started topic" do
           visit forum_path(forum)
-          within(".started-by") do
-            page.should_not have_content("other_user")
-          end
+
+          # FIXME: capybara 2.0 / ruby 1.8.7 issue
+          # page.all(".topics .topic .started-by").each do |div|
+          #   div.should_not have_content("other_user")
+          # end
+          page.html.should_not match("other_user")
         end
 
         it "should show topic if logged in user is forem_admin" do
           @user.forem_admin = true
           visit forum_path(forum)
-          assert_seen("forem_user", :within => :started_by)
+          assert_seen("forem_user")
         end
       end
 

@@ -11,7 +11,10 @@ describe "user links" do
     it "is able to click a user link" do
       visit forum_topic_path(post.forum, post.topic)
       # There should be at least one link on the page with the user's name
-      click_link post.user.to_s
+      within("#post_#{post.id}") do
+        click_link post.user.to_s
+      end
+
       page.should have_content("A user's page!")
     end
   end

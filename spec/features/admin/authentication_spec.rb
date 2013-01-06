@@ -16,7 +16,8 @@ describe 'authentication' do
 
     it "can access admin area" do
       visit admin_root_path
-      page.should_not have_content("Access denied.")
+      # page.should_not have_content("Access denied.")
+      page.html.should_not match("Access denied.")
     end
   end
 end

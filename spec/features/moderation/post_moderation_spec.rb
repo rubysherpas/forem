@@ -29,7 +29,7 @@ describe "moderation" do
         click_link "Moderation Tools"
 
         choose "Approve"
-        click_button "Moderate"
+        first(:button, "Moderate").click
 
         flash_notice!("The selected posts have been moderated.")
         post.reload
@@ -42,7 +42,8 @@ describe "moderation" do
         click_link "Moderation Tools"
 
         choose "Spam"
-        click_button "Moderate"
+        first(:button, "Moderate").click
+
         flash_notice!("The selected posts have been moderated.")
         post.reload
         post.should be_spam

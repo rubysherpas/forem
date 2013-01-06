@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'forem/formatters/redcarpet'
 
 describe "When a post is displayed " do
   let(:forum) { FactoryGirl.create(:forum) }
@@ -10,8 +9,8 @@ describe "When a post is displayed " do
     it "renders untagged plain text" do
       visit forum_topic_path(forum, topic)
       # Regression test for #72
-      within(".contents") do
-        page.should_not have_css("pre")
+      page.all(".contents").each do |div|
+        div.should_not have_css("pre")
       end
 
       page.should have_content(post.text)
@@ -26,14 +25,24 @@ describe "When a post is displayed " do
   end
 
   describe "rdiscount formatter" do
-    before { Forem.formatter = Forem::Formatters::Redcarpet }
+    before {
+      # MRI-specific C-extention tests
+      if RUBY_VERSION < "1.9" || RUBY_ENGINE == "ruby"
+        Forem.formatter = Forem::Formatters::Redcarpet
+      else
+        Forem.formatter = Forem::Formatters::Kramdown
+      end
+    }
     after { Forem.formatter = nil }
 
     it "renders marked up text" do
       post.text = "**strong text goes here**"
       post.save!
       visit forum_topic_path(forum, topic)
-      page.should have_css("strong", :text => "strong text goes here")
+
+      within("strong") do
+        page.should have_content("strong text goes here")
+      end
     end
 
     it "does not render HTML tags in post text" do
@@ -47,7 +56,10 @@ describe "When a post is displayed " do
       post.text = "> **strong text**\n\n"
       post.save!
       visit forum_topic_path(forum, topic)
-      page.should have_css('blockquote strong', :text=>'strong text')
+
+      within("blockquote strong") do
+        page.should have_content("strong text")
+      end
     end
   end
 end

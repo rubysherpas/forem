@@ -10,13 +10,6 @@ describe "posts" do
       visit new_topic_post_path(topic)
       flash_alert!("You must sign in first.")
     end
-
-    it "cannot delete posts" do
-      first_post = topic.posts[0]
-      delete topic_post_path(topic, first_post), :id => first_post.id.to_s
-      response.should redirect_to('/users/sign_in')
-      flash.alert.should == "You must sign in first."
-    end
   end
 
   context "signed in users" do
@@ -85,7 +78,7 @@ describe "posts" do
       before do
         other_user = FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com")
         topic.posts << FactoryGirl.build(:approved_post, :user => other_user)
-        second_post = topic.posts[1]
+        @second_post = topic.posts[1]
       end
 
       it "can edit their own post" do
@@ -100,8 +93,8 @@ describe "posts" do
       end
 
       it "should not allow you to edit a post you don't own" do
-        second_post = topic.posts[1]
-        visit edit_topic_post_path(topic, second_post)
+        # second_post = topic.posts[1]
+        visit edit_topic_post_path(topic, @second_post)
         fill_in "Text", :with => "an evil edit"
         click_button "Edit"
         flash_alert!("Your post could not be edited")
@@ -109,9 +102,13 @@ describe "posts" do
 
       it "should not display edit link on posts you don't own" do
         visit forum_topic_path(forum, topic)
-        within(selector_for(:second_post)) do
-          page.should have_no_content("Edit")
-        end
+
+        # all("#post_#{@second_post.id} ul.actions a").each do |a|
+        #   a.should_not have_content("Edit")
+        # end
+        all("#post_#{@second_post.id} ul.actions a").map do |a|
+          a.native.children.first.text
+        end.should_not include("Edit")
       end
 
       it "should display edit link on posts you own" do
