@@ -1,4 +1,4 @@
-<% case ENV['DB']
+<% case ENV["DB"]
   when 'sqlite' %>
 development:
   adapter: sqlite3
@@ -11,19 +11,19 @@ production:
   database: "db/forem_production.sqlite3"
 <% when 'mysql' %>
 development:
-  adapter: mysql2
+  adapter: <%= Forem::Platform.jruby? ? "mysql" : "mysql2" %>
   database: forem_development
-  username:
+  username: <%= ENV["CI"] ? "root" : "" %>
   encoding: utf8
 test:
-  adapter: mysql2
+  adapter: <%= Forem::Platform.jruby? ? "mysql" : "mysql2" %>
   database: forem_test
-  username:
+  username: <%= ENV["CI"] ? "root" : "" %>
   encoding: utf8
 production:
-  adapter: mysql2
+  adapter: <%= Forem::Platform.jruby? ? "mysql" : "mysql2" %>
   database: forem_production
-  username:
+  username: <%= ENV["CI"] ? "root" : "" %>
   encoding: utf8
 <% when 'postgres' %>
 development:

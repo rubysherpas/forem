@@ -4,6 +4,7 @@ require 'active_support/core_ext/kernel/singleton_class'
 require 'forem/engine'
 require 'forem/autocomplete'
 require 'forem/default_permissions'
+require 'forem/platform'
 require 'workflow'
 
 require 'decorators'

@@ -17,7 +17,7 @@ describe "forums" do
   context "can include Markdown within a forum's description" do
     before {
       # MRI-specific C-extention tests
-      if RUBY_VERSION < "1.9" || RUBY_ENGINE == "ruby"
+      if Forem::Platform.mri?
         Forem.formatter = Forem::Formatters::Redcarpet
       else
         Forem.formatter = Forem::Formatters::Kramdown

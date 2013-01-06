@@ -51,7 +51,7 @@ describe Forem::FormattingHelper do
       let(:markdown) { "**strong text**" }
       before {
         # MRI-specific C-extention tests
-        if RUBY_VERSION < "1.9" || RUBY_ENGINE == "ruby"
+        if Forem::Platform.mri?
           Forem.formatter = Forem::Formatters::Redcarpet
         else
           Forem.formatter = Forem::Formatters::Kramdown
