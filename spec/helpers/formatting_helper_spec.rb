@@ -47,16 +47,22 @@ describe Forem::FormattingHelper do
       end
     end
 
-    describe "Redcarpet" do
-      require 'forem-redcarpet'
+    describe "Markdown" do
       let(:markdown) { "**strong text**" }
-      before { Forem.formatter = Forem::Formatters::Redcarpet }
+      before {
+        # MRI-specific C-extention tests
+        if RUBY_VERSION < "1.9" || RUBY_ENGINE == "ruby"
+          Forem.formatter = Forem::Formatters::Redcarpet
+        else
+          Forem.formatter = Forem::Formatters::Kramdown
+        end
+      }
 
       describe "uses <blockquote> if no blockquote method" do
         subject { helper.as_quoted_text(markdown) }
         before { Forem.formatter.stub('respond_to?').with(:blockquote).and_return(false) }
         it "wraps the content in blockquotes" do
-         subject.should == "<blockquote>#{markdown}</blockquote>\n\n"
+          subject.should == "<blockquote>#{markdown}</blockquote>\n\n"
         end
         it {should be_html_safe}
       end
