@@ -64,7 +64,11 @@ describe 'post permissions' do
 
     it "users can see the link to reply" do
       visit forum_topic_path(forum, topic)
-      click_link "Reply"
+
+      within("menu") do
+        click_link "Reply"
+      end
+
       page.current_path.should == new_topic_post_path(topic)
     end
   end
