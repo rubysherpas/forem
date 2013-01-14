@@ -94,7 +94,7 @@ module Forem
     end
     
     def to_s
-      truncate(text.html_safe, :length => TRUNCATE_LENGTH)
+      text.html_safe
     end
 
     def topic_index
