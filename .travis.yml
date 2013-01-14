@@ -1,5 +1,6 @@
 language: ruby
-script: "bundle exec rake forem:dummy_app --trace; bundle exec rspec spec"
+before_script: bundle exec rake forem:dummy_app --trace
+script: bundle exec rspec spec
 env:
   - DB=sqlite
   - DB=mysql
