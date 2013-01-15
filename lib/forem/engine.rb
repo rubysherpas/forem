@@ -10,15 +10,7 @@ module ::Forem
     end
 
     config.to_prepare do
-      Dir.glob(Rails.root + "app/decorators/**/*_decorator*.rb").each do |c|
-        require_dependency(c)
-      end
-
-      require_dependency 'forem/user_class_extensions'
-
-      # add forem helpers to main application
-      ::ApplicationController.send :helper, Forem::Engine.helpers
-
+      Decorators.register! Engine.root, Rails.root
     end
 
     # Precompile any assets included straight in certain pges
