@@ -1,8 +1,6 @@
 module Forem
   class Post < ActiveRecord::Base
     include Workflow
-    
-    TRUNCATE_LENGTH = 50
 
     workflow_column :state
     workflow do
@@ -29,7 +27,7 @@ module Forem
                        :foreign_key => "reply_to_id",
                        :dependent   => :nullify
 
-    validates :text, :presence => true
+    validates :text, :presence => true, :length => { :minimum => 1, :maximum => 65000, :too_long => "Your post is too long." }
 
     delegate :forum, :to => :topic
 
