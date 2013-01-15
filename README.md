@@ -4,7 +4,7 @@
 
 *For other screenshots, please see the `doc` folder*
 
-# Forem [![Build status](http://travis-ci.org/radar/forem.png)](http://travis-ci.org/radar/forem)
+# Forem [![Build status](https://api.travis-ci.org/radar/forem.png)](https://travis-ci.org/radar/forem)
 *"NO U!"*
 
 Forem is an engine for Rails that aims to be the best little forum system ever.
