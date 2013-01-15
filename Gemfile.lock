@@ -11,7 +11,7 @@ PATH
       cancan (= 1.6.8)
       decorators (~> 1.0.1)
       forem-redcarpet (= 1.0.0)
-      friendly_id (~> 4.0)
+      friendly_id (~> 4.0, >= 4.0.9)
       gemoji (= 1.1.2)
       rails (~> 3.1)
       simple_form
