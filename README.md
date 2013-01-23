@@ -77,7 +77,7 @@ Here's a comprehensive list of the features currently in Forem:
 * [Translations](https://github.com/radar/forem/wiki/Translations)
 * [Flexible configuration](https://github.com/radar/forem/wiki/Configuration)
 * [Integration with
-  RefineryCMS](https://github.com/radar/forem/wiki/Integration-with-RefineryCMS)
+  Refinery CMS](https://github.com/radar/forem/wiki/Integration-with-Refinery-CMS)
 
 If there's a feature you think would be great to add to Forem, let us know on [the Issues
 page](https://github.com/radar/forem/issues)
