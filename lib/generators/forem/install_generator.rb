@@ -116,7 +116,7 @@ output += step("`rake db:migrate` was run, running all the migrations against yo
 
           get '/users/sign_in', :to => "users#sign_in"
 
-          Either way, Forem needs one of these two things in order to work properly. Please define them!}
+   Either way, Forem needs one of these two things in order to work properly. Please define them!}
         end
         output += "\nIf you have any questions, comments or issues, please post them on our issues page: http://github.com/radar/forem/issues.\n\n"
         output += "Thanks for using Forem!"
