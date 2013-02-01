@@ -42,7 +42,11 @@ gem 'will_paginate', '3.0.3'
 **Ensure that you first of all have a `User` model and some sort of authentication system set up**. We would recommend going with [Devise](http://github.com/plataformatec/devise), but it's up to
 you. All Forem needs is a model to link topics and posts to.
 
-Run `rails g forem:install` and answer any questions that pop up. There's sensible defaults there if you don't want to answer them.
+Run the installer and answer any questions that pop up. There's sensible defaults there if you don't want to answer them.
+
+```shell
+rails g forem:install
+```
 
 And you're done! Yaaay!
 
