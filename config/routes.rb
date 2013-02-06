@@ -41,6 +41,6 @@ Forem::Engine.routes.draw do
       end
     end
 
-    get 'users/autocomplete', :to => "users#autocomplete"
+    get 'users/autocomplete', :to => "users#autocomplete", :as => :user_autocomplete
   end
 end

@@ -1,0 +1,11 @@
+<%= javascript_include_tag "forem" %>
+
+<script>
+  Forem.routes = {}
+  Forem.routes.admin_base_path = "<%= forem.admin_root_url %>"
+  Forem.routes.admin_user_autocomplete = "<%= forem.admin_user_autocomplete_url %>"
+
+  Forem.routes.admin_group_members = function(group_id) {
+    return Forem.routes.admin_base_path + "/groups/" + group_id + "/members"
+  }
+</script>
