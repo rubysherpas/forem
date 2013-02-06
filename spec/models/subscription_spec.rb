@@ -20,5 +20,12 @@ describe Forem::Subscription do
       topic.subscriptions.should_receive(:create!).with(:subscriber_id => topic.user_id)
       topic.run_callbacks(:create)
     end
+
+    # Regression test for #375
+    it "does not send a notification when user is missing" do
+      subscription = Forem::Subscription.new
+      Forem::SubscriptionMailer.should_not_receive(:topic_reply)
+      subscription.send_notification(1)
+    end
   end
 end
