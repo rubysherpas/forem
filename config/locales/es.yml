@@ -34,6 +34,7 @@ es:
         index:
           last_post: Ultimo mesaje
           none: Ningúno
+          moderators: Moderadores
       group:
         index: Organizar Grupos
         new: Nuevo Grupo
