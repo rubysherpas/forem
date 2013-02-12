@@ -36,12 +36,16 @@ es:
           none: Ningúno
       group:
         index: Organizar Grupos
+        new: Nuevo Grupo
         created: El grupo ha sido creado.
         not_created: El grupo no pudo ser creado.
         deleted: El grupo seleccionado ha sido borrado.
       groups:
         show:
           add_member: Agregar
+        edit: Editar
+        delete: Borrar
+        name: Nombre
       category:
         index: Organizar las categorías Forum
         new: Crear una nueva categoría de Forum
@@ -90,6 +94,8 @@ es:
         views: Vistas
       moderation:
         success: El tema seleccionado ha sido modificado por el moderador.
+        no_option_selected: Ninguna opción de moderación fue seleccionada.
+      received_reply: Un tema al que te has subscripto ha recibido una respuesta.
       reply: Responder
       quote: Comentar
       delete: Borrar
@@ -154,6 +160,7 @@ es:
       moderation:
         moderate: Moderar
         approve: Aprobar
+        spam: Spam
         success: Los temas seleccionados han sido moderados
       post:
         pending_review: Este mensaje esta en revision. Solamente el autor y los moderadores pueden verlo.
@@ -189,4 +196,3 @@ es:
   by: por
   started_by: "Iniciado por "
   are_you_sure: ¿Esta seguro?
-
