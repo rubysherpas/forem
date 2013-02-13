@@ -82,7 +82,7 @@ it:
     post:
       buttons:
         reply: Invia la risposta
-      created: La tua risposta non è stata inviata.
+      created: La tua risposta è stata inviata.
       new: Risposta
       not_created: La tua risposta non può essere inviata.
       not_created_topic_locked: Non puoi rispondere ad un argomento bloccato.
