@@ -9,14 +9,14 @@ es:
         zero: Sin mensajes
         one: 1 mensaje
         other: "%{count} mensajes"
-      flagged_for_spam: Su cuenta ha sido marcada en correo no deseado.
+      flagged_for_spam: Su cuenta ha sido marcada como spam.
       cannot_create_topic: Usted no puede crear un tema nuevo en este momento.
-      cannot_create_post: Usted no puede crear un mesaje nuevo en este momento.
+      cannot_create_post: Usted no puede crear un mensaje nuevo en este momento.
 
     access_denied: "No tiene permiso para hacer eso."
     admin:
-      area: Admin Area
-      welcome: "Bienvenido al área de administrador de forem."
+      area: Área de administración
+      welcome: "Bienvenido al área de administración de forem."
       forum:
         index: Organizar Foros
         new: Crear un nuevo foro
@@ -32,8 +32,8 @@ es:
         category: Categoría
         delete_confirm: ¿Está seguro de que quiere borrar el foro?
         index:
-          last_post: Ultimo mesaje
-          none: Ningúno
+          last_post: Último mensaje
+          none: Ninguno
           moderators: Moderadores
       group:
         index: Organizar Grupos
@@ -59,57 +59,57 @@ es:
       categories:
         edit: Editar
         delete: Borrar
-        category: categoría
-        delete_confirm: ¿Esta seguro de que quiere borrar ésta categoría de foro?
+        category: Categoría
+        delete_confirm: ¿Esta seguro de que quiere borrar esta categoría de foro?
     common:
       pages: Páginas
     errors:
       not_signed_in: Primero debe registrarse.
       access_denied: Accesso negado.
     forum:
-      header: "Vista Actual %{title}"
+      header: "Viendo %{title}"
       forums: Foros
       new: Creando un foro nuevo
-      edit: "Modificando foro %{title}"
+      edit: "Modificando el foro %{title}"
       topics_count:
         zero: 0 temas
         one: 1 tema
         other: "%{count} temas"
       posts_count:
-        zero: 0 mesajes
-        one: 1 mesaje
-        other: "%{count} mesajes"
-      moderator_tools: "Instrumentos de Moderador"
+        zero: 0 mensajes
+        one: 1 mensaje
+        other: "%{count} mensajes"
+      moderator_tools: "Herramientas de Moderaciónr"
     forums:
       index:
         title: Foros
         forum: Foro
         views: Vistas
-        last_post: 'Ultimo Mesaje:'
-        none: Ningúno
+        last_post: 'Último Mensaje:'
+        none: Ninguno
     topic:
       headings:
         topic: Tema
-        latest: Ultimo
-        posts: Mesajes
+        latest: Último
+        posts: Mensajes
         views: Vistas
       moderation:
         success: El tema seleccionado ha sido modificado por el moderador.
         no_option_selected: Ninguna opción de moderación fue seleccionada.
       received_reply: Un tema al que te has subscripto ha recibido una respuesta.
       reply: Responder
-      quote: Comentar
+      quote: Citar
       delete: Borrar
       created: Este tema ha sido creado.
-      new: Creando tema nuevo
-      edit: Modificar tema
+      new: Creando un tema nuevo
+      edit: Modificando tema
       not_created: Este tema no pudo ser creado.
       deleted: Su tema ha sido borrado.
       cannot_delete: Usted no puede borrar un tema que no es suyo.
       updated: Este tema ha sido modificado.
       not_updated: Este tema no pudo ser modificado.
       subscribed: Usted se ha registrado en este tema.
-      unsubscribed: Usted ya no esta registrado en este tema.
+      unsubscribed: Usted ya no está registrado en este tema.
       none: Actualemente no hay temas en este foro.
       links:
         new: Tema nuevo
@@ -117,22 +117,22 @@ es:
         edit: Modificar tema
       not_found: El tema que esta buscando no pudo ser encontrado
       hidden:
-        'true': Este tema esta escondido.
-        'false': Este tema es a hora visible.
+        'true': Este tema ahora está oculto.
+        'false': Este tema ahora es visible.
       locked:
         'true': Este tema ha sido bloqueado.
         'false': Este tema ha sido desbloqueado.
       pinned:
-        'true': Este tema ha sido marcado.
-        'false': Esta tema esta desmarcado.
+        'true': Este tema ha sido fijado.
+        'false': Esta tema está desfijado.
     topics:
       show:
         reply: Responder
         delete: Borrar
-        subscribe: Suscribir
-        unsubscribe: Remover Subscripcion
+        subscribe: Suscribirse
+        unsubscribe: Remover Subscripción
         reply_to_topic: Responder a Tema
-        pending_review: Este tema esta actualemente pendiente de revision. Solamente el autor y moderadores tienen acceso.
+        pending_review: Este tema está actualemente pendiente de revisión. Solamente el autor y los moderadores tienen acceso.
         hide:
           'true': Mostrar Tema
           'false': Ocultar Tema
@@ -140,8 +140,8 @@ es:
           'true': Desbloquear Tema
           'false': Bloquear Tema
         pin:
-          'true': Desmarcar Tema
-          'false': Marcar Tema
+          'true': Desfijar Tema
+          'false': Fijar Tema
     post:
       buttons:
         reply: Responder
@@ -151,10 +151,10 @@ es:
       edit: Modificar
       not_created: Su respuesta no pudo ser publicada.
       not_created_topic_locked: Usted no puedo un tema bloqueado.
-      edited: Su mesaje ha sido modificado.
-      not_edited: Su mesaje no pudo ser modificado.
-      deleted: Su mesaje ha sido borrado.
-      deleted_with_topic: El unico mensaje del tema ha sido borrado. Tema eliminado.
+      edited: Su mensaje ha sido modificado.
+      not_edited: Su mensaje no pudo ser modificado.
+      deleted: Su mensaje ha sido borrado.
+      deleted_with_topic: El único mensaje del tema ha sido borrado. Tema eliminado.
       cannot_delete: Usted no puede borrar un mensaje ajeno
       in_reply_to: En respuesta a
     posts:
@@ -164,9 +164,9 @@ es:
         spam: Spam
         success: Los temas seleccionados han sido moderados
       post:
-        pending_review: Este mensaje esta en revision. Solamente el autor y los moderadores pueden verlo.
+        pending_review: Este mensaje está en revisión. Solamente el autor y los moderadores pueden verlo.
     moderation:
-      title: "Instrumentos de moderacion para %{forum}"
+      title: "Herramientas de moderación para %{forum}"
   helpers:
     submit:
       forum:
@@ -183,17 +183,17 @@ es:
       topic:
         subject: Tema
         locked: Bloqueado
-        pinned: Marcado
-        hidden: Escondido
+        pinned: Fijado
+        hidden: Oculto
         posts:
           text: Texto
       post:
         text: Texto
 
   # General stuff
-  time_ago_in_words: "%{time} atras"
-  ago: " atras"
-  ago_by: " atras por"
+  time_ago_in_words: "%{time} atrás"
+  ago: " atrás"
+  ago_by: " atrás por"
   by: por
   started_by: "Iniciado por "
-  are_you_sure: ¿Esta seguro?
+  are_you_sure: ¿Está seguro?
