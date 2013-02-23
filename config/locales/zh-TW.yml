@@ -1,0 +1,199 @@
+zh-TW:
+  forem:
+    general:
+      forum: 版面
+      topics: 主題
+      topic: 主題
+      posts: 回應
+      posts_count:
+        zero: 0 回應
+        one: 1 回應
+        other: "%{count} 回應"
+      flagged_for_spam: 您的帳號已經被標記為垃圾訊息
+      cannot_create_topic: 您目前無法建立新主題
+      cannot_create_post: 您目前無法發表回應
+
+    access_denied: 存取被拒
+    admin:
+      area: "管理論壇"
+      welcome: "歡迎來到Forem管理頁面"
+      forum:
+        index: 管理版面
+        new: 建立新版面
+        new_link: 建立新版面
+        deleted: 選擇的版面已被刪除
+        created: 版面已建立
+        not_created: 版面無法建立
+        updated: 版面已更新
+        not_updated: 版面無法更新
+      forums:
+        edit: 編輯
+        delete: 刪除
+        category: 分類
+        delete_confirm: 您確定要刪除此版面嗎?
+        index:
+          last_post: 最後回覆
+          none: 無
+          moderators: 板主
+      group:
+        index: 管理群組
+        new: 建立新群組
+        created: 群組已成功建立。
+        not_created: 無法建立群組。
+        deleted: 選擇的群組已被刪除。
+      groups:
+        show:
+          add_member: 新增
+        edit: 編輯
+        delete: 刪除
+        name: 名稱
+      category:
+        index: 管理版面分類
+        new: 新建分類
+        new_link: 新建分類
+        deleted: 選擇的分類已被刪除。
+        created: 這個分類已被建立。
+        not_created: 這個分類無法被建立。
+        updated: 這個分類已被更新。
+        not_updated: 這個分類無法被更新。
+      categories:
+        edit: 編輯
+        delete: 刪除
+        category: 分類
+        delete_confirm: 您確定要刪除此版面分類嗎？
+    common:
+      pages: 頁面
+    errors:
+      not_signed_in: 請先登入
+      access_denied: 存取被拒
+    forum:
+      header: "查看 %{title}"
+      forums: 論壇
+      new: 建立新版面
+      edit: "編輯版面：%{title}"
+      topics_count:
+        zero: 0 主題
+        one: 1 主題
+        other: "%{count} 主題"
+      posts_count:
+        zero: 0 回應
+        one: 1 回應
+        other: "%{count} 回應"
+      moderator_tools: "板主工具"
+    forums:
+      index:
+        title: 論壇
+        forum: 版面
+        views: 觀看次數
+        last_post: 最新的回應：
+        none: 無
+    topic:
+      headings:
+        topic: "主題"
+        latest: "最新"
+        posts: "回應"
+        views: "觀看次數"
+      moderation:
+        success: 選擇的主題已經完成審核。
+        no_option_selected: 未選擇審核意見。
+      received_reply: 您訂閱的主題有新回應。
+      reply: 回應
+      quote: 引用
+      delete: 删除
+      created: 主題已被建立
+      new: 建立一個新主題
+      edit: 編輯主題
+      not_created: 主題無法被建立
+      deleted: 您的主題已被删除
+      cannot_delete: 您不能刪除别人的主題
+      updated: 主題已被更新
+      not_updated: 主題不能被更新
+      subscribed: 您已成功訂閱此主題
+      unsubscribed: 您已取消訂閱此主題
+      none: 目前沒有主題
+      links:
+        new: 建立新主題
+        back_to_topics: 返回主題
+        edit: 編輯主題
+      not_found: 查無此主題
+      hidden:
+        'true': '主題已隱藏。'
+        'false': '主題已取消隱藏。'
+      locked:
+        'true': '主題已鎖定。'
+        'false': '主題已取消鎖定。'
+      pinned:
+        'true': '主題已置頂。'
+        'false': '主題已取消置頂。'
+    topics:
+      show:
+        reply: '回應'
+        delete: '删除'
+        subscribe: 訂閱
+        unsubscribe: 取消訂閱
+        reply_to_topic: '發表回應'
+        pending_review: 此主題正在等候審核。只有作者與管理員可查看。
+        hide:
+          'true': '顯示該主題'
+          'false': '隱藏該主題'
+        lock:
+          'true': '解鎖該主題'
+          'false': '鎖定該主題'
+        pin:
+          'true': '取消置頂該主題'
+          'false': '置頂該主題'
+    post:
+      buttons:
+        reply: 張貼回應
+        edit: 編輯
+      created: 您的回應已成功發表
+      new: 撰寫回應
+      edit: 編輯
+      not_created: 無法張貼您的回應。
+      not_created_topic_locked: 您無法回應被鎖定的主題。
+      edited: 您的回應編輯成功。
+      not_edited: 您的回應無法被編輯。
+      deleted: 您的回應已被删除。
+      deleted_with_topic: 主題也被删除。
+      cannot_delete: 您不能删除别人的回應。
+      in_reply_to: 回應给
+    posts:
+      moderation:
+        moderate: 審核
+        approve: 審核通過
+        spam: 垃圾訊息
+        success: 選擇的回應已完成審核。
+      post:
+        pending_review: 此回應正在等候審核。只有作者與管理員可查看。
+    moderation:
+      title: "%{forum} 的板主工具"
+  helpers:
+    submit:
+      forum:
+        create: 建立新版面
+        update: 更新版面
+      topic:
+        create: 建立新主題
+        update: 更新主題
+  simple_form:
+    labels:
+      forum:
+        title: 標題
+        description: 描述
+      topic:
+        subject: 標題
+        locked: 鎖定
+        pinned: 置頂
+        hidden: 隱藏
+        posts:
+          text: 內容
+      post:
+        text: 內容
+
+  # General stuff
+  time_ago_in_words: "%{time} 前"
+  ago: " 前"
+  ago_by: " 前 回應者: "
+  by: 由
+  started_by: "建立者: "
+  are_you_sure: "確定嗎？"
