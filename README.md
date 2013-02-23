@@ -139,7 +139,8 @@ We currently have support for the following languages:
 
 * Brazillian (pt-BR)
 * Bulgarian
-* Chinese (zh-CN)
+* Chinese (Simplified, zh-CN)
+* Chinese (Traditional, zh-TW)
 * Dutch
 * English
 * Farsi (Persian)
