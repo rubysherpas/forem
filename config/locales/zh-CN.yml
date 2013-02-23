@@ -1,6 +1,19 @@
 zh-CN:
   forem:
-    access_denied: "你没有被授权"
+    general:
+      forum: 论坛
+      topics: 帖子
+      topic: 帖子
+      posts: 回复
+      posts_count:
+        zero: 0 回复
+        one: 1 回复
+        other: "%{count} 回复"
+      flagged_for_spam: 你的账户被标记为Spam。
+      cannot_create_topic: 你目前不能新建帖子。
+      cannot_create_post: 你目前不能新建回复。
+
+    access_denied: 不能访问
     admin:
       area: "管理论坛"
       welcome: "欢迎来到Forem管理页面"
@@ -16,14 +29,24 @@ zh-CN:
       forums:
         edit: 编辑
         delete: 删除
-        forum: 论坛
         category: 分类
-        topics: 帖子
-        posts: 回复
         delete_confirm: 你确定删除这个版块吗?
         index:
           last_post: 最后回复
           none: 没有了
+          moderators: 审查者
+      group:
+        index: 管理群组
+        new: 新建群组
+        created: 这个群组被新建了。
+        not_created: 群组不能被新建。
+        deleted: 被选中的群组被删除了。
+      groups:
+        show:
+          add_member: 添加
+        edit: 编辑
+        delete: 删除
+        name: 名称
       category:
         index: 管理版块分类
         new: 新建分类
@@ -56,31 +79,24 @@ zh-CN:
         zero: 0 回复
         one: 1 回复
         other: "%{count} 回复"
+      moderator_tools: "审查工具"
     forums:
       index:
         title: 版块
         forum: 版块
-        topics: 帖子
-        posts: 回复
         views: 查看次数
         last_post: 最新的回复
         none: 无
-      listing:
-        title: 版块
-        forums: 版块
-        topics: 帖子
-        posts: 回复
-        views: 查看次数
-        last_post: 最新的回复
-        none: 无
-      forum:
-        last_post: 最后回复
     topic:
       headings:
         topic: "帖子"
         latest: "最新"
         posts: "回复"
         views: "查看次数"
+      moderation:
+        success: 帖子已经过审查。
+        no_option_selected: 未选择审查选项。
+      received_reply: 你订阅的帖子有新回复。
       reply: 回复
       quote: 引用
       delete: 删除
@@ -92,6 +108,8 @@ zh-CN:
       cannot_delete: 你不能删除别人的帖子
       updated: 帖子已被更新
       not_updated: 帖子不能被更新
+      subscribed: 你已订阅这个帖子。
+      unsubscribed: 你已取消订阅这个帖子。
       none: 目前没有帖子
       links:
         new: 新建帖子
@@ -99,28 +117,31 @@ zh-CN:
         edit: 编辑帖子
       not_found: 未找到帖子
       hidden:
-        'true': 这个帖子不可见
-        'false': 这个帖子可见
+        'true': '这个帖子不可见'
+        'false': '这个帖子可见'
       locked:
-        'true': 这个帖子被锁定了
-        'false': 这个帖子被解锁了
+        'true': '这个帖子被锁定了'
+        'false': '这个帖子被解锁了'
       pinned:
-        'true': 这个帖子被置顶了
-        'false': 这个帖子被取消置顶了
+        'true': '这个帖子被置顶了'
+        'false': '这个帖子被取消置顶了'
     topics:
       show:
         reply: '回复'
         delete: '删除'
+        subscribe: 订阅
+        unsubscribe: 取消订阅
         reply_to_topic: '回复该帖子'
+        pending_review: 这个帖子正在被审查，只有审查者跟创建者能访问。
         hide:
-          'true': 显示该帖子
-          'false': 隐藏该帖子
+          'true': '显示该帖子'
+          'false': '隐藏该帖子'
         lock:
-          'true': 解锁该帖子
-          'false': 锁定该帖子
+          'true': '解锁该帖子'
+          'false': '锁定该帖子'
         pin:
-          'true': 取消置顶该帖子
-          'false': 置顶该帖子
+          'true': '取消置顶该帖子'
+          'false': '置顶该帖子'
     post:
       buttons:
         reply: 回复
@@ -136,6 +157,16 @@ zh-CN:
       deleted_with_topic: 帖子也被删除
       cannot_delete: 你不能删除别人的回复
       in_reply_to: "回复给"
+    posts:
+      moderation:
+        moderate: 审查
+        approve: 认可
+        spam: Spam
+        success: 选择的回复已经过审查。
+      post:
+        pending_review: 这个回复正在被审查，只有审查者跟创建者能访问。
+    moderation:
+      title: "审查工具：%{forum}"
   helpers:
     submit:
       forum:
