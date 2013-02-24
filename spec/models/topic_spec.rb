@@ -59,6 +59,34 @@ describe Forem::Topic do
     end
   end
 
+
+  describe "#update_forum_topics_approved_count" do
+    let!(:forum) { FactoryGirl.create(:forum) }
+    let!(:approved_count) { forum.topics.approved.count }
+
+    before do
+      @topic.forum = forum
+      @topic.save!
+    end
+
+    it "does nothing if the state doesn't change" do
+      @topic.save!
+      forum.reload.topics_approved_count.should == approved_count
+    end
+
+    it "does not increment the topics_approved_count for spam" do
+      @topic.spam!
+      forum.reload.topics_approved_count.should == approved_count
+    end
+
+    it "increments the topics_approved_count when the state is approved" do
+      @topic.stub(:approve_user_and_posts)
+      @topic.approve!
+      forum.reload.topics_approved_count.should == approved_count + 1
+    end
+  end
+
+
   describe "helper methods" do
     describe "#subscribe_user" do
       it "subscribes a user to the topic" do
