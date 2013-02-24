@@ -1,93 +1,199 @@
 it:
   forem:
+    general:
+      forum: Forum
+      topics: Argomenti
+      topic: Argomento
+      posts: Messaggi
+      posts_count:
+        zero: Nessun messaggio
+        one: 1 messaggio
+        other: "%{count} messaggi"
+      flagged_for_spam: Il tuo account è stato segnalato come spam.
+      cannot_create_topic: Al momento non puoi creare un nuovo argomento.
+      cannot_create_post: Al momento non puoi creare un nuovo messaggio.
+
+    access_denied: "Non hai il permesso di farlo."
     admin:
+      area: Area Amministratore
+      welcome: "Benvenuto nell'Area Amministratore di forem."
       forum:
-        edit: "Modifica il forum %{title}"
-        index: Gestione forum
-        new: Nuovo forum in creazione
-        new_link: Nuovo forum
+        index: Gestisci Forums
+        new: Creo un nuovo forum
+        new_link: Nuovo Forum
         deleted: Il forum selezionato è stato cancellato.
         created: Il forum è stato creato.
-        not_created: Il forum non può essere creato.
+        not_created: Non è stato possibile creare il forum.
         updated: Il forum è stato aggiornato.
-        not_updated: Il forum non può essere aggiornato.
+        not_updated: Non è stato possibile aggiornare il forum.
+      forums:
+        edit: Modifica
+        delete: Elimina
+        category: Sezione
+        delete_confirm: Sei sicuro di voler eliminare questo forum?
+        index:
+          last_post: Ultimo messaggio
+          none: Nessuno
+          moderators: Moderatori
+      group:
+        index: Gestisci Gruppi
+        new: Nuovo Gruppo
+        created: Il gruppo è stato creato.
+        not_created: Non è stato possibile creare il gruppo.
+        deleted: Il gruppo selezionato è stato eliminato.
+      groups:
+        show:
+          add_member: Aggiungi
+        edit: Modifica
+        delete: Elimina
+        name: Nome
+      category:
+        index: Gestisci Sezioni Forum
+        new: Creo una nuova Sezione Forum
+        new_link: Nuova Sezione Forum
+        deleted: La sezione del forum selezionata è stata cancellata.
+        created: La sezione del forum è stata creata.
+        not_created: Non è stato possibile creare la sezione del forum.
+        updated: La sezione del forum è stata aggiornata.
+        not_updated: Non è stato possibile aggiornare la sezione del forum.
+      categories:
+        edit: Modifica
+        delete: Elimina
+        category: Sezione
+        delete_confirm: Sei sicuro di voler eliminare questa sezione del forum?
     common:
       pages: Pagine
     errors:
-      not_signed_in: Devi prima registrarti.
-      access_denied: Accesso vietato.
+      not_signed_in: Devi fare il login.
+      access_denied: Accesso negato.
     forum:
-      header: "%{title} in visione"
-      forums: Forum
+      header: "Stai vedendo %{title}"
+      forums: Forums
+      new: Creo un nuovo forum
+      edit: "Modifica del forum %{title}"
       topics_count:
         zero: 0 argomenti
         one: 1 argomento
         other: "%{count} argomenti"
       posts_count:
-        zero: 0 discussioni
-        one: 1 discussione
-        other: "%{count} discussioni"
+        zero: 0 messaggi
+        one: 1 messaggio
+        other: "%{count} messaggi"
+      moderator_tools: "Strumenti Moderazione"
     forums:
       index:
-        title: Forum
+        title: Forums
         forum: Forum
-        topics: Argomenti
-        posts: Discussioni
         views: Visite
-        last_post: Ultima discussione
+        last_post: 'Ultimo Messaggio:'
+        none: Nessuno
     topic:
       headings:
-        topic: "Argomento"
-        latest: "Ultima"
-        posts: "Discussione"
-        views: "Visite"
+        topic: Argomento
+        latest: Ultimo
+        posts: Messaggi
+        views: Visite
+      moderation:
+        success: L'argomento modificato è stato moderato.
+        no_option_selected: Nessuna opzione di moderazione selezionata.
+      received_reply: Un argomento a cui sei iscritto ha ricevuto risposta.
+      reply: Rispota
+      quote: Quota
+      delete: Elimina
       created: L'argomento è stato creato.
-      new: Nuovo argomento in creazione
-      not_created: L'argomento non può essere creato.
-      deleted: Il tuo argomento è stato cancellato.
-      cannot_delete: Non puoi cancellare un argomento che non hai creato.
+      new: Creo un nuovo argomento
+      edit: Modifico argomento
+      not_created: Non è stato possibile creare l'argomento.
+      deleted: Il tuo argomento è stato eliminato.
+      cannot_delete: Non puoi eliminare argomenti che non ti appartengono.
       updated: L'argomento è stato aggiornato.
-      not_updated: L'argomento non può essere aggiornato.
-      none: Non ci sono argomenti ndel forum.
+      not_updated: Non è stato possibile aggiornare l'argomento.
+      subscribed: Ti sei iscritto all'argomento.
+      unsubscribed: Non sei più iscritto all'argomento.
+      none: Al momento non ci sono argomenti in questo forum.
       links:
         new: Nuovo argomento
         back_to_topics: Torna agli argomenti
         edit: Modifica argomento
-      not_found: L'argomento cercato non è stato trovato.
+      not_found: Non è stato possibile trovare l'argomento che stavi cercando.
       hidden:
-        'true': L'argomento è ora nascosto'.
-        'false': L'argomento è ora visibile.
+        'true': Questo argomento è ora nascosto.
+        'false': Questo argomento è ora visibile.
       locked:
-        'true': L'argomento è ora bloccato.
-        'false': L'argomento è ora sbloccato.
+        'true': Questo argomento è ora bloccato.
+        'false': Questo argomento non è più bloccato.
       pinned:
-        'true': L'argomento è ora in evidenza.
-        'false': L'argomento non è più in evidenza.
+        'true': Questo argomento è ora in evidenza.
+        'false': Questo argomento non è più in evidenza.
     topics:
       show:
-        reply: 'Rispondi'
-        delete: 'Elimina'
-        reply_to_topic: Rispondi all'argomento
+        reply: Rispondi
+        delete: Elimina
+        subscribe: Segui
+        unsubscribe: Non Seguire
+        reply_to_topic: Rispondi a questo Argomento
+        pending_review: Questo argomento sta aspettando revisione. Solo l'autore e i moderatori possono vederlo.
         hide:
-          'true': Mostra l'argomento
-          'false': Nascondi l'argomento
+          'true': Mostra argomento
+          'false': Nascondi argomento
         lock:
-          'true': Sblocca l'argomento
-          'false': Blocca l'argomento
+          'true': Blocca argomento
+          'false': Sblocca argomento
         pin:
-          'true': Unpin this topic
-          'false': Pin this topic
-        
-        
+          'true': Metti in evidenza argomento
+          'false': Rimuovi da evidenza argomento
     post:
       buttons:
-        reply: Invia la risposta
+        reply: Rispondi
+        edit: Modifica
       created: La tua risposta è stata inviata.
-      new: Risposta
-      not_created: La tua risposta non può essere inviata.
-      not_created_topic_locked: Non puoi rispondere ad un argomento bloccato.
-      deleted: La tua disussione è stata eliminata.
-      cannot_delete: Non puoi cancellare una discussione che non hai creato.
+      new: Invia risposta a
+      edit: Modifica
+      not_created: Non è stato possibile inviare la tua risposta.
+      not_created_topic_locked: Non puoi rispondere a un argomento bloccato.
+      edited: Il tuo messaggio è stato modificato.
+      not_edited: Non è stato possibile modificare il tuo messaggio.
+      deleted: Il tuo messaggio è stato eliminato.
+      deleted_with_topic: Unico messaggio nell'argomento eliminato. Anche l'argomento è stato eliminato.
+      cannot_delete: Non puoi eliminare un messaggio che non ti appartiene
+      in_reply_to: In risposta a
+    posts:
+      moderation:
+        moderate: Modera
+        approve: Approva
+        spam: Spam
+        success: I messaggi selezionati sono stati moderati.
+      post:
+        pending_review: Questo messaggio sta aspettando revisione. Solo l'autore e i moderatori possono vederlo.
+    moderation:
+      title: "Strumenti moderazione per %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Crea Forum
+        update: Aggiorna Forum
+      topic:
+        create: Crea Topic
+        update: Aggiorna Topic
+  simple_form:
+    labels:
+      forum:
+        title: Titolo
+        description: Descrizione
+      topic:
+        subject: Soggetto
+        locked: Bloccato
+        pinned: In Evidenza
+        hidden: Nascosto
+        posts:
+          text: Testo
+      post:
+        text: Testo
 
   # General stuff
   time_ago_in_words: "%{time} fa"
+  ago: " fa"
+  ago_by: " fa da"
+  by: da
+  started_by: "Iniziato da "
+  are_you_sure: Sei sicuro?
