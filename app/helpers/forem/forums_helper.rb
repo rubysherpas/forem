@@ -2,7 +2,7 @@ module Forem
   module ForumsHelper
     def topics_count(forum)
       if forem_admin_or_moderator?(forum)
-        forum.topics.count
+        forum.topics_count
       else
         forum.topics.approved.count
       end

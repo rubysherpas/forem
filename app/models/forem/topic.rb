@@ -25,7 +25,7 @@ module Forem
     attr_accessible :subject, :posts_attributes
     attr_accessible :subject, :posts_attributes, :pinned, :locked, :hidden, :forum_id, :as => :admin
 
-    belongs_to :forum
+    belongs_to :forum, :counter_cache => true
     belongs_to :user, :class_name => Forem.user_class.to_s
     has_many   :subscriptions
     has_many   :posts, :dependent => :destroy, :order => "forem_posts.created_at ASC"
