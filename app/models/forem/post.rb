@@ -34,6 +34,7 @@ module Forem
     after_create :set_topic_last_post_at
     after_create :subscribe_replier, :if => :user_auto_subscribe?
     after_create :skip_pending_review
+    after_create :update_forum_posts_count
 
     after_save :approve_user,   :if => :approved?
     after_save :blacklist_user, :if => :spam?
@@ -124,6 +125,10 @@ module Forem
 
     def blacklist_user
       user.update_attribute(:forem_state, "spam") if user
+    end
+
+    def update_forum_posts_count
+      Forem::Forum.increment_counter(:posts_count, 1)
     end
 
   end

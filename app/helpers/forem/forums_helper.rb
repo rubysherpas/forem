@@ -10,7 +10,7 @@ module Forem
 
     def posts_count(forum)
       if forem_admin_or_moderator?(forum)
-        forum.posts.count
+        forum.posts_count
       else
         forum.posts.approved.count
       end
