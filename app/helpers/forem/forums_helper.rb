@@ -12,7 +12,7 @@ module Forem
       if forem_admin_or_moderator?(forum)
         forum.posts_count
       else
-        forum.posts.approved.count
+        forum.posts_approved_count
       end
     end
   end

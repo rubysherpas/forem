@@ -39,6 +39,7 @@ module Forem
     after_save :approve_user,   :if => :approved?
     after_save :blacklist_user, :if => :spam?
     after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
+    after_save :update_forum_posts_approved_count, :if => :state_changed?
 
     class << self
       def approved
@@ -129,6 +130,10 @@ module Forem
 
     def update_forum_posts_count
       Forem::Forum.increment_counter(:posts_count, 1)
+    end
+
+    def update_forum_posts_approved_count
+      forum.update_column :posts_approved_count, forum.posts.approved.count
     end
 
   end

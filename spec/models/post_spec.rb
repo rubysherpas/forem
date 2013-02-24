@@ -65,6 +65,59 @@ describe Forem::Post do
     end
   end
 
+  context "Forum counters" do
+    describe "#update_forum_posts_count" do
+      it "increments #posts_count on create" do
+        forum = FactoryGirl.create(:forum)
+        count = forum.posts_count
+        new_topic = FactoryGirl.create(:topic, forum: forum)
+        forum.reload.posts.count.should == count + 1
+        forum.reload.posts_count.should == count + 1
+      end
+
+      it "does not increment #posts_count on save" do
+        forum = FactoryGirl.create(:forum)
+        count = forum.posts_count
+        new_topic = FactoryGirl.create(:topic, forum: forum)
+        new_count = count + 1
+        forum.reload.posts.count.should == new_count
+        forum.reload.posts_count.should == new_count
+        new_topic.save!
+        forum.reload.posts_count.should == new_count
+      end
+    end
+
+
+    describe "#update_forum_posts_approved_count" do
+      let!(:forum) { FactoryGirl.create(:forum) }
+      let!(:topic) { FactoryGirl.create(:topic, :forum => forum) }
+      let!(:approved_count) { forum.posts.approved.count }
+
+      before do
+        post.topic = topic
+        post.save!
+      end
+
+      it "does nothing if the state doesn't change" do
+        post.save!
+        forum.reload.posts.approved.count.should == approved_count
+        forum.reload.posts_approved_count.should == approved_count
+      end
+
+      it "does not increment the topics_approved_count for spam" do
+        post.spam!
+        forum.reload.posts.approved.count.should == approved_count
+        forum.reload.posts_approved_count.should == approved_count
+      end
+
+      it "increments the topics_approved_count when the state is approved" do
+        post.approve!
+        forum.reload.posts.approved.count.should == approved_count + 1
+        forum.reload.posts_approved_count.should == approved_count + 1
+      end
+    end
+  end
+
   context "helper methods" do
     it "retrieves the topic's forum" do
       post.forum.should == post.topic.forum
