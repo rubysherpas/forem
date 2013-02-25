@@ -70,7 +70,7 @@ describe Forem::Post do
       it "increments #posts_count on create" do
         forum = FactoryGirl.create(:forum)
         count = forum.posts_count
-        new_topic = FactoryGirl.create(:topic, forum: forum)
+        new_topic = FactoryGirl.create(:topic, :forum => forum)
         forum.reload.posts.count.should == count + 1
         forum.reload.posts_count.should == count + 1
       end
@@ -78,7 +78,7 @@ describe Forem::Post do
       it "does not increment #posts_count on save" do
         forum = FactoryGirl.create(:forum)
         count = forum.posts_count
-        new_topic = FactoryGirl.create(:topic, forum: forum)
+        new_topic = FactoryGirl.create(:topic, :forum => forum)
         new_count = count + 1
         forum.reload.posts.count.should == new_count
         forum.reload.posts_count.should == new_count
