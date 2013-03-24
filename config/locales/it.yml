@@ -137,11 +137,11 @@ it:
           'true': Mostra argomento
           'false': Nascondi argomento
         lock:
-          'true': Blocca argomento
-          'false': Sblocca argomento
+          'true': Sblocca argomento
+          'false': Blocca argomento
         pin:
-          'true': Metti in evidenza argomento
-          'false': Rimuovi da evidenza argomento
+          'true': Rimuovi argomento da evidenza
+          'false': Metti argomento in evidenza
     post:
       buttons:
         reply: Rispondi
