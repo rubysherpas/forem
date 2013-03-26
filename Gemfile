@@ -10,3 +10,6 @@ gem 'mysql2'
 
 gem 'pry-rails'
 gem 'pry-nav'
+
+gem 'localeapp'
+
