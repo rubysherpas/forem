@@ -44,9 +44,9 @@ ru:
       groups:
         show:
           add_member: Добавить
-          edit: Редактировать
-          delete: Удалить
-          name: Название
+        edit: Редактировать
+        delete: Удалить
+        name: Название
       category:
         index: Управление категориями
         new: Создание новой категории
