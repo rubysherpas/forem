@@ -1,4 +1,4 @@
-<h2><%= t('.title', :forum => forum) %></h2>
+<h2><%= t('forem.moderation.title', :forum => forum.title) %></h2>
 
 <h3><%= t('posts_count', :count => @posts.count, :scope => 'forem.general') %></h3>
 
@@ -9,5 +9,5 @@
       <%= render posts, :mass_moderation => true %>
     <% end %>
   </div>
-  <%= submit_tag "Moderate" %>
+  <%= submit_tag t('forem.posts.moderation.moderate') %>
 <% end %>

@@ -12,8 +12,8 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= link_to t('edit'), forem.admin_group_path(group) %></td>
-        <td><%= link_to t('delete'), forem.admin_group_path(group), :method => :delete %></td>
+        <td><%= link_to t('edit', :scope => 'forem.admin.groups'), forem.admin_group_path(group) %></td>
+        <td><%= link_to t('delete', :scope => 'forem.admin.groups'), forem.admin_group_path(group), :method => :delete %></td>
         <td><%= link_to forem_emojify(group.name), forem.admin_group_path(group) %></td>
       </tr>
     <% end %>

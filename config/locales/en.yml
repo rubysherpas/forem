@@ -50,6 +50,7 @@ en:
       category:
         index: Manage Forum Categories
         new: Creating a new Forum Category
+        edit: "Editing the %{title} Forum Category"
         new_link: New Forum Category
         deleted: The selected forum category has been deleted.
         created: This forum category has been created.
@@ -167,6 +168,7 @@ en:
         pending_review: This post is currently pending review. Only the user who posted it and moderators can view it.
     moderation:
       title: "Moderation tools for %{forum}"
+    moderator_groups: Moderator Groups
   helpers:
     submit:
       forum:
@@ -177,9 +179,13 @@ en:
         update: Update Topic
   simple_form:
     labels:
+      category:
+        name: Name
       forum:
         title: Title
         description: Description
+        category: Category
+        moderators: Moderators
       topic:
         subject: Subject
         locked: Locked
