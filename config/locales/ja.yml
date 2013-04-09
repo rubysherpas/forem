@@ -1,0 +1,203 @@
+ja:
+  ago: 前
+  ago_by: 前に
+  are_you_sure: もう一度確認して下さい。
+  by: により
+  forem:
+    access_denied: 権限不足です。
+    admin:
+      area: 管理人エリア
+      categories:
+        category: カテゴリ
+        delete: 削除
+        delete_confirm: このフォーラムカテゴリを削除します。確認して下さい。
+        edit: 編集
+      category:
+        created: フォーラムカテゴリが作成されました。
+        deleted: フォーラムカテゴリを削除しました。
+        index: フォーラムカテゴリの管理
+        new: フォーラムカテゴリの新規作成中
+        new_link: フォーラムカテゴリの作成
+        not_created: フォーラムカテゴリは作成出来ませんでした。
+        not_updated: フォーラムカテゴリは改訂出来ませんでした。
+        updated: フォーラムカテゴリを改訂しました。
+      forum:
+        created: フォーラムを作成しました。
+        deleted: フォーラムを削除しました。
+        edit: フォーラムの編集
+        index: フォーラムの管理
+        new: フォーラムの新規作成中
+        new_link: フォーラムの作成
+        not_created: フォーラムを作成出来ませんでした。
+        not_updated: フォーラムを改訂出来ませんでした。
+        updated: フォーラムを改訂しました。
+      forums:
+        category: カテゴリ
+        delete: 削除
+        delete_confirm: このフォーラムを削除します。確認して下さい。
+        edit: 編集
+        forum: フォーラム
+        index:
+          last_post: 最新のポスト
+          moderators: 管理人
+          none: 無し
+        posts: ポスト
+        topics: トピック
+      group:
+        created: グループを作成しました。
+        deleted: グループを削除しました。
+        index: グループの管理
+        new: グループの作成
+        not_created: グループを作成出来ませんでした。
+      groups:
+        delete: 削除
+        edit: 編集
+        name: 名前
+        show:
+          add_member: メンバーの追加
+          delete: 削除
+          edit: 編集
+          name: 名前
+      welcome: forem 管理人エリア
+    common:
+      pages: ページ
+    errors:
+      access_denied: アクセス出来ません。
+      not_signed_in: サインインして下さい。
+    forum:
+      edit: "%{title} フォーラムを編集中"
+      forums: フォーラム
+      header: "%{title}を閲覧中"
+      moderator_tools: 調停用ツール
+      new: フォーラムの新規作成中
+      posts_count: "%{count} ポスト"
+      topics_count:
+        zero: トピック無し
+        one: トピック一件 
+        other: "%{count} トピック" 
+    forums:
+      index:
+        forum: フォーラム
+        last_post: 最新のポスト
+        none: 無し
+        posts: ポスト
+        title: フォーラム
+        topics: トピック
+        views: トピック
+    general:
+      cannot_create_post: 新しいポストを作成することは出来ません。
+      cannot_create_topic: 新しトピックを作成することは出来ません。
+      flagged_for_spam: このアカウントはスパムと判定されました。
+      forum: フォーラム
+      posts: ポスト
+      posts_count:
+        zero: トピック無し
+        one: トピック1件
+        other: "%{count} トピック"
+      topic: トピック
+      topics: トピック
+    moderation:
+      title: "%{forum} 用調停ツール"
+    post:
+      buttons:
+        edit: 編集
+        reply: 返信
+      cannot_delete: このアカウントに帰属しないポストを削除することは出来ません。
+      created: 返信を投稿しました。
+      deleted: ポストを削除しました。
+      deleted_with_topic: このトピックへのポストを削除しました。トピックも併せて削除しました。
+      edit: 編集
+      edited: ポストを削除しました。
+      in_reply_to: 
+      new: 返信する
+      not_created: 返信を投稿することが出来ませんでした。
+      not_created_topic_locked: 保護されたトピックには返信出来ません。
+      not_edited: ポストを編集出来ませんでした。
+    posts:
+      moderation:
+        approve: 認可
+        moderate: 調停
+        spam: スパム
+        success: ポストを調停しました。
+      post:
+        pending_review: このポストはレビューされるまで公開されません。ポストしたユーザとモデレータだけが閲覧出来ます。
+    topic:
+      cannot_delete: このアカウントに帰属しないトピックを削除することは出来ません。
+      created: トピックを作成しました。
+      delete: 削除
+      deleted: トピックを削除しました。
+      edit: トピックの編集
+      headings:
+        latest: 最新
+        posts: ポスト
+        topic: トピック
+        views: 閲覧回数
+      hidden:
+        'false': トピックが一般公開されました。
+        'true': トピックを隠しました。
+      links:
+        back_to_topics: トピック一覧に戻る
+        edit: トピックの編集
+        new: トピックの新規作成
+      locked:
+        'false': このトピックを編集可能にしました。
+        'true': このトピックの編集を停止しました。
+      moderation:
+        no_option_selected: 調停オプションが選択されていません。
+        success: トピックを調停しました。
+      new: トピックを新規作成中
+      none: このフォーラムには未だトピックがありません。
+      not_created: トピックを作成出来ませんでした。
+      not_found: お探しのトピックは見つかりませんでした。
+      not_updated: このトピックは改訂出来ません。
+      pinned:
+        'false': トピックの優先表示を解除しました。
+        'true': トピックを優先表示します。
+      quote: 引用
+      received_reply: 
+      reply: 返信
+      subscribed: 
+      unsubscribed: 
+      updated: トピックを改訂しました。
+    topics:
+      show:
+        delete: 削除
+        hide:
+          'false': このトピックを隠す
+          'true': このトピックを公開する
+        lock:
+          'false': このトピックの編集を停止する
+          'true': このトピックを編集可能にする
+        pending_review: このトピックは校正待ちです。トピックを書いたユーザとモデレータだけが閲覧する事ができます。
+        pin:
+          'false': このトピックを優先して表示する
+          'true': このトピックの優先を解除する
+        reply: 返信
+        reply_to_topic: このトピックに返信
+        subscribe: 
+        unsubscribe: 
+  helpers:
+    submit:
+      forum:
+        create: フォーラムを作成する
+        update: フォーラムを改訂する
+      topic:
+        create: トピックを作成する
+        update: トピックを改訂する
+  simple_form:
+    labels:
+      forum:
+        description: 説明
+        title: タイトル
+      post:
+        text: 本文
+      topic:
+        hidden: 非表示
+        locked: 保護中
+        pinned: 優先して表示
+        posts:
+          text: 本文
+        subject: 主題
+    topic: トピック
+  started_by: トピ主
+  time_ago_in_words: "%{time} 前"
