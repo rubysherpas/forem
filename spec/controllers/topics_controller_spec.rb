@@ -4,7 +4,7 @@ describe Forem::TopicsController do
   context "attempting to subscribe to a hidden topic" do
     before do
       user = FactoryGirl.create(:user)
-      sign_in(:user, user)
+      sign_in(user)
 
       forum = stub_model(Forem::Forum)
 
