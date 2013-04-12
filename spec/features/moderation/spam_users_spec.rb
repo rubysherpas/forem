@@ -18,7 +18,11 @@ describe "moderation" do
     it "cannot reply to a topic" do
       topic = FactoryGirl.create(:approved_topic, :forum => forum)
       visit forum_topic_path(forum, topic)
-      click_link "Reply"
+
+      within("menu") do
+        click_link "Reply"
+      end
+
       flash_alert!("Your account has been flagged for spam. You cannot create a new post at this time.")
     end
   end

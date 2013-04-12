@@ -13,12 +13,6 @@ describe "topics" do
       visit new_forum_topic_path(forum)
       flash_alert!("You must sign in first.")
     end
-
-    it "cannot delete topics" do
-      delete forum_topic_path(topic.forum, topic), :id => topic.id.to_s
-      response.should redirect_to('/users/sign_in')
-      flash.alert.should == "You must sign in first."
-    end
   end
 
   context "signed in" do
@@ -44,15 +38,16 @@ describe "topics" do
         click_button 'Create Topic'
 
         flash_alert!("This topic could not be created.")
-        find_field("topic_subject").value.should eql("")
-        find_field("topic_posts_attributes_0_text").value.should eql("")
+        find_field("topic_subject").value.should be_blank
+        find_field("topic_posts_attributes_0_text").value.chomp.should eql("")
       end
 
       it "does not keep flash error over requests" do
         click_button 'Create Topic'
         flash_alert!("This topic could not be created.")
         visit root_path
-        page.should_not have_content("This topic could not be created.")
+        # page.should_not have_content("This topic could not be created.")
+        page.html.should_not match("This topic could not be created.")
       end
 
       it "can delete their own topics" do
@@ -85,7 +80,8 @@ describe "topics" do
       it "cannot delete topics by others" do
         visit forum_topic_path(other_topic.forum, other_topic)
         within(selector_for(:topic_menu)) do
-          page.should_not have_content("Delete")
+          # page.should_not have_content("Delete")
+          page.html.should_not match("Delete")
         end
       end
 

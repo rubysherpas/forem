@@ -51,7 +51,8 @@ describe "topics" do
     sign_out
 
     visit forum_topic_path(forum, topic)
-    page.should_not have_content("New Topic")
+    # page.should_not have_content("New Topic")
+    page.html.should_not match("New Topic")
   end
 
   it "can pin a topic" do
@@ -61,13 +62,20 @@ describe "topics" do
 
     other_topic # will create another topic, making it the top post unless the first topic is truly pinned
     visit forum_path(forum)
-    page.all(".topics .topic .subject").map(&:text).should == ["FIRST TOPIC", "SECOND TOPIC"]
+
+    # Capybara 2.0 #text method has issues on Ruby 1.8
+    # page.all(".topics .topic .subject").map(&:text).should == ["FIRST TOPIC", "SECOND TOPIC"]
+
+    page.all(".topics .topic .subject a").map do |a|
+      a.native.children.first.text
+    end.should == ["FIRST TOPIC", "SECOND TOPIC"]
   end
 
   it "can move topic" do
     other_forum #Create a second forum
     visit edit_admin_topic_path(topic)
-    select "Forum", :with => "Second Forum"
+
+    select "Second Forum", :from => "topic_forum_id"
     click_button "Update Topic"
     flash_notice!("This topic has been updated.")
     #Check if we can see the topic in the old forum, the topic should not be there.

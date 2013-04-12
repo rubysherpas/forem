@@ -11,3 +11,4 @@ tmp
 spec/dummy
 *.rbc
 *.tmproj
+Gemfile.lock
