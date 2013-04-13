@@ -15,6 +15,13 @@ module Forem
         @posts = @posts.page(params[:page]).per(Forem.per_page)
       end
     end
+    
+    #Pulls ids and positions for topic posts for use in reply to links
+    def post_count(topic)
+      a=topic.posts.flatten.collect{|p| p.id}.each_with_index.to_a
+      a=a.map{|a| {:id=>a[0], :position=>a[1]+1}}
+      return a
+    end
 
     def new
       authorize! :create_topic, @forum
@@ -78,12 +85,6 @@ module Forem
         flash.alert = t("forem.topic.not_found")
         redirect_to @forum and return
       end
-    end
-    
-    def post_count(topic)
-      a=topic.posts.flatten.collect{|p| p.id}.each_with_index.to_a
-      a=a.map{|a| {:id=>a[0], :position=>a[1]+1}}
-      return a
     end
 
     def register_view
