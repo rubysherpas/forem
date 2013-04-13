@@ -13,14 +13,10 @@ module Forem
           @posts = @posts.approved_or_pending_review_for(forem_user)
         end
         @posts = @posts.page(params[:page]).per(Forem.per_page)
+        #Provides ids of posts and their positions
+        post_positions = @topic.posts.flatten.collect{|p| p.id}.each_with_index.to_a
+        @post_positions = post_positions.map{|a| {:id=>a[0], :position=>a[1]+1}}
       end
-    end
-    
-    #Pulls ids and positions for topic posts for use in reply to links
-    def post_count(topic)
-      a=topic.posts.flatten.collect{|p| p.id}.each_with_index.to_a
-      a=a.map{|a| {:id=>a[0], :position=>a[1]+1}}
-      return a
     end
 
     def new
