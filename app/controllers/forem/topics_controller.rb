@@ -79,6 +79,12 @@ module Forem
         redirect_to @forum and return
       end
     end
+    
+    def post_count(topic)
+      a=topic.posts.flatten.collect{|p| p.id}.each_with_index.to_a
+      a=a.map{|a| {:id=>a[0], :position=>a[1]+1}}
+      return a
+    end
 
     def register_view
       @topic.register_view_by(forem_user)
