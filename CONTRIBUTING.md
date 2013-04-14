@@ -6,6 +6,7 @@ When filing an issue for Forem, please provide these details:
 
 * A comprehensive list of steps to reproduce the issue.
 * The version of Forem *and* the version of Rails.
+* Your Gemfile and Gemfile.lock (in a [Gist](https://gist.github.com) is preferred)
 * Any relevant stack traces ("Full trace" preferred)
 
 In 99% of cases, this information is enough to determine the cause and solution to the problem that is being described.
