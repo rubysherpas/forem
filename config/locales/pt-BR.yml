@@ -4,7 +4,6 @@ pt-BR:
       area: Área de Administração
       welcome: "Bem vindo"
       forum:
-        edit: "Editando o fórum %{title}"
         index: Gerenciar Fórum
         new: Novo Fórum
         new_link: Novo Fórum

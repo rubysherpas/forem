@@ -16,10 +16,7 @@ fa:
       forums:
         edit: ویرایش
         delete: حذف
-        forum: انجمن
         category: دسته بندی
-        topics: موضوعات
-        posts: مطالب
         delete_confirm: آیا از حذف این انجمن مطمئن هستید؟
         index:
           last_post: آخرین مطلب
@@ -60,8 +57,6 @@ fa:
       index:
         title: انجمن ها
         forum: انجمن
-        topics: موضوعات
-        posts: مطالب
         views: نمایش ها
         last_post: 'آخرین مطلب:'
         none: هیچ کدام
