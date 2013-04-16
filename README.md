@@ -151,6 +151,7 @@ We currently have support for the following languages:
 * Russian
 * Spanish
 * Lithuanian
+* Japanese
 
 Patches for new translations are very much welcome!
 
