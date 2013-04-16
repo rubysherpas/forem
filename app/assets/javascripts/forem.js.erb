@@ -4,8 +4,6 @@ var Forem = {};
   path = Rails.application.routes.named_routes[:forem].path
   # Rails 3.2 returns a Journey::Path::Pattern object, Rails 3.1 an actual path.
   path = path.spec.to_s if path.respond_to?(:spec)
-  # Strips leading slashes from base_path
-  path = path.sub(/\A\/*/, '')
 %>
 
 Forem.base_path = <%= path.inspect %>;
