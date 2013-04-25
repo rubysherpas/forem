@@ -1,0 +1,199 @@
+vi:
+  forem:
+    general:
+      forum: Diễn Đàn
+      topics: Mục Lục
+      topic: Mục
+      posts: Bài Viết
+      posts_count:
+        zero: Không bài
+        one: 1 bài
+        other: "%{count} bài"
+      flagged_for_spam: Tài khoản của bạn đã bị phong toả vì nghi ngờ là Spam.
+      cannot_create_topic: Bạn không tạo được mục mới vào thời điểm này.
+      cannot_create_post: Bạn không tạo được bài mới vào thời điểm này.
+
+    access_denied: Bạn bị từ chối quyền truy cập
+    admin:
+      area: Khu vực cho Quản Trị Viên
+      welcome: Chào mừng đến Khu vực cho Quản Trị Viên
+      forum:
+        index: Quản lý Điễn Đàn
+        new: Tạo Điễn Đàn mới
+        new_link: Điễn Đàn mới
+        deleted: Điễn Đàn được chọn đã bị xoá.
+        created: Điễn Đàn đã được tạo.
+        not_created: Không tạo được Điễn Đàn này.
+        updated: Điễn Đàn đã được cập nhật.
+        not_updated: Không cập nhật được Điễn Đàn này.
+      forums:
+        edit: Sửa
+        delete: Xoá
+        category: Phân loại
+        delete_confirm: Bạn có chắc bạn muốn xoá Điễn Đàn này?
+        index:
+          last_post: Bài cuối
+          none: Không
+          moderators: Moderator
+      group:
+        index: Quản lý Nhóm
+        new: Nhóm mới
+        created: Nhóm đã được tạo.
+        not_created: Không tạo được Nhóm này.
+        deleted: Nhóm được chọn đã bị xoá.
+      groups:
+        show:
+          add_member: Thêm
+        edit: Sửa
+        delete: Xoá
+        name: Tên
+      category:
+        index: Quản lý Thể Loại Điễn Đàn
+        new: Tạo Thể Loại Điễn Đàn
+        new_link: Thể Loại Mới
+        deleted: Thể Loại mới được xoá.
+        created: Thể Loại mới được tạo.
+        not_created: Thể Loại không tạo được.
+        updated: Thể Loại đã được cập nhật.
+        not_updated: Thể Loại không cập nhật được.
+      categories:
+        edit: Chỉnh 
+        delete: Xoá
+        category: Thể Loại
+        delete_confirm: Bạn có chắc bạn muốn xoá Thể Loại này?
+    common:
+      pages: Trang
+    errors:
+      not_signed_in: Bạn phải đăng nhập trước.
+      access_denied: Bạn bị từ chối quyền truy cập.
+    forum:
+      header: "Đang xem %{title}"
+      forums: Điễn Đàn
+      new: Đang tạo một diễn đàn mới
+      edit: "Đang chỉnh sửa diễn đàn %{title}"
+      topics_count:
+        zero: 0 mục
+        one: 1 mục
+        other: "%{count} mục"
+      posts_count:
+        zero: 0 bài viết
+        one: 1 bài viết
+        other: "%{count} bài viết"
+      moderator_tools: Công cụ kiểm duyệt
+    forums:
+      index:
+        title: Điễn Đàn
+        forum: Điễn Đàn
+        views: Views
+        last_post: 'Bài viết cuối cùng:'
+        none: Không
+    topic:
+      headings:
+        topic: Mục
+        latest: Mới nhất
+        posts: Bài viết
+        views: Xem
+      moderation:
+        success: Mục này đã được kiểm duyệt.
+        no_option_selected: No moderation option was selected.
+      received_reply: A topic you have subscribed to has received a reply.
+      reply: Phản hồi
+      quote: Trích dẫn
+      delete: Xoá
+      created: Mục này mới được tạo.
+      new: Đang tạo mục mới
+      edit: Đang chỉnh sửa mục
+      not_created: Mục này không tạo được.
+      deleted: Mục này mới được xoá.
+      cannot_delete: Bạn không thể xoá mục bạn không sở hữu.
+      updated: Mục này mới được cập nhật.
+      not_updated: Mục này không thể cập nhật được.
+      subscribed: Bạn phải đăng kí vào mục này.
+      unsubscribed: Bạn phải huỷ đăng kí vào mục này.
+      none: Không có mục nào trong điễn đàn.
+      links:
+        new: Tạo mục
+        back_to_topics: Quay ra liệt kê mục
+        edit: Chỉnh sửa mục
+      not_found: Không tìm thấy mục bạn đang xem.
+      hidden:
+        'true': Mục được dấu.
+        'false': Mục được hiện ra.
+      locked:
+        'true': Mục được khoá.
+        'false': Mục được mở khoá.
+      pinned:
+        'true': Mục được cố định.
+        'false': Mục được gỡ cố định.
+    topics:
+      show:
+        reply: Phản hồi
+        delete: Xoá
+        subscribe: Đăng kí
+        unsubscribe: Huỷ đăng kí
+        reply_to_topic: Phản hồi to Mục
+        pending_review: Mục đang đợi kiểm duyệt. Chỉ có tác giả và người làm kiểm duyệt có quyền xem.
+        hide:
+          'true': Xem mục này
+          'false': Ẩn mục này
+        lock:
+          'true': Mở khoá mục này
+          'false': Khoá mục này
+        pin:
+          'true': Bỏ cố định mục này
+          'false': Cố định mục này
+    post:
+      buttons:
+        reply: Gửi Phản hồi
+        edit: Sửa
+      created: Phản hồi đã được gửi.
+      new: Gửi phản hồi tới
+      edit: Sửa
+      not_created: Không gửi được phản hồi.
+      not_created_topic_locked: Không gửi được phản hồi mục bị khoá.
+      edited: Bài viết mới được chỉnh sửa.
+      not_edited: Bài viết của bạn không chỉnh sửa được.
+      deleted: Bài viết của bạn vừa bị xoá.
+      deleted_with_topic: Chỉ có bài trong mục bị xoá. Mục cũng bị xoá.
+      cannot_delete: Không thể xoá bài sở hữu bởi người khác.
+      in_reply_to: Phản hồi tới
+    posts:
+      moderation:
+        moderate: Kiểm duyệt
+        approve: Chấp nhận
+        spam: Spam
+        success: Bài đã được kiểm duyệt.
+      post:
+        pending_review: Bài đang đợi kiểm duyệt. Chỉ có tác giả và người làm kiểm duyệt có quyền xem.
+    moderation:
+      title: "Công cụ kiểm duyệt cho %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Tạo Điễn Đàn
+        update: Cập nhật Điễn Đàn
+      topic:
+        create: Tạo Mục
+        update: Cập nhật Mục
+  simple_form:
+    labels:
+      forum:
+        title: Tiêu Đề 
+        description: Chú Thích
+      topic:
+        subject: Đề Bài
+        locked: Bị Phong Toả
+        pinned: Cố Định
+        hidden: Ẩn
+        posts:
+          text: Chữ
+      post:
+        text: Chữ
+
+  # General stuff
+  time_ago_in_words: "%{time} vừa qua"
+  ago: " vừa qua"
+  ago_by: " vừa qua bởi"
+  by: bởi
+  started_by: "Khởi động bởi "
+  are_you_sure: Có chắc không?
