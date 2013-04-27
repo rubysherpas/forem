@@ -6,9 +6,6 @@ env:
   - DB=mysql
   - DB=sqlite
 rvm:
-  - 2.0
+  - 2.0.0
   - 1.9.3
   - 1.8.7
-matrix:
-  allow_failures:
-    - rvm: 2.0
