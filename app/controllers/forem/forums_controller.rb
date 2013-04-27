@@ -4,7 +4,7 @@ module Forem
     helper 'forem/topics'
 
     def index
-      @categories = Forem::Category.all
+      @categories = Forem::Category.includes(:forums => [:category, :moderators]).all
     end
 
     def show
@@ -16,7 +16,9 @@ module Forem
         @forum.topics.visible.approved_or_pending_review_for(forem_user)
       end
 
-      @topics = @topics.by_pinned_or_most_recent_post.page(params[:page]).per(Forem.per_page)
+      @topics = @topics.by_pinned_or_most_recent_post
+      @topics = @topics.includes(:forum, :user)
+      @topics = @topics.page(params[:page]).per(Forem.per_page)
 
       respond_to do |format|
         format.html

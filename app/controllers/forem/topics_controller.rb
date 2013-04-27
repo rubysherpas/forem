@@ -8,7 +8,7 @@ module Forem
     def show
       if find_topic
         register_view
-        @posts = @topic.posts
+        @posts = @topic.posts.includes(:user, :reply_to, :topic)
         unless forem_admin_or_moderator?(@forum)
           @posts = @posts.approved_or_pending_review_for(forem_user)
         end
