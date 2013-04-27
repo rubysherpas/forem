@@ -19,6 +19,12 @@ module ::Forem
         forem/admin/members.js
       ]
     end
+
+    initializer "forem.localeapp" do
+      require 'localeapp/rails'
+
+      Localeapp.configure
+    end
   end
 end
 

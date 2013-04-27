@@ -44,8 +44,8 @@ describe "topics" do
         click_button 'Create Topic'
 
         flash_alert!("This topic could not be created.")
-        find_field("topic_subject").value.should eql("")
-        find_field("topic_posts_attributes_0_text").value.should eql("")
+        find_field("topic_subject").value.should be_blank
+        find_field("topic_posts_attributes_0_text").value.should be_blank
       end
 
       it "does not keep flash error over requests" do

@@ -44,7 +44,7 @@ describe "managing forums" do
         click_button 'Create Forum'
 
         flash_alert!("This forum could not be created.")
-        find_field("forum_title").value.should eql("")
+        find_field("forum_title").value.should be_blank
       end
 
       it "is invalid without description" do
@@ -52,7 +52,7 @@ describe "managing forums" do
         click_button 'Create Forum'
 
         flash_alert!("This forum could not be created.")
-        find_field("forum_description").value.should eql("")
+        find_field("forum_description").value.should be_blank
       end
 
       it "does not keep fail flash message for next request" do
