@@ -166,5 +166,10 @@ describe "topics" do
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("link[title='ATOM']")
     end
+
+    it "should have a page title" do
+      visit forum_topic_path(forum, topic)
+      page.find('title').native.text.should have_content("#{topic.subject} - #{forum.title} - #{forum.category.name} forums")
+    end
   end
 end

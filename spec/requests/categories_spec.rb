@@ -18,6 +18,11 @@ describe 'categories' do
     end
   end
 
+  it "sees page title" do
+    visit category_path(category_1)
+    page.find('title').native.text.should have_content("#{category_1.name} forums")
+  end
+
   it "can view a category's forums" do
     visit forums_path
     click_link category_1.name

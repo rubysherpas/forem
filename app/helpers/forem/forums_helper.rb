@@ -15,5 +15,17 @@ module Forem
         forum.posts.approved.count
       end
     end
+
+    def forums_title
+      I18n.t('forem.page_title')
+    end
+
+    def forum_title
+      I18n.t(
+        'forem.forum.page_title',
+        :forum => @forum.title,
+        :category => @forum.category.name
+      )
+    end
   end
 end

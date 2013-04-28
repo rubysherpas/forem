@@ -6,6 +6,7 @@ describe "forums" do
 
   it "listing all" do
     visit forums_path
+    page.find('title').native.text.should have_content("Forums")
     within(".forum") do
       page.should have_content("Welcome to Forem!")
       within(".description") do
@@ -54,6 +55,10 @@ describe "forums" do
       # TODO: cleaner way to get at topic subjects on the page?
       topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
       topic_subjects.include?("HIDDEN!").should be_false
+    end
+
+    it "sees page title" do
+      page.find('title').native.text.should have_content("#{forum.category.name} forums - #{forum.title}")
     end
 
     context "when logged in" do
