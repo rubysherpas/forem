@@ -22,6 +22,8 @@ module Forem
       opts[:old_style_hash] = true
 
       invoke Rails::Generators::AppGenerator, [ File.expand_path(dummy_path, destination_root) ], opts
+
+      run "rails generate forem:install --user-class=User --no-migrate=true --current-user-helper=current_user"
     end
 
     def test_dummy_clean
@@ -46,7 +48,6 @@ module Forem
       template "config/application.rb", "#{dummy_path}/config/application.rb", :force => true
       template "config/routes.rb", "#{dummy_path}/config/routes.rb", :force => true
       template "config/initializers/devise.rb", "#{dummy_path}/config/initializers/devise.rb", :force => true
-      template "config/initializers/forem.rb", "#{dummy_path}/config/initializers/forem.rb", :force => true
       template "db/migrate/1_create_users.rb", "#{dummy_path}/db/migrate/1_create_users.rb", :force => true
       template "db/migrate/2_create_admins.rb", "#{dummy_path}/db/migrate/2_create_admins.rb", :force => true
       template "Rakefile", "#{dummy_path}/Rakefile", :force => true
