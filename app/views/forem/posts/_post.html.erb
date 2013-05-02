@@ -14,10 +14,10 @@
         <%= t(".pending_review") %>
         <% if forem_admin_or_moderator?(post.topic.forum) %>
           <% if local_assigns[:mass_moderation] %>
-            <%= render "forem/posts/moderation_tools", :post => post %>
+            <%= render "/forem/posts/moderation_tools", :post => post %>
           <% else %>
             <%= form_tag forem.forum_moderate_posts_path(post.topic.forum), :method => :put do %>
-              <%= render "forem/posts/moderation_tools", :post => post %>
+              <%= render "/forem/posts/moderation_tools", :post => post %>
             <% end %>
           <% end %>
         <% end %>

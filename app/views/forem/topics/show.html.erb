@@ -18,7 +18,7 @@
   </menu>
 
   <% if forem_admin? %>
-    <%= link_to t(".hide.#{@topic.hidden}"), forem.toggle_hide_admin_topic_path(@topic), :method => :put %> | 
+    <%= link_to t(".hide.#{@topic.hidden}"), forem.toggle_hide_admin_topic_path(@topic), :method => :put %> |
     <%= link_to t(".lock.#{@topic.locked}"), forem.toggle_lock_admin_topic_path(@topic), :method => :put %> |
     <%= link_to t(".pin.#{@topic.pinned}"), forem.toggle_pin_admin_topic_path(@topic), :method => :put %>
   <% end %>
@@ -28,7 +28,7 @@
       <%= t(".pending_review") %>
       <% if forem_admin_or_moderator?(@topic.forum) %>
         <%= form_for @topic, :url => forem.moderate_forum_topic_path(@topic.forum, @topic), :method => :put do |f| %>
-          <%= render "forem/moderation/options", :f => f %>
+          <%= render "/forem/moderation/options", :f => f %>
         <% end %>
       <% end %>
     </div>
