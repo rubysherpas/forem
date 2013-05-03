@@ -27,7 +27,7 @@ describe Forem::Generators::InstallGenerator do
 
     # Ensure initializer has been created
     forem_initializer = File.readlines("#{Rails.root}/config/initializers/forem.rb")
-    forem_initializer[0].strip.should == "Forem.user_class = 'User'"
+    forem_initializer[0].strip.should == %q{Forem.user_class = "User"}
 
     # Ensure forem_user is added to ApplicationController
     application_controller = File.read("#{Rails.root}/app/controllers/application_controller.rb")

@@ -3,21 +3,15 @@ module Forem
     def cleanup!
       Dir.chdir(Rails.root) do
         FileUtils.rm_rf("db/migrate")
-
-        FileUtils.rm("config/initializers/forem.rb")
-        File.open("config/initializers/forem.rb", "w+") do |f|
-          f.write "Forem.user_class = 'User'"
-        end
       end
 
-      backup_or_restore = example.metadata[:run] ? "restore" : "backup"
-      backup_or_restore = "#{backup_or_restore}_file"
+      backup_or_restore = "#{example.metadata[:run] ? "restore" : "backup"}_file"
       ["#{Rails.root}/app/controllers/application_controller.rb",
        "#{Rails.root}/config/routes.rb"].each do |file|
         send(backup_or_restore, file)
       end
     end
-    
+
     def backup_file(file)
       FileUtils.cp(file, file + ".bak")
     end
