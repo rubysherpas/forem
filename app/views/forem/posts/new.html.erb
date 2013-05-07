@@ -13,6 +13,6 @@
 <% end %>
 
 <%= simple_form_for [forem, @topic, @post] do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= render "form", :f => f, :reply_to_id => params[:reply_to_id] %>
   <%= f.submit t("forem.post.buttons.reply") %>
 <% end %>
