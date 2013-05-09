@@ -50,6 +50,7 @@ module Forem
         else
           puts "Adding forem initializer (config/initializers/forem.rb)..."
           template "initializer.rb", path
+          require path # Load the configuration per issue #415
         end
       end
 
