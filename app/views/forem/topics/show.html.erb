@@ -37,7 +37,7 @@
   <%= forem_pages_widget(@posts) %>
 
   <div id='posts'>
-    <%= render :partial => "forem/posts/post", :collection => @posts %>
+    <%= render :partial => "forem/posts/post", :collection => @posts, :locals => {:post_positions=>@post_positions} %>
   </div>
 
   <%= forem_pages_widget(@posts) %>

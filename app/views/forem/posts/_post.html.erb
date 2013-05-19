@@ -31,7 +31,9 @@
 
     <% if post.reply_to %>
       <span class='in_reply_to'>
-        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+        <% position = @post_positions.select{|p| p[:id].equal? post.reply_to.id}.first[:position] %>
+        <% page = Integer(Float(position-1)/Float(Forem.per_page)+1) %>
+        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "?page=#{page}#post-#{post.reply_to.id}" %>
       </span>
     <% end %>
 
