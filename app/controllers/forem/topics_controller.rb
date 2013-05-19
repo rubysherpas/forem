@@ -7,12 +7,8 @@ module Forem
 
     def show
       if find_topic
-        register_view
-        @posts = @topic.posts
-        unless forem_admin_or_moderator?(@forum)
-          @posts = @posts.approved_or_pending_review_for(forem_user)
-        end
-        @posts = @posts.page(params[:page]).per(Forem.per_page)
+        register_view(@topic, forem_user)
+        @posts = find_posts(@topic).page(params[:page]).per(Forem.per_page)
       end
     end
 
@@ -27,11 +23,9 @@ module Forem
       @topic = @forum.topics.build(params[:topic], :as => :default)
       @topic.user = forem_user
       if @topic.save
-        flash[:notice] = t("forem.topic.created")
-        redirect_to [@forum, @topic]
+        create_successful
       else
-        flash.now.alert = t("forem.topic.not_created")
-        render :action => "new"
+        create_unsuccessful
       end
     end
 
@@ -39,28 +33,56 @@ module Forem
       @topic = @forum.topics.find(params[:id])
       if forem_user == @topic.user || forem_user.forem_admin?
         @topic.destroy
-        flash[:notice] = t("forem.topic.deleted")
+        destroy_successful
       else
-        flash.alert = t("forem.topic.cannot_delete")
+        destroy_unsuccessful
       end
-
-      redirect_to @topic.forum
     end
 
     def subscribe
       if find_topic
         @topic.subscribe_user(forem_user.id)
-        flash[:notice] = t("forem.topic.subscribed")
-        redirect_to forum_topic_url(@topic.forum, @topic)
+        subscribe_successful
       end
     end
 
     def unsubscribe
       if find_topic
         @topic.unsubscribe_user(forem_user.id)
-        flash[:notice] = t("forem.topic.unsubscribed")
-        redirect_to forum_topic_url(@topic.forum, @topic)
+        unsubscribe_successful
       end
+    end
+
+    protected
+    def create_successful
+      redirect_to [@forum, @topic], :notice => t("forem.topic.created")
+    end
+
+    def create_unsuccessful
+      flash.now.alert = t('forem.topic.not_created')
+      render :action => 'new'
+    end
+
+    def destroy_successful
+      flash[:notice] = t("forem.topic.deleted")
+
+      redirect_to @topic.forum
+    end
+
+    def destroy_unsuccessful
+      flash.alert = t("forem.topic.cannot_delete")
+
+      redirect_to @topic.forum
+    end
+
+    def subscribe_successful
+      flash[:notice] = t("forem.topic.subscribed")
+      redirect_to forum_topic_url(@topic.forum, @topic)
+    end
+
+    def unsubscribe_successful
+      flash[:notice] = t("forem.topic.unsubscribed")
+      redirect_to forum_topic_url(@topic.forum, @topic)
     end
 
     private
@@ -69,10 +91,17 @@ module Forem
       authorize! :read, @forum
     end
 
+    def find_posts(topic)
+      posts = topic.posts
+      unless forem_admin_or_moderator?(topic.forum)
+        posts = posts.approved_or_pending_review_for(forem_user)
+      end
+      @posts = posts
+    end
+
     def find_topic
       begin
-        scope = forem_admin_or_moderator?(@forum) ? @forum.topics : @forum.topics.visible.approved_or_pending_review_for(forem_user)
-        @topic = scope.find(params[:id])
+        @topic = forum_topics(@forum, forem_user).find(params[:id])
         authorize! :read, @topic
       rescue ActiveRecord::RecordNotFound
         flash.alert = t("forem.topic.not_found")
@@ -80,14 +109,23 @@ module Forem
       end
     end
 
-    def register_view
-      @topic.register_view_by(forem_user)
+    def register_view(topic, user)
+      topic.register_view_by(user)
     end
 
     def block_spammers
-      if forem_user.forem_state == "spam"
-        flash[:alert] = t('forem.general.flagged_for_spam') + ' ' + t('forem.general.cannot_create_topic')
+      if forem_user.forem_spammer?
+        flash[:alert] = t('forem.general.flagged_for_spam') + ' ' +
+                        t('forem.general.cannot_create_topic')
         redirect_to :back
+      end
+    end
+
+    def forum_topics(forum, user)
+      if forem_admin_or_moderator?(forum)
+        forum.topics
+      else
+        forum.topics.visible.approved_or_pending_review_for(user)
       end
     end
   end
