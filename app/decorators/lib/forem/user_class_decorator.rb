@@ -9,12 +9,13 @@ if Forem.user_class
     has_many :forem_memberships, :class_name => "Forem::Membership", :foreign_key => "member_id"
     has_many :forem_groups, :through => :forem_memberships, :class_name => "Forem::Group", :source => :group
 
-    def forem_needs_moderation?
-      !Forem.moderate_first_post || forem_state == 'approved'
+    def forem_moderate_posts?
+      Forem.moderate_first_post && forem_state != 'approved'
     end
+    alias_method :forem_needs_moderation?, :forem_moderate_posts?
 
     def forem_spammer?
-      forem_state == "spam"
+      forem_state == 'spam'
     end
   end
 end
