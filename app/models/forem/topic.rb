@@ -33,11 +33,12 @@ module Forem
     accepts_nested_attributes_for :posts
 
     validates :subject, :presence => true
+    validates :user, :presence => true
 
     before_save  :set_first_post_user
     after_save   :approve_user_and_posts, :if => :approved?
     after_create :subscribe_poster
-    after_create :skip_pending_review
+    after_create :skip_pending_review, :unless => :moderated?
 
     class << self
       def visible
@@ -114,22 +115,26 @@ module Forem
       subscribe_user(user_id)
     end
 
-    def subscribe_user(user_id)
-      if user_id && !subscriber?(user_id)
-        subscriptions.create!(:subscriber_id => user_id)
+    def subscribe_user(subscriber_id)
+      if subscriber_id && !subscriber?(subscriber_id)
+        subscriptions.create!(:subscriber_id => subscriber_id)
       end
     end
 
-    def unsubscribe_user(user_id)
-      subscriptions.where(:subscriber_id => user_id).destroy_all
+    def unsubscribe_user(subscriber_id)
+      subscriptions_for(subscriber_id).destroy_all
     end
 
-    def subscriber?(user_id)
-      subscriptions.exists?(:subscriber_id => user_id)
+    def subscriber?(subscriber_id)
+      subscriptions_for(subscriber_id).any?
     end
 
-    def subscription_for(user_id)
-      subscriptions.where(:subscriber_id => user_id).first
+    def subscription_for(subscriber_id)
+      subscriptions_for(subscriber_id).first
+    end
+
+    def subscriptions_for(subscriber_id)
+      subscriptions.where(:subscriber_id => subscriber_id)
     end
 
     def last_page
@@ -143,9 +148,7 @@ module Forem
     end
 
     def skip_pending_review
-      if user.try(:forem_needs_moderation?)
-        update_attribute(:state, 'approved')
-      end
+      update_attribute(:state, 'approved')
     end
 
     def approve_user_and_posts
@@ -154,6 +157,10 @@ module Forem
       first_post = posts.by_created_at.first
       first_post.approve! unless first_post.approved?
       user.update_attribute(:forem_state, 'approved') if user.forem_state != 'approved'
+    end
+
+    def moderated?
+      user.forem_moderate_posts?
     end
   end
 end
