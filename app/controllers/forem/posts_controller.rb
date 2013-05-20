@@ -100,8 +100,9 @@ module Forem
     end
 
     def block_spammers
-      if forem_user.forem_state == "spam"
-        flash[:alert] = t('forem.general.flagged_for_spam') + ' ' + t('forem.general.cannot_create_post')
+      if forem_user.forem_spammer?
+        flash[:alert] = t('forem.general.flagged_for_spam') + ' ' +
+                        t('forem.general.cannot_create_post')
         redirect_to :back
       end
     end

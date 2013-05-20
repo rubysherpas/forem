@@ -12,5 +12,9 @@ if Forem.user_class
     def forem_needs_moderation?
       !Forem.moderate_first_post || forem_state == 'approved'
     end
+
+    def forem_spammer?
+      forem_state == "spam"
+    end
   end
 end
