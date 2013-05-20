@@ -77,43 +77,43 @@ describe Forem::Topic do
     end
 
     describe "#register_view_by" do
-      before do
-        @user = FactoryGirl.create(:user)
-      end
+      let!(:view_user) { FactoryGirl.create(:user) }
 
       it "increments the overall topic view count" do
-        count = topic.views_count
-        topic.register_view_by(@user)
-        topic.views_count.should eq(count+1)
+        expect {
+          topic.register_view_by(view_user)
+        }.to change { topic.views_count }.from(topic.views_count).by(1)
       end
 
       it "increments the users view count for the topic" do
-        topic.views.create(:user => @user, :count => 1)
-        topic.register_view_by(@user)
-
-        topic.view_for(@user).count.should eq(2)
+        topic.views.create(:user => view_user, :count => 1)
+        expect {
+          topic.register_view_by(view_user)
+        }.to change { topic.view_for(view_user).count }.from(1).to(2)
       end
 
       it "doesn't update the view time if less than 15 minutes ago" do
         frozen_time = 1.minute.ago
         Timecop.freeze(frozen_time) do
-          topic.views.create :user => @user
+          topic.views.create :user => view_user
         end
 
-        topic.register_view_by(@user)
+        topic.register_view_by(view_user)
 
-        topic.view_for(@user).current_viewed_at.to_i.should eq(frozen_time.to_i)
+        topic.view_for(view_user).current_viewed_at.to_i.should eq(frozen_time.to_i)
       end
 
       it "does update the view time if more than 15 minutes ago" do
-        t = Time.parse("03/01/2012 10:00")
-        Time.stub(:now).and_return(t)
+        frozen_time = Time.parse("03/01/2012 10:00")
+        Timecop.freeze(frozen_time) do
+          last_hour = 1.hour.ago.utc
+          topic.views.create(:user => view_user, :current_viewed_at => last_hour)
+        end
 
-        last_hour = 1.hour.ago.utc
-        topic.views.create(:user => @user, :current_viewed_at => last_hour)
-        topic.register_view_by(@user)
-
-        topic.view_for(@user).current_viewed_at.to_i.should eq(t.to_i)
+        Timecop.freeze(Time.now) do
+          topic.register_view_by(view_user)
+          topic.view_for(view_user).current_viewed_at.to_i.should eq(Time.now.to_i)
+        end
       end
     end
   end
