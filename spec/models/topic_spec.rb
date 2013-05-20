@@ -32,9 +32,9 @@ describe Forem::Topic do
 
       @topic.destroy
 
-      Forem::Post.where('topic_id = ?', @topic.id).first.should be_nil
-      Forem::Subscription.where('topic_id = ?', @topic.id).first.should be_nil
-      Forem::View.where('viewable_id = ?', @topic.id).first.should be_nil
+      Forem::Post.exists?(:topic_id => @topic.id).should be_false
+      Forem::Subscription.exists?(:topic_id => @topic.id).should be_false
+      Forem::View.exists?(:viewable_id => @topic.id).should be_false
     end
   end
 
