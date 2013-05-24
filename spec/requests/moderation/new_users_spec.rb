@@ -69,9 +69,7 @@ describe "moderation" do
     end
 
     context "as a new user" do
-      before do
-        sign_in(user)
-      end
+      before { sign_in(user) }
 
       it "does not have their first topic moderated" do
         visit new_forum_topic_path(forum)
@@ -82,7 +80,6 @@ describe "moderation" do
         flash_notice!("This topic has been created.")
         page.should_not have_content("This topic is currently pending review.")
       end
-
 
       it "does not have their first post moderated" do
         topic = FactoryGirl.create(:topic, :forum => forum)

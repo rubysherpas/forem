@@ -2,13 +2,10 @@ require 'spec_helper'
 
 describe "moderation" do
   let(:forum) { FactoryGirl.create(:forum) }
-  let(:user) { FactoryGirl.create(:user) }
 
   context "approved users" do
-    before do
-      sign_in(user)
-      User.any_instance.stub(:forem_state).and_return("approved")
-    end
+    let(:user) { FactoryGirl.create(:user, :forem_state => 'approved') }
+    before { sign_in(user) }
 
     it "subsequent topics bypass the moderation queue" do
       visit new_forum_topic_path(forum)

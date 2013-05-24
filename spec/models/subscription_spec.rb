@@ -15,10 +15,7 @@ describe Forem::Subscription do
     let(:topic) { Forem::Topic.new(attributes) }
 
     it "creates a subscription when a topic is created" do
-      topic.stub(:subscriptions).and_return(subscriptions = stub)
-      subscriptions.should_receive(:exists?).and_return(false)
-      topic.subscriptions.should_receive(:create!).with(:subscriber_id => topic.user_id)
-      topic.run_callbacks(:create)
+      expect { topic.save }.to change { topic.subscriptions.count }.from(0).to(1)
     end
 
     # Regression test for #375

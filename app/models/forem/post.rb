@@ -101,9 +101,7 @@ module Forem
 
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).find_each do |subscription|
-        if subscription.subscriber != user
-          subscription.send_notification(id)
-        end
+        subscription.send_notification(id) if subscription.subscriber != user
       end
       update_attribute(:notified, true)
     end
@@ -113,9 +111,7 @@ module Forem
     end
 
     def skip_pending_review
-      if user.try(:forem_needs_moderation?)
-        update_attribute(:state, 'approved')
-      end
+      approve! unless user && user.forem_moderate_posts?
     end
 
     def approve_user

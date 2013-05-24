@@ -2,28 +2,30 @@ require 'spec_helper'
 require 'timecop'
 
 describe Forem::Topic do
-  before(:each) do
+  let(:topic) do
+    _topic = Forem::Topic.new(:subject => "A topic")
+    _topic.user = stub_model(User)
+    _topic.save
+    _topic
+  end
+  before do
     Forem::Topic.any_instance.stub(:set_first_post_user).and_return(true)
-    @attr = {
-      :subject => "A topic"
-    }
-    @topic = Forem::Topic.create!(@attr)
   end
 
   it "is valid with valid attributes" do
-    @topic.should be_valid
+    topic.should be_valid
   end
 
   context "creation" do
     it "is automatically pending review" do
-      @topic.should be_pending_review
+      topic.should be_pending_review
     end
   end
 
   describe "validations" do
     it "requires a subject" do
-      @topic.subject = nil
-      @topic.should_not be_valid
+      topic.subject = nil
+      topic.should_not be_valid
     end
   end
 
@@ -61,58 +63,57 @@ describe Forem::Topic do
 
   describe "helper methods" do
     describe "#subscribe_user" do
+      let(:subscription_user) { FactoryGirl.create(:user) }
       it "subscribes a user to the topic" do
-        user = FactoryGirl.create(:user)
-        @topic.subscribe_user(user.id)
-        @topic.subscriptions.last.subscriber.should == user
+        topic.subscribe_user(subscription_user.id)
+        topic.subscriptions.last.subscriber.should == subscription_user
       end
 
       it "only subscribes users once" do
-        user = FactoryGirl.create(:user)
-        @topic.subscribe_user(user.id)
-        @topic.subscribe_user(user.id)
-        @topic.subscriptions.size.should == 1
+        expect {
+          2.times { topic.subscribe_user(subscription_user.id) }
+        }.to change { topic.subscriptions.count}.from(topic.subscriptions.count).by(1)
       end
     end
 
     describe "#register_view_by" do
-      before do
-        @user = FactoryGirl.create(:user)
-      end
+      let!(:view_user) { FactoryGirl.create(:user) }
 
       it "increments the overall topic view count" do
-        count = @topic.views_count
-        @topic.register_view_by(@user)
-        @topic.views_count.should eq(count+1)
+        expect {
+          topic.register_view_by(view_user)
+        }.to change { topic.views_count }.from(topic.views_count).by(1)
       end
 
       it "increments the users view count for the topic" do
-        @topic.views.create(:user => @user, :count => 1)
-        @topic.register_view_by(@user)
-
-        @topic.view_for(@user).count.should eq(2)
+        topic.views.create(:user => view_user, :count => 1)
+        expect {
+          topic.register_view_by(view_user)
+        }.to change { topic.view_for(view_user).count }.from(1).to(2)
       end
 
       it "doesn't update the view time if less than 15 minutes ago" do
         frozen_time = 1.minute.ago
         Timecop.freeze(frozen_time) do
-          @topic.views.create :user => @user
+          topic.views.create :user => view_user
         end
 
-        @topic.register_view_by(@user)
+        topic.register_view_by(view_user)
 
-        @topic.view_for(@user).current_viewed_at.to_i.should eq(frozen_time.to_i)
+        topic.view_for(view_user).current_viewed_at.to_i.should eq(frozen_time.to_i)
       end
 
       it "does update the view time if more than 15 minutes ago" do
-        t = Time.parse("03/01/2012 10:00")
-        Time.stub(:now).and_return(t)
+        frozen_time = Time.parse("03/01/2012 10:00")
+        Timecop.freeze(frozen_time) do
+          last_hour = 1.hour.ago.utc
+          topic.views.create(:user => view_user, :current_viewed_at => last_hour)
+        end
 
-        last_hour = 1.hour.ago.utc
-        @topic.views.create(:user => @user, :current_viewed_at => last_hour)
-        @topic.register_view_by(@user)
-
-        @topic.view_for(@user).current_viewed_at.to_i.should eq(t.to_i)
+        Timecop.freeze(Time.now) do
+          topic.register_view_by(view_user)
+          topic.view_for(view_user).current_viewed_at.to_i.should eq(Time.now.to_i)
+        end
       end
     end
   end
