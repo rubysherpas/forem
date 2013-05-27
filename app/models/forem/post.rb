@@ -1,6 +1,7 @@
 module Forem
   class Post < ActiveRecord::Base
     include Workflow
+    include Forem::Concerns::NilUser
 
     workflow_column :state
     workflow do
@@ -18,7 +19,7 @@ module Forem
     attr_accessor :moderation_option
 
     belongs_to :topic
-    belongs_to :user,     :class_name => Forem.user_class.to_s
+    belongs_to :forem_user, :class_name => Forem.user_class.to_s, :foreign_key => :user_id
     belongs_to :reply_to, :class_name => "Post"
 
     has_many :replies, :class_name  => "Post",
