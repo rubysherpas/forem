@@ -1,6 +1,7 @@
 en:
   forem:
     general:
+      deleted: [deleted]
       forum: Forum
       topics: Topics
       topic: Topic
