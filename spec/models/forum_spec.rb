@@ -37,6 +37,12 @@ describe Forem::Forum do
         forum.name = 'bar'
         forum.title.should eq("bar")
       end
+
+      context "to_s" do
+        it 'returns the name of the forum' do
+          forum.to_s.should == forum.name
+        end
+      end
     end
 
     # Regression tests + tests related to fix for #42
