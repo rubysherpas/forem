@@ -22,6 +22,24 @@ describe Forem::Topic do
     end
   end
 
+  context "deletion" do
+    it "deletes views, subscriptions and posts" do
+      FactoryGirl.create(:post, :topic => @topic)
+      FactoryGirl.create(:subscription, :topic => @topic)
+      FactoryGirl.create(:topic_view, :viewable => @topic)
+
+      @topic.posts.count.should be > 0
+      @topic.subscriptions.count.should be > 0
+      @topic.views.count.should be > 0
+
+      @topic.destroy
+
+      Forem::Post.exists?(:topic_id => @topic.id).should be_false
+      Forem::Subscription.exists?(:topic_id => @topic.id).should be_false
+      Forem::View.exists?(:viewable_id => @topic.id).should be_false
+    end
+  end
+
   describe "validations" do
     it "requires a subject" do
       topic.subject = nil

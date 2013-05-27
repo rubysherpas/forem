@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe Forem::Subscription do
+
+  it "is valid with valid attributes" do
+    FactoryGirl.build(:subscription).should be_valid
+  end
+
   describe "topic subscriptions" do
     before(:each) do
       Forem::Topic.any_instance.stub(:set_first_post_user)
