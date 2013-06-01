@@ -30,5 +30,13 @@ module Forem
       end
     end
 
+    def topic_title
+      I18n.t(
+        'forem.topic.page_title',
+        :subject => @topic.subject,
+        :forum => @topic.forum.title,
+        :category => @topic.forum.category.name
+      )
+    end
   end
 end

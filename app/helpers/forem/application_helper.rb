@@ -49,5 +49,9 @@ module Forem
         end
       end.html_safe if content.present?
     end
+
+    def set_forem_page_title(page_title)
+      content_for :forem_page_title, page_title
+    end
   end
 end
