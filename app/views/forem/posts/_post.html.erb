@@ -3,7 +3,11 @@
 
   <div class='user'>
     <div class='username'>
-      <%= link_to_if Forem.user_profile_links, post.user, [main_app, post.user] %>
+      <% if post.user.is_a?(Forem::NilUser) %>
+        <%= t(:deleted) %>
+      <% else %>
+        <%= link_to_if Forem.user_profile_links, post.user, [main_app, post.user] %>
+      <% end %>
     </div>
     <div class='icon'><%= forem_avatar(post.user, :size => 60) %></div>
   </div>

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "posts" do
   let(:forum) { FactoryGirl.create(:forum) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
+  let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :forem_user => user) }
 
   context "not signed in users" do
     it "cannot begin to post a reply" do
@@ -16,6 +16,15 @@ describe "posts" do
       delete topic_post_path(topic, first_post), :id => first_post.id.to_s
       response.should redirect_to('/users/sign_in')
       flash.alert.should == "You must sign in first."
+    end
+  end
+
+  context "posts with deleted users" do
+    it "can be viewed" do
+      first_post = topic.posts.first
+      first_post.update_column(:user_id, nil)
+      visit forum_topic_path(forum, topic)
+      page.should have_content(topic.subject)
     end
   end
 

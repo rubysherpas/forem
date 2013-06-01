@@ -5,11 +5,17 @@ describe "topic listing" do
     let!(:user) { create(:user) }
     let!(:forum) { create(:forum) }
     let!(:topic) { create(:approved_topic, :forum => forum, :user => user) }
-    let!(:approved_post) { create(:approved_post, :topic => topic, :user => user, :created_at => 1.day.from_now) }
-    let!(:unapproved_post) { create(:post, :topic => topic, :user => user, :created_at => 2.days.from_now) }
 
-    before do
-      unapproved_post.update_attribute(:state, "pending_review")
+    let!(:approved_post) do
+      topic.posts.first.tap do |post|
+        post.update_attribute(:state, "approved")
+      end
+    end
+
+    let!(:unapproved_post) do
+      create(:post, :topic => topic, :user => user, :created_at => 2.days.from_now).tap do |post|
+        post.update_attribute(:state, "pending_review")
+      end
     end
 
     def last_post_anchor
@@ -20,6 +26,12 @@ describe "topic listing" do
       it "shows approved post as latest post" do
         visit forum_path(forum)
         last_post_anchor.should == "post-#{approved_post.id}"
+      end
+
+      it "shows topics by deleted users" do
+        approved_post.update_column(:user_id, nil)
+        visit forum_path(forum)
+        page.should have_content("Started by [deleted]")
       end
     end
 
