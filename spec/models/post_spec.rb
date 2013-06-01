@@ -47,8 +47,8 @@ describe Forem::Post do
     it "only emails other subscribers" do
       user_2 = FactoryGirl.create(:user)
       Forem::Subscription.any_instance.should_receive(:send_notification).once
-      post = FactoryGirl.build(:approved_post, :topic => topic, :user => user_2)
-      post.save!
+      post = FactoryGirl.create(:post, :topic => topic, :user => user_2)
+      post.approve!
     end
 
     it "sets topics last_post_at value" do
