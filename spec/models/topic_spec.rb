@@ -3,13 +3,7 @@ require 'timecop'
 
 describe Forem::Topic do
   let(:topic) do
-    _topic = Forem::Topic.new(:subject => "A topic")
-    _topic.user = stub_model(User)
-    _topic.save
-    _topic
-  end
-  before do
-    Forem::Topic.any_instance.stub(:set_first_post_user).and_return(true)
+    FactoryGirl.create(:topic)
   end
 
   it "is valid with valid attributes" do
@@ -37,12 +31,12 @@ describe Forem::Topic do
   end
 
   describe "approving" do
-    let(:topic) { FactoryGirl.create(:topic, :user => stub_model(User)) }
+    let(:unapproved_topic) { FactoryGirl.create(:topic, :user => FactoryGirl.create(:user)) }
 
     it "switches pending review status" do
       Forem::Post.any_instance.stub(:subscribe_replier)
-      topic.approve!
-      topic.posts.by_created_at.first.should_not be_pending_review
+      unapproved_topic.approve!
+      unapproved_topic.posts.by_created_at.first.should_not be_pending_review
     end
   end
 

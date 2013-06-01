@@ -5,10 +5,10 @@ FactoryGirl.define do
     t.user {|u| u.association(:user) }
     t.posts_attributes { [:text => "This is a brand new post"] }
 
-    trait :approved do
-      state 'approved'
+    factory :approved_topic do
+      after_create do |t|
+        t.approve!
+      end
     end
-
-    factory :approved_topic, :traits => [:approved]
   end
 end

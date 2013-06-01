@@ -34,10 +34,6 @@ module Forem
     after_create :subscribe_replier, :if => :user_auto_subscribe?
     after_create :skip_pending_review
 
-    after_save :approve_user,   :if => :approved?
-    after_save :blacklist_user, :if => :spam?
-    after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
-
     class << self
       def approved
         where(:state => "approved")
@@ -98,15 +94,22 @@ module Forem
       end
     end
 
+    # Called when a post is approved.
+    def approve
+      approve_user
+      return if notified?
+      email_topic_subscribers
+    end
+
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).find_each do |subscription|
         subscription.send_notification(id) if subscription.subscriber != user
       end
-      update_attribute(:notified, true)
+      update_column(:notified, true)
     end
 
     def set_topic_last_post_at
-      topic.update_attribute(:last_post_at, created_at)
+      topic.update_column(:last_post_at, created_at)
     end
 
     def skip_pending_review
@@ -114,11 +117,11 @@ module Forem
     end
 
     def approve_user
-      user.update_attribute(:forem_state, "approved") if user && user.forem_state != "approved"
+      user.update_column(:forem_state, "approved") if user && user.forem_state != "approved"
     end
 
-    def blacklist_user
-      user.update_attribute(:forem_state, "spam") if user
+    def spam
+      user.update_column(:forem_state, "spam") if user
     end
 
   end
