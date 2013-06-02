@@ -38,6 +38,7 @@ module Forem
     after_save :approve_user,   :if => :approved?
     after_save :blacklist_user, :if => :spam?
     after_save :email_topic_subscribers, :if => Proc.new { |p| p.approved? && !p.notified? }
+    after_save :send_moderation_notification, :if => Proc.new { |p| p.topic.user.forem_moderate_posts? }
 
     class << self
       def approved
@@ -97,6 +98,10 @@ module Forem
       if topic && user
         topic.subscribe_user(user.id)
       end
+    end
+
+    def send_moderation_notification
+      ModerationQueueMailer.new_post(self).deliver if topic.user.forem_moderate_posts?
     end
 
     def email_topic_subscribers
