@@ -21,7 +21,6 @@ module Forem
       @post.user = forem_user
 
       if @post.save
-        Forem::ModerationQueueMailer.new_post(@post).deliver if forem_user.forem_moderate_posts?
         create_successful
       else
         create_failed
@@ -55,6 +54,7 @@ module Forem
     end
 
     def create_successful
+      Forem::ModerationQueueMailer.new_post(@post).deliver if forem_user.forem_moderate_posts?
       flash[:notice] = t("forem.post.created")
       redirect_to forum_topic_url(@topic.forum, @topic, :page => @topic.last_page)
     end
