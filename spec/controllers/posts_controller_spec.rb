@@ -23,7 +23,7 @@ describe Forem::PostsController do
       end
 
       it "sends moderation emails" do
-        Forem::ModerationQueueMailer.should_receive(:new_post).and_return(double('Mailer', :deliver => nil))
+        controller.should_receive(:deliver_moderation_notification)
         post :create, :post => { :text => "This is a brand new post."}, :topic_id => topic.id
       end
     end
@@ -34,7 +34,7 @@ describe Forem::PostsController do
       end
 
       it "does not send moderation emails" do
-        Forem::ModerationQueueMailer.should_not_receive(:new_post)
+        controller.should_not_receive(:deliver_moderation_notification)
         post :create, :post => { :text => "This is a brand new post."}, :topic_id => topic.id
       end
     end
