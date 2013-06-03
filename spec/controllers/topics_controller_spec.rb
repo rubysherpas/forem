@@ -22,7 +22,6 @@ describe Forem::TopicsController do
     end
   end
 
-
   context "not signed in" do
     let(:forum) { create(:forum) }
     let(:user)  { create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com", :custom_avatar_url => 'avatar.png') }
@@ -32,6 +31,30 @@ describe Forem::TopicsController do
       delete :destroy, :forum_id => topic.forum.to_param, :topic_id => topic.to_param, :id => topic.to_param
       response.should redirect_to('/users/sign_in')
       flash.alert.should == "You must sign in first."
+    end
+  end
+
+  context "moderation" do
+    let!(:forum) { create(:forum) }
+    let(:topic_attributes) {
+      { :subject => "This is a brand new topic.", :posts_attributes => {"0" => {:text => "first!"}}}
+    }
+    before { controller.stub :forem_user => user }
+    context "as an unapproved user" do
+      let!(:user)  { create(:user, :forem_state => 'pending_review') }
+
+      it "sends moderation emails" do
+        controller.should_receive(:deliver_moderation_notification)
+        post :create, :topic => topic_attributes, :forum_id => forum.id
+      end
+    end
+
+    context "as an approved user" do
+      let!(:user)  { create(:user, :forem_state => 'approved') }
+      it "does not send moderation emails" do
+        controller.should_not_receive(:deliver_moderation_notification)
+        post :create, :topic => topic_attributes, :forum_id => forum.id
+      end
     end
   end
 

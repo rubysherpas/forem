@@ -23,7 +23,6 @@ module Forem
       @topic = @forum.topics.build(params[:topic], :as => :default)
       @topic.user = forem_user
       if @topic.save
-        ModerationQueueMailer.new_topic(@topic).deliver if @topic.user.forem_moderate_posts?
         create_successful
       else
         create_unsuccessful
@@ -56,12 +55,21 @@ module Forem
 
     protected
     def create_successful
+      deliver_moderation_notification if deliver_moderation_notifications_for_user?(forem_user)
       redirect_to [@forum, @topic], :notice => t("forem.topic.created")
     end
 
     def create_unsuccessful
       flash.now.alert = t('forem.topic.not_created')
       render :action => 'new'
+    end
+
+    def deliver_moderation_notification
+      ModerationQueueMailer.new_topic(@topic).deliver
+    end
+
+    def deliver_moderation_notifications_for_user?(user)
+      user.forem_moderate_posts?
     end
 
     def destroy_successful

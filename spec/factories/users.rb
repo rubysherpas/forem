@@ -9,7 +9,7 @@ FactoryGirl.define do
     factory :admin do |f|
       f.forem_admin true
     end
-    
+
     factory :not_autosubscribed do |f|
       f.forem_auto_subscribe false
     end
