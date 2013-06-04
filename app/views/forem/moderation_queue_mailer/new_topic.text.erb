@@ -1,3 +1,3 @@
-<%= I18n.t('moderation_needed', :scope => 'forem.topic') %> You can view it here:
+<%= I18n.t('moderation_needed', :scope => 'forem.topic') %> <%= I18n,t('moderation_view_here', :scope => 'forem.topic') %>
 
 <%= forem.forum_topic_url(@topic.forum_id, @topic) %>
