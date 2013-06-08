@@ -22,23 +22,13 @@
           <td><%= link_to t('delete', :scope => 'forem.admin.forums'), forem.admin_forum_path(forum), :method => :delete, :confirm => t("delete_confirm", :scope => "forem.admin.forums") %></td>
           <td>
             <%= link_to forem_emojify(forum.title), forem.forum_path(forum) %>
-            <div class='description'><%= forem_format(forum.description) %></div>
+            <div class='description'><%= forem_format forum.description %></div>
             <%= t('.last_post') %>
-            <% if last_post = forum.posts.last %>
-<%= link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= time_ago_in_words(last_post.created_at) -%>
-            <% else %>
-              <%= t('.none') %>
-            <% end %>
+            <%= Forem::PostLinkPresenter.new self, forum.posts.last %>
             <br>
             <span class='moderators'>
               <strong><%= t('.moderators') %>:</strong>
-              <% if forum.moderators.exists? %>
-                <% forum.moderators.map do |moderator| %>
-                  <%= link_to moderator, [forem, :admin, moderator] %>
-                <% end.to_sentence %>
-              <% else %>
-                None
-              <% end %>
+              <%= Forem::UserLinksPresenter.new self, forum.moderators %>
             </span>
           </td>
           <td><%= forum.topics.count %></td>

@@ -5,11 +5,7 @@
       <div class='description'><%= forem_format(forum.description) %></div>
       <%= t('forem.forums.index.last_post') -%>
       <span class='last_post'>
-        <% if last_post = forum.last_post_for(forem_user) -%>
-          <%= link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= t('time_ago_in_words', :time => time_ago_in_words(last_post.created_at)) -%>
-        <% else %>
-          <%= t('forem.forums.index.none') -%>
-        <% end %>
+        <%= Forem::PostLinkPresenter.new self, forum.last_post_for(forem_user) %>
       </span>
     </td>
     <td class="topics-count"><%= topics_count(forum) %></td>
