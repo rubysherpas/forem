@@ -48,6 +48,24 @@ Run the installer and answer any questions that pop up. There's sensible default
 rails g forem:install
 ```
 
+## Set up helper methods in your user model
+
+Forem depends on a `to_s` method being available on your `User` model so that it can display the user's name in posts. Define this in your model like this:
+
+```ruby
+def to_s
+  name
+end
+```
+
+It also depends on an `email` method for displaying avatars using [Gravatar](http://gravatar.com). If you don't have an `email` attribute on the model, define a new method:
+
+```ruby
+def email
+  email_address
+end
+```
+
 And you're done! Yaaay!
 
 For more information on installing, please [see the "Installation" wiki
