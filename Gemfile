@@ -28,3 +28,7 @@ group :test do
     gem "forem-kramdown"
   end
 end
+
+if RUBY_VERSION < '1.9.2'
+  gem 'nokogiri', '~> 1.5.9'
+end
