@@ -11,12 +11,17 @@ require 'decorators'
 require 'localeapp'
 
 module Forem
-  mattr_accessor :user_class, :theme, :formatter, :default_gravatar, :default_gravatar_image,
+  mattr_accessor :base_path, :user_class, :theme, :formatter,
+                 :default_gravatar, :default_gravatar_image, :avatar_user_method,
                  :user_profile_links, :email_from_address, :autocomplete_field,
-                 :avatar_user_method, :per_page, :sign_in_path, :moderate_first_post
+                 :per_page, :sign_in_path, :moderate_first_post
 
 
   class << self
+    def base_path
+      @@base_path ||= Rails.application.routes.named_routes[:forem].path
+    end
+
     def moderate_first_post
       # Default it to true
       @@moderate_first_post == false ? false : true
