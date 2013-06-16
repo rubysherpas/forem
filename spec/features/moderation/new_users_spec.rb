@@ -11,6 +11,7 @@ describe "moderation" do
       end
 
       it "has their first topic moderated" do
+        Forem::ModerationQueueMailer.should_receive(:new_topic).and_return(double('Mailer', :deliver => nil))
         visit new_forum_topic_path(forum)
         fill_in "Subject", :with => "FIRST TOPIC"
         fill_in "Text", :with => "User's first words"
@@ -22,6 +23,7 @@ describe "moderation" do
 
 
       it "has their first post moderated" do
+        Forem::ModerationQueueMailer.should_receive(:new_post).and_return(double('Mailer', :deliver => nil))
         topic = FactoryGirl.create(:topic, :forum => forum)
         topic.approve!
         visit forum_topic_path(forum, topic)

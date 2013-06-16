@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "topics" do
 
   let(:forum) { FactoryGirl.create(:forum) }
-  let(:user) { FactoryGirl.create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com", :custom_avatar_url => 'avatar.png') }
+  let(:user) { FactoryGirl.create(:user, :login => 'other_forem_user', :email => "bob@boblaw.com", :custom_avatar_url => 'avatar.png', :forem_state => 'approved') }
   let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum, :user => user) }
   let(:other_user) { FactoryGirl.create(:user, :login => 'other_forem_user') }
   let(:other_topic) { FactoryGirl.create(:approved_topic, :subject => 'Another forem topic', :user => other_user, :forum => forum) }
@@ -31,7 +31,6 @@ describe "topics" do
         assert_seen("FIRST TOPIC", :within => :topic_header)
         assert_seen("omgomgomgomg", :within => :post_text)
         assert_seen("forem_user", :within => :post_user)
-
       end
 
       it "is invalid without subject but with post text" do

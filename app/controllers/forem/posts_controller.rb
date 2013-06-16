@@ -54,8 +54,17 @@ module Forem
     end
 
     def create_successful
+      deliver_moderation_notification if deliver_moderation_notifications_for_user?(forem_user)
       flash[:notice] = t("forem.post.created")
       redirect_to forum_topic_url(@topic.forum, @topic, :page => @topic.last_page)
+    end
+
+    def deliver_moderation_notification
+      ModerationQueueMailer.new_post(@post).deliver
+    end
+
+    def deliver_moderation_notifications_for_user?(user)
+      user.forem_moderate_posts?
     end
 
     def create_failed
