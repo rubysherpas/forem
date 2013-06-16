@@ -35,21 +35,6 @@
       </span>
     <% end %>
 
-    <ul class='actions'>
-      <% if forem_user %>
-        <% if can?(:reply, post.topic) %>
-          <% if post.topic.can_be_replied_to? %>
-            <li><%= link_to t('reply', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id) %></li>
-            <li><%= link_to t('quote', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id, :quote => true) %></li>
-          <% end %>
-        <% end %>
-        <% if post.owner_or_admin?(forem_user) %>
-          <% if can?(:edit_post, post.topic.forum) %>
-            <li><%= link_to t('edit', :scope => 'forem.post'), forem.edit_topic_post_path(post.topic, post) %></li>
-          <% end %>
-          <li><%= link_to t('delete', :scope => 'forem.topic'), forem.topic_post_path(post.topic, post), :method => :delete, :confirm => t("are_you_sure") %></li>
-        <% end %>
-      <% end %>
-    </ul>
+    <%= Forem::PostActionsPresenter.new(self, post, forem_user) if forem_user %>
   </div>
 </div>
