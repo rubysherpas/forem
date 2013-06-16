@@ -22,9 +22,34 @@ module Forem
       @@base_path ||= Rails.application.routes.named_routes[:forem].path
     end
 
+    def decorate_user_class!
+      Forem.user_class.class_eval do
+        extend Forem::Autocomplete
+        include Forem::DefaultPermissions
+
+        has_many :forem_posts, :class_name => "Forem::Post", :foreign_key => "user_id"
+        has_many :forem_topics, :class_name => "Forem::Topic", :foreign_key => "user_id"
+        has_many :forem_memberships, :class_name => "Forem::Membership", :foreign_key => "member_id"
+        has_many :forem_groups, :through => :forem_memberships, :class_name => "Forem::Group", :source => :group
+
+        def forem_moderate_posts?
+          Forem.moderate_first_post && !forem_approved_to_post?
+        end
+        alias_method :forem_needs_moderation?, :forem_moderate_posts?
+
+        def forem_approved_to_post?
+          forem_state == 'approved'
+        end
+
+        def forem_spammer?
+          forem_state == 'spam'
+        end
+      end
+    end
+
     def moderate_first_post
       # Default it to true
-      @@moderate_first_post == false ? false : true
+      @@moderate_first_post != false
     end
 
     def autocomplete_field
