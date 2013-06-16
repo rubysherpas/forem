@@ -2,9 +2,7 @@
   <td class='icon'>
     <% if topic.locked? %><span class='lock icon'></span><% end %>
     <% if topic.pinned? %><span class='pin icon'></span><% end %>
-    <% if forem_user && view = topic.view_for(forem_user) && topic.posts.exists?(["created_at > ?", view.updated_at]) %>
-      <span class='new_posts icon'>new</span>
-    <% end %>
+    <% if new_posts?(topic, forem_user) %><span class='new_posts icon'>new</span><% end %>
   </td>
   <td class='byline'>
     <%= new_since_last_view_text(topic) %>

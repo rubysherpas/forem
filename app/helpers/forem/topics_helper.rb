@@ -30,5 +30,10 @@ module Forem
       end
     end
 
+    def new_posts?(topic, user)
+      view = (topic.view_for(user) if user)
+      view && topic.posts.exists?(["created_at > ?", view.updated_at])
+    end
+
   end
 end
