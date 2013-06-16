@@ -11,20 +11,19 @@ module Forem
     end
 
     def to_s
-      if post
-        text = [context.link_to(EmojiPresenter.new(context, post.topic.subject).to_s,
-                        context.forem.forum_topic_path(post.forum, post.topic))]
-        text << ::I18n.t('by')
-        text << post.user
-        text << time_ago_in_words(post.created_at)
-        text.join(' ').html_safe
-      else
-        alternate_text
-      end
+      return alternate_text unless post
+
+      text = [link_to(EmojiPresenter.new(context, post.topic.subject).to_s,
+                      forem.forum_topic_path(post.forum, post.topic))]
+      text << ::I18n.t('by')
+      text << post.user
+      text << time_ago_in_words(post.created_at)
+      text.join(' ').html_safe
     end
 
     protected
     attr_accessor :context, :post, :alternate_text
+    delegate :forem, :link_to, :to => :context
 
   end
 end

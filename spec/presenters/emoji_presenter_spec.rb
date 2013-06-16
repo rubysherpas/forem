@@ -1,7 +1,7 @@
 require File.expand_path('../../../app/presenters/forem/emoji_presenter', __FILE__)
 
 class FakeContext
-  def asset_path(image); image; end
+  def image_tag(path, options); %Q{<img src="#{path}" />}; end
 end
 
 module Forem

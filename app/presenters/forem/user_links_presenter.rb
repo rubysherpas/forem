@@ -7,16 +7,13 @@ module Forem
     end
 
     def to_s
-      if self.users.exists?
-        self.users.map do |user|
-          context.link_to user, [context.forem, :admin, user]
-        end
-      else
-        self.alternate_text
-      end
+      return self.alternate_text unless self.users.exists?
+
+      self.users.map { |user| link_to user, [forem, :admin, user] }
     end
 
     protected
     attr_accessor :context, :users, :alternate_text
+    delegate :forem, :link_to, :to => :context
   end
 end
