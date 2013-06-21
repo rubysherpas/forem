@@ -1,0 +1,4 @@
+<div class='moderation'>
+  <%= t("pending_review", :scope => 'forem.posts.post') %>
+  <%= Forem::ModerationToolsPresenter.new(self, post, !!local_assigns[:mass_moderation]) %>
+</div>

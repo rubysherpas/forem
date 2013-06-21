@@ -9,31 +9,16 @@
   </div>
 
   <div class='contents'>
-    <% if post.pending_review? %>
-      <div class='moderation'>
-        <%= t(".pending_review") %>
-        <% if forem_admin_or_moderator?(post.topic.forum) %>
-          <% if local_assigns[:mass_moderation] %>
-            <%= render "/forem/posts/moderation_tools", :post => post %>
-          <% else %>
-            <%= form_tag forem.forum_moderate_posts_path(post.topic.forum), :method => :put do %>
-              <%= render "/forem/posts/moderation_tools", :post => post %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render 'forem/posts/pending_review', :post => post if post.pending_review? %>
 
     <a href='#post-<%= post.id %>'>
-      <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
+      <time datetime="<%= post.created_at.to_s(:db) -%>">
+        <%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %>
+      </time>
     </a>
     <%= forem_format(post.text) %>
 
-    <% if post.reply_to %>
-      <span class='in_reply_to'>
-        <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
-      </span>
-    <% end %>
+    <%= render 'forem/posts/in_reply_to', :post => post if post.reply_to %>
 
     <%= Forem::PostActionsPresenter.new(self, post, forem_user) if forem_user %>
   </div>
