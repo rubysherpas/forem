@@ -2,8 +2,8 @@ module Forem
   class PostsController < Forem::ApplicationController
     before_filter :authenticate_forem_user
     before_filter :find_topic
-    before_filter :reject_locked_topic!, :only => [:create]
-    before_filter :block_spammers, :only => [:new, :create]
+    before_filter :reject_locked_topic!, :only => [:create], :if => :topic_locked?
+    before_filter :block_spammers, :only => [:new, :create], :if => :forem_user_is_spammer?
     before_filter :authorize_reply_for_topic!, :only => [:new, :create]
     before_filter :authorize_edit_post_for_forum!, :only => [:edit, :update]
     before_filter :find_post_for_topic, :only => [:edit, :update, :destroy]
@@ -100,22 +100,26 @@ module Forem
     end
 
     def block_spammers
-      if forem_user.forem_spammer?
-        flash[:alert] = t('forem.general.flagged_for_spam') + ' ' +
-                        t('forem.general.cannot_create_post')
-        redirect_to :back
-      end
+      flash[:alert] = t('forem.general.flagged_for_spam') + ' ' +
+                      t('forem.general.cannot_create_post')
+      redirect_to :back
     end
 
     def reject_locked_topic!
-      if @topic.locked?
-        flash.alert = t("forem.post.not_created_topic_locked")
-        redirect_to [@topic.forum, @topic] and return
-      end
+      flash.alert = t("forem.post.not_created_topic_locked")
+      redirect_to [@topic.forum, @topic] and return
     end
 
     def find_reply_to_post
       @reply_to_post = @topic.posts.find_by_id(params[:reply_to_id])
+    end
+
+    def topic_locked?
+      @topic.locked?
+    end
+
+    def forem_user_is_spammer?
+      forem_user.forem_spammer?
     end
   end
 end
