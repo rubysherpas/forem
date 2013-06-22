@@ -3,7 +3,6 @@ require 'active_support/core_ext/kernel/singleton_class'
 
 require 'forem/engine'
 require 'forem/autocomplete'
-require 'forem/default_permissions'
 require 'forem/platform'
 require 'workflow'
 
@@ -25,7 +24,6 @@ module Forem
     def decorate_user_class!
       Forem.user_class.class_eval do
         extend Forem::Autocomplete
-        include Forem::DefaultPermissions
 
         has_many :forem_posts, :class_name => "Forem::Post", :foreign_key => "user_id"
         has_many :forem_topics, :class_name => "Forem::Topic", :foreign_key => "user_id"
