@@ -4,9 +4,7 @@
 <%= button_tag t(".add_member"), :disabled => true, :id => "add_member", "data-group-id" => "#{@group.id}" %>
 
 <ul id='members'>
-  <% @group.members.each do |member| %>
-    <li><%= member %></li>
-  <% end %>
+  <%= render @group.members %>
 </ul>
 
 <%= javascript_include_tag "forem/admin/members" %>

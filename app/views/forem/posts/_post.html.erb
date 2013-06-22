@@ -1,25 +1,4 @@
 <a name='post-<%= post.id %>'></a>
 <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%>'>
-
-  <div class='user'>
-    <div class='username'>
-      <%= link_to_if Forem.user_profile_links, post.user, [main_app, post.user] %>
-    </div>
-    <div class='icon'><%= forem_avatar(post.user, :size => 60) %></div>
-  </div>
-
-  <div class='contents'>
-    <%= render 'forem/posts/pending_review', :post => post if post.pending_review? %>
-
-    <a href='#post-<%= post.id %>'>
-      <time datetime="<%= post.created_at.to_s(:db) -%>">
-        <%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %>
-      </time>
-    </a>
-    <%= forem_format(post.text) %>
-
-    <%= render 'forem/posts/in_reply_to', :post => post if post.reply_to %>
-
-    <%= Forem::PostActionsPresenter.new(self, post, forem_user) if forem_user %>
-  </div>
+  <%= render 'forem/posts/post_details', :post => post, :pending_review => true, :actions => true %>
 </div>

@@ -2,29 +2,20 @@
   <%= render 'forem/topics/head', :topic => @topic %>
 
   <menu>
-    <%= topic_reply_link(@topic, forem_user) %>
-    <%= topic_delete_link(@topic, forem_user) %>
+    <%= topic_reply_link @topic, forem_user %>
+    <%= topic_delete_link @topic, forem_user %>
     <%= Forem::UserSubscriptionLinkPresenter.new(self, forem_user, @topic) if forem_user %>
   </menu>
 
-  <%= forem_admin_topic_links(@topic) %>
+  <%= forem_admin_topic_links @topic %>
 
-  <% if @topic.pending_review? %>
-    <div class="moderation" id="topic_moderation">
-      <%= t(".pending_review") %>
-      <% if forem_admin_or_moderator?(@topic.forum) %>
-        <%= form_for @topic, :url => forem.moderate_forum_topic_path(@topic.forum, @topic), :method => :put do |f| %>
-          <%= render "/forem/moderation/options", :f => f %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render 'forem/topics/pending_review', :topic => @topic if @topic.pending_review? %>
 
-  <%= forem_pages_widget(@posts) %>
+  <%= forem_pages_widget @posts %>
 
   <div id="posts">
     <%= render :partial => "forem/posts/post", :collection => @posts %>
   </div>
 
-  <%= forem_pages_widget(@posts) %>
+  <%= forem_pages_widget @posts %>
 </div>
