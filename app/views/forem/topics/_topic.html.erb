@@ -1,8 +1,8 @@
 <tr class="topic <%= cycle('odd', 'even') %> <%= topic.locked? ? 'locked' : 'unlocked' %>">
   <td class='icon'>
-    <% if topic.locked? %><span class='lock icon'></span><% end %>
-    <% if topic.pinned? %><span class='pin icon'></span><% end %>
-    <% if new_posts?(topic, forem_user) %><span class='new_posts icon'>new</span><% end %>
+    <%= topic_locked_icon if topic.locked? %>
+    <%= topic_pinned_icon if topic.pinned? %>
+    <%= topic_new_posts_icon if new_posts?(topic, forem_user) %>
   </td>
   <td class='byline'>
     <%= new_since_last_view_text(topic, forem_user) %>

@@ -43,8 +43,22 @@ module Forem
 
     def topic_reply_link(topic, user)
       if topic.can_be_replied_to? && can?(:reply, topic)
-        link_to t("reply", :scope => 'forem.topics.show'),
+        link_to t('reply', :scope => 'forem.topics.show'),
                 forem.new_topic_post_path(topic)
+      end
+    end
+
+    def topic_locked_icon
+      tag :span, :class => 'lock icon'
+    end
+
+    def topic_pinned_icon
+      tag :span, :class => 'pin icon'
+    end
+
+    def topic_new_posts_icon
+      content_tag :span, :class => 'new_posts icon' do
+        'new'
       end
     end
 

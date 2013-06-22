@@ -44,15 +44,28 @@ describe "forums" do
     let!(:topic_2) { FactoryGirl.create(:approved_topic, :subject => "Most Recent", :forum => forum) }
     let!(:topic_3) { FactoryGirl.create(:approved_topic, :subject => "PINNED!", :forum => forum, :pinned => true) }
     let!(:topic_4) { FactoryGirl.create(:approved_topic, :subject => "HIDDEN!", :forum => forum, :hidden => true) }
+    let!(:topic_5) { FactoryGirl.create(:approved_topic, :subject => 'LOCKED!', :forum => forum, :locked => true)}
     before do
       topic_2.update_attribute(:last_post_at, Time.now + 30.seconds)
       visit forum_path(forum)
     end
 
+    context "shows icon for" do
+      before { visit forum_path(forum) }
+
+      it "locked topics" do
+        page.should have_css('.lock.icon')
+      end
+
+      it "pinned topics" do
+        page.should have_css('.pin.icon')
+      end
+    end
+
     it "lists pinned topics first" do
       # TODO: cleaner way to get at topic subjects on the page?
       topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map{|s| s.text.strip}
-      topic_subjects.should == ["PINNED!", "Most Recent", "Unpinned"]
+      topic_subjects.should == ["PINNED!", "Most Recent", "LOCKED!", "Unpinned"]
     end
 
     it "does not show hidden topics" do
@@ -111,14 +124,14 @@ describe "forums" do
 
         it "calls out new topics since last visit" do
           visit forum_path(forum)
-          page.should have_css('.topics tbody tr super', :count => 3)
+          page.should have_css('.topics tbody tr super', :count => 4)
         end
 
         it "doesn't call out a topic that has been viewed" do
           visit forum_path(forum)
           visit forum_topic_path(forum, topic_1)
           visit forum_path(forum)
-          page.should have_css('.topics tbody tr super', :count => 2)
+          page.should have_css('.topics tbody tr super', :count => 3)
         end
       end
     end
