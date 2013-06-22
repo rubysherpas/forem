@@ -2,12 +2,8 @@
   <%= render 'forem/topics/head', :topic => @topic %>
 
   <menu>
-    <% if @topic.can_be_replied_to? && can?(:reply, @topic) %>
-      <%= link_to t(".reply"), forem.new_topic_post_path(@topic) %>
-    <% end %>
-    <% if @topic.user == forem_user || forem_admin? %>
-      <%= link_to t(".delete"), forem.forum_topic_path(@forum, @topic), :method => :delete, :confirm => t("are_you_sure") %>
-    <% end %>
+    <%= topic_reply_link(@topic, forem_user) %>
+    <%= topic_delete_link(@topic, forem_user) %>
     <%= Forem::UserSubscriptionLinkPresenter.new(self, forem_user, @topic) if forem_user %>
   </menu>
 

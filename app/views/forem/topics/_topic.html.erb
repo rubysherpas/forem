@@ -5,17 +5,17 @@
     <% if new_posts?(topic, forem_user) %><span class='new_posts icon'>new</span><% end %>
   </td>
   <td class='byline'>
-    <%= new_since_last_view_text(topic) %>
+    <%= new_since_last_view_text(topic, forem_user) %>
     <div class='subject'>
       <%= link_to forem_emojify(topic.subject), forem.forum_topic_path(@forum, topic) %>
     </div>
     <div class='started-by'>
-      <%= t "started_by" %><%= relevant_posts(topic).first.user %>
+      <%= t "started_by" %><%= relevant_posts(topic, forem_user).first.user %>
     </div>
   </td>
   <td class='latest-post'>
-    <%= link_to_latest_post(topic) -%>
+    <%= link_to_latest_post(topic, forem_user) -%>
   </td>
-  <td class='posts-count'><%= relevant_posts(topic).count %></td>
+  <td class='posts-count'><%= relevant_posts(topic, forem_user).count %></td>
   <td class='views-count'><%= topic.views_count %></td>
 </tr>
