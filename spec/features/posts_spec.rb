@@ -21,6 +21,7 @@ describe "posts" do
     context "replying" do
       before do
         within(selector_for(:first_post)) do
+          page.should have_content 'Reply'
           click_link("Reply")
         end
       end
@@ -75,10 +76,10 @@ describe "posts" do
     end
 
     context "editing posts in topics" do
+      let(:second_post) { topic.posts[1] }
       before do
         other_user = FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com")
         topic.posts << FactoryGirl.build(:approved_post, :user => other_user)
-        @second_post = topic.posts[1]
       end
 
       it "can edit their own post" do
@@ -93,8 +94,7 @@ describe "posts" do
       end
 
       it "should not allow you to edit a post you don't own" do
-        # second_post = topic.posts[1]
-        visit edit_topic_post_path(topic, @second_post)
+        visit edit_topic_post_path(topic, second_post)
         fill_in "Text", :with => "an evil edit"
         click_button "Edit"
         flash_alert!("Your post could not be edited")
@@ -106,7 +106,7 @@ describe "posts" do
         # all("#post_#{@second_post.id} ul.actions a").each do |a|
         #   a.should_not have_content("Edit")
         # end
-        all("#post_#{@second_post.id} ul.actions a").map do |a|
+        all("#post_#{second_post.id} ul.actions a").map do |a|
           a.native.children.first.text
         end.should_not include("Edit")
       end

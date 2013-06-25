@@ -1,0 +1,3 @@
+<%= form_for topic, :url => forem.moderate_forum_topic_path(topic.forum, topic), :method => :put do |f| %>
+  <%= render "/forem/moderation/options", :f => f %>
+<% end %>

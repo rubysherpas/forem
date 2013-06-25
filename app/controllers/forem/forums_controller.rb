@@ -10,10 +10,9 @@ module Forem
     def show
       register_view
 
-      @topics = if forem_admin_or_moderator?(@forum)
-        @forum.topics
-      else
-        @forum.topics.visible.approved_or_pending_review_for(forem_user)
+      @topics = @forum.topics
+      unless forem_admin_or_moderator?(@forum)
+        @topics = @topics.visible.approved_or_pending_review_for(forem_user)
       end
 
       @topics = @topics.by_pinned_or_most_recent_post.page(params[:page]).per(Forem.per_page)

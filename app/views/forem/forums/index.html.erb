@@ -4,9 +4,4 @@
   <%= render @categories %>
 </div>
 
-<br>
-<footer id='admin_link'>
-  <% if forem_admin? %>
-    <%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
-  <% end %>
-</footer>
+<%= render 'forem/admin/footer' if forem_admin? %>

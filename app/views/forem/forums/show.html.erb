@@ -1,4 +1,4 @@
-<%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
+<%= render 'forem/forums/head', :forum => @forum, :topic => @topic %>
 
 <%= forem_pages_widget(@topics) %>
 
@@ -13,9 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% if @topics.empty? %>
-      <tr><td colspan='5' align='center'><%= t('forem.topic.none') %></td></tr>
-    <% end %>
+    <%= render 'no_topics' if @topics.empty? %>
     <%= render @topics %>
   </tbody>
 </table>

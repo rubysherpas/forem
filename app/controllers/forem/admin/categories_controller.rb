@@ -2,10 +2,7 @@ module Forem
   module Admin
     class CategoriesController < BaseController
       before_filter :find_category, :only => [:edit, :update, :destroy]
-
-      def index
-        @category = Forem::Category.all
-      end
+      before_filter :find_categories, :only => :index
 
       def new
         @category =  Forem::Category.new
@@ -35,6 +32,10 @@ module Forem
       private
       def find_category
         @category = Forem::Category.find(params[:id])
+      end
+
+      def find_categories
+        @categories = Forem::Category.all
       end
 
       def create_successful

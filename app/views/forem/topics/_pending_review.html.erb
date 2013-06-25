@@ -1,0 +1,4 @@
+<div class="moderation" id="topic_moderation">
+  <%= t('pending_review', :scope => 'forem.topics.show') %>
+  <%= render 'forem/topics/moderation_form', :topic => topic if forem_admin_or_moderator?(topic.forum) %>
+</div>
