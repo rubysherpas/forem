@@ -15,7 +15,7 @@ class Forem::ApplicationController < Forem::ApplicationLogController
   def redirect_banned_user
     if forem_user.nil? || current_user.nil?
       flash[:notice] = 'You do not have access to the forums.'
-      redirect_to Forem.sign_in_path
+      redirect_to ( Forem.sign_in_proc && Forem.sign_in_proc.call(request) ) || Forem.sign_in_path
     elsif forem_user.banned?
       flash[:notice] = 'You do not have access to the forums.'
       redirect_to main_app.root_path
@@ -27,7 +27,7 @@ class Forem::ApplicationController < Forem::ApplicationLogController
       session["user_return_to"] = request.fullpath
       flash.alert = t("forem.errors.not_signed_in")
       devise_route = "new_#{Forem.user_class.to_s.underscore}_session_path"
-      sign_in_path = Forem.sign_in_path ||
+      sign_in_path = (Forem.sign_in_proc && Forem.sign_in_proc.call(request) ) || Forem.sign_in_path ||
         (main_app.respond_to?(devise_route) && main_app.send(devise_route)) ||
         (main_app.respond_to?(:sign_in_path) && main_app.send(:sign_in_path))
       if sign_in_path
