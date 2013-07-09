@@ -16,12 +16,10 @@ module Forem
 
     validates :category, :name, :description, :presence => true
 
-    attr_accessible :category_id, :title, :name, :description, :moderator_ids
-
     alias_attribute :title, :name
 
     # Fix for #339
-    default_scope order('name ASC')
+    default_scope { order('name ASC') }
 
     def last_post_for(forem_user)
       if forem_user && (forem_user.forem_admin? || moderator?(forem_user))

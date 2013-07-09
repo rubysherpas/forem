@@ -12,7 +12,7 @@ module Forem
       end
 
       def create
-        @group = Forem::Group.new(params[:group])
+        @group = Forem::Group.new(group_params)
         if @group.save
           flash[:notice] = t("forem.admin.group.created")
           redirect_to [:admin, @group]
@@ -32,6 +32,10 @@ module Forem
 
         def find_group
           @group = Forem::Group.find(params[:id])
+        end
+
+        def group_params
+          params.require(:group).permit(:name)
         end
     end
   end

@@ -12,7 +12,7 @@ module Forem
       end
 
       def create
-        @forum = Forem::Forum.new(params[:forum])
+        @forum = Forem::Forum.new(forum_params)
         if @forum.save
           create_successful
         else
@@ -21,7 +21,7 @@ module Forem
       end
 
       def update
-        if @forum.update_attributes(params[:forum])
+        if @forum.update_attributes(forum_params)
           update_successful
         else
           update_failed
@@ -35,8 +35,12 @@ module Forem
 
       private
 
+      def forum_params
+        params.require(:forum).permit(:category_id, :title, :description, { :moderator_ids => []})
+      end
+
       def find_forum
-        @forum = Forem::Forum.find(params[:id])
+        @forum = Forem::Forum.friendly.find(params[:id])
       end
 
       def create_successful

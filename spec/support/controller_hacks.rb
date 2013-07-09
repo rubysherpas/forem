@@ -24,7 +24,7 @@ module Forem
 
     def process_forem_action(action, parameters = nil, session = nil, flash = nil, method = "GET")
       parameters ||= {}
-      process(action, parameters.merge!(:use_route => :forem), session, flash, method)
+      process(action, method, parameters.merge!(:use_route => :forem), session, flash)
     end
   end
 end

@@ -6,7 +6,7 @@
       <%= link_to t(".reply"), forem.new_topic_post_path(@topic) %>
     <% end %>
     <% if @topic.user == forem_user || forem_admin? %>
-      <%= link_to t(".delete"), forem.forum_topic_path(@forum, @topic), :method => :delete, :confirm => t("are_you_sure") %>
+      <%= link_to t(".delete"), forem.forum_topic_path(@forum, @topic), :method => :delete, data: { :confirm => t("are_you_sure") } %>
     <% end %>
     <% if forem_user %>
       <% if !@topic.subscriber?(forem_user.id) %>

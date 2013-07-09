@@ -11,20 +11,20 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'rspec-rails', '~> 2.13.0'
-  s.add_development_dependency 'capybara', '2.0.2'  # higher requires Ruby 1.9
-  s.add_development_dependency 'rails', '~> 3.1'
+  s.add_development_dependency 'capybara', '2.1.0'  # higher requires Ruby 1.9
+  s.add_development_dependency 'rails', '4.0.0'
   s.add_development_dependency 'jquery-rails'
-  s.add_development_dependency 'factory_girl_rails', '~> 1.7.0'
-  s.add_development_dependency 'database_cleaner', '~> 0.9.1'
-  s.add_development_dependency 'devise', '~> 2.2.3'
+  s.add_development_dependency 'protected_attributes'  
+  s.add_development_dependency 'factory_girl_rails', '~> 3.6.0'
+  s.add_development_dependency 'database_cleaner', '~> 1.0.0'
+  s.add_development_dependency 'devise', '3.0.0'
   s.add_development_dependency 'kaminari', '~> 0.14.1'
   s.add_development_dependency 'timecop', '~> 0.6.1'
 
-  s.add_dependency 'rails', ['>= 3.1.10', '< 3.3'] | 0.upto(10).map{|i| "!= 3.2.#{i}"}
-  s.add_dependency 'simple_form'
-  s.add_dependency 'cancan', '1.6.10'
+  s.add_dependency 'rails', '~> 4.0.0'
+  s.add_dependency 'simple_form', '~> 3.0.0.rc'
+
   s.add_dependency 'workflow', '0.8.0'
-  s.add_dependency 'friendly_id', '~> 4.0', '>= 4.0.9'
   s.add_dependency 'gemoji', '= 1.1.2'
   s.add_dependency 'decorators', '~> 1.0.2'
   s.add_dependency 'localeapp'

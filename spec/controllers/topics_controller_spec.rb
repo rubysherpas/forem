@@ -2,22 +2,17 @@ require 'spec_helper'
 
 describe Forem::TopicsController do
   context "attempting to subscribe to a hidden topic" do
+    let!(:forum) { create(:forum) }
+    let!(:topic) { create(:topic) }
     before do
       user = FactoryGirl.create(:user)
       sign_in(user)
-
-      forum = stub_model(Forem::Forum)
-
-      controller.should_receive(:authorize!).and_return(true)
-      Forem::Forum.should_receive(:find).and_return(forum)
-      forum.stub_chain("topics.visible").and_return(visible_topics = stub)
-      visible_topics.should_receive("approved_or_pending_review_for").with(user).and_return(approved_topics = stub)
-      approved_topics.should_receive("find").and_raise(ActiveRecord::RecordNotFound)
+      controller.current_user.stub :can_read_topic? => false
     end
 
     # Regression test for #122
     specify do
-      get :subscribe, :forum_id => 1, :id => 1
+      get :subscribe, :forum_id => forum.id, :id => topic.id
       flash[:alert].should == "The topic you are looking for could not be found."
     end
   end

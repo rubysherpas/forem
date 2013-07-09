@@ -29,14 +29,6 @@ describe Forem::Topic do
     end
   end
 
-  describe "protected attributes" do
-    [:pinned, :locked].each do |attr|
-      it "cannot assign #{attr}" do
-        lambda { Forem::Topic.new(attr => true) }.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-      end
-    end
-  end
-
   describe "pinning" do
     it "should show pinned topics up top" do
       ordering = Forem::Topic.by_pinned.order_values
@@ -97,7 +89,6 @@ describe Forem::Topic do
         Timecop.freeze(frozen_time) do
           topic.views.create :user => view_user
         end
-
         topic.register_view_by(view_user)
 
         topic.view_for(view_user).current_viewed_at.to_i.should eq(frozen_time.to_i)

@@ -20,7 +20,7 @@ module Forem
 
     def create
       authorize! :create_topic, @forum
-      @topic = @forum.topics.build(params[:topic], :as => :default)
+      @topic = @forum.topics.build(topic_params)
       @topic.user = forem_user
       if @topic.save
         create_successful
@@ -30,7 +30,7 @@ module Forem
     end
 
     def destroy
-      @topic = @forum.topics.find(params[:id])
+      @topic = @forum.topics.friendly.find(params[:id])
       if forem_user == @topic.user || forem_user.forem_admin?
         @topic.destroy
         destroy_successful
@@ -54,6 +54,11 @@ module Forem
     end
 
     protected
+
+    def topic_params
+      params.require(:topic).permit(:subject, :posts_attributes => [[:text]])
+    end
+    
     def create_successful
       redirect_to [@forum, @topic], :notice => t("forem.topic.created")
     end
@@ -87,7 +92,7 @@ module Forem
 
     private
     def find_forum
-      @forum = Forem::Forum.find(params[:forum_id])
+      @forum = Forem::Forum.friendly.find(params[:forum_id])
       authorize! :read, @forum
     end
 
@@ -101,7 +106,7 @@ module Forem
 
     def find_topic
       begin
-        @topic = forum_topics(@forum, forem_user).find(params[:id])
+        @topic = forum_topics(@forum, forem_user).friendly.find(params[:id])
         authorize! :read, @topic
       rescue ActiveRecord::RecordNotFound
         flash.alert = t("forem.topic.not_found")

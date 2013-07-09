@@ -17,7 +17,7 @@ module Forem
     end
 
     def create
-      @post = @topic.posts.build(params[:post])
+      @post = @topic.posts.build(post_params)
       @post.user = forem_user
 
       if @post.save
@@ -31,7 +31,7 @@ module Forem
     end
 
     def update
-      if @post.owner_or_admin?(forem_user) && @post.update_attributes(params[:post])
+      if @post.owner_or_admin?(forem_user) && @post.update_attributes(post_params)
         update_successful
       else
         update_failed
@@ -44,6 +44,10 @@ module Forem
     end
 
     private
+
+    def post_params
+      params.require(:post).permit(:text, :reply_to_id)
+    end
 
     def authorize_reply_for_topic!
       authorize! :reply, @topic
@@ -92,7 +96,7 @@ module Forem
     end
 
     def find_topic
-      @topic = Forem::Topic.find params[:topic_id]
+      @topic = Forem::Topic.friendly.find params[:topic_id]
     end
 
     def find_post_for_topic

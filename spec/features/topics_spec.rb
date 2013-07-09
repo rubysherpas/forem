@@ -160,7 +160,7 @@ describe "topics" do
 
     it "should have an autodiscover link tag" do
       visit forum_topic_path(forum, topic)
-      assert page.has_selector?("link[title='ATOM']")
+      Nokogiri::HTML(page.body).css("link[title='ATOM']").should_not be_empty
     end
   end
 end

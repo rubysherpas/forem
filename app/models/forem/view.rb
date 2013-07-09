@@ -6,7 +6,6 @@ module Forem
     belongs_to :user, :class_name => Forem.user_class.to_s
 
     validates :viewable_id, :viewable_type, :presence => true
-    attr_accessible :user, :current_viewed_at, :count
 
     def viewed_at
       updated_at

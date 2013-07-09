@@ -20,7 +20,7 @@ module Forem
     end
 
     def relevant_posts(topic)
-      posts = topic.posts.by_created_at.scoped
+      posts = topic.posts.by_created_at
       if forem_admin_or_moderator?(topic.forum)
         posts
       elsif topic.user == forem_user

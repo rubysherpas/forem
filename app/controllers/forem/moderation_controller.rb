@@ -17,7 +17,7 @@ module Forem
 
     def topic
       if params[:topic]
-        topic = forum.topics.find(params[:topic_id])
+        topic = forum.topics.friendly.find(params[:topic_id])
         topic.moderate!(params[:topic][:moderation_option])
         flash[:notice] = t("forem.topic.moderation.success")
       else
@@ -29,7 +29,7 @@ module Forem
     private
 
     def forum
-      @forum = Forem::Forum.find(params[:forum_id])
+      @forum = Forem::Forum.friendly.find(params[:forum_id])
     end
 
     helper_method :forum

@@ -22,14 +22,10 @@ module Forem
     extend FriendlyId
     friendly_id :subject, :use => :slugged
 
-    attr_accessible :subject, :posts_attributes
-    attr_accessible :subject, :posts_attributes, :pinned, :locked, :hidden, :forum_id, :as => :admin
-
     belongs_to :forum
     belongs_to :user, :class_name => Forem.user_class.to_s
     has_many   :subscriptions
-    has_many   :posts, :dependent => :destroy, :order => "forem_posts.created_at ASC"
-
+    has_many   :posts, -> { order "forem_posts.created_at ASC"}, :dependent => :destroy
     accepts_nested_attributes_for :posts
 
     validates :subject, :presence => true
@@ -56,9 +52,8 @@ module Forem
       end
 
       def by_pinned_or_most_recent_post
-        order('forem_topics.pinned DESC').
-        order('forem_topics.last_post_at DESC').
-        order('forem_topics.id')
+        order('forem_topics.last_post_at DESC').order('forem_topics.pinned DESC')
+        #order('forem_topics.id')
       end
 
       def pending_review
