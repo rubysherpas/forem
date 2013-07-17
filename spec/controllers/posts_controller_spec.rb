@@ -53,7 +53,7 @@ describe Forem::PostsController do
         end
 
         it "cannot access the new action" do
-          get :new, 
+          get :new,
             :forum_id => forum.to_param,
             :topic_id => topic.to_param
           flash[:alert].should == 'You are not allowed to do that.'
@@ -86,17 +86,17 @@ describe Forem::PostsController do
         end
       end
     end
-    
+
     context 'when attempting to destroy posts' do
       it 'can with permission' do
         delete :destroy, :topic_id => topic, :id => topic.posts.first
         flash[:notice].should == "Only post in topic deleted. Topic also deleted."
       end
-      
+
       it 'cannot without permission' do
         # remove destroy permission
         controller.current_user.stub :can_destroy_forem_posts? => false
-        
+
         delete :destroy, :topic_id => topic, :id => topic.posts.first
         flash[:alert].should == 'You are not allowed to do that.'
         response.should redirect_to(root_path)
