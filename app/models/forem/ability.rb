@@ -41,7 +41,7 @@ module Forem
       end
 
       can :reply, Forem::Topic do |topic|
-        user.can_reply_to_forem_topic?(topic)
+        can?(:read, topic.forum) && user.can_reply_to_forem_topic?(topic)
       end
 
       can :edit_post, Forem::Forum do |forum|

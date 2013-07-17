@@ -13,4 +13,37 @@ describe Forem::PostsController do
       flash.alert.should == "You must sign in first."
     end
   end
+
+  context 'signed in' do
+    let(:forum) { create(:forum) }
+    let(:user)  { create(:user) }
+    let(:topic) { create(:approved_topic, :forum => forum, :user => user) }
+
+    context 'reply to topic' do
+      context 'with permissions to read forum' do
+        before do
+          sign_in(user)
+          User.any_instance.stub(:can_read_forem_forum?).and_return(true)
+        end
+
+        it 'can reply to topic' do
+          post :create, :topic_id => topic.to_param, :post => { 'text' => 'non-sneaky reply' }
+          flash[:notice].should == "Your reply has been posted."
+        end
+      end
+
+      context 'without permissions to read forum' do
+        before do
+          sign_in(user)
+          # remove user forum read permission
+          User.any_instance.stub(:can_read_forem_forum?).and_return(false)
+        end
+
+        it 'cannot reply to topic' do
+          post :create, :topic_id => topic.to_param, :post => { 'text' => 'sneaky reply' }
+          flash[:alert].should == 'You are not allowed to do that.'
+        end
+      end
+    end
+  end
 end
