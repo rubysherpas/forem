@@ -12,7 +12,7 @@ module Forem
       end
 
       def create
-        if @category = Forem::Category.create(params[:category])
+        if @category = Forem::Category.create(category_params)
           create_successful
         else
           create_failed
@@ -20,7 +20,7 @@ module Forem
       end
 
       def update
-        if @category.update_attributes(params[:category])
+        if @category.update_attributes(category_params)
           update_successful
         else
           update_failed
@@ -33,6 +33,11 @@ module Forem
       end
 
       private
+
+      def category_params
+        params.require(:category).permit(:name)
+      end
+
       def find_category
         @category = Forem::Category.friendly.find(params[:id])
       end
