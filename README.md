@@ -38,11 +38,18 @@ For Rails 4, use the `rails4` branch:
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 ```
 
-And then one of `kaminari` or `will_paginate`
+For Rails 4, you will also need to manually specify this dependency:
+
 ```ruby
-gem 'kaminari', '0.13.0'
+gem 'friendly_id', github: "FriendlyId/friendly_id"
+```
+
+For all Rails versions, one of `kaminari` or `will_paginate`
+
+```ruby
+gem 'kaminari', '0.14.1'
 # OR
-gem 'will_paginate', '3.0.3'
+gem 'will_paginate', '3.0.4'
 ```
 
 ## Run the installer
