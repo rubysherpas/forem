@@ -1,8 +1,6 @@
 ![Forem - using Bootstrap](https://github.com/radar/forem/raw/master/doc/theme.png)
 
-*Forem, using the forem-theme-twist theme*
-
-*For other screenshots, please see the `doc` folder*
+*Forem, using the forem-bootstrap theme*
 
 # Forem [![Build status](https://api.travis-ci.org/radar/forem.png)](https://travis-ci.org/radar/forem)
 *"NO U!"*
