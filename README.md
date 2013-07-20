@@ -22,7 +22,6 @@ Installing Forem is easy.
 
 If you're using Rails 3:
 
-<<<<<<< HEAD
 ```ruby
 gem 'forem', :github => "radar/forem", :branch => "rails3"
 ```
@@ -30,19 +29,17 @@ gem 'forem', :github => "radar/forem", :branch => "rails3"
 For Rails 4, use the `rails4` branch:
 
 ```ruby
-=======
-```ruby
-gem 'forem', :github => "radar/forem"
-```
-
-For Rails 4, use the `rails4` branch:
-
-```ruby
->>>>>>> Mention rails4 support in the README
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 ```
 
-And then one of `kaminari` or `will_paginate`
+For Rails 4, you will also need to manually specify this dependency:
+
+```ruby
+gem 'friendly_id', github: "FriendlyId/friendly_id"
+```
+
+For all Rails versions, one of `kaminari` or `will_paginate`
+
 ```ruby
 gem 'kaminari', '0.15.1'
 # OR
