@@ -1,4 +1,4 @@
-![Forem - using the forem-theme-twist theme](https://github.com/radar/forem/raw/master/doc/twist-theme-post.png)
+![Forem - using Bootstrap](https://github.com/radar/forem/raw/master/doc/theme.png)
 
 *Forem, using the forem-theme-twist theme*
 
