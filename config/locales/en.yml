@@ -52,6 +52,7 @@ en:
       category:
         index: Manage Forum Categories
         new: Creating a new Forum Category
+        edit: "Editing the %{title} category"
         new_link: New Forum Category
         deleted: The selected forum category has been deleted.
         created: This forum category has been created.
