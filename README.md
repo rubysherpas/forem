@@ -38,10 +38,11 @@ For Rails 4, use the `rails4` branch:
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 ```
 
-For Rails 4, you will also need to manually specify this dependency:
+For Rails 4, you will also need to manually specify these dependencies:
 
 ```ruby
 gem 'friendly_id', github: "FriendlyId/friendly_id"
+gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
 ```
 
 For all Rails versions, one of `kaminari` or `will_paginate`
