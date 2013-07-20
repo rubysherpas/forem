@@ -3,7 +3,7 @@
 <h2><%= t("forem.post.new") %></h2>
 
 <% if @reply_to_post %>
-  <div id='posts'>
+  <div class='row'>
     <%= render 'reply_to_post', :post => @reply_to_post %>
   </div>
 <% else %>
@@ -14,5 +14,5 @@
 
 <%= simple_form_for [forem, @topic, @post] do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
-  <%= f.submit t("forem.post.buttons.reply") %>
+  <%= f.submit t("forem.post.buttons.reply"), :class => "btn btn-primary" %>
 <% end %>
