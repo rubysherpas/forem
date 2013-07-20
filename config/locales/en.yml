@@ -16,8 +16,10 @@ en:
     access_denied: "You are not allowed to do that."
     admin:
       area: Admin Area
+      back_to_forums: "Back to forums"
       welcome: "Welcome to forem's Admin Area."
       forum:
+        moderator_groups: Moderator groups
         index: Manage Forums
         new: Creating a new forum
         new_link: New Forum

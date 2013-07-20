@@ -9,3 +9,8 @@
   <li><%= link_to t('forem.admin.category.index'), forem.admin_categories_path %></li>
   <li><%= link_to t('forem.admin.group.index'), forem.admin_groups_path %></li>
 </ul>
+
+<br>
+<footer id='admin_link'>
+  <%= link_to t(:back_to_forums, :scope => 'forem.admin'), forem.root_path %> 
+</footer>
