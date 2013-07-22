@@ -1,11 +1,46 @@
 <h2><%= t('forem.admin.group.members', :group => forem_emojify(@group.name)) %></h2>
-
-<%= text_field_tag "new_member" %><%= button_tag t(".add_member"), :disabled => true, :id => "add_member", "data-group-id" => "#{@group.id}"  %>
-
-<ul id='members'>
-  <% @group.members.each do |member| %>
-    <li><%= member.to_s %></li>
+<%= link_to t('back_to_groups', :scope => "forem.admin"), admin_groups_path %>
+<div class="row">
+  <h3><%= t('.add_a_new_member') %></h3>
+  <%= form_tag add_admin_group_members_url(@group) do %>
+    <p>
+      <%= text_field_tag "user_id" %>
+    </p>
+    <p class="span1">
+      <%= submit_tag t(".add_member"), :class => "btn btn-primary" %>
+    </p>
   <% end %>
-</ul>
+</div>
 
-<%= javascript_include_tag "forem/admin/members" %>
+<% if @group.members.any? %>
+  <h3><%= t('.current_members') %></h3>
+  <div class="row">
+    <ul id='members'>
+      <% @group.members.each do |member| %>
+        <li><%= member.to_s %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<script>
+  $("#user_id").select2({
+    containerCssClass: "span5",
+    ajax: {
+      url: "<%= forem.admin_user_autocomplete_url %>",
+      data: function(term, page) {
+        return { "term": term }
+      },
+      results: function(data, page) {
+        return { results: data };
+      }
+    },
+    formatResult: function(result) {
+      return result.identifier;
+    },
+    formatSelection: function(result) {
+      return result.identifier;
+    }
+  });
+</script>

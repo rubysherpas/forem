@@ -16,7 +16,9 @@ en:
     access_denied: "You are not allowed to do that."
     admin:
       area: Admin Area
+      back_to_admin: "Back to Admin"
       back_to_forums: "Back to forums"
+      back_to_groups: "Back to groups"
       welcome: "Welcome to forem's Admin Area."
       forum:
         moderator_groups: Moderator groups
@@ -43,9 +45,12 @@ en:
         created: The group was successfully created.
         not_created: Group could not be created.
         deleted: The selected group has been deleted.
+        members: "Members in %{group}"
       groups:
         show:
           add_member: Add
+          add_a_new_member: "Add a new member"
+          current_members: "Current Members"
         edit: Edit
         delete: Delete
         name: Name

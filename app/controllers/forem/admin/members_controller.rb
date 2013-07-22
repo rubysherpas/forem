@@ -1,12 +1,12 @@
 module Forem
   module Admin
     class MembersController < BaseController
-      def create
-        user = Forem.user_class.where(Forem.autocomplete_field => params[:user]).first
+      def add
+        user = Forem.user_class.where(:id => params[:user_id]).first
         unless group.members.exists?(user.id)
           group.members << user
         end
-        render :status => :ok
+        redirect_to [:admin, group]
       end
 
       private
