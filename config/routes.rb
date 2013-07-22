@@ -25,7 +25,11 @@ Forem::Engine.routes.draw do
   namespace :admin do
     root :to => "base#index"
     resources :groups do
-      resources :members
+      resources :members do
+        collection do
+          post :add
+        end
+      end
     end
 
     resources :forums do
@@ -41,6 +45,6 @@ Forem::Engine.routes.draw do
       end
     end
 
-    get 'users/autocomplete', :to => "users#autocomplete"
+    get 'users/autocomplete', :to => "users#autocomplete", :as => "user_autocomplete"
   end
 end
