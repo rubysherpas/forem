@@ -47,5 +47,10 @@ Forem::Engine.routes.draw do
         post :unsubscribe
       end
     end
+<<<<<<< HEAD
+=======
+
+    get 'users/autocomplete', :to => "users#autocomplete", :as => "user_autocomplete"
+>>>>>>> Remove jquery.autocomplete in favour of select2
   end
 end
