@@ -18,8 +18,7 @@ describe "moderation" do
     it "cannot reply to a topic" do
       topic = FactoryGirl.create(:approved_topic, :forum => forum)
       visit forum_topic_path(forum, topic)
-
-      within("menu") do
+      within(".post") do
         click_link "Reply"
       end
 

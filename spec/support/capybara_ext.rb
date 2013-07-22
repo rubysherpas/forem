@@ -46,7 +46,7 @@ module CapybaraExt
     when :topic_header
       "#topic h2"
     when :topic_menu
-      "#topic menu"
+      "#topic #menu"
     when :post_text
       "#posts .post"
     when :post_user

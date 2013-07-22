@@ -25,8 +25,7 @@ describe "moderation" do
         topic = FactoryGirl.create(:topic, :forum => forum)
         topic.approve!
         visit forum_topic_path(forum, topic)
-
-        within("menu") do
+        within(".post") do
           click_link "Reply"
         end
 
@@ -89,8 +88,7 @@ describe "moderation" do
       it "does not have their first post moderated" do
         topic = FactoryGirl.create(:topic, :forum => forum)
         visit forum_topic_path(forum, topic)
-
-        within("menu") do
+        within(".post") do
           click_link "Reply"
         end
 
