@@ -1,8 +1,6 @@
 <h2><%= t("forem.admin.category.index") %></h2>
-
-<menu>
-  <%= link_to t("forem.admin.category.new_link"), forem.new_admin_category_path, :class => "btn btn-primary" %>
-</menu>
+<%= link_to t('back_to_admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
+<%= link_to t("forem.admin.category.new_link"), forem.new_admin_category_path, :class => "btn btn-primary" %><br><br>
 
 <table id='forums' class='forums table-striped table' cellspacing='0'>
   <thead>

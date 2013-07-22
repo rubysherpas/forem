@@ -1,6 +1,6 @@
 <div>
   <h2><%= t("forem.admin.forum.index") %></h2>
-
+  <%= link_to t('back_to_admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
   <%= link_to t("forem.admin.forum.new_link"), forem.new_admin_forum_path, :class => "btn btn-primary" %>
 
   <% @forums.group_by(&:category).each do |category, forums| %>
