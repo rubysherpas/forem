@@ -87,6 +87,9 @@ describe Forem::Forum do
           end
 
           it "finds the last post for a user" do
+            # Due to a #lolmysql "feature", where two posts updated at
+            # the same second are returned in the wrong order.
+            hidden_topic.posts.last.update_column(:created_at, 1.minute.from_now)
             forum.last_post_for(user).should == visible_topic.posts.last
             forum.last_post_for(admin).should == hidden_topic.posts.last
           end
