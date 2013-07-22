@@ -39,7 +39,7 @@
         <div class='btn-group'>
           <% if can?(:reply, post.topic) %>
             <% if post.topic.can_be_replied_to? %>
-              <button class='btn'><%= t('reply', :scope => 'forem.topic') %></button>
+              <%= link_to t('reply', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id), :class => "btn btn-primary" %>
               <%= link_to t('quote', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id, :quote => true), :class => "btn btn-success" %>
             <% end %>
           <% end %>

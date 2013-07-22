@@ -80,8 +80,7 @@ describe "topics" do
       it "cannot delete topics by others" do
         visit forum_topic_path(other_topic.forum, other_topic)
         within(selector_for(:topic_menu)) do
-          # page.should_not have_content("Delete")
-          page.html.should_not match("Delete")
+          page.should_not have_selector("a", :text => "Delete")
         end
       end
 
