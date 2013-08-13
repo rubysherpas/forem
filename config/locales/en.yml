@@ -39,6 +39,7 @@ en:
           last_post: Last post
           none: None
           moderators: Moderators
+          no_category: (No Category)
       group:
         index: Manage Groups
         new: New Group
