@@ -92,7 +92,7 @@ module Forem
     end
 
     def find_posts(topic)
-      posts = topic.posts
+      posts = topic.posts.includes(:user, :reply_to, :topic)
       unless forem_admin_or_moderator?(topic.forum)
         posts = posts.approved_or_pending_review_for(forem_user)
       end
