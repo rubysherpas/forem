@@ -4,7 +4,7 @@ module Forem
     helper 'forem/topics'
 
     def index
-      @categories = Forem::Category.includes(:forums => [:category, :moderators]).all
+      @categories = Forem::Category.includes(:forums => [:category, :moderators])
     end
 
     def show
