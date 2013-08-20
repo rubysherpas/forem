@@ -4,11 +4,11 @@ describe Forem::TopicsController do
   context "attempting to subscribe to a hidden topic" do
     before do
       user = FactoryGirl.create(:user)
-      sign_in(user)
+      # simulate signed in user
+      controller.stub :current_user => user
 
       forum = stub_model(Forem::Forum)
 
-      controller.should_receive(:authorize!).and_return(true)
       Forem::Forum.should_receive(:find).and_return(forum)
       forum.stub_chain("topics.visible").and_return(visible_topics = stub)
       visible_topics.should_receive("approved_or_pending_review_for").with(user).and_return(approved_topics = stub)
