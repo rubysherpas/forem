@@ -36,11 +36,27 @@ module Forem
     end
 
     def moderator?(user)
-      user && (user.forem_group_ids & moderator_ids).any?
+      user && belongs_to_moderator_group(user)
     end
 
     def to_s
       name
+    end
+
+    private
+
+    # could be much cleaner using moderator_ids and user.forem_group_ids
+    # but unfortunately it breaks jruby builds
+    def belongs_to_moderator_group(user)
+      (forem_group_ids_for(user) & get_moderator_ids).any?
+    end
+
+    def forem_group_ids_for(user)
+      user.forem_groups.pluck(:id)
+    end
+
+    def get_moderator_ids
+      moderators.pluck(:id)
     end
   end
 end
