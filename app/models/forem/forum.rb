@@ -36,7 +36,7 @@ module Forem
     end
 
     def moderator?(user)
-      user && (user.forem_group_ids & moderator_ids).any?
+      user && (Array(user.forem_group_ids) & Array(moderator_ids)).any?
     end
 
     def to_s
