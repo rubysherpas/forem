@@ -52,11 +52,11 @@ module Forem
     end
 
     def forem_group_ids_for(user)
-      user.forem_groups.pluck(:id)
+      user.forem_groups.map { |u| u.id }
     end
 
     def get_moderator_ids
-      moderators.pluck(:id)
+      moderators.map { |m| m.id }
     end
   end
 end
