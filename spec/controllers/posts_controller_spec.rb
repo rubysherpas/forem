@@ -20,9 +20,13 @@ describe Forem::PostsController do
     let(:topic) { create(:approved_topic, :forum => forum, :user => user) }
 
     context 'reply to topic' do
+      before do
+        # simulate signed in user
+        controller.stub :current_user => user
+      end
+
       context 'with permissions to read forum' do
         before do
-          sign_in(user)
           controller.current_user.stub :can_read_forem_forum? => true
         end
 
@@ -34,8 +38,6 @@ describe Forem::PostsController do
 
       context 'without permissions to read forum' do
         before do
-          sign_in(user)
-          # remove user forum read permission
           controller.current_user.stub :can_read_forem_forum? => false
         end
 
