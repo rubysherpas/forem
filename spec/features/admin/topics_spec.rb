@@ -13,9 +13,17 @@ describe "topics" do
   end
 
   it "can hide a topic" do
+    # make sure no hidden topics yet
+    visit forum_path(forum)
+    page.should_not have_selector("span.hidden.icon")
+
     visit forum_topic_path(forum, topic)
     click_link "Hide"
     flash_notice!("This topic is now hidden.")
+
+    # check for hidden topics
+    visit forum_path(forum)
+    page.should have_selector("span.hidden.icon")
 
     sign_out
 
