@@ -47,7 +47,9 @@
             <% if can?(:edit_post, post.topic.forum) %>
               <%= link_to t('edit', :scope => 'forem.post'), forem.edit_topic_post_path(post.topic, post), :class => "btn btn-info" %>
             <% end %>
-            <%= link_to t('delete', :scope => 'forem.topic'), forem.topic_post_path(post.topic, post), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-danger" %>
+            <% if can?(:destroy_post, post.topic.forum) %>
+              <%= link_to t('delete', :scope => 'forem.topic'), forem.topic_post_path(post.topic, post), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-danger" %>
+            <% end %>  
           <% end %>
         </div>
       <% end %>
