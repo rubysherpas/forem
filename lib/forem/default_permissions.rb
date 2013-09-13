@@ -41,6 +41,12 @@ module Forem
         end
       end
 
+      unless method_defined?(:can_destroy_forem_posts?)
+        def can_destroy_forem_posts?(forum)
+          true
+        end
+      end
+
       unless method_defined?(:can_read_forem_topic?)
         def can_read_forem_topic?(topic)
           !topic.hidden? || forem_admin?
