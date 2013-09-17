@@ -11,5 +11,4 @@ tmp
 spec/dummy
 *.rbc
 *.tmproj
-.localeapp
 Gemfile.lock
