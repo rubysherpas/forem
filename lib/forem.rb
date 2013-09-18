@@ -8,7 +8,6 @@ require 'forem/platform'
 require 'workflow'
 
 require 'decorators'
-require 'localeapp'
 
 module Forem
   mattr_accessor :base_path, :user_class, :theme, :formatter,

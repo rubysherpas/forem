@@ -27,6 +27,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'friendly_id', '~> 4.0', '>= 4.0.9'
   s.add_dependency 'gemoji', '= 1.1.2'
   s.add_dependency 'decorators', '~> 1.0.2'
-  s.add_dependency 'localeapp'
   s.add_dependency 'select2-rails', '3.4.3'
 end

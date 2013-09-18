@@ -7,8 +7,6 @@ gemspec
 gem 'pry-rails'
 gem 'pry-nav'
 
-gem 'localeapp'
-
 platforms :jruby do
   gem "activerecord-jdbc-adapter", :require => false
 end
