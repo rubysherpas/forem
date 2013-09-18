@@ -83,7 +83,7 @@ ja:
         posts: ポスト
         title: フォーラム
         topics: トピック
-        views: トピック
+        views: ビュー
     general:
       cannot_create_post: 新しいポストを作成することは出来ません。
       cannot_create_topic: 新しトピックを作成することは出来ません。
@@ -131,7 +131,7 @@ ja:
         latest: 最新
         posts: ポスト
         topic: トピック
-        views: 閲覧回数
+        views: ビュー
       hidden:
         'false': トピックが一般公開されました。
         'true': トピックを隠しました。
