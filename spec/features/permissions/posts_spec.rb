@@ -57,14 +57,31 @@ describe 'post permissions' do
     end
   end
 
+  context "without permission to destroy" do
+    before do
+      sign_in(user)
+      User.any_instance.stub(:can_destroy_forem_posts?).and_return(false)
+    end
+
+    it "users can't see delete post link" do
+      visit forum_topic_path(forum, topic)
+      within(selector_for(:first_post)) do
+          assert_no_link_for!("Delete")
+      end
+    end
+  end
+
   context "with default permissions" do
     before do
       sign_in(user)
     end
 
-    it "users can see the link to reply" do
+    it "users can see the reply, edit, and delete links" do
       visit forum_topic_path(forum, topic)
       page.should have_selector("a", :text => "Reply")
+      page.should have_selector("a", :text => "Edit")
+      page.should have_selector("a", :text => "Delete")
     end
+
   end
 end
