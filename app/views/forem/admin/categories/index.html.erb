@@ -16,7 +16,7 @@
       <tr class="forum <%= cycle("odd", "even") %>">
         <td><%= link_to t('edit', :scope => 'forem.admin.categories'), forem.edit_admin_category_path(category), :class => "btn btn-info" %></td>
         <td><%= link_to t('delete', :scope => 'forem.admin.categories'), forem.admin_category_path(category), :method => :delete, 
-        data: { :confirm => t("delete_confirm") }, :class => "btn btn-danger" %></td>
+        data: { :confirm => t("delete_confirm", :scope => 'forem.admin.categories') }, :class => "btn btn-danger" %></td>
         <td>
           <%= forem_emojify(category.name) %>
         </td>
