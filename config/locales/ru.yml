@@ -7,8 +7,10 @@ ru:
       posts: Ответы
       posts_count:
         zero: нет ответов
-        one: 1 ответ
-        other: "%{count} ответов"
+        one: "%{count} ответ"
+        few: "%{count} ответов"
+        many: "%{count} ответов"
+        other: "%{count} ответа"
       flagged_for_spam: Ваш аккаунт отмечен как спамовый.
       cannot_create_topic: Вы не можете сейчас создать тему.
       cannot_create_post: Вы не можете сейчас создать новый ответ.
@@ -81,13 +83,17 @@ ru:
       new: Создание нового форума
       edit: "Редактирование форума %{title}"
       topics_count:
-        zero: 0 тем
-        one: 1 тема
-        other: "%{count} тем"
+        zero: нет тем
+        one: "%{count} тема"
+        few: "%{count} темы"
+        many: "%{count} тем"
+        other: "%{count} темы"
       posts_count:
         zero: нет ответов
-        one: 1 ответ
-        other: "%{count} ответов"
+        one: "%{count} ответ"
+        few: "%{count} ответов"
+        many: "%{count} ответов"
+        other: "%{count} ответа"
       moderator_tools: "Инструменты модерации"
     forums:
       index:
