@@ -203,6 +203,7 @@ We currently have support for the following languages:
 * Spanish
 * Lithuanian
 * Japanese
+* Vietnamese
 
 Patches for new translations are very much welcome!
 
