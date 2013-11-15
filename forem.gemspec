@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 4.0.0'
   s.add_dependency 'simple_form', '~> 3.0.0.rc'
+  s.add_dependency 'sanitize', '2.0.6'
 
   s.add_dependency 'workflow', '0.8.0'
   s.add_dependency 'gemoji', '= 1.1.2'

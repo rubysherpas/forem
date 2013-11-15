@@ -9,9 +9,9 @@ describe Forem::FormattingHelper do
     before { Forem.formatter = nil }
 
     describe "unsafe html" do
-      subject { helper.as_formatted_html(raw_html) }
+      subject { helper.as_formatted_html("<script>alert('HELLO')</script> LOL") }
       it "is escaped" do
-        subject.should == "<p>" + ERB::Util.h(raw_html) + "</p>"
+        subject.should == "<p> LOL</p>"
       end
       it {should be_html_safe}
     end
@@ -19,7 +19,7 @@ describe Forem::FormattingHelper do
     describe "safe html" do
       subject { helper.as_formatted_html(raw_html.html_safe) }
       specify "is not escaped" do
-        subject.should == "<p>" + raw_html + "</p>"
+        subject.should == "<p></p><p>html</p>"
       end
       it {should be_html_safe}
     end
