@@ -6,6 +6,9 @@
     <% if topic.pinned? %>
       <span class='pin icon'></span>
     <% end %>
+    <% if topic.hidden? %>
+      <span class='hidden icon'></span>
+    <% end %>
     <% if forem_user && view = topic.view_for(forem_user) %>
       <% if topic.posts.exists?(["created_at > ?", view.updated_at]) %>
         <span class='new_posts icon'>new</span>
