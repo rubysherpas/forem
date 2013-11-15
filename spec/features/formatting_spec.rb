@@ -16,11 +16,28 @@ describe "When a post is displayed " do
       page.should have_content(post.text)
     end
 
-    it "does not render HTML tags in post text" do
+    it "does render a tags in post text" do
       post.text = '<a href="http://localhost">click me</a>'
       post.save!
       visit forum_topic_path(forum, topic)
-      page.should_not have_xpath('//a[text()="click me"]')
+      xpath = '//a[text()="click me"]'
+      page.should have_xpath(xpath)
+      find(xpath)['rel'].should == "nofollow"
+    end
+
+    # Regression test for #359
+    it "renders blockquote tags just fine" do
+      post.text = 'And then I said: <blockquote>You know what?</blockquote>'
+      post.save!
+      visit forum_topic_path(forum, topic)
+      find(".post blockquote").text.should == "You know what?"
+    end
+
+    it "does not render script tags in post text" do
+      post.text = '<a href="http://localhost">click me</a>'
+      post.save!
+      visit forum_topic_path(forum, topic)
+      lambda { all(".post")[1].find("script") }.should raise_error(Capybara::ElementNotFound)
     end
   end
 
@@ -45,11 +62,11 @@ describe "When a post is displayed " do
       end
     end
 
-    it "does not render HTML tags in post text" do
+    it "renders a tags just fine" do
       post.text = '<a href="http://localhost">click me</a>'
       post.save!
       visit forum_topic_path(forum, topic)
-      page.should_not have_xpath('//a[text()="click me"]')
+      page.should have_xpath('//a[text()="click me"]')
     end
 
     it "does not escape blockquotes" do

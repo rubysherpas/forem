@@ -5,7 +5,7 @@ module Forem
       if Forem.formatter
         Forem.formatter.format(as_sanitized_text(text))
       else
-        simple_format(h(text))
+        Forem::Sanitizer.sanitize(simple_format(text)).html_safe
       end
     end
 
@@ -21,7 +21,7 @@ module Forem
       if Forem.formatter.respond_to?(:sanitize)
         Forem.formatter.sanitize(text)
       else
-        sanitize(text, :tags=>%W(p), :attributes=>[])
+        Forem::Sanitizer.sanitize(text)
       end
     end
   end

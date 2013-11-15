@@ -5,7 +5,9 @@ require 'forem/engine'
 require 'forem/autocomplete'
 require 'forem/default_permissions'
 require 'forem/platform'
+require 'forem/sanitizer'
 require 'workflow'
+require 'sanitize'
 
 require 'decorators'
 
