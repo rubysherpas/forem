@@ -21,8 +21,9 @@ describe "When a post is displayed " do
       post.save!
       visit forum_topic_path(forum, topic)
       xpath = '//a[text()="click me"]'
-      page.should have_xpath(xpath)
-      find(xpath)['rel'].should == "nofollow"
+      a_tag = all(".post .contents a").detect { |a| a.text == "click me" }
+      a_tag.should_not be_nil
+      a_tag['rel'].should == "nofollow"
     end
 
     # Regression test for #359
