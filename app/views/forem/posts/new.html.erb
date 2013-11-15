@@ -1,16 +1,13 @@
 <%= render :partial => 'forem/forums/head', :locals => { :forum => @topic.forum } %>
 
-<h2><%= t("forem.post.new") %></h2>
-
-<% if @reply_to_post %>
-  <div class='row'>
+<h2>
+  <%= t("forem.post.new") %>
+  <% if @reply_to_post %>
     <%= render 'reply_to_post', :post => @reply_to_post %>
-  </div>
-<% else %>
-  <h3 class='topic_subject'>
-    <%= @topic.subject %>
-  </h3>
-<% end %>
+  <% else %>
+    <em><%= @topic.subject %></em>
+  <% end %>
+</h2>
 
 <%= simple_form_for [forem, @topic, @post] do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
