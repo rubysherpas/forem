@@ -56,6 +56,9 @@ def to_s
 end
 ```
 
+Please note that if you are using Devise, User model does not have `name` column by default,
+so you either should use custom migration to add it or use another column (`email` for example).
+
 It also depends on an `email` method for displaying avatars using [Gravatar](http://gravatar.com). If you don't have an `email` attribute on the model, define a new method:
 
 ```ruby
