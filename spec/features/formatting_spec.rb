@@ -42,6 +42,14 @@ describe "When a post is displayed " do
       lambda { all(".post").last.find(".contents p") }.should raise_error(Capybara::ElementNotFound)
     end
 
+    # Regression test for #359
+    it "renders blockquote without p tag wrapping" do
+      post.text = '<blockquote>You know what?</blockquote>'
+      post.save!
+      visit forum_topic_path(forum, topic)
+      lambda { find(".post .contents p") }.should raise_error(Capybara::ElementNotFound)
+    end
+
     it "does not render script tags in post text" do
       post.text = '<a href="http://localhost">click me</a>'
       post.save!
