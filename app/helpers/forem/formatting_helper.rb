@@ -5,7 +5,7 @@ module Forem
       if Forem.formatter
         Forem.formatter.format(as_sanitized_text(text))
       else
-        Forem::Sanitizer.sanitize(simple_format(text)).html_safe
+        Forem::Sanitizer.sanitize(text).html_safe
       end
     end
 
