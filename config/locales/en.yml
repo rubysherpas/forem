@@ -52,6 +52,7 @@ en:
           add_member: Add
           add_a_new_member: "Add a new member"
           current_members: "Current Members"
+          remove_member: "Remove member"
         edit: Edit
         delete: Delete
         name: Name

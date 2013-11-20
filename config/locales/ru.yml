@@ -54,6 +54,7 @@ ru:
           add_member: Добавить
           add_a_new_member: "Добавить нового члена группы"
           current_members: "Члены группы"
+          remove_member: "Удалить из группы"
         edit: Редактировать
         delete: Удалить
         name: Название

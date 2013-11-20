@@ -9,6 +9,14 @@ module Forem
         redirect_to [:admin, group]
       end
 
+      def destroy
+        user = Forem.user_class.where(:id => params[:id]).first
+        if group.members.exists?(user.id)
+          group.members.delete(user)
+        end
+        redirect_to [:admin, group]
+      end
+
       private
 
       def group
