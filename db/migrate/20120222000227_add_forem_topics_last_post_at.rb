@@ -9,6 +9,6 @@ class AddForemTopicsLastPostAt < ActiveRecord::Migration
   end
 
   def down
-    drop_column :forem_topics, :last_post_at
+    remove_column :forem_topics, :last_post_at
   end
 end
