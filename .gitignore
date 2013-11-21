@@ -12,4 +12,3 @@ spec/dummy
 *.rbc
 *.tmproj
 Gemfile.lock
-.idea/
