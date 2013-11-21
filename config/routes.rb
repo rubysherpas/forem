@@ -25,7 +25,7 @@ Forem::Engine.routes.draw do
   namespace :admin do
     root :to => "base#index"
     resources :groups do
-      resources :members do
+      resources :members, only: [:destroy] do
         collection do
           post :add
         end
