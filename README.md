@@ -67,6 +67,20 @@ def email
 end
 ```
 
+## Require basic Forem assets
+
+Add this line to your `application.js` file to load required JavaScript files:
+
+```js
+//= require forem
+```
+
+Add this line to your `application.css` to apply required styling:
+
+```css
+*= require 'forem/base'
+```
+
 And you're done! Yaaay!
 
 For more information on installing, please [see the "Installation" wiki
