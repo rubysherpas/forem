@@ -51,6 +51,9 @@ en:
           add_member: Add
           add_a_new_member: "Add a new member"
           current_members: "Current Members"
+          remove_member: "Remove member"
+          member_removed: "The selected user has been removed from the group."
+          no_member_to_remove: "The selected user does not belong to this group."
         edit: Edit
         delete: Delete
         name: Name
