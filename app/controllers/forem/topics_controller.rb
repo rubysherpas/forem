@@ -8,7 +8,10 @@ module Forem
     def show
       if find_topic
         register_view(@topic, forem_user)
-        @posts = find_posts(@topic).page(params[:page]).per(Forem.per_page)
+        @posts = find_posts(@topic)
+
+        # Kaminari allows to configure the method and param used
+        @posts = @posts.send(pagination_method, params[pagination_param]).per(Forem.per_page)
       end
     end
 

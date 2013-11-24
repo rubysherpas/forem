@@ -9,6 +9,18 @@ class Forem::ApplicationController < ApplicationController
     Forem::Ability.new(forem_user)
   end
 
+  # Kaminari defaults page_method_name to :page, will_paginate always uses
+  # :page
+  def pagination_method
+    defined?(Kaminari) ? Kaminari.config.page_method_name : :page
+  end
+
+  # Kaminari defaults param_name to :page, will_paginate always uses :page
+  def pagination_param
+    defined?(Kaminari) ? Kaminari.config.param_name : :page
+  end
+  helper_method :pagination_param
+
   private
 
   def authenticate_forem_user
