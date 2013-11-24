@@ -17,7 +17,10 @@ module Forem
         @forum.topics.visible.approved_or_pending_review_for(forem_user)
       end
 
-      @topics = @topics.by_pinned_or_most_recent_post.page(params[:page]).per(Forem.per_page)
+      @topics = @topics.by_pinned_or_most_recent_post
+
+      # Kaminari allows to configure the method and param used
+      @topics = @topics.send(pagination_method, params[pagination_param]).per(Forem.per_page)
 
       respond_to do |format|
         format.html

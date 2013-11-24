@@ -3,7 +3,7 @@ module Forem
     def link_to_latest_post(topic)
       post = relevant_posts(topic).last
       text = "#{time_ago_in_words(post.created_at)} #{t("ago_by")} #{post.user}"
-      link_to text, forem.forum_topic_path(post.topic.forum, post.topic, :anchor => "post-#{post.id}", :page => topic.last_page)
+      link_to text, forem.forum_topic_path(post.topic.forum, post.topic, :anchor => "post-#{post.id}", pagination_param => topic.last_page)
     end
 
     def new_since_last_view_text(topic)

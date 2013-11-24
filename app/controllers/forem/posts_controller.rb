@@ -57,14 +57,14 @@ module Forem
     def authorize_edit_post_for_forum!
       authorize! :edit_post, @topic.forum
     end
-    
+
     def authorize_destroy_post_for_forum!
       authorize! :destroy_post, @topic.forum
     end
 
     def create_successful
       flash[:notice] = t("forem.post.created")
-      redirect_to forum_topic_url(@topic.forum, @topic, :page => @topic.last_page)
+      redirect_to forum_topic_url(@topic.forum, @topic, pagination_param => @topic.last_page)
     end
 
     def create_failed
