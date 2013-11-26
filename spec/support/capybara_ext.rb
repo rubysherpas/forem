@@ -75,5 +75,5 @@ module CapybaraExt
 end
 
 RSpec.configure do |config|
-  config.include CapybaraExt
+  config.include CapybaraExt, :type => :feature
 end
