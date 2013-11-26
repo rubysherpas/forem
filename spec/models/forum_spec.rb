@@ -104,7 +104,7 @@ describe Forem::Forum do
 
       it "is a moderator if group ids intersect" do
         forum.stub :moderator_ids => [1,2]
-        user = stub :forem_group_ids => [2,3]
+        user = double :forem_group_ids => [2,3]
         forum.moderator?(user).should be_true
       end
 

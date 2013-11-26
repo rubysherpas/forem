@@ -10,8 +10,8 @@ describe Forem::TopicsController do
 
       controller.should_receive(:authorize!).and_return(true)
       Forem::Forum.should_receive(:find).and_return(forum)
-      forum.stub_chain("topics.visible").and_return(visible_topics = stub)
-      visible_topics.should_receive("approved_or_pending_review_for").with(user).and_return(approved_topics = stub)
+      forum.stub_chain("topics.visible").and_return(visible_topics = double)
+      visible_topics.should_receive("approved_or_pending_review_for").with(user).and_return(approved_topics = double)
       approved_topics.should_receive("find").and_raise(ActiveRecord::RecordNotFound)
     end
 
