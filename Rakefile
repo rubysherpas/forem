@@ -19,3 +19,5 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 Bundler::GemHelper.install_tasks
+
+task :test_app => "forem:dummy_app"
