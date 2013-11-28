@@ -39,4 +39,18 @@ describe 'groups' do
       flash_notice!("The selected group has been deleted.")
     end
   end
+  
+  context "removing user from the group" do
+    before do
+      user = FactoryGirl.create(:user)
+      group = FactoryGirl.create(:group)
+      group.members << user
+      visit admin_group_path(Forem::Group.find_by_id(group.id))
+    end
+
+    specify do
+      click_link "Remove member"
+      flash_notice!("The selected user has been removed from the group.")
+    end
+  end
 end
