@@ -1,0 +1,213 @@
+ar:
+  forem:
+    general:
+      forum: منتدى
+      topics: مواضيع
+      topic: موضوع
+      posts: مشاركات
+      posts_count:
+        zero: لاتوجد مشاركات
+        one: "%{count} مشاركة"
+        other: "%{count} مشاركات"
+      flagged_for_spam: تم تعيين حسابك كحساب غير مرغوب به.
+      cannot_create_topic: لا يمكنك إنشاء موضوع جديد في الوقت الحالي.
+      cannot_create_post:  لا يمكنك إنشاء مشاركة جديده في الوقت الحالي
+
+    access_denied: "لا يسمح لك بتنفيذ هذه العملية"
+    admin:
+      area: إدارة المنتدى
+      back_to_admin: "عودة إلى إدارة المنتدى"
+      back_to_forums: "عودة إلى المنتديات"
+      back_to_groups: "عودة إلى المجموعات"
+      welcome: "مرحبا بك في قسم إدارة المنتدى"
+      forum:
+        moderator_groups: مجموعة المشرفين
+        index: إدارة المنتديات
+        new: إنشاء منتدى جديد
+        new_link: منتدى جديد
+        deleted: تم حذف هذا المنتدى.
+        created: تم إنشاء المنتدى.
+        not_created: لم يتم إنشاء هذا المنتدى.
+        updated: تم تحديث هذا المنتدى.
+        not_updated: لم يتم تحديث هذا المنتدى.
+      forums:
+        edit: تحديث
+        delete: حذف
+        category: قسم
+        delete_confirm: هل أنت متأكد أنك تريد حذف هذا القسم؟
+        index:
+          last_post: آخر مشاركة
+          none: لايوجد
+          moderators: مشرفين
+          no_category: (لاتوجد أقسام)
+      group:
+        index: إدارة المجموعات
+        new: مجموعة جديدة
+        created: تم إنشاء هذه المجموعة بنجاح.
+        not_created: لم يتم إنشاء هذه المجموعة.
+        deleted: تم حذف هذه المجموعة.
+        members: "الأعضاء في %{group}"
+      groups:
+        show:
+          add_member: إضافة
+          add_a_new_member: "إضافة عضو جديد"
+          current_members: "الأعضاء الحاليين"
+          remove_member: "حذف عضو"
+          member_removed: "تم حذف هذا العضو من المجموعة."
+          no_member_to_remove: "هذا العضو غير منتسب لهذه المجموعة."
+        edit: تحديث
+        delete: حذف
+        name: إسم
+      category:
+        index: إدارة أقسام المنتدى
+        new: إنشاء قسم جديد للمنتدى
+        edit: "%{title} تحديث قسم"
+        new_link: إنشاء قسم جديد للمنتدى
+        deleted: تم حذف هذا القسم.
+        created: تم إنشاء هذا القسم.
+        not_created: لم يتم إنشاء هذا القسم.
+        updated: تم تحديث هذا القسم.
+        not_updated: لم يتم تحديث هذا القسم.
+      categories:
+        edit: تحديث
+        delete: حذف
+        category: قسم
+        delete_confirm: هل أنت متأكد أنك تريد حذف هذا القسم المنتدى؟
+    common:
+      pages: صفحات
+    errors:
+      not_signed_in: يجب عليك تسجيل الدخول للموقع
+      access_denied: تم رفض الدخول.
+    forum:
+      header: "عرض %{title}"
+      forums: منديات
+      new: إنشاء منتدى جديد
+      edit: "%{title} التعديل على منتدى "
+      topics_count:
+        zero: لا يوجد أي مواضيع
+        one: موضوع واحد
+        other: "%{count} مواضيع"
+      posts_count:
+        zero: لايوجد مشاركات
+        one: مشاركة واحدة
+        other: "%{count} مشاركات"
+      moderator_tools: "أدوات المشرفين"
+    forums:
+      index:
+        title: المنتديات
+        forum: منتدى
+        views: عدد المشاهدات
+        last_post: "آخر مشاركة:"
+        none: لا يوجد
+    topic:
+      headings:
+        topic: موضوع
+        latest: الأحدث
+        posts: المشاركات
+        views: المشاهدات
+      moderation:
+        success: تمت إدارة الموضوع المحدد.
+        no_option_selected: لم يتم إختيار طريقة إدارة هذا الموضوع.
+      received_reply: يوجد مشاركة جديدة في الموضوع الذي قمت بالإشتراك فيه.
+      reply: رد
+      quote: إقتباس
+      delete: حذف
+      created: تم إنشاء هذا الموضوع.
+      new: إنشاء موضوع جديد
+      edit: تعديل موضوع
+      not_created: لم يتم إنشاء هذا الموضوع.
+      deleted: تم حذف هذا الموضوع.
+      cannot_delete:  لا يمكنك حذف موضوع لا يخصك.
+      updated: تم تحديث هذا الموضوع.
+      not_updated: لم يتم تحديث هذا الموضوع.
+      subscribed: لقد قمت بالإشتراك في هذا الموضوع.
+      unsubscribed: لقد قمت بإلغاء الإشتراك في هذا الموضوع.
+      none: لاتوجد أي مواضيع في هذا المنتدى حالياً
+      links:
+        new: موضوع جديد
+        back_to_topics: عودة إلى المواضيع
+        edit: تعديل موضوع
+      not_found: لم يتم العثور على الموضوع الذي تبحث عنه.
+      hidden:
+        'true': موضوع مخفي.
+        'false': موضوع مرئي.
+      locked:
+        'true': موضوع مقفل.
+        'false': موضوع غير مقفل
+      pinned:
+        'true': تم تعليق هذا الموضوع.
+        'false': تم إلغاء تعليق هذا الموضوع.
+    topics:
+      show:
+        reply: رد
+        delete: حذف
+        subscribe: إشتراك
+        unsubscribe: إلغاء الإشتراك
+        reply_to_topic: رد على الموضوع
+        pending_review:  هذه الموضوع تحت المراجعة و يمكن مشاهدته من المستخدم الذي قام بإنشائه أو الإدارة فقط.
+        hide:
+          'true': عرض هذا الموضوع
+          'false': إخفاء هذا الموضوع
+        lock:
+          'true': فتح هذا الموضوع
+          'false': إقفال هذا الموضوع
+        pin:
+          'true': إلغاء تعليق هذا الموضوع
+          'false': علق هذا الموضوع
+    post:
+      buttons:
+        reply: إرسال الرد
+        edit: تحديث
+      created: تم نشر الرد.
+      new: إرسال رد إلى
+      edit: تحديث المشاركة
+      not_created: لم يتم نشر مشاركتك.
+      not_created_topic_locked: لا يمكنك المشاركة في موضوع مقفل.
+      edited: تم تحديث مشاركتك.
+      not_edited: لم يتم تحديث مشاركتك.
+      deleted: تم حذف مشاركتك.
+      deleted_with_topic: تم حذف الموضوع و المشاركات التابعة له.
+      cannot_delete: لا يمكنك حذف مشاركة لا تخصك
+      in_reply_to: دراً على
+    posts:
+      moderation:
+        moderate: إدارة
+        approve: موافقة
+        spam: غير مرغوب
+        success: تمت إدارة المشاركات المحددة.
+      post:
+        pending_review: هذه المشاركة تحت المراجعة و يمكن مشاهدتها من المستخدم الذي أرسلها أو الإدارة فقط.
+
+    moderation:
+      index:
+        title: "%{forum} أدوات الإشراف على "
+  helpers:
+    submit:
+      forum:
+        create: إنشاء منتدى
+        update: تحديث منتدى
+      topic:
+        create: إنشاء موضوع
+        update: تحديث موضوع
+  simple_form:
+    labels:
+      forum:
+        title: عنوان
+        description: وصف
+      topic:
+        subject: الموضوع
+        locked: مغلق
+        pinned: معلق
+        hidden: مخفي
+        posts:
+          text: نص
+      post:
+        text: نص
+
+  # General stuff
+  time_ago_in_words: "%{time} منذ"
+  ago: " منذ"
+  ago_by: " منذ بواسطة"
+  by: بواسطة
+  started_by: "كتبت بواسطة "
+  are_you_sure: هل أنت متأكد؟
