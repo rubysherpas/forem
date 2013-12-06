@@ -19,7 +19,7 @@
       <% @group.members.each do |member| %>
         <li><%= member.to_s %> |
           <%= link_to t('forem.admin.groups.show.remove_member'), admin_group_member_url(@group, member),
-                      method: :delete, confirm: t('are_you_sure') %></li>
+                      method: :delete, data: { confirm: t('are_you_sure') } %></li>
       <% end %>
     </ul>
   </div>
