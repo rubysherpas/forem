@@ -84,13 +84,13 @@ end
 
 Add this line to your `application.js` file to load required JavaScript files:
 
-```ruby
+```js
 //= require forem
 ```
 
 Add this line to your `application.css` to apply required styling:
 
-```ruby
+```css
 *= require 'forem/base'
 ```
 
