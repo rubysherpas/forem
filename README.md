@@ -48,7 +48,7 @@ For all Rails versions, one of `kaminari` or `will_paginate`
 ```ruby
 gem 'kaminari', '0.14.1'
 # OR
-gem 'will_paginate', '3.0.4'
+gem 'will_paginate', '3.0.5'
 ```
 
 ## Run the installer
@@ -96,6 +96,10 @@ Add this line to your `application.css` to apply required styling:
 ```css
 *= require 'forem/base'
 ```
+
+## Specify formatter to use
+
+If you want to provide users an extended formatting capability, you should pick a [formatter](https://github.com/radar/forem/wiki/Formatters) to use. If you do not use a formatter users will not be able to insert newlines in their posts and do some other fancy stuff, however quoting will work fine.
 
 And you're done! Yaaay!
 
