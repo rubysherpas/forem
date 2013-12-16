@@ -16,8 +16,12 @@ es:
     access_denied: "No tiene permiso para hacer eso."
     admin:
       area: Área de administración
+      back_to_admin: "Volver a Administración"
+      back_to_forums: "Volver a Foros"
+      back_to_groups: "Volver a Grupos"
       welcome: "Bienvenido al área de administración de forem."
       forum:
+        moderator_groups: Grupos de moderador
         index: Organizar Foros
         new: Crear un nuevo foro
         new_link: Nuevo Foro
@@ -35,21 +39,29 @@ es:
           last_post: Último mensaje
           none: Ninguno
           moderators: Moderadores
+          no_category: (Sin Categoría)
       group:
         index: Organizar Grupos
         new: Nuevo Grupo
         created: El grupo ha sido creado.
         not_created: El grupo no pudo ser creado.
         deleted: El grupo seleccionado ha sido borrado.
+        members: "Miembros en %{group}"
       groups:
         show:
           add_member: Agregar
+          add_a_new_member: "Agregar un nuevo miembro"
+          current_members: "Miembros actuales"
+          remove_member: "Remover miembro"
+          member_removed: "El usuario seleccionado fue removido del grupo."
+          no_member_to_remove: "El usuario seleccionado no pertenece a este grupo."
         edit: Editar
         delete: Borrar
         name: Nombre
       category:
         index: Organizar las categorías de foro
         new: Crear una nueva categoría de foro
+        edit: "Editando la categoría %{title}"
         new_link: Nueva categoría de foro
         deleted: La categoría de foro seleccionado ha sido borrada.
         created:  La categoría de foro ha sido creada.
@@ -79,7 +91,7 @@ es:
         zero: 0 mensajes
         one: 1 mensaje
         other: "%{count} mensajes"
-      moderator_tools: "Herramientas de Moderaciónr"
+      moderator_tools: "Herramientas de Moderación"
     forums:
       index:
         title: Foros
@@ -150,7 +162,7 @@ es:
       new: Responder
       edit: Modificar
       not_created: Su respuesta no pudo ser publicada.
-      not_created_topic_locked: Usted no puedo un tema bloqueado.
+      not_created_topic_locked: Usted no puede responder a un tema bloqueado.
       edited: Su mensaje ha sido modificado.
       not_edited: Su mensaje no pudo ser modificado.
       deleted: Su mensaje ha sido borrado.
@@ -166,7 +178,8 @@ es:
       post:
         pending_review: Este mensaje está en revisión. Solamente el autor y los moderadores pueden verlo.
     moderation:
-      title: "Herramientas de moderación para %{forum}"
+      index:
+        title: "Herramientas de moderación para %{forum}"
   helpers:
     submit:
       forum:
