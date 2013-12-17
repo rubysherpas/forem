@@ -46,7 +46,7 @@ gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
 For all Rails versions, one of `kaminari` or `will_paginate`
 
 ```ruby
-gem 'kaminari', '0.14.1'
+gem 'kaminari', '0.15.0'
 # OR
 gem 'will_paginate', '3.0.5'
 ```
