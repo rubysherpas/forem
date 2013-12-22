@@ -74,6 +74,23 @@ describe "posts" do
       end
     end
 
+    context "quoting" do
+      it "cannot quote deleted post" do
+        other_user = FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com")
+        topic.posts << FactoryGirl.build(:approved_post, :user => other_user)
+        @second_post = topic.posts[1]
+
+        visit forum_topic_path(forum, topic)
+        @second_post.delete
+
+        within(selector_for(:second_post)) do
+          click_link("Quote")
+        end
+
+        flash_notice!(I18n.t("forem.post.cannot_quote_deleted_post"))
+      end
+    end
+
     context "editing posts in topics" do
       before do
         other_user = FactoryGirl.create(:user, :login => 'other_forem_user', :email => "maryanne@boblaw.com")

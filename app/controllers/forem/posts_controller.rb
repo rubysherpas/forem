@@ -14,7 +14,12 @@ module Forem
       @post = @topic.posts.build
       find_reply_to_post
 
-      @post.text = view_context.forem_quote(@reply_to_post.text) if params[:quote]
+      if params[:quote] && @reply_to_post
+        @post.text = view_context.forem_quote(@reply_to_post.text)
+      elsif params[:quote] && !@reply_to_post
+        flash[:notice] = t("forem.post.cannot_quote_deleted_post")
+        redirect_to [@topic.forum, @topic]
+      end
     end
 
     def create
