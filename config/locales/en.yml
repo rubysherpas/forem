@@ -191,9 +191,13 @@ en:
         update: Update Topic
   simple_form:
     labels:
+      category:
+        name: Name
       forum:
         title: Title
         description: Description
+        category: Category
+        moderators: Moderators
       topic:
         subject: Subject
         locked: Locked
@@ -203,6 +207,8 @@ en:
           text: Text
       post:
         text: Text
+      group:
+        name: Name
 
   # General stuff
   time_ago_in_words: "%{time} ago"
