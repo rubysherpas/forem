@@ -9,7 +9,7 @@
       <%= render posts, :mass_moderation => true %>
     <% end %>
   </div>
-  <%= submit_tag "Moderate", :class => "btn btn-primary" %>
+  <%= submit_tag t('forem.posts.moderation.moderate'), :class => "btn btn-primary" %>
 <% end %>
 
 <h3><%= t('topics_count', :count => @topics.count, :scope => 'forem.forum') %></h3>
