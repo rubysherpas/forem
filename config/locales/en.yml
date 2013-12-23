@@ -168,6 +168,7 @@ en:
       deleted_with_topic: Only post in topic deleted. Topic also deleted.
       cannot_delete: You cannot delete a post you do not own.
       in_reply_to: In reply to
+      cannot_quote: The post you tried to quote does not exist anymore.
     posts:
       moderation:
         moderate: Moderate

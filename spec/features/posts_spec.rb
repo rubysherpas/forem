@@ -87,7 +87,7 @@ describe "posts" do
           click_link("Quote")
         end
 
-        flash_notice!("The post you tried to quote does not exist anymore.")
+        flash_notice!(I18n.t("forem.post.cannot_quote"))
       end
     end
 

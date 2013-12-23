@@ -17,7 +17,7 @@ module Forem
       if params[:quote] && @reply_to_post
         @post.text = view_context.forem_quote(@reply_to_post.text)
       elsif params[:quote] && !@reply_to_post
-        flash[:notice] = "The post you tried to quote does not exist anymore."
+        flash[:notice] = t("forem.post.cannot_quote")
         redirect_to [@topic.forum, @topic]
       end
     end
