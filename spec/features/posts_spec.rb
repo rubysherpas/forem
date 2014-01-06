@@ -87,7 +87,7 @@ describe "posts" do
           click_link("Quote")
         end
 
-        flash_notice!(I18n.t("forem.post.cannot_quote"))
+        flash_notice!(I18n.t("forem.post.cannot_quote_deleted_post"))
       end
     end
 
