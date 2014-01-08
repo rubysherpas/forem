@@ -31,7 +31,7 @@ describe "When a post is displayed " do
       post.text = 'And then I said: <blockquote>You know what?</blockquote>'
       post.save!
       visit forum_topic_path(forum, topic)
-      find(".post blockquote").text.should == "You know what?"
+      all(".post").last.find("blockquote").text.should == "You know what?"
     end
 
     # Regression test for #359
@@ -39,7 +39,7 @@ describe "When a post is displayed " do
       post.text = '<blockquote>You know what?</blockquote>'
       post.save!
       visit forum_topic_path(forum, topic)
-      lambda { find(".post .contents p") }.should raise_error(Capybara::ElementNotFound)
+      lambda { all(".post").last.find(".contents p") }.should raise_error(Capybara::ElementNotFound)
     end
 
     it "does not render script tags in post text" do
