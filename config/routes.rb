@@ -1,7 +1,7 @@
 Forem::Engine.routes.draw do
   root :to => "forums#index"
 
-  resources :forums, :only => [:index, :show] do
+  resources :forums, :only => [:index, :show], :path => "/" do
     resources :topics do
       member do
         get :subscribe
