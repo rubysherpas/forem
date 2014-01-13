@@ -17,6 +17,23 @@ describe Forem::TopicsController do
     end
   end
 
+  context "without permission to read a topic" do
+    let(:forum) { FactoryGirl.create(:forum) }
+    let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum) }
+    let(:user) { FactoryGirl.create(:user) }
+
+    before do
+      sign_in(user)
+      User.any_instance.stub(:can_read_forem_topic?).and_return(false)
+    end
+
+    it "cannot subscribe to a topic" do
+      post :subscribe, :forum_id => forum.id, :id => topic.id
+
+      response.should redirect_to(root_path)
+      flash[:alert].should == I18n.t('forem.access_denied')
+    end
+  end
 
   context "not signed in" do
     let(:forum) { create(:forum) }
