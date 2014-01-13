@@ -4,8 +4,8 @@ Forem::Engine.routes.draw do
   resources :forums, :only => [:index, :show] do
     resources :topics do
       member do
-        get :subscribe
-        get :unsubscribe
+        post :subscribe
+        post :unsubscribe
       end
     end
   end

@@ -11,9 +11,9 @@
       <% end %>
       <% if forem_user %>
         <% if !@topic.subscriber?(forem_user.id) %>
-          <%= link_to t(".subscribe"), forem.subscribe_forum_topic_path(@forum, @topic), :class => "btn btn-success" %>
+          <%= link_to t(".subscribe"), forem.subscribe_forum_topic_path(@forum, @topic), :method => :post, :class => "btn btn-success" %>
         <% else %>
-          <%= link_to t(".unsubscribe"), forem.unsubscribe_forum_topic_path(@forum, @topic), :class => "btn btn-danger" %>
+          <%= link_to t(".unsubscribe"), forem.unsubscribe_forum_topic_path(@forum, @topic), :method => :post, :class => "btn btn-danger" %>
         <% end %>
       <% end %>
     </div>
