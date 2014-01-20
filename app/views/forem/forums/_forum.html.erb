@@ -6,7 +6,7 @@
       <%= t('forem.forums.index.last_post') -%>
       <span class='last_post'>
         <% if last_post = forum.last_post_for(forem_user) -%>
-          <%= link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> 
+          <%= link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user.forem_name %>
           <time datetime="<%= last_post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(last_post.created_at)} #{t("ago")}" %></time>
         <% else %>
           <%= t('forem.forums.index.none') -%>

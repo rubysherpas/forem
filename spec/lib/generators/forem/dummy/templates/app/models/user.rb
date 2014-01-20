@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   def to_s
+    fail # to_s should not be called in tests
+  end
+
+  def forem_name
     login
   end
 

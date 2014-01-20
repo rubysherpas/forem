@@ -5,7 +5,7 @@ module Forem
         # Try to use the user's custom avatar method
         user.try Forem.avatar_user_method.to_sym
       else
-        avatar_url user.try(:email), options
+        avatar_url user.forem_email, options
       end
 
       image_tag image, :alt => "Avatar" if image.present?

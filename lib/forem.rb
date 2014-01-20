@@ -45,6 +45,17 @@ module Forem
         def forem_spammer?
           forem_state == 'spam'
         end
+
+        # Using +to_s+ by default for backwards compatibility
+        def forem_name
+          to_s
+        end unless method_defined? :forem_name
+
+        # Using +email+ by default for backwards compatibility. This attribute
+        # it's optional
+        def forem_email
+          try :email
+        end unless method_defined? :forem_email
       end
     end
 
