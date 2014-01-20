@@ -50,6 +50,7 @@ module Forem
       template "config/initializers/devise.rb", "#{dummy_path}/config/initializers/devise.rb", :force => true
       template "db/migrate/1_create_users.rb", "#{dummy_path}/db/migrate/1_create_users.rb", :force => true
       template "db/migrate/2_create_admins.rb", "#{dummy_path}/db/migrate/2_create_admins.rb", :force => true
+      template "db/migrate/3_create_refunery_yoosers.rb", "#{dummy_path}/db/migrate/3_create_refunery_yoosers.rb", :force => true
       template "Rakefile", "#{dummy_path}/Rakefile", :force => true
       inject_into_file "#{dummy_path}/config/environments/test.rb",
                   "\n  config.action_mailer.default_url_options = { :host => 'www.example.com' }\n",

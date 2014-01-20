@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable
 
   def to_s
+    fail # to_s should not be called in tests
+  end
+
+  def forem_name
     login
   end
 
