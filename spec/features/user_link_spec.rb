@@ -13,7 +13,7 @@ describe "user links" do
       visit forum_topic_path(post.forum, post.topic)
 
       # There should be at least one link on the page with the user's name
-      first(:link, post.user.to_s).click
+      first(:link, post.user.forem_name).click
 
       page.should have_content("A user's page!")
     end
@@ -25,7 +25,7 @@ describe "user links" do
     it "user name is not a link" do
       visit forum_topic_path(post.forum, post.topic)
       # There should be no links on the page with the user's name
-      Nokogiri::HTML(page.body).css("a").none? { |a| a.text.include?(post.user.to_s) }
+      Nokogiri::HTML(page.body).css("a").none? { |a| a.text.include?(post.user.forem_name) }
     end
   end
 end

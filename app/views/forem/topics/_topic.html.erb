@@ -18,7 +18,7 @@
   <td class='byline'>
     <%= new_since_last_view_text(topic) %>
     <div class='subject'><%= link_to forem_emojify(topic.subject), forem.forum_topic_path(@forum, topic) %></div>
-    <div class='started-by'><%= t "started_by" %><%= relevant_posts(topic).first.user %></div>
+    <div class='started-by'><%= t "started_by" %><%= relevant_posts(topic).first.user.forem_name %></div>
   </td>
   <td class='latest-post text-center'>
     <%= link_to_latest_post(topic) -%>
