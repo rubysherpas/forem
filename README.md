@@ -26,7 +26,7 @@ gem 'forem', :git => "git://github.com/radar/forem.git"
 
 And then one of `kaminari` or `will_paginate`
 ```ruby
-gem 'kaminari', '0.15.0'
+gem 'kaminari', '0.15.1'
 # OR
 gem 'will_paginate', '3.0.5'
 ```
