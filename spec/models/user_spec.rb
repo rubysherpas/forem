@@ -16,7 +16,7 @@ describe User do
     end
   end
 
-  describe "Forem user profile methods" do
+  describe "Profile methods" do
     context "with custom methods" do
       describe "#forem_email" do
         it "responds to our own email method" do
