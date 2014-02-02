@@ -1,10 +1,11 @@
 <%= simple_form_for [forem, @forum, @topic] do |f| %>
-  <%= f.input :subject %>
+  <%= f.text_field :subject, class: 'form-control', placeholder: 'Subject' %>
+  <br />
 
   <%= f.simple_fields_for :posts do |post| %>
     <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
   <% end %>
-  
+
   <%= f.submit :class => "btn btn-primary" %>
 <% end %>
 `

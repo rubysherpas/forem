@@ -8,10 +8,10 @@
       <% end %>
     <% end %>
     <% if @topic %>
-      <%= link_to t('forem.topic.links.back_to_topics'), forem.forum_path(forum), :class => "btn" %>
+      <%= link_to t('forem.topic.links.back_to_topics'), forem.forum_path(forum), :class => "btn btn-default" %>
     <% end %>
     <% if can? :moderate, @forum %>
-      <%= link_to t('forem.forum.moderator_tools'), forem.forum_moderator_tools_path(forum), :class => "btn btn-inverse" %>
+      <%= link_to t('forem.forum.moderator_tools'), forem.forum_moderator_tools_path(forum), :class => "btn btn-default" %>
     <% end %>
   </div>
 </div>

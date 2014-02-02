@@ -4,7 +4,7 @@
   <div id='menu'>
     <div class='btn-group'>
       <% if @topic.can_be_replied_to? && can?(:reply, @topic) %>
-        <%= link_to t(".reply"), forem.new_topic_post_path(@topic), :class => "btn" %>
+        <%= link_to t(".reply"), forem.new_topic_post_path(@topic), :class => "btn btn-default" %>
       <% end %>
       <% if @topic.user == forem_user || forem_admin? %>
         <%= link_to t(".delete"), forem.forum_topic_path(@forum, @topic), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-danger" %>
@@ -19,10 +19,10 @@
     </div>
     <% if forem_admin? %>
       <div class='btn-group'>
-        <%= link_to t('forem.topic.links.edit'), forem.edit_admin_topic_path(@topic), :class => "btn" %>
-        <%= link_to t(".hide.#{@topic.hidden}"), forem.toggle_hide_admin_topic_path(@topic), :method => :put, :class => "btn" %>
-        <%= link_to t(".lock.#{@topic.locked}"), forem.toggle_lock_admin_topic_path(@topic), :method => :put, :class => "btn" %>
-        <%= link_to t(".pin.#{@topic.pinned}"), forem.toggle_pin_admin_topic_path(@topic), :method => :put, :class => "btn" %>
+        <%= link_to t('forem.topic.links.edit'), forem.edit_admin_topic_path(@topic), :class => "btn btn-default" %>
+        <%= link_to t(".hide.#{@topic.hidden}"), forem.toggle_hide_admin_topic_path(@topic), :method => :put, :class => "btn btn-default" %>
+        <%= link_to t(".lock.#{@topic.locked}"), forem.toggle_lock_admin_topic_path(@topic), :method => :put, :class => "btn btn-default" %>
+        <%= link_to t(".pin.#{@topic.pinned}"), forem.toggle_pin_admin_topic_path(@topic), :method => :put, :class => "btn btn-default" %>
       </div>
     <% end %>
   </div>
