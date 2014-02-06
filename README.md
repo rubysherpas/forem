@@ -20,8 +20,16 @@ Installing Forem is easy.
 
 ## Specify Gem dependencies
 
+If you're using Rails 3:
+
 ```ruby
-gem 'forem', :git => "git://github.com/radar/forem.git", :branch => 'rails4'
+gem 'forem', :github => "radar/forem", :branch => "rails3"
+```
+
+For Rails 4, use the `rails4` branch:
+
+```ruby
+gem 'forem', :github => "radar/forem", :branch => "rails4"
 ```
 
 And then one of `kaminari` or `will_paginate`
