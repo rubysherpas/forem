@@ -8,6 +8,10 @@ module Forem
     has_many :forums
     validates :name, :presence => true
 
+    def self.scoped_to(account)
+      where(:account_id => account.id)
+    end
+
     def to_s
       name
     end

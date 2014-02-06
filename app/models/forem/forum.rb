@@ -21,6 +21,10 @@ module Forem
     # Fix for #339
     default_scope { order('name ASC') }
 
+    def self.scoped_to(account)
+      where(:account_id => account.id)
+    end
+
     def last_post_for(forem_user)
       if forem_user && (forem_user.forem_admin? || moderator?(forem_user))
         posts.last

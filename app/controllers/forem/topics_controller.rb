@@ -34,7 +34,7 @@ module Forem
 
     def destroy
       @topic = @forum.topics.friendly.find(params[:id])
-      if forem_user == @topic.user || forem_user.forem_admin?
+      if forem_user == @topic.user || forem_admin?
         @topic.destroy
         destroy_successful
       else
