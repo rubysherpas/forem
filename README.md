@@ -21,7 +21,7 @@ Installing Forem is easy.
 ## Specify Gem dependencies
 
 ```ruby
-gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'forem', :git => "git://github.com/radar/forem.git", :branch => 'rails4'
 ```
 
 And then one of `kaminari` or `will_paginate`
