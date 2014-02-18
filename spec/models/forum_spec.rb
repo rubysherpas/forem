@@ -8,7 +8,7 @@ describe Forem::Forum do
   end
 
   it "is scoped by default" do
-    Forem::Forum.all.to_sql.should =~ /ORDER BY name ASC/
+    Forem::Forum.all.to_sql.should =~ /ORDER BY .forem_forums.\.name ASC/
   end
 
   describe "validations" do
