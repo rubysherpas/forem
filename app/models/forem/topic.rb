@@ -52,8 +52,9 @@ module Forem
       end
 
       def by_pinned_or_most_recent_post
-        order('forem_topics.last_post_at DESC').order('forem_topics.pinned DESC')
-        #order('forem_topics.id')
+	order('forem_topics.pinned DESC').
+        order('forem_topics.last_post_at DESC').
+        order('forem_topics.id')
       end
 
       def pending_review
