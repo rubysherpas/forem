@@ -55,6 +55,13 @@ describe Forem::Topic do
     end
   end
 
+  describe ".by_pinned_or_most_recent_post" do
+    it "should show topics by pinned then by most recent post" do
+      ordering = Forem::Topic.by_pinned_or_most_recent_post.order_values
+      ordering.should == ["forem_topics.pinned DESC", "forem_topics.last_post_at DESC", "forem_topics.id"] 
+    end
+  end
+
   describe "helper methods" do
     describe "#subscribe_user" do
       let(:subscription_user) { FactoryGirl.create(:user) }
