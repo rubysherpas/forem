@@ -50,4 +50,23 @@ describe Forem::Generators::InstallGenerator do
     Forem::Topic.count.should == 1
   end
 
+  it "seeds the database if a user exists already but Forem.user_class hasn't been set" do
+    # This test recreates #495.
+    Forem::Forum.count.should == 0
+    Forem::Topic.count.should == 0
+
+    # Pretend the user_class hasn't been decorated yet.
+    # This reproduces the problem where the decorator is loaded
+    # before the user class is set, and therefore the user class
+    # can't be decorated in time.
+    Object.send :remove_const, :User
+    load "#{Rails.root}/app/models/user.rb"
+
+    # Generate a user so the Forem seed can run fully.
+    FactoryGirl.create(:user)
+    Forem::Engine.load_seed
+
+    Forem::Forum.count.should == 1
+    Forem::Topic.count.should == 1
+  end
 end
