@@ -1,5 +1,6 @@
 module Forem
   class ForumsController < Forem::ApplicationController
+    before_filter :load_forum, :only => :show
     load_and_authorize_resource :class => 'Forem::Forum', :only => :show
     helper 'forem/topics'
 
@@ -31,6 +32,11 @@ module Forem
     private
     def register_view
       @forum.register_view_by(forem_user)
+    end
+
+    def load_forum
+      scope = Forem::Forum.scoped_to(current_account)
+      @forum = scope.find(params[:id])
     end
   end
 end

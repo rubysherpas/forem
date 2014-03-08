@@ -1,41 +1,44 @@
 require 'spec_helper'
+require 'subscribem/testing_support/factories/account_factory'
 
 describe Forem::ModerationController do
-  before do
-    controller.stub :forum => stub_model(Forem::Forum)
-    controller.stub :forem_admin? => false
+  let!(:account_a) { FactoryGirl.create(:account) }
+  let!(:account_b) { FactoryGirl.create(:account) }
+
+  def create_forum(account, name)
+    scoped_categories = Forem::Category.scoped_to(account)
+    category = scoped_categories.create(:name => "A category")
+    forum = Forem::Forum.scoped_to(account).new
+    forum.name = name
+    forum.description = "A forum"
+    forum.category = category
+    forum.tap(&:save!)
+    forum
   end
 
-  it "anonymous users cannot access moderation" do
-    get :index
-    flash[:alert].should == "You are not allowed to do that."
+  let!(:forum_a) do
+    create_forum(account_a, "Account A's Forum")
   end
 
-  it "normal users cannot access moderation" do
-    controller.stub_chain "forum.moderator?" => false
-
-    get :index
-    flash[:alert].should == "You are not allowed to do that."
+  let!(:forum_b) do
+    create_forum(account_b, "Account B's Forum")
   end
 
-  it "moderators can access moderation" do
-    controller.stub_chain "forum.moderator?" => true
-    get :index
-    flash[:alert].should be_nil
-  end
+  context "from Account A's subdomain" do
+    before do
+      @request.host = "#{account_a.subdomain}.example.com"
+    end
 
-  it "admins can access moderation" do
-    controller.stub :forem_admin? => true
-    get :index
-    flash[:alert].should be_nil
-  end
+    it "can access Account A's forum tools" do
+      get :index, :forum_id => forum_a.id, :use_route => :forem
+      response.status.should == 200
+      page.current_url.should == "omg"
+    end
 
-  # Regression test for #238
-  it "is prompted to select an option when no option selected" do
-    @request.env['HTTP_REFERER'] = Capybara.default_host
-    controller.stub :forem_admin? => true
-    put :topic
-    flash[:error].should == I18n.t("forem.topic.moderation.no_option_selected")
+    it "cannot access Account B's forum tools" do
+      expect do
+        get :index, :forum_id => forum_b.id, :use_route => :forem
+      end.to raise_error(ActiveRecord::RecordNotFound)
+    end
   end
-
 end

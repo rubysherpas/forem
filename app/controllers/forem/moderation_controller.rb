@@ -29,7 +29,10 @@ module Forem
     private
 
     def forum
-      @forum = Forem::Forum.friendly.find(params[:forum_id])
+      @forum ||= begin
+        scope = Forem::Forum.friendly.scoped_to(current_account)
+        scope.find(params[:forum_id])
+      end
     end
 
     helper_method :forum
