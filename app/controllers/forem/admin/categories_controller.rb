@@ -4,7 +4,7 @@ module Forem
       before_filter :find_category, :only => [:edit, :update, :destroy]
 
       def index
-        @categories = Forem::Category.all
+        @categories = category_scope
       end
 
       def new
@@ -12,7 +12,7 @@ module Forem
       end
 
       def create
-        if @category = Forem::Category.create(category_params)
+        if @category = category_scope.create(category_params)
           create_successful
         else
           create_failed
@@ -34,12 +34,16 @@ module Forem
 
       private
 
+      def category_scope
+        Forem::Category.scoped_to(current_account)
+      end
+
       def category_params
         params.require(:category).permit(:name)
       end
 
       def find_category
-        @category = Forem::Category.friendly.find(params[:id])
+        @category = category_scope.friendly.find(params[:id])
       end
 
       def create_successful
