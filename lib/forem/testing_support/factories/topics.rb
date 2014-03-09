@@ -6,7 +6,7 @@ FactoryGirl.define do
     t.posts_attributes { [:text => "This is a brand new post"] }
 
     factory :approved_topic do
-      after_create do |t|
+      after(:create) do |t|
         t.approve!
       end
     end
