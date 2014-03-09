@@ -14,14 +14,14 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara', '2.1.0'
   s.add_development_dependency 'jquery-rails'
 
-  s.add_development_dependency 'factory_girl_rails', '~> 4.4.1'
+  s.add_development_dependency 'factory_girl_rails', '~> 3.6.0'
   s.add_development_dependency 'database_cleaner', '~> 1.0.0'
   s.add_development_dependency 'devise', '3.0.0'
   s.add_development_dependency 'kaminari', '~> 0.15.0'
   s.add_development_dependency 'timecop', '~> 0.6.1'
 
   s.add_dependency 'rails', '~> 4.0.3'
-  s.add_dependency 'simple_form', '~> 3.0.1'
+  s.add_dependency 'simple_form', '~> 3.0.0.rc'
   s.add_dependency 'sanitize', '2.0.6'
   s.add_dependency 'friendly_id', '5.0.2'
   s.add_dependency 'workflow', '1.0.0'
