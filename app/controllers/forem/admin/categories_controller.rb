@@ -4,7 +4,7 @@ module Forem
       before_filter :find_category, :only => [:edit, :update, :destroy]
 
       def index
-        @category = Forem::Category.all
+        @categories = Forem::Category.all
       end
 
       def new
