@@ -2,7 +2,7 @@
 
 <h2><%= t("forem.post.edit", :post => @post) %></h2>
 
-<%= simple_form_for [forem, @topic, @post] do |f| %>
+<%= simple_form_for [forem, @topic.forum, @topic, @post] do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <%= f.submit t("forem.post.buttons.edit"), :class => "btn btn-primary" %>
 <% end %>
