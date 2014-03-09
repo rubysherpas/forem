@@ -81,7 +81,7 @@ describe "topics" do
 
   it "can move topic" do
     other_forum #Create a second forum
-    visit edit_admin_topic_path(topic)
+    visit edit_admin_forum_topic_path(forum, topic)
 
     select "Second Forum", :from => "topic_forum_id"
     click_button "Update Topic"

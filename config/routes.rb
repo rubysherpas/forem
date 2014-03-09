@@ -1,9 +1,9 @@
 Forem::Engine.routes.draw do
   root :to => "forums#index"
 
-  resources :topics, :only => [:new, :create, :index, :show, :destroy] do
-    resources :posts
-  end
+  # resources :topics, :only => [:new, :create, :index, :show, :destroy] do
+  #   resources :posts
+  # end
 
   resources :categories, :only => [:index, :show]
 
@@ -19,16 +19,16 @@ Forem::Engine.routes.draw do
 
     resources :forums do
       resources :moderators
+      resources :topics do
+        member do
+          put :toggle_hide
+          put :toggle_lock
+          put :toggle_pin
+        end
+      end
     end
 
     resources :categories
-    resources :topics do
-      member do
-        put :toggle_hide
-        put :toggle_lock
-        put :toggle_pin
-      end
-    end
 
     get 'users/autocomplete', :to => "users#autocomplete", :as => "user_autocomplete"
   end
@@ -36,6 +36,7 @@ Forem::Engine.routes.draw do
 
   resources :forums, :only => [:index, :show], :path => "/" do
     resources :topics do
+      resources :posts
       member do
         post :subscribe
         post :unsubscribe

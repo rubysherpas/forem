@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = ::Forem.version
 
   s.add_development_dependency 'launchy'
-  s.add_development_dependency 'rspec-rails', '~> 2.14.0'
+  s.add_development_dependency 'rspec-rails', '2.14.0'
   s.add_development_dependency 'capybara', '2.0.2'  # higher requires Ruby 1.9
   s.add_development_dependency 'rails', '~> 3.1'
   s.add_development_dependency 'jquery-rails'

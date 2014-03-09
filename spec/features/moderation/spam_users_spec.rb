@@ -6,7 +6,7 @@ describe "moderation" do
   context "spam users" do
     before do
       sign_in(user)
-      User.any_instance.stub(:forem_state).and_return("spam")
+      user.update_column(:forem_state, "spam")
     end
 
     it "cannot start a new topic" do

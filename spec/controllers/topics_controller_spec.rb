@@ -28,13 +28,12 @@ describe Forem::TopicsController do
     let(:user) { FactoryGirl.create(:user) }
 
     before do
-      sign_in(user)
-      User.any_instance.stub(:can_read_forem_topic?).and_return(false)
+      controller.stub :current_user => user
+      user.stub :can_read_forem_topic? => false
     end
 
     it "cannot subscribe to a topic" do
       post :subscribe, :forum_id => forum.id, :id => topic.id
-
       response.should redirect_to(root_path)
       flash[:alert].should == I18n.t('forem.access_denied')
     end
