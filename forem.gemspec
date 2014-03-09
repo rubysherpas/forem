@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'rspec-rails', '~> 2.14.0'
   s.add_development_dependency 'capybara', '2.1.0'
-  s.add_development_dependency 'rails', '4.0.0'
   s.add_development_dependency 'jquery-rails'
 
   s.add_development_dependency 'factory_girl_rails', '~> 3.6.0'
