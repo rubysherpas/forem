@@ -7,6 +7,7 @@ describe "user links" do
 
   context "with user_profile_links on" do
     before { Forem.user_profile_links = true }
+    after { Forem.user_profile_links = false }
 
     it "is able to click a user link" do
       visit forum_topic_path(post.forum, post.topic)

@@ -7,7 +7,7 @@ describe "posts" do
 
   context "not signed in users" do
     it "cannot begin to post a reply" do
-      visit new_topic_post_path(topic)
+      visit new_forum_topic_post_path(topic.forum, topic)
       flash_alert!("You must sign in first.")
     end
   end
@@ -120,7 +120,7 @@ describe "posts" do
 
       it "should not allow you to edit a post you don't own" do
         # second_post = topic.posts[1]
-        visit edit_topic_post_path(topic, @second_post)
+        visit edit_forum_topic_post_path(forum, topic, @second_post)
         fill_in "Text", :with => "an evil edit"
         click_button "Edit"
         flash_alert!("Your post could not be edited")
@@ -175,7 +175,7 @@ describe "posts" do
           visit forum_topic_path(forum, topic)
           other_post = topic.posts[1]
           #sends delete request with the current rack-test logged-in session & follows the redirect
-          Capybara.current_session.driver.submit :delete, topic_post_path(topic, other_post), {}
+          Capybara.current_session.driver.submit :delete, forum_topic_post_path(forum, topic, other_post), {}
           flash_alert!("You cannot delete a post you do not own.")
           ::Forem::Post.should exist(other_post.id)
         end
