@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara', '2.1.0'
   s.add_development_dependency 'jquery-rails'
 
-  s.add_development_dependency 'factory_girl_rails', '~> 3.6.0'
+  s.add_development_dependency 'factory_girl_rails', '~> 4.4.1'
   s.add_development_dependency 'database_cleaner', '~> 1.0.0'
   s.add_development_dependency 'devise', '3.0.0'
   s.add_development_dependency 'kaminari', '~> 0.15.0'
