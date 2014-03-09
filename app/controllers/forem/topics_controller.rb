@@ -95,7 +95,8 @@ module Forem
 
     private
     def find_forum
-      @forum = Forem::Forum.friendly.find(params[:forum_id])
+      forum_scope = Forem::Forum.scoped_to(current_account)
+      @forum = forum_scope.friendly.find(params[:forum_id])
       authorize! :read, @forum
     end
 

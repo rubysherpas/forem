@@ -106,7 +106,9 @@ module Forem
     end
 
     def find_topic
-      @topic = Forem::Topic.friendly.find params[:topic_id]
+      forum_scope = Forem::Forum.scoped_to(current_account)
+      @forum = forum_scope.find(params[:forum_id])
+      @topic = Forem::Topic.friendly.find(params[:topic_id])
     end
 
     def find_post_for_topic
