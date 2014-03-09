@@ -4,8 +4,8 @@ require File.expand_path('../lib/forem/version', __FILE__)
 Gem::Specification.new do |s|
   s.name = 'forem'
   s.authors = ['Ryan Bigg', 'Philip Arndt', 'Josh Adams']
-  s.summary = 'The best Rails 3 forum engine in the world.'
-  s.description = 'The best Rails 3 forum engine in the world.'
+  s.summary = 'The best Rails forum engine in the world.'
+  s.description = 'The best Rails forum engine in the world.'
   s.files = `git ls-files`.split("\n")
   s.version = ::Forem.version
 
