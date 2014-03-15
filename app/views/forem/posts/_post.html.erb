@@ -1,6 +1,6 @@
 <a name='post-<%= post.id %>'></a>
 <div class="row">
-  <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> span10'>
+  <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> col-md-12'>
     <% if post.pending_review? %>
       <div class='moderation alert'>
         <%= t(".pending_review") %>
@@ -17,7 +17,7 @@
     <% end %>
 
     <div class='contents'>
-      <div class='user span2'>
+      <div class='user col-md-2'>
         <div class='username'>
           <% if post.user.is_a?(Forem::NilUser) %>
             <%= t(:deleted) %>
@@ -28,7 +28,7 @@
         <div class='icon'><%= forem_avatar(post.user, :size => 60) %></div>
       </div>
 
-      <div class='contents span7'>
+      <div class='contents col-md-7'>
         <a href='#post-<%= post.id %>'>
           <%= post_time_tag(post) %>
         </a>
