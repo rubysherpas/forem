@@ -4,7 +4,7 @@ module Forem
       before_filter :find_forum, :only => [:edit, :update, :destroy]
 
       def index
-        @forums = Forem::Forum.all
+        @forums = forum_scope
       end
 
       def new
@@ -12,7 +12,7 @@ module Forem
       end
 
       def create
-        @forum = Forem::Forum.new(forum_params)
+        @forum = forum_scope.new(forum_params)
         if @forum.save
           create_successful
         else
@@ -35,12 +35,16 @@ module Forem
 
       private
 
+      def forum_scope
+        Forem::Forum.scoped_to(current_account)
+      end
+
       def forum_params
         params.require(:forum).permit(:category_id, :title, :description, { :moderator_ids => []})
       end
 
       def find_forum
-        @forum = Forem::Forum.friendly.find(params[:id])
+        @forum = forum_scope.friendly.find(params[:id])
       end
 
       def create_successful
