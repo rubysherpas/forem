@@ -84,6 +84,15 @@ module Forem
         end
       end
 
+      def create_assets
+        create_file Rails.root + "vendor/assets/stylesheets/forem.css.scss"
+        create_file Rails.root + "vendor/assets/javascripts/forem.js.coffee" do
+          %Q{
+#= require jquery
+          }
+        end
+      end
+
       def finished
         output = "\n\n" + ("*" * 53)
         output += %Q{\nDone! Forem has been successfully installed. Yaaaaay!

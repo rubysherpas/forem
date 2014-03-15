@@ -12,10 +12,10 @@ require 'sanitize'
 require 'decorators'
 
 module Forem
-  mattr_accessor :base_path, :user_class, :theme, :formatter,
+  mattr_accessor :base_path, :user_class, :formatter,
                  :default_gravatar, :default_gravatar_image, :avatar_user_method,
                  :user_profile_links, :email_from_address, :autocomplete_field,
-                 :per_page, :sign_in_path, :moderate_first_post
+                 :per_page, :sign_in_path, :moderate_first_post, :layout
 
 
   class << self
@@ -72,6 +72,10 @@ module Forem
           @@user_class.constantize
         end
       end
+    end
+
+    def layout
+      @@layout || "forem/default"
     end
   end
 end
