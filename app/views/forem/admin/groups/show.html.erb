@@ -6,7 +6,7 @@
     <p>
       <%= text_field_tag "user_id" %>
     </p>
-    <p class="span1">
+    <p class="col-md-1">
       <%= submit_tag t(".add_member"), :class => "btn btn-primary" %>
     </p>
   <% end %>
@@ -28,7 +28,7 @@
 
 <script>
   $("#user_id").select2({
-    containerCssClass: "span5",
+    containerCssClass: "col-md-5",
     ajax: {
       url: "<%= forem.admin_user_autocomplete_url %>",
       data: function(term, page) {

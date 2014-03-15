@@ -4,7 +4,7 @@
   <div id='menu'>
     <div class='btn-group'>
       <% if @topic.can_be_replied_to? && can?(:reply, @topic) %>
-        <%= link_to t(".reply"), forem.new_forum_topic_post_path(@forum, @topic), :class => "btn" %>
+        <%= link_to t(".reply"), forem.new_forum_topic_post_path(@forum, @topic), :class => "btn btn-primary " %>
       <% end %>
       <% if @topic.user == forem_user || forem_admin? %>
         <%= link_to t(".delete"), forem.forum_topic_path(@forum, @topic), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-danger" %>
