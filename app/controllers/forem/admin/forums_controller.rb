@@ -13,10 +13,15 @@ module Forem
 
       def create
         @forum = forum_scope.new(forum_params)
-        if @forum.save
-          create_successful
+        if valid_category?(@forum.category_id)
+          if @forum.save
+            create_successful
+          else
+            create_failed
+          end
         else
-          create_failed
+          flash.now.alert = "Invalid category selected."
+          render :new
         end
       end
 
@@ -34,6 +39,10 @@ module Forem
       end
 
       private
+
+      def valid_category?(id)
+        Forem::Category.scoped_to(current_account).exists?(id)
+      end
 
       def forum_scope
         Forem::Forum.scoped_to(current_account)
