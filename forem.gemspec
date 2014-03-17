@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'devise', '~> 2.2.3'
   s.add_development_dependency 'kaminari', '~> 0.15.0'
   s.add_development_dependency 'timecop', '~> 0.6.1'
+  s.add_development_dependency 'sass-rails', '~> 3.0'
+  s.add_development_dependency 'coffee-rails', '~> 3.0'
 
   s.add_dependency 'rails', ['>= 3.1.10', '< 3.3'] | 0.upto(10).map{|i| "!= 3.2.#{i}"}
   s.add_dependency 'simple_form'
