@@ -142,6 +142,8 @@ If you would like to add auto discovery links for the built in forum Atom feeds,
 <%= forem_atom_auto_discovery_link_tag %>
 ```
 
+Forem's default layout includes this tag.
+
 ## View Customisation
 
 If you want to customise Forem, you can copy over the views using the (Devise-inspired) `forem:views` generator:
