@@ -111,6 +111,7 @@ Here's what happened:\n\n}
 output += step("`rake db:migrate` was run, running all the migrations against your database.\n")
         output += step("Seed forum and topic were loaded into your database.\n")
         end
+        output += step("New asset files for Forem were placed (gently) into vendor/assets/javascripts and vendor/assets/stylesheets.")
         output += step("The engine was mounted in your config/routes.rb file using this line:
 
    mount Forem::Engine, :at => \"/forums\"
