@@ -26,13 +26,13 @@ module CapybaraExt
   end
 
   def flash_alert!(text)
-    within("#flash_alert") do
+    within(".alert") do
       assert_seen(text)
     end
   end
 
   def flash_notice!(text)
-    within("#flash_notice") do
+    within(".notice") do
       assert_seen(text)
     end
   end
