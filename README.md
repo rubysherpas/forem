@@ -237,5 +237,6 @@ If all the tests are passing (they usually are), then you're good to go! Develop
 * [Now Novel](http://nownovel.com/bookwriting)
 * [OrbsCCG](http://orbsccg.com/forums/)
 * [Airesis](http://www.airesis.eu)
+* [Lab Nation](https://www.lab-nation.com/forum/)
 
 If you want yours added here, just ask!
