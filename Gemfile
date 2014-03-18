@@ -6,7 +6,6 @@ gemspec
 
 gem 'pry-rails'
 gem 'pry-nav'
-gem 'cancan', git: "https://github.com/nukturnal/cancan.git"
 
 platforms :jruby do
   gem "activerecord-jdbc-adapter", :require => false
