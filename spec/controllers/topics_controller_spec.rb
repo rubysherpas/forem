@@ -22,20 +22,41 @@ describe Forem::TopicsController do
     end
   end
 
-  context "without permission to read a topic" do
+  context "permissions" do
     let(:forum) { FactoryGirl.create(:forum) }
     let(:topic) { FactoryGirl.create(:approved_topic, :forum => forum) }
     let(:user) { FactoryGirl.create(:user) }
 
     before do
       controller.stub :current_user => user
-      user.stub :can_read_forem_topic? => false
     end
 
-    it "cannot subscribe to a topic" do
-      post :subscribe, :forum_id => forum.id, :id => topic.id
-      response.should redirect_to(root_path)
-      flash[:alert].should == I18n.t('forem.access_denied')
+    context "without permission to read a topic" do
+      before do
+        user.stub :can_read_forem_topic? => false
+      end
+
+      it "cannot subscribe to a topic" do
+        post :subscribe, :forum_id => forum.id, :id => topic.id
+        response.should redirect_to(root_path)
+        flash[:alert].should == I18n.t('forem.access_denied')
+      end
+    end
+
+    context "without permission to create a topic" do
+      before do
+        user.stub :can_create_forem_topics? => false
+      end
+
+      it "cannot access the new action" do
+        get :new, :forum_id => forum.id
+        flash[:alert].should == I18n.t('forem.access_denied')
+      end
+
+      it "cannot post to the create action" do
+        post :create, :forum_id => forum.id
+        flash[:alert].should == I18n.t('forem.access_denied')
+      end
     end
   end
 
@@ -50,5 +71,4 @@ describe Forem::TopicsController do
       flash.alert.should == "You must sign in first."
     end
   end
-
 end
