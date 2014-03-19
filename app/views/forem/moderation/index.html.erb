@@ -9,14 +9,13 @@
       <%= render posts, :mass_moderation => true %>
     <% end %>
   </div>
-  <%= submit_tag t('forem.posts.moderation.moderate'), :class => "btn btn-primary" %>
 <% end %>
 
 <h3><%= t('topics_count', :count => @topics.count, :scope => 'forem.forum') %></h3>
 
 <div id='topics'>
   <% @topics.limit(25).each_with_index do |topic, topic_counter| %>
-    <div id='topic_<%= topic_counter + 1 %>' class='topic <%= cycle('odd', 'even') -%>'>
+    <div id='topic_<%= topic_counter + 1 %>' class='topic <%= cycle('odd', 'even', name: 'topics') -%>'>
       <div class='moderation alert'>
         <%= link_to forem_emojify(topic.subject),
                     forem.forum_topic_path(forum, topic) %>
