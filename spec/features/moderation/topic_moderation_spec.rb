@@ -24,8 +24,8 @@ describe "moderation" do
         click_link "Moderation Tools"
       end
       
-      it "should have no posts" do
-        page.should have_content("No posts")        
+      it "should have 1 post" do
+        page.should have_content("This is a brand new post")
       end
       
       it "should have 1 topic" do
