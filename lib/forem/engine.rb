@@ -24,6 +24,7 @@ end
 
 require 'simple_form'
 require 'emoji/railtie'
+require 'select2-rails'
 
 # We need one of the two pagination engines loaded by this point.
 # We don't care which one, just one of them will do.
