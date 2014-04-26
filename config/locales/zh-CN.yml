@@ -17,6 +17,8 @@ zh-CN:
     admin:
       area: "管理论坛"
       welcome: "欢迎来到Forem管理页面"
+      back_to_forums: 回到论坛
+      back_to_admin: 回到管理
       forum:
         index: 管理版块
         new: 新建版块
@@ -26,6 +28,7 @@ zh-CN:
         not_created: 版块不能被新建
         updated: 版块已更新
         not_updated: 版块不能被更新
+        moderator_groups: 主持人组
       forums:
         edit: 编辑
         delete: 删除
@@ -56,6 +59,7 @@ zh-CN:
         not_created: 这个版块的分类不能被创建。
         updated: 这个版块的分类被更新了。
         not_updated: 这个版块的分类不能被更新。
+        edit: 编辑
       categories:
         edit: 编辑
         delete: 删除
@@ -167,6 +171,8 @@ zh-CN:
         pending_review: 这个回复正在被审查，只有审查者跟创建者能访问。
     moderation:
       title: "审查工具：%{forum}"
+      index:
+        title: 标题
   helpers:
     submit:
       forum:
@@ -180,6 +186,8 @@ zh-CN:
       forum:
         title: 标题
         description: 描述
+        category: 类别
+        moderators: 版主
       topic:
         subject: 标题
         locked: 锁定
