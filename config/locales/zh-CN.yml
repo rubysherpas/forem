@@ -171,6 +171,8 @@ zh-CN:
         pending_review: 这个回复正在被审查，只有审查者跟创建者能访问。
     moderation:
       title: "审查工具：%{forum}"
+      index:
+        title: 标题
   helpers:
     submit:
       forum:
