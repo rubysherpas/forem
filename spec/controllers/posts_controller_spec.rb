@@ -12,6 +12,11 @@ describe Forem::PostsController do
       response.should redirect_to('/users/sign_in')
       flash.alert.should == "You must sign in first."
     end
+
+    it "can be redirected to post on topic" do
+      get :show, :topic_id => topic.to_param, :id => first_post.to_param
+      response.should redirect_to("/forem/forums/welcome-to-forem/topics/first-topic?page=1#post-#{first_post.id}")
+    end
   end
 
   context 'signed in' do
