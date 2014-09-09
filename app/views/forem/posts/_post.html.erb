@@ -49,7 +49,7 @@
             <% end %>
             <% if post.owner_or_admin?(forem_user) %>
               <% if can?(:edit_post, post.topic.forum) %>
-                <%= link_to t('edit', :scope => 'forem.post'), forem.edit_forum_topic_post_path(post.forum, post.topic, post), :class => "btn btn-info" %>
+                <%= link_to t('edit', :scope => 'forem.post.buttons'), forem.edit_forum_topic_post_path(post.forum, post.topic, post), :class => "btn btn-info" %>
               <% end %>
               <% if can?(:destroy_post, post.topic.forum) %>
                 <%= link_to t('delete', :scope => 'forem.topic'), forem.forum_topic_post_path(post.forum, post.topic, post), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-danger" %>
