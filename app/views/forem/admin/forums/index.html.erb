@@ -26,7 +26,7 @@
               <div class='description'><%= forem_format(forum.description) %></div>
               <%= t('.last_post') %>
               <% if last_post = forum.posts.last %>
-  <%= link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= last_post.user %> <%= time_ago_in_words(last_post.created_at) -%>
+  <%= link_to(forem_emojify(last_post.topic.subject), forem.forum_topic_path(forum, last_post.topic)) -%> <%= t('by') %> <%= link_to_if Forem.user_profile_links, last_post.user.forem_name, [main_app, last_post.user] %> <%= time_ago_in_words(last_post.created_at) -%>
               <% else %>
                 <%= t('.none') %>
               <% end %>

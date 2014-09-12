@@ -1,10 +1,10 @@
 module Forem
   class NilUser
-    def email
+    def forem_email
       "nobody@example.com"
     end
 
-    def to_s
+    def forem_name
       "[deleted]"
     end
   end

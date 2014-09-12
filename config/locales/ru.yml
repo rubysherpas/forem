@@ -1,6 +1,7 @@
 ru:
   forem:
     general:
+      deleted: [удалено]
       forum: Форум
       topics: Темы
       topic: Тема
@@ -171,6 +172,7 @@ ru:
       deleted_with_topic: Ответ в теме удален. Тема также удалена.
       cannot_delete: Вы не можете удалить чужой ответ.
       in_reply_to: В ответ на сообщение
+      cannot_quote_deleted_post: Сообщение, которое вы хотите процитировать, не существует.
     posts:
       moderation:
         moderate: Модерировать
@@ -192,9 +194,13 @@ ru:
         update: Изменить тему
   simple_form:
     labels:
+      category:
+        name: Название
       forum:
         title: Заголовок
         description: Описание
+        category: Категория
+        moderators: Модераторы
       topic:
         subject: Тема
         locked: Закрыта
@@ -204,6 +210,8 @@ ru:
           text: Текст
       post:
         text: Текст
+      group:
+        name: Название
 
   # General stuff
   time_ago_in_words: "%{time} назад"

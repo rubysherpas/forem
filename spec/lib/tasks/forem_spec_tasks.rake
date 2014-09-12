@@ -11,14 +11,9 @@ namespace :forem do
   end
 
   task :migrate_dummy_app do
-    task_params = [%Q{ bundle exec rake -f spec/dummy/Rakefile forem:install:migrations }]
-    task_params << %Q{ db:drop db:create db:migrate db:seed db:test:prepare }
-
-    system task_params.join(' ')
-  end
-
-  desc "Destroy dummy app"
-  task :destroy_dummy_app do
-    FileUtils.rm_rf "spec/dummy" if File.exists?("spec/dummy")
+    ENV['RAILS_ENV'] = 'test'
+    Dir.chdir(Forem::Engine.root + "spec/dummy") do
+      system("bundle exec rake forem:install:migrations db:drop db:create db:migrate db:seed")
+    end
   end
 end

@@ -1,14 +1,20 @@
 module Forem
   class PostsController < Forem::ApplicationController
-    before_filter :authenticate_forem_user
+    before_filter :authenticate_forem_user, except: :show
     before_filter :find_topic, except: [:preview]
     before_filter :reject_locked_topic!, :only => [:create]
     before_filter :block_spammers, :only => [:new, :create]
     before_filter :authorize_reply_for_topic!, :only => [:new, :create]
     before_filter :authorize_edit_post_for_forum!, :only => [:edit, :update]
-    before_filter :find_post_for_topic, :only => [:edit, :update, :destroy]
+    before_filter :find_post_for_topic, :only => [:show, :edit, :update, :destroy]
     before_filter :ensure_post_ownership!, :only => [:destroy]
     before_filter :authorize_destroy_post_for_forum!, :only => [:destroy]
+
+    def show
+      page = (@topic.posts.count.to_f / Forem.per_page.to_f).ceil
+
+      redirect_to forum_topic_url(@topic.forum, @topic, pagination_param => page, anchor: "post-#{@post.id}")
+    end
 
     def new
       @post = @topic.posts.build

@@ -32,7 +32,11 @@ show_buttons = post.persisted? && local_assigns[:show_buttons].nil? ? true : sho
           <% if post_user.is_a?(Forem::NilUser) %>
             <%= t(:deleted) %>
           <% else %>
+<<<<<<< HEAD
             <%= link_to_if Forem.user_profile_links, post_user, [main_app, post_user] %>
+=======
+            <%= link_to_if Forem.user_profile_links, post.user.forem_name, [main_app, post.user] %>
+>>>>>>> dc8f34302e1d1b02f68629b436e0fbfc7754f788
           <% end %>
         </div>
         <div class='icon'><%= forem_avatar(post_user, :size => 60) %></div>
@@ -55,7 +59,7 @@ show_buttons = post.persisted? && local_assigns[:show_buttons].nil? ? true : sho
         </a>
         <% if post.reply_to %>
           <div class='in-reply-to'>
-            <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+            <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user.forem_name}", "#post-#{post.reply_to.id}" %>
           </div>
         <% end %>
                 
@@ -77,7 +81,7 @@ show_buttons = post.persisted? && local_assigns[:show_buttons].nil? ? true : sho
               <% end %>
               <% if can?(:destroy_post, post.topic.forum) %>
                 <%= link_to t('delete', :scope => 'forem.topic'), forem.forum_topic_post_path(post.forum, post.topic, post), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-danger" %>
-              <% end %>  
+              <% end %>
             <% end %>
           </div>
         <% end %>

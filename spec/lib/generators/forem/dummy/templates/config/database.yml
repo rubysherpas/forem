@@ -1,55 +1,23 @@
 <% case ENV["DB"]
   when 'sqlite' %>
-development:
-  adapter: sqlite3
-  database: "db/forem_development.sqlite3"
 test:
   adapter: sqlite3
   database: "db/forem_test.sqlite3"
-production:
-  adapter: sqlite3
-  database: "db/forem_production.sqlite3"
 <% when 'mysql' %>
-development:
-  adapter: <%= Forem::Platform.jruby? ? "mysql" : "mysql2" %>
-  database: forem_development
-  username: <%= ENV["CI"] ? "root" : "" %>
-  encoding: utf8
 test:
   adapter: <%= Forem::Platform.jruby? ? "mysql" : "mysql2" %>
   database: forem_test
-  username: <%= ENV["CI"] ? "root" : "" %>
-  encoding: utf8
-production:
-  adapter: <%= Forem::Platform.jruby? ? "mysql" : "mysql2" %>
-  database: forem_production
   username: <%= ENV["CI"] ? "root" : "" %>
   encoding: utf8
 <% when 'postgres' %>
-development:
-  adapter: postgresql
-  database: forem_test
-  username: postgres
-  min_messages: warning
 test:
   adapter: postgresql
   database: forem_test
-  username: postgres
-  min_messages: warning
-production:
-  adapter: postgresql
-  database: forem_production
   username: postgres
   min_messages: warning
 <% else %>
-development:
-  adapter: sqlite3
-  database: "db/forem_development.sqlite3"
 test:
   adapter: sqlite3
   database: "db/forem_test.sqlite3"
-production:
-  adapter: sqlite3
-  database: "db/forem_production.sqlite3"
 <% end %>
 

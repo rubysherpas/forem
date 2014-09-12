@@ -7,6 +7,7 @@ module Forem
 
     has_many :forums
     validates :name, :presence => true
+    validates :position, numericality: { only_integer: true }
 
     def to_s
       name

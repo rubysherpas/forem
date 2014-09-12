@@ -1,4 +1,4 @@
-![Forem - using Bootstrap](https://github.com/radar/forem/raw/master/doc/theme.png)
+![Forem - using Bootstrap](https://raw.githubusercontent.com/radar/forem/rails4/doc/theme.png)
 
 *Forem, using the forem-bootstrap theme*
 
@@ -52,10 +52,10 @@ rails g forem:install
 
 ## Set up helper methods in your user model
 
-Forem depends on a `to_s` method being available on your `User` model so that it can display the user's name in posts. Define this in your model like this:
+Forem uses a `forem_name` (which defaults as `to_s`) method being available on your `User` model so that it can display the user's name in posts. Define it in your model like this:
 
 ```ruby
-def to_s
+def forem_name
   name
 end
 ```
@@ -63,10 +63,10 @@ end
 Please note that if you are using Devise, User model does not have `name` column by default,
 so you either should use custom migration to add it or use another column (`email` for example).
 
-It also depends on an `email` method for displaying avatars using [Gravatar](http://gravatar.com). If you don't have an `email` attribute on the model, define a new method:
+It also uses an optional `forem_email` method for displaying avatars using [Gravatar](http://gravatar.com). It defaults to `email`. If you don't have an `email` attribute on the model, define a new method:
 
 ```ruby
-def email
+def forem_email
   email_address
 end
 ```
@@ -227,15 +227,13 @@ If all the tests are passing (they usually are), then you're good to go! Develop
 
 ## Places using Forem
 
-* [Bias Project](http://biasproject.org)
 * [Alabama Intel](http://alabamaintel.com)
-* [PixieEngine](http://pixieengine.com/community)
-* [2012 Presidential Election](http://www.2012-presidential-election.info/network/)
 * [Huntington's Disease Youth Organization](http://hdyo.org/)
 * [Miniand Tech](https://www.miniand.com/forums)
 * [Goodsmiths](https://www.goodsmiths.com/hub)
 * [Now Novel](http://nownovel.com/bookwriting)
 * [OrbsCCG](http://orbsccg.com/forums/)
 * [Airesis](http://www.airesis.eu)
+* [Lab Nation](https://www.lab-nation.com/forum/)
 
 If you want yours added here, just ask!

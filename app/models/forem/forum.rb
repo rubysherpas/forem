@@ -15,11 +15,11 @@ module Forem
     has_many :moderator_groups
 
     validates :category, :name, :description, :presence => true
+    validates :position, numericality: { only_integer: true }
 
     alias_attribute :title, :name
 
-    # Fix for #339
-    default_scope { order(:name) }
+    default_scope { order(:position) }
 
     def last_post_for(forem_user)
       if forem_user && (forem_user.forem_admin? || moderator?(forem_user))

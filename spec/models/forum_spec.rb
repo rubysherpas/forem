@@ -8,7 +8,11 @@ describe Forem::Forum do
   end
 
   it "is scoped by default" do
-    Forem::Forum.all.to_sql.should =~ /ORDER BY \"forem_forums\".\"name\" ASC/
+    if ActiveRecord::Base.connection.class.to_s =~ /Mysql/
+      Forem::Forum.all.to_sql.should =~ /ORDER BY `forem_forums`.`position` ASC/
+    else
+      Forem::Forum.all.to_sql.should =~ /ORDER BY \"forem_forums\".\"position\" ASC/
+    end
   end
 
   describe "validations" do
