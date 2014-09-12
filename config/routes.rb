@@ -33,6 +33,9 @@ Forem::Engine.routes.draw do
     get 'users/autocomplete', :to => "users#autocomplete", :as => "user_autocomplete"
   end
 
+  #post preview
+  post '/render_preview', to: "posts#preview", as: :render_post_preview
+
   get '/:forum_id/moderation', :to => "moderation#index", :as => :forum_moderator_tools
   # For mass moderation of posts
   put '/:forum_id/moderate/posts', :to => "moderation#posts", :as => :forum_moderate_posts

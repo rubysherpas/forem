@@ -1,7 +1,18 @@
+<%
+post_user = Forem::NilUser 
+if post.persisted?
+  post_user = post.user
+else 
+  post_user = forem_user
+end 
+
+show_buttons = post.persisted? && local_assigns[:show_buttons].nil? ? true : show_buttons
+%>
+
 <a name='post-<%= post.id %>'></a>
 <div class="row">
   <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> col-md-12'>
-    <% if post.pending_review? %>
+    <% if post.pending_review? && show_buttons %>
       <div class='moderation alert'>
         <%= t(".pending_review") %>
         <% if forem_admin_or_moderator?(post.topic.forum) %>
@@ -18,35 +29,41 @@
 
       <div class='user col-md-2'>
         <div class='username'>
-          <% if post.user.is_a?(Forem::NilUser) %>
+          <% if post_user.is_a?(Forem::NilUser) %>
             <%= t(:deleted) %>
           <% else %>
-            <%= link_to_if Forem.user_profile_links, post.user, [main_app, post.user] %>
+            <%= link_to_if Forem.user_profile_links, post_user, [main_app, post_user] %>
           <% end %>
         </div>
-        <div class='icon'><%= forem_avatar(post.user, :size => 60) %></div>
+        <div class='icon'><%= forem_avatar(post_user, :size => 60) %></div>
         <div class='info'>
-            <ul>
-            <li class='post-count'><%= t('wrote_posts', count: post.user.forem_posts.approved.count) %></li>
-            <li class='member-since'><%= t('member_since', date: post.user.created_at.strftime('%e %b %y')) %></li>
-            </ul>
+          <ul>
+          <li class='post-count'><%= t('wrote_posts', count: post_user.forem_posts.approved.count) %></li>
+          <li class='member-since'><%= t('member_since', date: post_user.created_at.strftime('%e %b %y')) %></li>
+          </ul>
         </div>
             
       </div>
 
       <div class='contents col-md-7'>
-        <a href='#post-<%= post.id %>'>
-          <%= post_time_tag(post) %>
+        <a href='#post-<%= post.id %>' class='time'>
+          <% if post.persisted? %>
+            <%= post_time_tag(post) %>
+          <% else %>
+            &nbsp;
+          <% end %>            
         </a>
-        <%= forem_format(post.text) %>
-
         <% if post.reply_to %>
           <div class='in-reply-to'>
             <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
           </div>
         <% end %>
+                
+        <span class="text">
+        <%= forem_format(post.text) if post.persisted? %>
+        </span>
 
-        <% if forem_user %>
+        <% if forem_user && show_buttons %>
           <div class='btn-group'>
             <% if can?(:reply, post.topic) %>
               <% if post.topic.can_be_replied_to? %>

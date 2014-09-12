@@ -1,4 +1,40 @@
 //= require select2/select2
+//= require jquery
 
 var Forem = {};
 Forem.routes = {};
+
+var textareaSelector = 'textarea.new-post';
+var lastRenderedMarkdown = "";
+var previewRefreshTimeout = 100;
+
+$(function() {
+    if($(textareaSelector).length) {
+        fetch_preview();
+    }
+});
+
+function fetch_preview()
+{
+    markdownText = $(textareaSelector).val();
+    if(markdownText == lastRenderedMarkdown) {
+        setTimeout(fetch_preview, previewRefreshTimeout);
+        return;
+    }
+    
+    lastRenderedMarkdown = markdownText;    
+    $.post(
+        $(textareaSelector).data("previewUrl"),
+        { markdown : markdownText },
+        function(result) {
+            update_preview(result);
+            setTimeout(fetch_preview, previewRefreshTimeout);
+        }
+    );
+}
+
+function update_preview(data)
+{
+    selector = $(textareaSelector).data("previewElementSelector");
+    $(selector).html(data.html);
+}

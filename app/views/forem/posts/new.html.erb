@@ -2,7 +2,7 @@
 
 <h2><%= t("forem.post.new") %></h2>
 <% if @reply_to_post %>
-<%= render 'reply_to_post', :post => @reply_to_post %>
+<%= render "/forem/posts/post", :post => @reply_to_post, post_counter: 0, show_buttons: false %>
 <% else %>
 <em><%= @topic.subject %></em>
 <% end %>

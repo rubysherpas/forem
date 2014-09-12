@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'rspec-rails', '~> 2.14.0'
   s.add_development_dependency 'capybara', '2.1.0'
-  s.add_development_dependency 'jquery-rails'
 
   s.add_development_dependency 'factory_girl_rails', '~> 4.4.1'
   s.add_development_dependency 'database_cleaner', '~> 1.0.0'
@@ -29,5 +28,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'gemoji', '= 1.1.2'
   s.add_dependency 'decorators', '~> 1.0.2'
   s.add_dependency 'select2-rails', '~> 3.5.4'
+  s.add_dependency 'jquery-rails', '~> 3.1.0'
   s.add_runtime_dependency 'friendly_id', '~> 5.0.0', '= 5.0.2'
 end
