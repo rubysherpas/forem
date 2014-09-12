@@ -25,6 +25,13 @@
           <% end %>
         </div>
         <div class='icon'><%= forem_avatar(post.user, :size => 60) %></div>
+        <div class='info'>
+            <ul>
+            <li class='post-count'><%= t('wrote_posts', count: post.user.forem_posts.approved.count) %></li>
+            <li class='member-since'><%= t('member_since', date: post.user.created_at.strftime('%e %b %y')) %></li>
+            </ul>
+        </div>
+            
       </div>
 
       <div class='contents col-md-7'>
