@@ -23,7 +23,7 @@ module ::Forem
 end
 
 require 'simple_form'
-require 'emoji/railtie'
+require 'emoji'
 require 'select2-rails'
 
 # We need one of the two pagination engines loaded by this point.
