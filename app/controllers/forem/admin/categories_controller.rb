@@ -35,7 +35,7 @@ module Forem
       private
 
       def category_params
-        params.require(:category).permit(:name)
+        params.require(:category).permit(:name, :order)
       end
 
       def find_category
