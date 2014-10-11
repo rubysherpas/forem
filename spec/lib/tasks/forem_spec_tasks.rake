@@ -12,7 +12,7 @@ namespace :forem do
 
   task :migrate_dummy_app do
     task_params = [%Q{ bundle exec rake -f spec/dummy/Rakefile forem:install:migrations }]
-    task_params << %Q{ db:drop db:create db:migrate db:seed db:test:prepare }
+    task_params << %Q{ db:drop db:create db:migrate db:seed }
 
     system task_params.join(' ')
   end
