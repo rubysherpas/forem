@@ -1,5 +1,5 @@
-class AddOrderToCategories < ActiveRecord::Migration
+class AddPositionToCategories < ActiveRecord::Migration
   def change
-    add_column :forem_categories, :order, :integer, :default => 0
+    add_column :forem_categories, :position, :integer, :default => 0
   end
 end

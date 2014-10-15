@@ -1,5 +1,5 @@
-class AddOrderToForums < ActiveRecord::Migration
+class AddPositionToForums < ActiveRecord::Migration
   def change
-    add_column :forem_forums, :order, :integer, :default => 0
+    add_column :forem_forums, :position, :integer, :default => 0
   end
 end
