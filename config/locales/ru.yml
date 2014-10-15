@@ -15,6 +15,7 @@ ru:
       flagged_for_spam: Ваш аккаунт отмечен как спамовый.
       cannot_create_topic: Вы не можете сейчас создать тему.
       cannot_create_post: Вы не можете сейчас создать новый ответ.
+      newly_created: Новое
 
     access_denied: Доступ запрещен.
     admin:
