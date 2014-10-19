@@ -9,9 +9,9 @@ describe Forem::Forum do
 
   it "is scoped by default" do
     if ActiveRecord::Base.connection.class.to_s =~ /Mysql/
-      Forem::Forum.all.to_sql.should =~ /ORDER BY `forem_forums`.`name` ASC/
+      Forem::Forum.all.to_sql.should =~ /ORDER BY `forem_forums`.`position` ASC/
     else
-      Forem::Forum.all.to_sql.should =~ /ORDER BY \"forem_forums\".\"name\" ASC/
+      Forem::Forum.all.to_sql.should =~ /ORDER BY \"forem_forums\".\"position\" ASC/
     end
   end
 

@@ -1,6 +1,7 @@
 <%= simple_form_for [forem, :admin, @forum] do |f| %>
   <%= f.association :category, :include_blank => false %>
   <%= f.input :title %>
+  <%= f.input :position %>
   <%= f.input :description, :as => :text %>
 
   <h3><%= t('forem.admin.forum.moderator_groups') %></h3>
