@@ -1,3 +1,5 @@
+require 'emoji'
+
 module ::Forem
   class Engine < Rails::Engine
     isolate_namespace Forem
@@ -13,17 +15,19 @@ module ::Forem
       Decorators.register! Engine.root, Rails.root
     end
 
+    config.assets.paths << Emoji.images_path
+
     # Precompile any assets included straight in certain pges
     initializer "forem.assets.precompile", :group => :all do |app|
       app.config.assets.precompile += %w[
         forem/admin/members.js
       ]
+      app.config.assets.precompile << "emoji/**/*.png"
     end
   end
 end
 
 require 'simple_form'
-require 'emoji'
 require 'select2-rails'
 
 # We need one of the two pagination engines loaded by this point.
