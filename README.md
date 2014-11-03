@@ -23,7 +23,7 @@ Installing Forem is easy.
 If you're using Rails 3:
 
 ```ruby
-gem 'forem', :github => "radar/forem"
+gem 'forem', :github => "radar/forem", :branch => "rails3"
 ```
 
 For Rails 4, use the `rails4` branch:
