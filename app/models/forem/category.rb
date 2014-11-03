@@ -9,6 +9,8 @@ module Forem
     validates :name, :presence => true
     validates :position, numericality: { only_integer: true }
 
+    default_scope { order(:position) }
+
     def to_s
       name
     end
