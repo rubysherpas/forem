@@ -40,8 +40,8 @@ Forem::Engine.routes.draw do
   put '/:forum_id/topics/:topic_id/moderate', :to => "moderation#topic", :as => :moderate_forum_topic
 
   resources :forums, :only => [:index, :show], :path => "/" do
-    resources :topics do
-      resources :posts
+    resources :topics, :except => :index do
+      resources :posts, :except => :index
       member do
         post :subscribe
         post :unsubscribe
