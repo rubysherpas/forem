@@ -1,9 +1,29 @@
 pl:
   forem:
+    general:
+      deleted: [usunięte]
+      forum: Forum
+      topics: Tematy
+      topic: Temat
+      posts: Posty
+      posts_count:
+        zero: Brak postów
+        one: 1 post
+        few: "%{count} posty"
+        other: "%{count} postów"
+      flagged_for_spam: Twoje konto zostało oznaczone jako spam.
+      cannot_create_topic: Nie możesz utworzyć nowego tematu w tym momencie.
+      cannot_create_post: Nie możesz utworzyć nowego postu w tym momencie.
+
+    access_denied: Brak dostępu.
     admin:
       area: Panel administracyjny
-      welcome: Witaj w panelu administracyjnym Forem.
+      back_to_admin: "Powrót do panelu administracyjnego"
+      back_to_forums: "Powrót do forów"
+      back_to_groups: "Powrót do grup"
+      welcome: "Witaj w panelu administracyjnym Forem."
       forum:
+        moderator_groups: Moderator grup
         index: Zarządzanie forami
         new: Dodaj forum
         new_link: Dodaj forum
@@ -15,17 +35,49 @@ pl:
       forums:
         edit: Edytuj
         delete: Usuń
-        forum: Forum
-        topics: Tematy
-        posts: Posty
+        category: Kategoria
         delete_confirm: Czy na pewno chcesz usunąć to forum?
         index:
           last_post: Ostatni post
           none: Brak
+          moderators: Moderatorzy
+      group:
+        index: Zarządzaj grupami
+        new: Nowa grupa
+        created: Grupa została utworzona poprawnie.
+        not_created: Grupa nie została utworzona.
+        deleted: Zaznaczona grupa została usunięta.
+        members: "Użytkownicy w %{group}"
+      groups:
+        show:
+          add_member: Dodaj
+          add_a_new_member: "Dodaj nowego członka"
+          current_members: "Obecni członkowie"
+          remove_member: "Usuń członka"
+          member_removed: "Zaznaczony członek został usunięty z grupy."
+          no_member_to_remove: "Zaznaczony członek nie należy do tej grupy."
+        edit: Edytuj
+        delete: Usuń
+        name: Nazwa
+      category:
+        index: Zarządzaj kategoriami forum
+        new: Tworzenie nowej kategorii forum
+        edit: "Edycja kategorii %{title}"
+        new_link: Nowa kategoria forum
+        deleted: Zaznaczona kategoria forum została usunięta.
+        created: Kategoria forum została utworzona.
+        not_created: Kategoria forum nie została utworzona.
+        updated: Kategoria forum została zaktualizowana.
+        not_updated: Kategoria forum nie została zaktualizowana.
+      categories:
+        edit: Edytuj
+        delete: Usuń
+        category: Kategoria
+        delete_confirm: Czy na pewno chcesz usunąć tę kategorię?
     common:
       pages: Strony
     errors:
-      not_signed_in: Musisz się wpierw zalogować.
+      not_signed_in: Musisz się najpierw zalogować.
       access_denied: Brak dostępu.
     forum:
       header: "Przeglądasz %{title}"
@@ -42,12 +94,11 @@ pl:
         one: 1 wpis
         few: "%{count} wpisy"
         other: "%{count} wpisów"
+      moderator_tools: "Narzędzia moderatora"
     forums:
       index:
         title: Fora
         forum: Forum
-        topics: Tematy
-        posts: Wpisy
         views: Wyświetlenia
         last_post: 'Ostatni wpis:'
         none: Brak
@@ -57,6 +108,10 @@ pl:
         latest: Ostatni
         posts: Wpisy
         views: Wyświetlenia
+      moderation:
+        success: Zaznaczony temat został zmoderowany.
+        no_option_selected: Nie zaznaczono opcji moderowania.
+      received_reply: Temat, który subskrybujesz, ma nową odpowiedź.
       reply: Odpowiedz
       quote: Cytuj
       delete: Usuń
@@ -65,9 +120,11 @@ pl:
       edit: Edycja tematu
       not_created: Temat nie został dodany.
       deleted: Temat został usunięty.
-      cannot_delete: Nie możesz usunąć tematu, którego nie dodałeś.
+      cannot_delete: "Nie możesz usunąć tematu, którego nie dodałeś."
       updated: Temat został zaktualizowany.
       not_updated: Temat nie został zaktualizowany.
+      subscribed: Subskrybujesz ten temat.
+      unsubscribed: Nie subskrybujesz tego tematu.
       none: To forum jest puste.
       links:
         new: Dodaj temat
@@ -87,7 +144,10 @@ pl:
       show:
         reply: Odpowiedz
         delete: Usuń
+        subscribe: Subskrybuj
+        unsubscribe: Nie subskrybuj
         reply_to_topic: Odpowiedz w temacie
+        pending_review: Ten temat obecnie podlega moderacji. Tylko użytkownik, który utworzył temat oraz moderator mogą go zobaczyć.
         hide:
           'true': Pokaż ten temat
           'false': Ukryj ten temat
@@ -100,14 +160,30 @@ pl:
     post:
       buttons:
         reply: Odpowiedz
+        edit: Edytuj
       created: Odpowiedź dodana.
       new: Odpowiedz
+      edit: Edycja postu
       not_created: Odpowiedź nie została dodana.
       not_created_topic_locked: Nie możesz odpowiadać w zablokowanych tematach.
+      edited: Twój post został zaktualizowany.
+      not_edited: Twój post nie został zaktualizowany.
       deleted: Twój wpis został usunięty.
       deleted_with_topic: Tylko post w temacie usunięty. Temat również usunięty.
       cannot_delete: Nie możesz usunąć wpisu, którego nie dodałeś.
       in_reply_to: W odpowiedzi na wypowiedź użytkownika
+      cannot_quote_deleted_post: Post, który chcesz zacytować, już nie istnieje.
+    posts:
+      moderation:
+        moderate: Moderuj
+        approve: Zatwierdź
+        spam: Spam
+        success: Zaznaczony post został zmoderowany.
+      post:
+        pending_review: Ten post obecnie podlega moderacji. Tylko użytkownik, który utworzył post oraz moderator mogą go zobaczyć.
+    moderation:
+      index:
+        title: "Narzędzia moderacyjne dla %{forum}"
   helpers:
     submit:
       forum:
@@ -117,11 +193,14 @@ pl:
         create: Utwórz temat
         update: Aktualizuj temat
   simple_form:
-    topic: Temat
     labels:
+      category:
+        name: Nazwa
       forum:
         title: Tytuł
         description: Opis
+        category: Kategoria
+        moderators: Moderatorzy
       topic:
         subject: Temat
         locked: Zablokowany
@@ -131,6 +210,8 @@ pl:
           text: Tekst
       post:
         text: Tekst
+      group:
+        name: Nazwa
 
   # General stuff
   time_ago_in_words: "%{time} temu"
