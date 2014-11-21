@@ -110,7 +110,7 @@ Here's a comprehensive list of the features currently in Forem:
   * Pinning topics
 * Posts
   * Replying to topics
-  * Deleting own topics
+  * Deleting own posts
   * Blocking replies to locked topics
   * Editing posts
 * Text Formatting
