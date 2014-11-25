@@ -217,3 +217,5 @@ en:
   by: by
   started_by: "Started by "
   are_you_sure: Are you sure?
+  wrote_posts: "Wrote %{count} posts"
+  member_since: "Member since %{date}"

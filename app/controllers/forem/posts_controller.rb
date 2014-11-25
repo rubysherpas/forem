@@ -1,7 +1,7 @@
 module Forem
   class PostsController < Forem::ApplicationController
     before_filter :authenticate_forem_user, except: :show
-    before_filter :find_topic
+    before_filter :find_topic, except: [:preview]
     before_filter :reject_locked_topic!, :only => [:create]
     before_filter :block_spammers, :only => [:new, :create]
     before_filter :authorize_reply_for_topic!, :only => [:new, :create]
@@ -25,6 +25,10 @@ module Forem
       elsif params[:quote] && !@reply_to_post
         flash[:notice] = t("forem.post.cannot_quote_deleted_post")
         redirect_to [@topic.forum, @topic]
+      end
+      
+      if(@reply_to_post)
+        @post.reply_to = @reply_to_post
       end
     end
 
@@ -54,6 +58,17 @@ module Forem
       @post.destroy
       destroy_successful
     end
+    
+    def preview
+      formatted_markdown = {
+        markdown: params[:markdown], 
+        html: ApplicationController.helpers.forem_format(params[:markdown]) 
+      }
+      respond_to do |format|
+        format.json { render json: formatted_markdown}
+      end
+    end
+        
 
     private
 

@@ -30,7 +30,7 @@ module Forem
     end
 
     def last_visible_post(forem_user)
-      posts.approved_or_pending_review_for(forem_user).last
+      posts.visible.approved_or_pending_review_for(forem_user).last
     end
 
     def moderator?(user)

@@ -1,4 +1,10 @@
-<%= f.input :text, :input_html => { :class => "field col-md-12" } %>
+<%= render "/forem/posts/post", 
+    post: f.object,
+    post_counter: 1,
+    show_buttons: false
+    %>
+
+<%= f.input :text, :input_html => { :class => "field col-md-12 new-post", "data-preview-url" => render_post_preview_path, "data-preview-element-selector" => "#post_2 .contents .text" } %>
 
 <% if params[:reply_to_id] %>
   <%= f.hidden_field :reply_to_id, :value => params[:reply_to_id] %>
