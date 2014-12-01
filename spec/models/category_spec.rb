@@ -14,9 +14,9 @@ describe Forem::Category do
     end
   end
 
-  it "is scoped by default" do
+  it "by_position scope orders by position asc" do
     # gsub replaces non-standard quotes (MySQL) with standard ones
-    Forem::Category.all.to_sql.gsub(/`/, '"').should =~ /ORDER BY \"forem_categories\".\"position\" ASC/
+    Forem::Category.by_position.to_sql.gsub(/`/, '"').should =~ /ORDER BY \"forem_categories\".\"position\" ASC/
   end
 
 end
