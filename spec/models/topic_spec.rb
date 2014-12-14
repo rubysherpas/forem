@@ -54,6 +54,13 @@ describe Forem::Topic do
     end
   end
 
+  describe ".set_first_post_user" do
+    it "should handle deleted user" do
+      topic.user_id = nil
+      topic.save
+    end
+  end
+
   describe "helper methods" do
     describe "#subscribe_user" do
       let(:subscription_user) { FactoryGirl.create(:user) }
