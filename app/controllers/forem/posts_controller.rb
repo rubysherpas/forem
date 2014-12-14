@@ -2,21 +2,18 @@ module Forem
   class PostsController < Forem::ApplicationController
     before_filter :authenticate_forem_user, except: :show
     before_filter :find_topic
-    before_filter :reject_locked_topic!, :only => [:create]
-    before_filter :block_spammers, :only => [:new, :create]
-    before_filter :authorize_reply_for_topic!, :only => [:new, :create]
-    before_filter :authorize_edit_post_for_forum!, :only => [:edit, :update]
-    before_filter :find_post_for_topic, :only => [:show, :edit, :update, :destroy]
-    before_filter :ensure_post_ownership!, :only => [:destroy]
-    before_filter :authorize_destroy_post_for_forum!, :only => [:destroy]
+    before_filter :reject_locked_topic!, only: [:new, :create]
 
     def show
+      find_post
       page = (@topic.posts.count.to_f / Forem.per_page.to_f).ceil
 
       redirect_to forum_topic_url(@topic.forum, @topic, pagination_param => page, anchor: "post-#{@post.id}")
     end
 
     def new
+      authorize_reply_for_topic!
+      block_spammers
       @post = @topic.posts.build
       find_reply_to_post
 
@@ -29,6 +26,8 @@ module Forem
     end
 
     def create
+      authorize_reply_for_topic!
+      block_spammers
       @post = @topic.posts.build(post_params)
       @post.user = forem_user
 
@@ -40,9 +39,13 @@ module Forem
     end
 
     def edit
+      authorize_edit_post_for_forum!
+      find_post
     end
 
     def update
+      authorize_edit_post_for_forum!
+      find_post
       if @post.owner_or_admin?(forem_user) && @post.update_attributes(post_params)
         update_successful
       else
@@ -51,6 +54,12 @@ module Forem
     end
 
     def destroy
+      authorize_destroy_post_for_forum!
+      find_post
+      unless @post.owner_or_admin? forem_user
+        flash[:alert] = t("forem.post.cannot_delete")
+        redirect_to [@topic.forum, @topic] and return
+      end
       @post.destroy
       destroy_successful
     end
@@ -104,18 +113,11 @@ module Forem
       render :action => "edit"
     end
 
-    def ensure_post_ownership!
-      unless @post.owner_or_admin? forem_user
-        flash[:alert] = t("forem.post.cannot_delete")
-        redirect_to [@topic.forum, @topic] and return
-      end
-    end
-
     def find_topic
       @topic = Forem::Topic.friendly.find params[:topic_id]
     end
 
-    def find_post_for_topic
+    def find_post
       @post = @topic.posts.find params[:id]
     end
 
