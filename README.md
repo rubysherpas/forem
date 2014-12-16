@@ -186,15 +186,16 @@ We currently have support for the following languages:
 * Chinese (Traditional, zh-TW)
 * Dutch
 * English
+* Estonian
 * Farsi (Persian)
 * German
 * Italian
+* Japanese
+* Lithuanian
 * Polish
 * Portuguese (pt-PT)
 * Russian
 * Spanish
-* Lithuanian
-* Japanese
 
 Patches for new translations are very much welcome!
 
