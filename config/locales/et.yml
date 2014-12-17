@@ -1,0 +1,221 @@
+et:
+  forem:
+    general:
+      deleted: [kustutatud]
+      forum: Foorum
+      topics: Teemasid
+      topic: Teema
+      posts: Postitusi
+      posts_count:
+        zero: Postitusi pole
+        one: 1 postitus
+        other: "%{count} postitust"
+      flagged_for_spam: Sinu konto on märgitud spämmijaks.
+      cannot_create_topic: Sa ei saa praegusel hetkel uut teemat luua.
+      cannot_create_post: Sa ei saa praegusel hetkel uut postitust luua.
+
+    access_denied: "Sul ei ole lubatud seda teha."
+    admin:
+      area: Administratiivne ala
+      back_to_admin: "Tagasi administratiivse ala pealehele"
+      back_to_forums: "Tagasi foorumisse"
+      back_to_groups: "Tagasi gruppide juurde"
+      welcome: "Tere tulemast foremi administratiivsele lehele."
+      forum:
+        moderator_groups: Moderaatorite grupid
+        index: Halda foorumeid
+        new: Loome uue foorumi
+        new_link: Uus foorum
+        deleted: Valitud foorum on kustutatud.
+        created: Uus foorum on loodud.
+        not_created: Foorumi loomine ebaõnnestus.
+        updated: Foorum on muudetud.
+        not_updated: Foorumi muutmine ebaõnnestus.
+      forums:
+        edit: Muuda
+        delete: Kustuta
+        category: Kategooria
+        delete_confirm: Oled sa kindel, et tahad selle foorumi kustutada?
+        index:
+          last_post: Viimane postitus
+          none: Puuduvad
+          moderators: Moderaatorid
+      group:
+        index: Halda gruppe
+        new: Uus grupp
+        created: Uus grupp on loodud.
+        not_created: Grupi loomine ebaõnnestus.
+        deleted: Valitud grupp on kustutatud.
+        members: "%{group} liikmed"
+      groups:
+        show:
+          add_member: Lisa
+          add_a_new_member: "Lisa uus liige"
+          current_members: "Praegused liikmed"
+          remove_member: "Eemalda liige"
+          member_removed: "Valitud kasutaja on grupist eemaldatud."
+          no_member_to_remove: "Valitud kasutaja ei kuulu siia gruppi."
+        edit: Muuda
+        delete: Kustuta
+        name: Nimi
+      category:
+        index: Halda foorumi kategooriaid
+        new: Loome uue foorumi kategooria
+        edit: "Muudame %{title} kategooriat"
+        new_link: Uus foorumi kategooria
+        deleted: Valitud foorumi kategooria on kustutatud.
+        created: Uus foorumi kategooria on loodud.
+        not_created: Foorumi kategooria loomine ebaõnnestus.
+        updated: Foorumi kategooria on muudetud.
+        not_updated: Foorumi kategooria muutmine ebaõnnestus.
+      categories:
+        edit: Muuda
+        delete: Kustuta
+        category: Kategooria
+        delete_confirm: Oled sa kindel, et tahad selle foorumi kategooria kustutada?
+    common:
+      pages: Leheküljed
+    errors:
+      not_signed_in: Sa pead enne sisse logima.
+      access_denied: Ligipääs keelatud.
+    forum:
+      header: "Viewing %{title}"
+      forums: Foorumid
+      new: Loome uue foorumi
+      edit: "Muudame %{title} foorumit"
+      topics_count:
+        zero: 0 teemat
+        one: 1 teema
+        other: "%{count} teemat"
+      posts_count:
+        zero: 0 postitust
+        one: 1 postitus
+        other: "%{count} postitust"
+      moderator_tools: "Modereerimise tööriistad"
+    forums:
+      index:
+        title: Foorum
+        forum: Foorum
+        views: Vaatamisi
+        last_post: 'Viimane postitus:'
+        none: puudub
+    topic:
+      headings:
+        topic: Teema
+        latest: Viimane postitus
+        posts: Postitusi
+        views: Vaatamisi
+      moderation:
+        success: Valitud teema on modereeritud.
+        no_option_selected: Ühtegi modereerimise võimalust ei valitud.
+      received_reply: Sinu tellitud teemasse on sisestatud uus postitus.
+      reply: Vasta
+      quote: Tsiteeri
+      delete: Kustuta
+      created: Teema on loodud.
+      new: Loome uue teema
+      edit: Muudame teemat
+      not_created: Uue teema loomine ebaõnnestus.
+      deleted: Teema on kustutatud.
+      cannot_delete: Sa ei saa kustutada teemat, mida sa ei oma.
+      updated: Teema on uuendatud.
+      not_updated: Teema uuendamine ebaõnnestus.
+      subscribed: Teema teavitused on tellitud.
+      unsubscribed: Teema teavituse tellimus on tühistanud.
+      none: Siin foorumis ei ole hetkel ühtegi teemat.
+      links:
+        new: Uus teema
+        back_to_topics: Tagasi teemade juurde
+        edit: Muuda teemat
+      not_found: Sinu otsitud teemat ei leitud.
+      hidden:
+        'true': See teema on nüüd peidetud.
+        'false': See teema on nüüd nähtav.
+      locked:
+        'true': See teema on nüüd lukustatud.
+        'false': See teema on nüüd lukust lahti.
+      pinned:
+        'true': See teema on nüüd kleepuv.
+        'false': See teema on nüüd mittekleepuv.
+    topics:
+      show:
+        reply: Vasta
+        delete: Kustuta
+        subscribe: Telli teavitus
+        unsubscribe: Tühista tellimus
+        reply_to_topic: Postita teemasse vastus
+        pending_review: See teema on hetkel modereerimisel. Ainult selle looja ning moderaatorid saavad seda vaadata.
+        hide:
+          'true': Näita seda teemat
+          'false': Peida see teema
+        lock:
+          'true': Võta teema lukust lahti
+          'false': Lukusta see teema
+        pin:
+          'true': Märgi teema mittekleepuvaks
+          'false': Märgi teema kleepuvaks
+    post:
+      buttons:
+        reply: Postita vastus
+        edit: Muuda
+      created: Sinu vastus on postitatud.
+      new: Postita vastus teemasse
+      edit: Muuda positust
+      not_created: Postituse lisamine ebaõnnestus.
+      not_created_topic_locked: Lukustatud teemasse ei saa postitada.
+      edited: Sinu postitus on muudetud.
+      not_edited: Sinu postituse muutmine ebaõnnestus.
+      deleted: Sinu postitus on kustutatud.
+      deleted_with_topic: Teema ainuke postitus on kustutatud. Teema samuti kustutatud.
+      cannot_delete: Sa ei saa kustutada postitust, mille omanik sa pole.
+      in_reply_to: Vastusena kasutajale
+      cannot_quote_deleted_post: Postitust, mida sa tsiteerida tahad, ei eksisteeri enam.
+    posts:
+      moderation:
+        moderate: Modereeri
+        approve: Kiida heaks
+        spam: Spämm
+        success: Valitud postitused on modereeritud.
+      post:
+        pending_review: See postitus on hetkel modereerimisel. Ainult postitaja ning moderaatorid saavad seda näha.
+    moderation:
+      index:
+        title: "Modereerimise tööriistad %{forum} jaoks"
+  helpers:
+    submit:
+      forum:
+        create: Loo foorum
+        update: Uuenda foorumit
+      topic:
+        create: Loo teema
+        update: Uuenda teemat
+  simple_form:
+    labels:
+      category:
+        name: Nimi
+        position: Järjekorranumber
+      forum:
+        title: Pealkiri
+        description: Kirjeldus
+        category: Kategooria
+        position: Järjekorranumber
+        moderators: Moderaatorid
+      topic:
+        subject: Pealkiri
+        locked: Lukustatud
+        pinned: Märgitud kleepuvaks
+        hidden: Peidetud
+        posts:
+          text: Tekst
+      post:
+        text: Tekst
+      group:
+        name: Nimi
+
+  # General stuff
+  time_ago_in_words: "%{time} tagasi"
+  ago: " tagasi"
+  ago_by: " tagasi,"
+  by: poolt
+  started_by: "Algataja: "
+  are_you_sure: Oled sa kindel?
