@@ -16,8 +16,12 @@ fr:
     access_denied: "Vous n'êtes pas autorisé à faire cela."
     admin:
       area: Section d'administration
+      back_to_admin: "Retour à l'admin"
+      back_to_forums: Retour aux forums
+      back_to_groups: Retour aux groupes
       welcome: "Bienvenue dans la section d'administration de forem."
       forum:
+        moderator_groups: Groupes du modérateur
         index: Gérer les forums
         new: Créer un nouveau forum
         new_link: Nouveau forum
@@ -34,17 +38,30 @@ fr:
         index:
           last_post: Dernier message
           none: Aucun
+          moderators: Modérateurs
+          no_category: (Aucune categorie)
       group:
         index: Gérer les groupes
+        new: Nouveau groupe
         created: Le groupe a été créé avec succès.
         not_created: Le groupe n'a pas pu être créé.
         deleted: Le groupe sélectionné a été supprimé.
+        members: "Membres dans %{group}"
       groups:
         show:
           add_member: Ajouter
+          add_a_new_member: Ajouter un nouveau membre
+          current_members: Membres actuels
+          remove_member: Supprimer le membre
+          member_removed: "L'utilisateur sélectionné a été supprimé du groupe."
+          no_member_to_remove: "L'utilisateur sélectionné n'appartient pas à ce groupe."
+        edit: Editer
+        delete: Supprimer
+        name: Nom
       category:
         index: Gérer les catégories de forum
         new: Création d'une nouvelle catégorie de forum
+        edit: "Modification de la catégorie %{title}"
         new_link: Nouvelle catégorie de forum
         deleted: La catégorie de forum a été supprimée.
         created: Cette catégorie de forum a été ajoutée.
@@ -90,6 +107,8 @@ fr:
         views: Vus
       moderation:
         success: Le sujet sélectionné a été modéré.
+        no_option_selected: "Aucune option de modération n'a été sélectionné."
+      received_reply: Un sujet auquel vous êtes abonné a reçu une réponse.
       reply: Répondre
       quote: Citer
       delete: Supprimer
@@ -147,18 +166,21 @@ fr:
       edited: Votre message a été modifié.
       not_edited: Votre message n'a pas pu être modifié.
       deleted: Votre message a été supprimé.
-      deleted_with_topic: Only post in topic deleted. Topic also deleted.
+      deleted_with_topic: Ce sujet ainsi que les messages ont été supprimés.
       cannot_delete: Vous ne pouvez pas supprimer un message dont vous n'êtes pas l'auteur.
       in_reply_to: En réponse à
+      cannot_quote_deleted_post: "Le poste que vous essayez de citer n'existe plus."
     posts:
       moderation:
         moderate: Modérer
         approve: Approuver
+        spam: Spam
         success: Les messages sélectionnés ont été modérés.
       post:
         pending_review: Ce poste est actuellement en révision. Seul son auteur et les modérateurs peuvent le consulter.
     moderation:
-      title: "Outils de modération pour %{forum}"
+      index:
+        title: "Outils de modération pour %{forum}"
   helpers:
     submit:
       forum:
@@ -169,9 +191,13 @@ fr:
         update: Modifier un sujet
   simple_form:
     labels:
+      category:
+        name: Nom
       forum:
         title: Titre
         description: Description
+        category: Catégorie
+        moderators: Moderateurs
       topic:
         subject: Sujet
         locked: Vérouillé
@@ -181,6 +207,8 @@ fr:
           text: Texte
       post:
         text: Texte
+      group:
+        name: Nom
 
   # General stuff
   time_ago_in_words: "il y a %{time}"
@@ -189,4 +217,3 @@ fr:
   by: par
   started_by: "Commencé par "
   are_you_sure: Êtes-vous certain ?
-
