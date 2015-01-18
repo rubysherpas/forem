@@ -21,6 +21,11 @@ describe Forem::Topic do
       topic.subject = nil
       topic.should_not be_valid
     end
+
+    it "requires a subject not too long" do
+      topic.subject = 'x' * 256
+      topic.should_not be_valid
+    end
   end
 
   describe "pinning" do
