@@ -16,6 +16,27 @@ describe Forem::Topic do
     end
   end
 
+  context "deletion" do
+    it "deletes posts" do
+      FactoryGirl.create(:post, :topic => topic)
+      topic.reload
+      topic.destroy
+      Forem::Post.exists?(:topic_id => topic.id).should be_false
+    end
+
+    it "deletes views" do
+      FactoryGirl.create(:topic_view, :viewable => topic)
+      topic.destroy
+      Forem::View.exists?(:viewable_id => topic.id).should be_false
+    end
+
+    it "deletes subscriptions" do
+      FactoryGirl.create(:subscription, :topic => topic)
+      topic.destroy
+      Forem::Subscription.exists?(:topic_id => topic.id).should be_false
+    end
+  end  
+
   describe "validations" do
     it "requires a subject" do
       topic.subject = nil

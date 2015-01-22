@@ -32,6 +32,14 @@ describe Forem::Forum do
     end
   end
 
+  context "deletion" do
+    it "deletes views" do
+      FactoryGirl.create(:forum_view, :viewable => forum)
+      forum.destroy
+      Forem::View.exists?(:viewable_id => forum.id).should be_false
+    end
+  end
+
   describe "helper methods" do
     context "name" do
       it "is aliased to title" do
