@@ -1,0 +1,219 @@
+cs:
+  forem:
+    general:
+      deleted: [Odebráno]
+      forum: Fórum
+      topics: Témata
+      topic: Téma
+      posts: Příspěvky
+      posts_count:
+        zero: Žádná odpověď
+        one: 1 odpověď
+        other: "%{count} odpovědi"
+      flagged_for_spam: Váš účet byl označen kvůli spamu.
+      cannot_create_topic: Nyní nemůžete vytvořit nové téma.
+      cannot_create_post: Nyní nemůžete vytvořit nový příspěvek.
+
+    access_denied: "Přístup byl odepřen."
+    admin:
+      area: Admin správa
+      back_to_admin: "Zpět do správy"
+      back_to_forums: "Zpět do fóra"
+      back_to_groups: "Zpět do skupin"
+      welcome: "Vítejte ve správě fóra"
+      forum:
+        moderator_groups: Moderátor skupiny
+        index: Správa fóra
+        new: Vytvoření nového fóra
+        new_link: Nové fórum
+        deleted: Vybrané fórum bylo úspěšně odstraněno.
+        created: Fórum bylo vytvořeno.
+        not_created: Fórum nelze vytvořit.
+        updated: Fórum bylo úspěšně změněno.
+        not_updated: Fórum není možné změnit.
+      forums:
+        edit: Změnit
+        delete: Smazat
+        category: Kategorie
+        delete_confirm: Jste si jisti, že chcete smazat toto fórum?
+        index:
+          last_post: Poslední příspěvek
+          none: Žádný
+          moderators: Moderátoři
+      group:
+        index: Správa skupin
+        new: Nová skupina
+        created: Skupina byla úspěšně vytvořena.
+        not_created: Skupina nelze vytvořit.
+        deleted: Vybraná skupina byla úspěšně odstraněna.
+        members: "Uživatelů v %{group}"
+      groups:
+        show:
+          add_member: Přidat
+          add_a_new_member: "Přidat nového člena"
+          current_members: "Současní členové"
+          remove_member: "Odebrat člena"
+          member_removed: "Vybraný člen byl odebrán ze skupiny."
+          no_member_to_remove: "Vybraný člen nepatří do této skupiny."
+        edit: Změnit
+        delete: Odstranit
+        name: Jméno
+      category:
+        index: Správa kategorií
+        new: Vytvoření nové kategorie
+        edit: "Upravit kategorii %{title}"
+        new_link: Nová kategorie
+        deleted: Vybraná kategorie byla úspěšně odstraněna.
+        created: Kategorie byla vytvořena.
+        not_created: Kategorii nelze vytvořit.
+        updated: Kategorie byla úspěšně změněna.
+        not_updated: Kategorii není možné změnit.
+      categories:
+        edit: Změnit
+        delete: Odstranit
+        category: Kategorie
+        delete_confirm: Jste si jisti, že chcete smazat tuto kategorii?
+    common:
+      pages: Stránky
+    errors:
+      not_signed_in: Nejprve se musíte přihlásit.
+      access_denied: Přístup odepřen.
+    forum:
+      header: "Prohlížení %{title}"
+      forums: Fóra
+      new: Vytvoření nového fóru
+      edit: "Editace %{title}"
+      topics_count:
+        zero: 0 témat
+        one: 1 téma
+        other: "%{count} témat"
+      posts_count:
+        zero: 0 příspěvků
+        one: 1 příspěvek
+        other: "%{count} příspěvků"
+      moderator_tools: "Nástroje moderace"
+    forums:
+      index:
+        title: Název
+        forum: Fórum
+        views: Shlédnutí
+        last_post: 'Poslední příspěvek:'
+        none: Žádný
+    topic:
+      headings:
+        topic: Téma
+        latest: Poslední
+        posts: Odpovědí
+        views: Shlédnutí
+      moderation:
+        success: Téma bylo moderováno.
+        no_option_selected: Není vybrána žádná možnost moderování.
+      received_reply: Nový příspěvek v tématu do kterého píšete.
+      reply: Odpovědět
+      quote: Citace
+      delete: Smazat
+      created: Témy bylo vytvořeno.
+      new: Vytvoření nového tématu
+      edit: Editace tématu
+      not_created: Téma nelze vytvořit.
+      deleted: Téma bylo smazáno.
+      cannot_delete: Nemůžete smazat cizí téma.
+      updated: Téma bylo změněno.
+      not_updated: Téma není možné změnit.
+      subscribed: Přihlásili jste se k odběru tohoto tématu.
+      unsubscribed: Odhlásili jste se z odběru tohoto tématu.
+      none: V tomto fóru nejsou momentálně témata.
+      links:
+        new: Nové téma
+        back_to_topics: Zpět na témata
+        edit: Editova téma
+      not_found: Téma nenalezeno.
+      hidden:
+        'true': Téma je nyní skryté.
+        'false': Téma je nyní viditelné.
+      locked:
+        'true': Téma je nyní uzamčené.
+        'false': Téma je nyní otevřené.
+      pinned:
+        'true': Téma je nyní přilepené.
+        'false': Téma je nyní odlepené.
+    topics:
+      show:
+        reply: Odpovědět
+        delete: Smazat
+        subscribe: Odebírat
+        unsubscribe: Zrušit odběr
+        reply_to_topic: Odpovědět
+        pending_review: Toto téma čeká na ověření. Pouze autor tématu a moderátor ho může procházet.
+        hide:
+          'true': Zobrazit téma
+          'false': Skrýt téma
+        lock:
+          'true': Odemknout téma
+          'false': Uzamknout téma
+        pin:
+          'true': Odepnout téma
+          'false': Připnout téma
+    post:
+      buttons:
+        reply: Odeslat příspěvek
+        edit: Změnit
+      created: Příspěvek úspěšně odeslán.
+      new: Nová odpověď
+      edit: Editace příspěvku
+      not_created: Váš příspěvek nelze odeslat.
+      not_created_topic_locked: Nelze přispět do uzavřeného tématu.
+      edited: Příspěvek byl upraven.
+      not_edited: Příspěvek nelze upravit.
+      deleted: Příspěvěk byl úspěšně smazán.
+      deleted_with_topic: Jediný příspěvek v tématu smazán. Téma smazáno.
+      cannot_delete: Nelze smazat cizí příspěvek.
+      in_reply_to: V odpovědi na
+      cannot_quote_deleted_post: Zpráva, kterou chcete citovat, již neexistuje.
+    posts:
+      moderation:
+        moderate: Moderovat
+        approve: Povolit
+        spam: Spam
+        success: Vybrané příspěvky byly moderovány.
+      post:
+        pending_review: Tento příspěvek čeká na ověření. Pouze autor příspěvku a moderátor ho může zobrazit.
+    moderation:
+      index:
+        title: "Nástroje moderace pro %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Vytvořit fórum
+        update: Změnit fórum
+      topic:
+        create: Vytvořit téma
+        update: Změnit téma
+  simple_form:
+    labels:
+      category:
+        name: Jméno
+      forum:
+        title: Title
+        description: Popis
+        category: Kategorie
+        moderators: Moderátoři
+      topic:
+        subject: Nadpis
+        locked: Uzamčeno
+        pinned: Připnuto
+        hidden: Skyté
+        posts:
+          text: Text
+      post:
+        text: Text
+      group:
+        name: Název
+
+  # General stuff
+  time_ago_in_words: "%{time} před"
+  ago: " před"
+  ago_by: " před"
+  by: ''
+  started_by: "Autor "
+  are_you_sure: Jste si jisti?
