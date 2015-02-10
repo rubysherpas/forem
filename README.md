@@ -184,6 +184,7 @@ We currently have support for the following languages:
 * Bulgarian
 * Chinese (Simplified, zh-CN)
 * Chinese (Traditional, zh-TW)
+* Czech
 * Dutch
 * English
 * Estonian
