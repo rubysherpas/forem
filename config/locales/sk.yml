@@ -1,0 +1,219 @@
+sk:
+  forem:
+    general:
+      deleted: "[Odstránený]"
+      forum: "Fórum"
+      topics: "Témy"
+      topic: "Téma"
+      posts: "Príspevky"
+      posts_count:
+        zero: "Žiadna odpoveď"
+        one: "1 odpoveď"
+        other: "%{count} odpovedí"
+      flagged_for_spam: "Váš účet bol označený ako spam."
+      cannot_create_topic: "Nie je možné vytvoriť novú tému."
+      cannot_create_post: "Nie je možné vytvoriť nový príspevok."
+
+    access_denied: "Prístup bol odmietnutý."
+    admin:
+      area: "Administrácia fóra"
+      back_to_admin: "Späť do administrácie"
+      back_to_forums: "Späť do fóra"
+      back_to_groups: "Späť do skupín"
+      welcome: "Vitajte v administrácii fóra."
+      forum:
+        moderator_groups: "Moderovanie skupín"
+        index: "Administrácia fór"
+        new: "Vytvorenie nového fóra"
+        new_link: "Nové fórum"
+        deleted: "Vybrané fórum bolo úspešne odstránené."
+        created: "Fórum bolo úspešne vytvorené."
+        not_created: "Fórum nie je možné vytvoriť."
+        updated: "Fórum bolo úspešne upravené."
+        not_updated: "Fórum nie je možné upraviť."
+      forums:
+        edit: "Upraviť"
+        delete: "Vymazať"
+        category: "Kategória"
+        delete_confirm: "Ste si istý, že chcete odstrániť fórum?"
+        index:
+          last_post: "Posledný príspevok"
+          none: "Žiadny"
+          moderators: "Moderátori"
+      group:
+        index: "Administrácia skupín"
+        new: "Nová skupina"
+        created: "Skupina bola úspešne vytvorená."
+        not_created: "Skupinu nie je možné vytvoriť."
+        deleted: "Vybraná skupina bola úspešne odstránená."
+        members: "Členovia v \"%{group}\""
+      groups:
+        show:
+          add_member: "Pridať"
+          add_a_new_member: "Pridať nového člena"
+          current_members: "Súčasní členovia"
+          remove_member: "Vymazať člena"
+          member_removed: "Vybraný člen bol úspešne odstránený zo skupiny."
+          no_member_to_remove: "Vybraný člen nepatrí do tejto skupiny."
+        edit: "Upraviť"
+        delete: "Vymazať"
+        name: "Názov"
+      category:
+        index: "Administrácia kategórií"
+        new: "Vytvorenie novej kategórie"
+        edit: "Upraviť kategóriu \"%{title}\""
+        new_link: "Nová kategória"
+        deleted: "Vybraná kategória bola úspešne odstránená."
+        created: "Kategória bola úspešne vytvorená."
+        not_created: "Kategóriu nie je možné vytvoriť."
+        updated: "Kategória bola úspešne upravená."
+        not_updated: "Kategóriu nie je možné upraviť."
+      categories:
+        edit: "Upraviť"
+        delete: "Vymazať"
+        category: "Kategória"
+        delete_confirm: "Ste si istý, že chcete odstrániť kategóriu?"
+    common:
+      pages: "Stránky"
+    errors:
+      not_signed_in: "Najprv sa musíte prihlásiť."
+      access_denied: "Prístup odmietnutý."
+    forum:
+      header: "Prezeranie \"%{title}\""
+      forums: "Fórum"
+      new: "Vytvoriť nové fórum"
+      edit: "Upraviť fórum \"%{title}\""
+      topics_count:
+        zero: "0 tém"
+        one: "1 téma"
+        other: "%{count} témy"
+      posts_count:
+        zero: "0 príspevkov"
+        one: "1 príspevok"
+        other: "%{count} príspevkov"
+      moderator_tools: "Nástroje na moderáciu"
+    forums:
+      index:
+        title: "Názov"
+        forum: "Fórum"
+        views: "Zobrazenia"
+        last_post: "Posledný príspevok:"
+        none: "Žiadny"
+    topic:
+      headings:
+        topic: "Téma"
+        latest: "Posledný"
+        posts: "Príspevky"
+        views: "Zobrazenia"
+      moderation:
+        success: "Vybraná téma bola úspešne moderovaná."
+        no_option_selected: "Nebola vybraná žiadna možnosť."
+      received_reply: "Nový príspevok v téme, ktorú odoberáte."
+      reply: "Odpovedať"
+      quote: "Citovať"
+      delete: "Vymazať"
+      created: "Téma bol úspešne vytvorená."
+      new: "Vytvoriť novú tému"
+      edit: "Upraviť tému"
+      not_created: "Tému nie je možné vytvoriť."
+      deleted: "Téma bola úspešne odstránená."
+      cannot_delete: "Nemôžete odstrániť tému, ktorej nie ste autor."
+      updated: "Téma bola úspešne upravená."
+      not_updated: "Tému nie je možné upraviť."
+      subscribed: "Úspešné prihlásenie k odberu."
+      unsubscribed: "Úspešné odhlásenie z odberu."
+      none: "V tomto fóre sa nenachádzajú aktuálne žiadne témy."
+      links:
+        new: "Nová téma"
+        back_to_topics: "Späť na zoznam tém"
+        edit: "Upraviť tému"
+      not_found: "Téma nenájdená."
+      hidden:
+        'true': "Téma je úspešne skrytá."
+        'false': "Téma je úspešne viditelná."
+      locked:
+        'true': "Téma je úspešne uzamknutá."
+        'false': "Téma je úspešne odomknutá."
+      pinned:
+        'true': "Téma je úspešne pripnutá."
+        'false': "Téma je úspešne odopnutá."
+    topics:
+      show:
+        reply: "Nový príspevok"
+        delete: "Vymazať"
+        subscribe: "Odoberať"
+        unsubscribe: "Zrušiť odber"
+        reply_to_topic: "Odpovedať na tému"
+        pending_review: "Táto téma čaká na schválenie. Len autor a moderátori môžu vidiet túto tému."
+        hide:
+          'true': "Zobraziť tému"
+          'false': "Skryť tému"
+        lock:
+          'true': "Odomknúť tému"
+          'false': "Zamknúť tému"
+        pin:
+          'true': "Odopnúť tému"
+          'false': "Pripnúť tému"
+    post:
+      buttons:
+        reply: "Odoslať príspevok"
+        edit: "Upraviť"
+      created: "Príspevok bol uverejnený."
+      new: "Nová odpoveď"
+      edit: "Upraviť príspevok"
+      not_created: "Váš príspevok nie je možné odoslať."
+      not_created_topic_locked: "Nie je možné prispievať do uzamknutej témy."
+      edited: "Príspevok bol úspešne upravený."
+      not_edited: "Príspevok nie je možné upraviť."
+      deleted: "Príspevok bol úspešne odstránený."
+      deleted_with_topic: "Posledný príspevok bol v téme odstránený, automatické odstránenie témy."
+      cannot_delete: "Nemôžete odstrániť odpoveď, ktorej nie ste autor."
+      in_reply_to: "Odpoveď na príspevok od"
+      cannot_quote_deleted_post: "Príspevok, ktorý chcete citovať už neexistuje."
+    posts:
+      moderation:
+        moderate: "Moderovať"
+        approve: "Schváliť"
+        spam: "Spam"
+        success: "Vybraný príspevok bol úspešne moderovaný."
+      post:
+        pending_review: "Tento príspevok čaká na schválenie. Len autor a moderátori môžu vidiet tento príspevok."
+    moderation:
+      index:
+        title: "Nástroje na moderáciu pre \"%{forum}\""
+  helpers:
+    submit:
+      forum:
+        create: "Vytvoriť fórum"
+        update: "Upraviť fórum"
+      topic:
+        create: "Vytvoriť tému"
+        update: "Upraviť tému"
+  simple_form:
+    labels:
+      category:
+        name: "Názov"
+      forum:
+        title: "Názov"
+        description: "Popis"
+        category: "Kategória"
+        moderators: "Moderátori"
+      topic:
+        subject: "Predmet"
+        locked: "Uzamknuté"
+        pinned: "Pripnuté"
+        hidden: "Skryté"
+        posts:
+          text: "Text"
+      post:
+        text: "Text"
+      group:
+        name: "Názov"
+
+  # General stuff
+  time_ago_in_words: "%{time} pred"
+  ago: ""
+  ago_by: " od"
+  by: "od"
+  started_by: "Autor "
+  are_you_sure: "Ste si istý?"

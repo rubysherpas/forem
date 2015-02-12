@@ -196,6 +196,7 @@ We currently have support for the following languages:
 * Polish
 * Portuguese (pt-PT)
 * Russian
+* Slovak
 * Spanish
 
 Patches for new translations are very much welcome!
