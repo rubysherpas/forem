@@ -4,31 +4,31 @@ describe Forem::Forum do
   let!(:forum) { FactoryGirl.create(:forum) }
 
   it "is valid with valid attributes" do
-    forum.should be_valid
+    expect(forum).to be_valid
   end
 
   it "is scoped by default" do
     if ActiveRecord::Base.connection.class.to_s =~ /Mysql/
-      Forem::Forum.all.to_sql.should =~ /ORDER BY `forem_forums`.`position` ASC/
+      expect(Forem::Forum.all.to_sql).to match(/ORDER BY `forem_forums`.`position` ASC/)
     else
-      Forem::Forum.all.to_sql.should =~ /ORDER BY \"forem_forums\".\"position\" ASC/
+      expect(Forem::Forum.all.to_sql).to match(/ORDER BY \"forem_forums\".\"position\" ASC/)
     end
   end
 
   describe "validations" do
     it "requires a name" do
       forum.name = nil
-      forum.should_not be_valid
+      expect(forum).not_to be_valid
     end
 
     it "requires a description" do
       forum.description = nil
-      forum.should_not be_valid
+      expect(forum).not_to be_valid
     end
 
     it "requires a category id" do
       forum.category_id = nil
-      forum.should_not be_valid
+      expect(forum).not_to be_valid
     end
   end
 
@@ -44,15 +44,15 @@ describe Forem::Forum do
     context "name" do
       it "is aliased to title" do
         forum.title = "foo"
-        forum.name.should eq("foo")
+        expect(forum.name).to eq("foo")
 
         forum.name = 'bar'
-        forum.title.should eq("bar")
+        expect(forum.title).to eq("bar")
       end
 
       context "to_s" do
         it 'returns the name of the forum' do
-          forum.to_s.should == forum.name
+          expect(forum.to_s).to eq(forum.name)
         end
       end
     end
@@ -68,7 +68,7 @@ describe Forem::Forum do
 
       context "finding the last visible post for a user" do
         it "does not find non-approved posts" do
-          forum.last_visible_post(user).should be_nil
+          expect(forum.last_visible_post(user)).to be_nil
         end
 
         context "with approved topic + post" do
@@ -79,16 +79,16 @@ describe Forem::Forum do
           end
 
           it "finds the last post for a user" do
-            forum.last_visible_post(user).should == visible_topic.posts.last
+            expect(forum.last_visible_post(user)).to eq(visible_topic.posts.last)
             # visible post doesn't contain hidden topics, duh
-            forum.last_visible_post(admin).should == visible_topic.posts.last
+            expect(forum.last_visible_post(admin)).to eq(visible_topic.posts.last)
           end
         end
       end
 
       context "finding the last post for a user" do
         it "does not find non-approved posts" do
-          forum.last_post_for(user).should be_nil
+          expect(forum.last_post_for(user)).to be_nil
         end
 
         context "with approved topic + post" do
@@ -102,8 +102,8 @@ describe Forem::Forum do
             # Due to a #lolmysql "feature", where two posts updated at
             # the same second are returned in the wrong order.
             hidden_topic.posts.last.update_column(:created_at, 1.minute.from_now)
-            forum.last_post_for(user).should == visible_topic.posts.last
-            forum.last_post_for(admin).should == hidden_topic.posts.last
+            expect(forum.last_post_for(user)).to eq(visible_topic.posts.last)
+            expect(forum.last_post_for(admin)).to eq(hidden_topic.posts.last)
           end
         end
       end
@@ -111,13 +111,13 @@ describe Forem::Forum do
 
     context "moderator?" do
       it "no user is no moderator" do
-        forum.moderator?(nil).should be_false
+        expect(forum.moderator?(nil)).to be_falsey
       end
 
       it "is a moderator if group ids intersect" do
-        forum.stub :moderator_ids => [1,2]
+        allow(forum).to receive_messages :moderator_ids => [1,2]
         user = double :forem_group_ids => [2,3]
-        forum.moderator?(user).should be_true
+        expect(forum.moderator?(user)).to be_truthy
       end
 
     end

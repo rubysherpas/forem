@@ -13,7 +13,7 @@ describe "moderation" do
       fill_in "Text", :with => "User's second words"
       click_button "Create Topic"
       flash_notice!("This topic has been created.")
-      page.should_not have_content("This topic is currently pending review.")
+      expect(page).not_to have_content("This topic is currently pending review.")
     end
 
     it "subsequent posts bypass the moderation queue" do
@@ -27,7 +27,7 @@ describe "moderation" do
       fill_in "Text", :with => "Freedom!!"
       click_button "Reply"
       flash_notice!("Your reply has been posted.")
-      page.should_not have_content("This post is currently pending review.")
+      expect(page).not_to have_content("This post is currently pending review.")
     end
   end
 end

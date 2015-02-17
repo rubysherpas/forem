@@ -33,8 +33,8 @@ describe "moderation" do
 
         flash_notice!("The selected posts have been moderated.")
         post.reload
-        post.should be_approved
-        post.user.reload.forem_state.should == "approved"
+        expect(post).to be_approved
+        expect(post.user.reload.forem_state).to eq("approved")
       end
 
       it "can mark a post as spam" do
@@ -46,8 +46,8 @@ describe "moderation" do
 
         flash_notice!("The selected posts have been moderated.")
         post.reload
-        post.should be_spam
-        post.user.reload.forem_state.should == "spam"
+        expect(post).to be_spam
+        expect(post.user.reload.forem_state).to eq("spam")
       end
     end
 
@@ -58,7 +58,7 @@ describe "moderation" do
         click_button "Moderate"
 
         flash_notice!("The selected posts have been moderated.")
-        post.user.reload.forem_state.should == "approved"
+        expect(post.user.reload.forem_state).to eq("approved")
       end
     end
   end

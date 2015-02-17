@@ -10,8 +10,8 @@ describe AddForemAutoSubscribe do
   include_context "user migrations"
     
   it "adds forem_auto_subscribe to user_class" do
-    subject.should_receive('column_exists?').and_return(false)
-    subject.should_receive('add_column').with(:users, :forem_auto_subscribe, :boolean, {:default=>false})
+    expect(subject).to receive('column_exists?').and_return(false)
+    expect(subject).to receive('add_column').with(:users, :forem_auto_subscribe, :boolean, {:default=>false})
     subject.change
   end
 end

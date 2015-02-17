@@ -8,9 +8,9 @@ describe Forem::Subscription do
 
   describe "topic subscriptions" do
     before(:each) do
-      Forem::Topic.any_instance.stub(:set_first_post_user)
-      Forem::Topic.any_instance.stub(:user).and_return(stub_model(User))
-      Forem::Topic.any_instance.stub(:user_id).and_return(1)
+      allow_any_instance_of(Forem::Topic).to receive(:set_first_post_user)
+      allow_any_instance_of(Forem::Topic).to receive(:user).and_return(stub_model(User))
+      allow_any_instance_of(Forem::Topic).to receive(:user_id).and_return(1)
     end
 
     let(:attributes) do
@@ -26,7 +26,7 @@ describe Forem::Subscription do
     # Regression test for #375
     it "does not send a notification when user is missing" do
       subscription = Forem::Subscription.new
-      Forem::SubscriptionMailer.should_not_receive(:topic_reply)
+      expect(Forem::SubscriptionMailer).not_to receive(:topic_reply)
       subscription.send_notification(1)
     end
   end

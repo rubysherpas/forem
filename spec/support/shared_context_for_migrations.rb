@@ -4,6 +4,6 @@ shared_context "user migrations" do
   end
   
   it "returns user class" do
-    subject.user_class.should == :users
+    expect(subject.user_class).to eq(:users)
   end
 end

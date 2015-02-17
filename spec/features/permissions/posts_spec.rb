@@ -9,7 +9,7 @@ describe 'post permissions' do
   context "without permission to reply" do
     before do
       sign_in(user)
-      User.any_instance.stub(:can_reply_to_forem_topic?).and_return(false)
+      allow_any_instance_of(User).to receive(:can_reply_to_forem_topic?).and_return(false)
     end
 
     it "users can't see the link to reply" do
@@ -25,9 +25,9 @@ describe 'post permissions' do
 
     it "users can see the reply, edit, and delete links" do
       visit forum_topic_path(forum, topic)
-      page.should have_selector("a", :text => "Reply")
-      page.should have_selector("a", :text => "Edit")
-      page.should have_selector("a", :text => "Delete")
+      expect(page).to have_selector("a", :text => "Reply")
+      expect(page).to have_selector("a", :text => "Edit")
+      expect(page).to have_selector("a", :text => "Delete")
     end
 
   end

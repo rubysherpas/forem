@@ -25,11 +25,11 @@ describe "moderation" do
       end
       
       it "should have 1 post" do
-        page.should have_content("This is a brand new post")
+        expect(page).to have_content("This is a brand new post")
       end
       
       it "should have 1 topic" do
-        page.should have_content("1 topic")
+        expect(page).to have_content("1 topic")
         within("#topics") do
           assert find("#topic_1")
           assert find(".topic")
@@ -40,7 +40,7 @@ describe "moderation" do
       it "should have a link to the topic moderation page" do
         assert find_link("FIRST TOPIC")
         click_link("FIRST TOPIC")
-        assert page.current_path.should match(forum_topic_path(forum, topic))
+        assert expect(page.current_path).to match(forum_topic_path(forum, topic))
       end
 
     end
@@ -53,7 +53,7 @@ describe "moderation" do
           click_button "Moderate"
         end
         flash_notice!("The selected topic has been moderated.")
-        page.should_not have_content("This topic is currently pending review.")
+        expect(page).not_to have_content("This topic is currently pending review.")
       end
     end
   end

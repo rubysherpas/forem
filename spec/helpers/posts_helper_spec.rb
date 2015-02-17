@@ -11,7 +11,7 @@ module Forem
 
         it 'includes the default size' do
           expected = "http://www.gravatar.com/avatar/#{email_hash}?s=60"
-          helper.avatar_url(email, opts).should eq(expected)
+          expect(helper.avatar_url(email, opts)).to eq(expected)
         end
       end
 
@@ -20,7 +20,7 @@ module Forem
 
         it 'overwrites the default size' do
           expected = "http://www.gravatar.com/avatar/#{email_hash}?s=99"
-          helper.avatar_url(email, opts).should eq(expected)
+          expect(helper.avatar_url(email, opts)).to eq(expected)
         end
       end
 
@@ -29,7 +29,7 @@ module Forem
 
         it 'includes a default parameter' do
           expected = "http://www.gravatar.com/avatar/#{email_hash}?d=mm&s=60"
-          helper.avatar_url(email, opts).should eq(expected)
+          expect(helper.avatar_url(email, opts)).to eq(expected)
         end
       end
 
@@ -38,7 +38,7 @@ module Forem
 
         it 'includes a default parameter and overwrites the default size' do
           expected = "http://www.gravatar.com/avatar/#{email_hash}?d=mm&s=99"
-          helper.avatar_url(email, opts).should eq(expected)
+          expect(helper.avatar_url(email, opts)).to eq(expected)
         end
       end
 
@@ -48,7 +48,7 @@ module Forem
         it 'should have the secure url' do
           helper.request.env['HTTPS'] = 'on'
           expected = "https://secure.gravatar.com/avatar/#{email_hash}?s=60"
-          helper.avatar_url(email, opts).should eq(expected)
+          expect(helper.avatar_url(email, opts)).to eq(expected)
         end
       end
     end
@@ -56,24 +56,24 @@ module Forem
     describe "#default_gravatar" do
       it "returns the default_gravatar_image when an absolute URL is set" do
         url = "http://example.com/foo/bar.jpg"
-        Forem.stub(:default_gravatar_image => url)
+        allow(Forem).to receive_messages(:default_gravatar_image => url)
 
-        helper.default_gravatar.should eq(url)
+        expect(helper.default_gravatar).to eq(url)
       end
 
       it "returns an absolute URL when default_gravatar image is set to a relative path" do
         image = "foo.jpg"
-        Forem.stub(:default_gravatar_image => image)
+        allow(Forem).to receive_messages(:default_gravatar_image => image)
 
         expected = "http://test.host/images/foo.jpg"
-        helper.default_gravatar.should eq(expected)
+        expect(helper.default_gravatar).to eq(expected)
       end
 
       it "returns the default_gravatar when set" do
         theme = 'mm'
-        Forem.stub(:default_gravatar => theme)
+        allow(Forem).to receive_messages(:default_gravatar => theme)
 
-        helper.default_gravatar.should eq(theme)
+        expect(helper.default_gravatar).to eq(theme)
       end
     end
   end

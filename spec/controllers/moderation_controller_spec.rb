@@ -4,8 +4,8 @@ describe Forem::ModerationController do
   use_forem_routes
 
   before do
-    controller.stub :forum => stub_model(Forem::Forum)
-    controller.stub :forem_admin? => false
+    allow(controller).to receive_messages :forum => stub_model(Forem::Forum)
+    allow(controller).to receive_messages :forem_admin? => false
   end
 
   it "anonymous users cannot access moderation" do
@@ -14,7 +14,7 @@ describe Forem::ModerationController do
   end
 
   it "normal users cannot access moderation" do
-    controller.stub_chain "forum.moderator?" => false
+    allow(controller).to receive_message_chain "forum.moderator?" => false
 
     get :index, forum_id: 1
     flash[:alert].should == "You are not allowed to do that."
