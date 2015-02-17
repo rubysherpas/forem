@@ -11,13 +11,13 @@ describe Forem::PostsController do
 
     it "cannot delete posts" do
       delete :destroy, :forum_id => forum.to_param, :topic_id => topic.to_param, :id => first_post.to_param
-      response.should redirect_to('/users/sign_in')
-      flash.alert.should == "You must sign in first."
+      expect(response).to redirect_to('/users/sign_in')
+      expect(flash.alert).to eq("You must sign in first.")
     end
 
     it "can be redirected to post on topic" do
       get :show, :forum_id => forum.to_param, :topic_id => topic.to_param, :id => first_post.to_param
-      response.should redirect_to("/forem/welcome-to-forem/topics/first-topic?page=1#post-#{first_post.id}")
+      expect(response).to redirect_to("/forem/welcome-to-forem/topics/first-topic?page=1#post-#{first_post.id}")
     end
   end
 
@@ -41,7 +41,7 @@ describe Forem::PostsController do
             :forum_id => forum.to_param,
             :topic_id => topic.to_param,
             :post => { 'text' => 'non-sneaky reply' }
-          flash[:notice].should == "Your reply has been posted."
+          expect(flash[:notice]).to eq("Your reply has been posted.")
         end
       end
 
@@ -53,7 +53,7 @@ describe Forem::PostsController do
 
         it 'cannot reply to topic' do
           post :create, :forum_id => forum.to_param, :topic_id => topic.to_param, :post => { 'text' => 'sneaky reply' }
-          flash[:alert].should == 'You are not allowed to do that.'
+          expect(flash[:alert]).to eq('You are not allowed to do that.')
         end
       end
 
@@ -92,8 +92,8 @@ describe Forem::PostsController do
             :forum_id => forum.to_param,
             :topic_id => topic.to_param,
             :id => 1
-          flash[:alert].should == 'You are not allowed to do that.'
-          response.should redirect_to('/forem/')
+          expect(flash[:alert]).to eq('You are not allowed to do that.')
+          expect(response).to redirect_to('/forem/')
         end
       end
     end
@@ -101,7 +101,7 @@ describe Forem::PostsController do
     context 'when attempting to destroy posts' do
       it 'can with permission' do
         delete :destroy, :forum_id => forum, :topic_id => topic, :id => topic.posts.first
-        flash[:notice].should == "Only post in topic deleted. Topic also deleted."
+        expect(flash[:notice]).to eq("Only post in topic deleted. Topic also deleted.")
       end
 
       it 'cannot without permission' do
@@ -109,8 +109,8 @@ describe Forem::PostsController do
         allow(controller.current_user).to receive_messages :can_destroy_forem_posts? => false
 
         delete :destroy, :forum_id => forum, :topic_id => topic, :id => topic.posts.first
-        flash[:alert].should == 'You are not allowed to do that.'
-        response.should redirect_to(root_path)
+        expect(flash[:alert]).to eq('You are not allowed to do that.')
+        expect(response).to redirect_to(root_path)
       end
     end
   end
