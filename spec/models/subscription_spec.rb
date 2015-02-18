@@ -21,6 +21,8 @@ describe Forem::Subscription do
     end
 
     let(:topic) { Forem::Topic.new(attributes) }
+    let(:subscription) { FactoryGirl.create(:subscription) }
+    let(:mail_class) { Forem::SubscriptionMailer.topic_reply(subscription.topic.posts.first.id, subscription.subscriber.id).class }
 
     it "creates a subscription when a topic is created" do
       expect { topic.save }.to change { topic.subscriptions.count }.from(0).to(1)
@@ -34,15 +36,15 @@ describe Forem::Subscription do
     end
 
     it "should send a notification via deliver_later when method available" do
-      expect_any_instance_of(ActionMailer::MessageDelivery).to_not receive(:deliver)
-      expect_any_instance_of(ActionMailer::MessageDelivery).to receive(:deliver_later)
+      expect_any_instance_of(mail_class).to_not receive(:deliver)
+      expect_any_instance_of(mail_class).to receive(:deliver_later)
       subscription.send_notification(1)
     end
 
     it "should send a notification via deliver when deliver_later not available" do
-      allow_any_instance_of(ActionMailer::MessageDelivery).to receive(:respond_to?).with(:deliver_later).and_return(false)
-      expect_any_instance_of(ActionMailer::MessageDelivery).to_not receive(:deliver_later)
-      expect_any_instance_of(ActionMailer::MessageDelivery).to receive(:deliver)
+      allow_any_instance_of(mail_class).to receive(:respond_to?).with(:deliver_later).and_return(false)
+      expect_any_instance_of(mail_class).to_not receive(:deliver_later)
+      expect_any_instance_of(mail_class).to receive(:deliver)
       subscription.send_notification(1)
     end
   end
