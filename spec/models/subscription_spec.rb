@@ -32,5 +32,18 @@ describe Forem::Subscription do
       expect(Forem::SubscriptionMailer).not_to receive(:topic_reply)
       subscription.send_notification(1)
     end
+
+    it "should send a notification via deliver_later when method available" do
+      expect_any_instance_of(ActionMailer::MessageDelivery).to_not receive(:deliver)
+      expect_any_instance_of(ActionMailer::MessageDelivery).to receive(:deliver_later)
+      subscription.send_notification(1)
+    end
+
+    it "should send a notification via deliver when deliver_later not available" do
+      allow_any_instance_of(ActionMailer::MessageDelivery).to receive(:respond_to?).with(:deliver_later).and_return(false)
+      expect_any_instance_of(ActionMailer::MessageDelivery).to_not receive(:deliver_later)
+      expect_any_instance_of(ActionMailer::MessageDelivery).to receive(:deliver)
+      subscription.send_notification(1)
+    end
   end
 end
