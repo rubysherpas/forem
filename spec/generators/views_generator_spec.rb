@@ -10,7 +10,7 @@ describe Forem::Generators::ViewsGenerator do
   after { FileUtils.rm_rf(views + "forem") }
 
   it "copies over files" do
-    capture(:stdout) { described_class.start([], :destination_root => Rails.root) }
+    described_class.start(['--quiet'], :destination_root => Rails.root)
     dirs = ["forem", "forem/admin", "forem/forums", "forem/posts", "forem/topics"]
     dirs.each do |dir|
       assert File.directory?(views + dir), "did not generate #{dir}"
