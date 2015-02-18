@@ -5,7 +5,7 @@ class CreateForemTopics < ActiveRecord::Migration
       t.integer :user_id
       t.string :subject
 
-      t.timestamps
+      t.timestamps :null => true
     end
   end
 end
