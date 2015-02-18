@@ -21,19 +21,19 @@ describe Forem::Topic do
       FactoryGirl.create(:post, :topic => topic)
       topic.reload
       topic.destroy
-      Forem::Post.exists?(:topic_id => topic.id).should be_false
+      expect(Forem::Post.exists?(:topic_id => topic.id)).to be false
     end
 
     it "deletes views" do
       FactoryGirl.create(:topic_view, :viewable => topic)
       topic.destroy
-      Forem::View.exists?(:viewable_id => topic.id).should be_false
+      expect(Forem::View.exists?(:viewable_id => topic.id)).to be false
     end
 
     it "deletes subscriptions" do
       FactoryGirl.create(:subscription, :topic => topic)
       topic.destroy
-      Forem::Subscription.exists?(:topic_id => topic.id).should be_false
+      expect(Forem::Subscription.exists?(:topic_id => topic.id)).to be false
     end
   end  
 

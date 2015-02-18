@@ -36,7 +36,7 @@ describe Forem::Forum do
     it "deletes views" do
       FactoryGirl.create(:forum_view, :viewable => forum)
       forum.destroy
-      Forem::View.exists?(:viewable_id => forum.id).should be_false
+      expect(Forem::View.exists?(:viewable_id => forum.id)).to be false
     end
   end
 

@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 describe Forem::Subscription do
+  let(:subscription) do
+    FactoryGirl.create(:subscription)
+  end
 
   it "is valid with valid attributes" do
-    FactoryGirl.build(:subscription).should be_valid
+    expect(subscription).to be_valid
   end
 
   describe "topic subscriptions" do
