@@ -192,6 +192,7 @@ We currently have support for the following languages:
 * German
 * Italian
 * Japanese
+* Korean
 * Lithuanian
 * Polish
 * Portuguese (pt-PT)
