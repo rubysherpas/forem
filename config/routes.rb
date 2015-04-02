@@ -4,7 +4,6 @@ Forem::Engine.routes.draw do
   # resources :topics, :only => [:new, :create, :index, :show, :destroy] do
   #   resources :posts
   # end
-
   resources :categories, :only => [:index, :show]
 
   namespace :admin do
@@ -28,6 +27,7 @@ Forem::Engine.routes.draw do
       end
     end
 
+
     resources :categories
 
     get 'users/autocomplete', :to => "users#autocomplete", :as => "user_autocomplete"
@@ -40,6 +40,7 @@ Forem::Engine.routes.draw do
   put '/:forum_id/topics/:topic_id/moderate', :to => "moderation#topic", :as => :moderate_forum_topic
 
   resources :forums, :only => [:index, :show], :path => "/" do
+    get :search, on: :collection, as: :topics_search
     resources :topics, :except => :index do
       resources :posts, :except => :index
       member do

@@ -6,6 +6,17 @@
     <%= javascript_include_tag "forem", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= forem_atom_auto_discovery_link_tag %>
+<div id='forums_container'>
+  <%= search_form_for @search || Forem::Topic.ransack, url: topics_search_forums_path do |form| %>
+    <div>
+      <%= form.label :subject_or_posts_text_cont, "Search Posts & Topics:" %>
+      <%= form.search_field :subject_or_posts_text_cont %>
+    </div>
+    <div>
+      <%= form.submit "Search" %>
+    </div>
+  <% end %>
+</div>
   </head>
   <body>
     <% flash.each do |k,v| %>
