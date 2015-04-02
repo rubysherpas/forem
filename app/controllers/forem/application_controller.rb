@@ -2,6 +2,7 @@ require 'cancan'
 
 class Forem::ApplicationController < ApplicationController
   layout Forem.layout
+  before_filter :search_topics
   
   rescue_from CanCan::AccessDenied do
     redirect_to root_path, :alert => t("forem.access_denied")
@@ -15,6 +16,10 @@ class Forem::ApplicationController < ApplicationController
   # :page
   def pagination_method
     defined?(Kaminari) ? Kaminari.config.page_method_name : :page
+  end
+
+  def search_topics
+    @search = Forem::Topic.ransack(params[:q])
   end
 
   # Kaminari defaults param_name to :page, will_paginate always uses :page
