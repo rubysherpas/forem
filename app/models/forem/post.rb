@@ -26,6 +26,9 @@ module Forem
                        :foreign_key => "reply_to_id",
                        :dependent   => :nullify
 
+    has_many :files, as: :owner
+    accepts_nested_attributes_for :files, allow_destroy: true, reject_if: :all_blank
+
     validates :text, :presence => true
 
     delegate :forum, :to => :topic

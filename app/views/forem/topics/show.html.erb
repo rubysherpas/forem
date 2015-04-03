@@ -38,6 +38,14 @@
     </div>
   <% end %>
 
+  <ul>
+    <% @topic.files.each do |file|  %>
+      <li>
+        <%= link_to File.basename(file.file_path), file.file_url %>
+      </li>
+    <% end %>
+  </ul>
+
   <%= forem_pages_widget(@posts) %>
 
   <div id='posts'>
