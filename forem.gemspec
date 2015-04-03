@@ -31,4 +31,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'select2-rails', '~> 3.5.4'
   s.add_dependency 'friendly_id', '~> 5.0.0'
   s.add_dependency 'cancancan', '~> 1.7'
+  s.add_dependency 'carrierwave', '~> 0.10'
+  s.add_dependency 'cocoon', '~> 1.2.6'
 end

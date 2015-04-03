@@ -19,6 +19,7 @@ module Forem
       authorize! :create_topic, @forum
       @topic = @forum.topics.build
       @topic.posts.build
+      @topic.files.build
     end
 
     def create
@@ -59,7 +60,7 @@ module Forem
     protected
 
     def topic_params
-      params.require(:topic).permit(:subject, :posts_attributes => [[:text]])
+      params.require(:topic).permit(:subject, files_attributes: [:id, :file, :_destroy], :posts_attributes => [[:text]])
     end
     
     def create_successful

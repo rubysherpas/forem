@@ -34,6 +34,14 @@
         </a>
         <%= forem_format(post.text) %>
 
+        <ul>
+          <% post.files.each do |file|  %>
+            <li>
+              <%= link_to File.basename(file.file_path), file.file_url %>
+            </li>
+          <% end %>
+        </ul>
+
         <% if post.reply_to %>
           <div class='in-reply-to'>
             <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user.forem_name}", "#post-#{post.reply_to.id}" %>

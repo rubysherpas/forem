@@ -25,6 +25,8 @@ end
 require 'simple_form'
 require 'emoji'
 require 'select2-rails'
+require 'carrierwave'
+require 'cocoon'
 
 # We need one of the two pagination engines loaded by this point.
 # We don't care which one, just one of them will do.

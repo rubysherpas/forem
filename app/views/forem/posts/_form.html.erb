@@ -1,5 +1,16 @@
 <%= f.input :text, :input_html => { :class => "field col-md-12" } %>
 
+<div id="files" class="pull-left">
+  <%= f.simple_fields_for :files do |file_f| %>
+
+    <%= render 'file_fields', f: file_f %>
+
+    <div class="files margin-top-20">
+      <%= link_to_add_association 'add file', f, :files %>
+    </div>
+  <% end %>
+</div>
+
 <% if params[:reply_to_id] %>
   <%= f.hidden_field :reply_to_id, :value => params[:reply_to_id] %>
 <% end %>
