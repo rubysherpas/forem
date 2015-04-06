@@ -15,6 +15,7 @@ module Forem
       authorize_reply_for_topic!
       block_spammers
       @post = @topic.posts.build
+      @post.files.build
       find_reply_to_post
 
       if params[:quote] && @reply_to_post
@@ -41,6 +42,7 @@ module Forem
     def edit
       authorize_edit_post_for_forum!
       find_post
+      @post.files.build
     end
 
     def update
@@ -67,7 +69,7 @@ module Forem
     private
 
     def post_params
-      params.require(:post).permit(:text, :reply_to_id)
+      params.require(:post).permit(:text, :reply_to_id, files_attributes: [:id, :file, :_destroy])
     end
 
     def authorize_reply_for_topic!

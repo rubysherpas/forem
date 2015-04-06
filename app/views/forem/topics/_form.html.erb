@@ -5,5 +5,16 @@
     <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
   <% end %>
   
+  <div id="files" class="pull-left">
+    <%= f.simple_fields_for :files do |file_f| %>
+
+      <%= render 'file_fields', f: file_f %>
+
+      <div class="files margin-top-20">
+        <%= link_to_add_association 'add file', f, :files %>
+      </div>
+    <% end %>
+  </div>
+  
   <%= f.submit :class => "btn btn-primary" %>
 <% end %>

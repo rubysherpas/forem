@@ -7,10 +7,16 @@ module Forem
       @categories = Forem::Category.by_position
     end
 
+    def search
+      search = Forem::Topic.ransack(params[:q])
+      @results  = search.result.includes(:posts)
+      @results = [EmptySearch.new] if @results.empty?
+    end
+
     def show
       authorize! :show, @forum
       register_view
-      
+
       @topics = if forem_admin_or_moderator?(@forum)
         @forum.topics
       else
