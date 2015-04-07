@@ -24,7 +24,7 @@ describe Forem::Subscription do
     end
 
     # Regression test for #375
-    it "does not send a notification when user is missing" do
+    it "does not send a notification when user is missing or if there is no email address" do
       subscription = Forem::Subscription.new
       Forem::SubscriptionMailer.should_not_receive(:topic_reply)
       subscription.send_notification(1)
