@@ -22,6 +22,7 @@ module ::Forem
   end
 end
 
+require 'ransack'
 require 'simple_form'
 require 'emoji'
 require 'select2-rails'
