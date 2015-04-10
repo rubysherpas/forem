@@ -1,7 +1,7 @@
 module Forem
   class << self
     def version
-      %q{1.0.3}
+      %q{1.0.4}
     end
   end
 end

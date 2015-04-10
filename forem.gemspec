@@ -33,5 +33,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancancan', '~> 1.7'
   s.add_dependency 'carrierwave', '~> 0.10'
   s.add_dependency 'cocoon', '~> 1.2.6'
-  s.add_dependency 'ransack', '~> 1.6.5'
+  s.add_dependency 'ransack', '~> 1.6.6'
 end
