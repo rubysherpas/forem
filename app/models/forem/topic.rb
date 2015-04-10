@@ -29,6 +29,9 @@ module Forem
     has_many   :posts, -> { order "forem_posts.created_at ASC"}, :dependent => :destroy
     accepts_nested_attributes_for :posts
 
+    has_many :files, as: :owner
+    accepts_nested_attributes_for :files, allow_destroy: true, reject_if: :all_blank
+
     validates :subject, :presence => true, :length => { maximum: 255 }
     validates :user, :presence => true
 
