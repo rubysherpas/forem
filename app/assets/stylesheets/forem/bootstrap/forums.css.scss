@@ -1,0 +1,31 @@
+.forum .title {
+  font-size: 25px;
+}
+
+.forum #description {
+  display: block;
+  margin: 10px 0px;
+  padding: 5px;
+  background: #efefef;
+}
+
+.forums thead th {
+  background: #0088cc;
+  color: white;
+  padding: 10px;
+  border-bottom: 3px solid #232323;
+  font-size: 110%;
+}
+
+.forums .last_post {
+  font-style: italic;
+
+  time {
+    color: #aaa;
+    font-size: 75%;
+  }
+}
+
+#forum #forum_topic_links {
+  margin-bottom: 10px;
+}

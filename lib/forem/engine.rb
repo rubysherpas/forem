@@ -18,6 +18,7 @@ module ::Forem
       app.config.assets.precompile += %w[
         forem/admin/members.js
       ]
+      config.assets.precompile += %w(forem.css forem.js forem-bootstrap.css)
     end
   end
 end
