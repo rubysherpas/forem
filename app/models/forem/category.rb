@@ -6,7 +6,7 @@ module Forem
     friendly_id :name, :use => [:slugged, :finders]
 
     has_many :forums
-    validates :name, :presence => true
+    validates :name, uniqueness: { case_sensitive: false}, presence: true
     validates :position, numericality: { only_integer: true }
 
     scope :by_position, -> { order(:position) }
