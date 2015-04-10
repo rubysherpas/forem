@@ -14,7 +14,8 @@ module Forem
     has_many :moderators, :through => :moderator_groups, :source => :group
     has_many :moderator_groups
 
-    validates :category, :name, :description, :presence => true
+    validates :category, :description, :presence => true
+    validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :category_id }
     validates :position, numericality: { only_integer: true }
 
     alias_attribute :title, :name

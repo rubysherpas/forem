@@ -32,7 +32,7 @@ module Forem
     has_many :files, as: :owner
     accepts_nested_attributes_for :files, allow_destroy: true, reject_if: :all_blank
 
-    validates :subject, :presence => true, :length => { maximum: 255 }
+    validates :subject, uniqueness: { case_sensitive: false, scope: :forum_id }, presence: true, length: { maximum: 255 }
     validates :user, :presence => true
 
     before_save  :set_first_post_user
