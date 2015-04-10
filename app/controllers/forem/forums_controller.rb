@@ -9,7 +9,7 @@ module Forem
 
     def search
       @search = Forem::Topic.ransack(params[:q])
-      @results  = @search.result.includes(:posts)
+      @results  = @search.result(distinct: true).includes(:posts)
       @results = [EmptySearch.new] if @results.empty?
     end
 
