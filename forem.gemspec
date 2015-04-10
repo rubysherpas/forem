@@ -34,4 +34,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'carrierwave', '~> 0.10'
   s.add_dependency 'cocoon', '~> 1.2.6'
   s.add_dependency 'ransack', '~> 1.6.6'
+  s.add_dependency 'bootstrap-sass', '~> 3.1'
 end

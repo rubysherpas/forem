@@ -1,0 +1,28 @@
+.topics thead th {
+  background: #0088cc;
+  color: white;
+  padding: 5px;
+  border-bottom: 3px solid #232323;
+  font-size: 110%;
+}
+
+.topic td.byline {
+  padding: 10px;
+}
+
+.topic .subject {
+  font-size: 20px;
+}
+
+.new_topic textarea {
+  width: 50%;
+  min-height: 250px;
+}
+
+#topic #menu {
+  margin-bottom: 10px;
+}
+
+#topic .moderation {
+  background: #FFED9E;
+}

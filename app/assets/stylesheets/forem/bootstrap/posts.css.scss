@@ -1,0 +1,32 @@
+.post {
+  border: 1px solid #dedede;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  min-height: 70px;
+
+  .alert {
+    margin: 10px;
+  }
+
+  .contents {
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    min-height: inherit;
+
+    time {
+      font-size: 75%;
+      font-style: italic;
+      display: block;
+    }
+  }
+
+  .in-reply-to {
+    font-size: 85%;
+  }
+}
+
+.new_post textarea {
+  width: 50%;
+  min-height: 250px;
+}
