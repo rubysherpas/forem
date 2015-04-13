@@ -28,8 +28,7 @@ module Forem
       end
 
       def destroy
-        @category.destroy
-        destroy_successful
+        @category.destroy ? destroy_successful : destroy_failed
       end
 
       private
@@ -54,6 +53,11 @@ module Forem
 
       def destroy_successful
         flash[:notice] = t("forem.admin.category.deleted")
+        redirect_to admin_categories_path
+      end
+
+      def destroy_failed
+        flash[:notice] = 'Can\'t delete category'
         redirect_to admin_categories_path
       end
 

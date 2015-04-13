@@ -11,9 +11,18 @@ module Forem
 
     scope :by_position, -> { order(:position) }
 
+    before_destroy :check_forums, prepend: true
+
     def to_s
       name
     end
 
+    private
+
+    def check_forums
+      errors.add :forums, 'Category isn\'t empty' if forums.present?
+
+      errors.blank?
+    end
   end
 end
