@@ -35,6 +35,7 @@ module Forem
     validates :subject, uniqueness: { case_sensitive: false, scope: :forum_id }, presence: true, length: { maximum: 255 }
     validates :user, :presence => true
 
+    before_validation :strip_whitespace
     before_save  :set_first_post_user
     after_create :subscribe_poster
     after_create :skip_pending_review, :unless => :moderated?
@@ -157,6 +158,12 @@ module Forem
 
     def moderated?
       user.forem_moderate_posts?
+    end
+
+    private
+
+    def strip_whitespace
+      self.subject = self.subject.strip
     end
   end
 end

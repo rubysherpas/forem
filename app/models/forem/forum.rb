@@ -22,6 +22,8 @@ module Forem
 
     default_scope { order(:position) }
 
+    before_validation :strip_whitespace
+
     def last_post_for(forem_user)
       if forem_user && (forem_user.forem_admin? || moderator?(forem_user))
         posts.last
@@ -40,6 +42,12 @@ module Forem
 
     def to_s
       name
+    end
+
+    private
+
+    def strip_whitespace
+      self.name = self.name.strip
     end
   end
 end

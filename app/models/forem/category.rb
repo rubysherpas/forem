@@ -11,6 +11,7 @@ module Forem
 
     scope :by_position, -> { order(:position) }
 
+    before_validation :strip_whitespace
     before_destroy :check_forums, prepend: true
 
     def to_s
@@ -18,6 +19,10 @@ module Forem
     end
 
     private
+
+    def strip_whitespace
+      self.name = self.name.strip
+    end
 
     def check_forums
       errors.add :forums, 'Category isn\'t empty' if forums.present?

@@ -124,7 +124,8 @@ module Forem
     end
 
     def spam
-      user.update_column(:forem_state, "spam") if user
+      # Prevent spammer blocking
+      #user.update_column(:forem_state, "spam") if user
     end
 
   end
