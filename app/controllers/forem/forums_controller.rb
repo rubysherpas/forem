@@ -4,7 +4,7 @@ module Forem
     helper 'forem/topics'
 
     def index
-      @categories = Forem::Category.by_position
+      @categories = Forem::Category.by_position.joins(:forums)
     end
 
     def search
