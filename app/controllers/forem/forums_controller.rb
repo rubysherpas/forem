@@ -10,9 +10,13 @@ module Forem
     end
 
     def search
-      @search = Forem::Topic.ransack(params[:q])
-      @results  = @search.result(distinct: true).includes(:posts)
-      @results = [EmptySearch.new] if @results.empty?
+      if params[:q][:text_cont].blank?
+        @results = [EmptySearch.new]
+      else
+        @search = Forem::Post.ransack(params[:q])
+        @results = @search.result(distinct: true)
+        @results = [EmptySearch.new] if @results.empty?
+      end
     end
 
     def show
