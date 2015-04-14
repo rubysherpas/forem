@@ -11,10 +11,10 @@
     <div class="container">
 
     <div id='forums_container'>
-      <%= search_form_for @search || Forem::Topic.ransack, url: topics_search_forums_path do |form| %>
+      <%= search_form_for @search || Forem::Post.ransack, url: posts_search_forums_path do |form| %>
         <div>
-          <%= form.label :subject_or_posts_text_cont, "Search Posts & Topics:" %>
-          <%= form.search_field :subject_or_posts_text_cont %>
+          <%= form.label :text_cont, "Search Posts:" %>
+          <%= form.search_field :text_cont %>
 
           <%= form.submit "Search" %>
         </div>

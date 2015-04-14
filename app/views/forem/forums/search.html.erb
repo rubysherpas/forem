@@ -1,9 +1,7 @@
 <div id='forums_container'>
   <ul>
     <% @results.each do |result| %>
-      <% if result.class.to_s == "Forem::Topic" %>
-        <li><%= result.subject %></li>
-      <% elsif result.class.to_s == "Forem::Post" %>
+      <% if result.class.to_s == "Forem::Post" %>
         <li><%= result.text %></li>
       <% elsif result.class.to_s == "Forem::EmptySearch" %>
         <li><%= result.message %></li>
