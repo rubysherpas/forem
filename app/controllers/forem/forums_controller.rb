@@ -7,6 +7,7 @@ module Forem
       @categories = Forem::Category.by_position.select do |c|
         c.forums.present?
       end
+      @categories.sort_by! { |c| c.name }
     end
 
     def search
