@@ -11,17 +11,22 @@ module Forem
     end
 
     def search
-      if params[:q][:text_cont].blank?
+      if params[:q][:subject_cont].blank?
         @results = [EmptySearch.new]
       else
-        @search = Forem::Post.ransack(params[:q])
+        params[:z] = {"text_cont"=> params[:q][:subject_cont]}
+        @post_search = Forem::Post.ransack(params[:z]) 
+        @post_results = @post_search.result(distinct: true)
+        @post_results = [EmptySearch.new] if @post_results.empty?
+
+        @search = Forem::Topic.ransack(params[:q])
         @results = @search.result(distinct: true)
         @results = [EmptySearch.new] if @results.empty?
       end
     end
 
     def show
-      @forum = Forem::Forum.find_by(id: params[:id])
+      @forum = Forem::Forum.find_by(slug: params[:id])
       unless @forum
         return redirect_to forums_path
       end
