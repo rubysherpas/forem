@@ -1,6 +1,6 @@
 module Forem
   class ForumsController < Forem::ApplicationController
-    load_and_authorize_resource :class => 'Forem::Forum', :only => :show
+    authorize_resource :class => 'Forem::Forum', :only => :show
     helper 'forem/topics'
 
     def index
@@ -21,6 +21,11 @@ module Forem
     end
 
     def show
+      @forum = Forem::Forum.find_by(id: params[:id])
+      unless @forum
+        return redirect_to forums_path
+      end
+
       authorize! :show, @forum
       register_view
 
@@ -31,7 +36,6 @@ module Forem
       end
 
       @topics = @topics.by_pinned_or_most_recent_post
-
       # Kaminari allows to configure the method and param used
       @topics = @topics.send(pagination_method, params[pagination_param]).per(Forem.per_page)
 
