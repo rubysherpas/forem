@@ -24,6 +24,7 @@ module ::Forem
 end
 
 require 'ransack'
+require 'bootstrap-wysihtml5-rails'
 require 'simple_form'
 require 'emoji'
 require 'select2-rails'
