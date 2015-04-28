@@ -39,6 +39,7 @@ Forem::Engine.routes.draw do
   # Moderation of a single topic
   put '/:forum_id/topics/:topic_id/moderate', :to => "moderation#topic", :as => :moderate_forum_topic
 
+
   resources :forums, :only => [:index, :show], :path => "/" do
     get :search, on: :collection, as: :posts_search
     resources :topics, :except => :index do
@@ -49,4 +50,6 @@ Forem::Engine.routes.draw do
       end
     end
   end
+
+  match '*path' => redirect('/forum'), via: :get
 end
