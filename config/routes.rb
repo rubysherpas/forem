@@ -27,6 +27,11 @@ Forem::Engine.routes.draw do
       end
     end
 
+    resources :notifications, only: [:index]
+    post '/notifications/subscribe', to: "notifications#subscribe",
+      as: "notifications_subscribe"
+    post '/notifications/unsubscribe', to: "notifications#unsubscribe",
+      as: "notifications_unsubscribe"
 
     resources :categories
 

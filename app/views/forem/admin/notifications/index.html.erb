@@ -1,0 +1,32 @@
+<% @forums.each do |forum| %>
+  <h3><%= forum.name %></h3>
+  <ul>
+    <% forum.topics.each do |topic| %>
+      <li><%= "Topic: #{topic.subject}  " %>
+      <%= check_box_tag topic.id, topic.subscriber?(forem_user.id),
+          topic.subscriber?(forem_user.id), autocomplete: 'off',
+          class: "topic", value: topic.id, name: topic.subject  %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<script>
+
+$(document).ready(function(){
+  $('.topic').change(function() {
+    if ($(this).is(":checked")) {
+      var url = "<%= forem.admin_notifications_subscribe_url %>";
+      var msg = "Subscribed to: " + $(this).attr("name");
+    }
+    else {
+      var url = "<%= forem.admin_notifications_unsubscribe_url %>";
+      var msg = "Unsubscribed to: " + $(this).attr("name");
+    }
+
+    $.post( url, { topic_id: $(this).val(), user_id: '<%= forem_user.id %>' },
+        function() { alert(msg) });
+    });
+  });
+
+</script>
+
