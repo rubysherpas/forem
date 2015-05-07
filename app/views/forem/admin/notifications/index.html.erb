@@ -1,5 +1,11 @@
+<% subscribe_url = "#{CONFIG.site_url}forum/admin/notifications/subscribe" %>
+<% unsubscribe_url = "#{CONFIG.site_url}forum/admin/notifications/unsubscribe" %>
+
+<%= link_to t('Back to Forums', :scope => 'forem.admin'), forem.root_path %><br>
+<%= link_to t('Back to Admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
+
 <% @forums.each do |forum| %>
-  <h3><%= forum.name %></h3>
+  <h3>Forum: <%= forum.name %></h3>
   <ul>
     <% forum.topics.each do |topic| %>
       <li><%= "Topic: #{topic.subject}  " %>
@@ -15,11 +21,11 @@
 $(document).ready(function(){
   $('.topic').change(function() {
     if ($(this).is(":checked")) {
-      var url = "<%= forem.admin_notifications_subscribe_url %>";
+      var url = "<%= subscribe_url %>";
       var msg = "Subscribed to: " + $(this).attr("name");
     }
     else {
-      var url = "<%= forem.admin_notifications_unsubscribe_url %>";
+      var url = "<%= unsubscribe_url %>";
       var msg = "Unsubscribed to: " + $(this).attr("name");
     }
 
