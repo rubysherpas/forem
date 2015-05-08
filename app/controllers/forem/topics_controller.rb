@@ -1,5 +1,7 @@
 module Forem
   class TopicsController < Forem::ApplicationController
+    skip_before_action :verify_authenticity_token, only: :unsubscribe
+
     helper 'forem/posts'
     before_filter :authenticate_forem_user, :except => [:show]
     before_filter :find_forum
