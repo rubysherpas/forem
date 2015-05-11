@@ -52,6 +52,7 @@ Forem::Engine.routes.draw do
       member do
         post :subscribe
         post :unsubscribe
+        get :unsubscribe
       end
     end
   end
