@@ -1,6 +1,3 @@
-<% subscribe_url = "#{CONFIG.site_url}forum/admin/notifications/subscribe" %>
-<% unsubscribe_url = "#{CONFIG.site_url}forum/admin/notifications/unsubscribe" %>
-
 <%= link_to t('Back to Forums', :scope => 'forem.admin'), forem.root_path %><br>
 <%= link_to t('Back to Admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
 
@@ -21,11 +18,11 @@
 $(document).ready(function(){
   $('.topic').change(function() {
     if ($(this).is(":checked")) {
-      var url = "<%= subscribe_url %>";
+      var url = "/forum/admin/notifications/subscribe";
       var msg = "Subscribed to: " + $(this).attr("name");
     }
     else {
-      var url = "<%= unsubscribe_url %>";
+      var url = "/forum/admin/notifications/unsubscribe";
       var msg = "Unsubscribed to: " + $(this).attr("name");
     }
 
