@@ -13,6 +13,7 @@ module Forem
     def search
       if params[:q][:subject_cont].blank?
         @results = [EmptySearch.new]
+        @post_results = [EmptySearch.new]
       else
         params[:z] = {"text_cont"=> params[:q][:subject_cont]}
         @post_search = Forem::Post.ransack(params[:z]) 
