@@ -13,6 +13,10 @@ module Forem
         end
       end
 
+      def edit
+        @topic.files.build
+      end
+
       def destroy
         forum = @topic.forum
         @topic.destroy
@@ -41,9 +45,10 @@ module Forem
       private
 
         def topic_params
-          params.require(:topic).permit(:subject, :forum_id, :locked, :pinned, :hidden)
+          params.require(:topic).permit(:subject, :forum_id, :locked, :pinned,
+                                   :hidden, files_attributes: [:id, :file,
+                                   :_destroy], :posts_attributes => [[:text]])
         end
-
         def find_topic
           @topic = Forem::Topic.friendly.find(params[:id])
         end
