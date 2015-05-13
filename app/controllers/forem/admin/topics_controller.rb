@@ -9,6 +9,7 @@ module Forem
           redirect_to forum_topic_path(@topic.forum, @topic)
         else
           flash.alert = t("forem.topic.not_updated")
+          @topic.files.build
           render :action => "edit"
         end
       end
