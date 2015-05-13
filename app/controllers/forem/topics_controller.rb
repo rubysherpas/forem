@@ -71,6 +71,7 @@ module Forem
 
     def create_unsuccessful
       flash.now.alert = t('forem.topic.not_created')
+      @topic.files.build
       render :action => 'new'
     end
 
