@@ -1,4 +1,3 @@
-# This migration comes from forem (originally 20110221092741)
 class CreateForemTopics < ActiveRecord::Migration
   def up
     create_table :forem_topics do |t|

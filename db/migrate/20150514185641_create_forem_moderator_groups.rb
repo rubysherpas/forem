@@ -1,4 +1,3 @@
-# This migration comes from forem (originally 20120223162058)
 class CreateForemModeratorGroups < ActiveRecord::Migration
   def change
     create_table :forem_moderator_groups do |t|
