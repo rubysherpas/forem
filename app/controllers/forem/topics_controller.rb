@@ -31,6 +31,7 @@ module Forem
       if @topic.save
         create_successful
       else
+        @topic.files.build
         create_unsuccessful
       end
     end
@@ -71,7 +72,6 @@ module Forem
 
     def create_unsuccessful
       flash.now.alert = t('forem.topic.not_created')
-      @topic.files.build
       render :action => 'new'
     end
 
