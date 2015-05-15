@@ -1,22 +1,21 @@
 class CreateForemPosts < ActiveRecord::Migration
-  def up
+  def change
     create_table :forem_posts do |t|
-      t.integer  :topic_id
-      t.text     :text
-      t.integer  :user_id
-      t.integer  :reply_to_id
-      t.timestamps
+      t.integer :topic_id
+      t.text :text
+      t.integer :user_id
+      t.timestamps :null => false
 
-      t.string   :state, :default => 'pending_review' # ?
-      t.boolean  :notified, :default => false # ?
-      t.index    :topic_id
-      t.index    :user_id
-      t.index    :reply_to_id
-      t.index    :state
+      t.integer :reply_to_id
+      t.string :state, :default => 'pending_review'
+      t.boolean :notified, :default => false
+
+      t.index :topic_id
+      t.index :user_id
+      t.index :reply_to_id
+      t.index :state
     end
-  end
 
-  def down
-  	drop_table :forem_posts
+    Forem::Post.update_all :state => "approved"
   end
 end
