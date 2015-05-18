@@ -6,6 +6,6 @@ class AdminSubscriber
   end
 
   def create
-    @admins = Forem.user_class.where(
+   # @admins = Forem.user_class.where(
   end
 end
