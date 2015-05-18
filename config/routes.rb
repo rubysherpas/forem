@@ -32,6 +32,10 @@ Forem::Engine.routes.draw do
       as: "notifications_subscribe"
     post '/notifications/unsubscribe', to: "notifications#unsubscribe",
       as: "notifications_unsubscribe"
+    post '/notifications/auto_subscribe', to: "notifications#auto_subscribe",
+      as: "notifications_auto_subscribe"
+    post '/notifications/auto_unsubscribe', to: "notifications#auto_unsubscribe",
+      as: "notifications_auto_unsubscribe"
 
     resources :categories
 

@@ -1,16 +1,30 @@
 <%= link_to t('Back to Forums', :scope => 'forem.admin'), forem.root_path %><br>
 <%= link_to t('Back to Admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
+<hr>
+<div>
+  <h3>Forum Future Posts</h3>
+  <label>Subscription:&nbsp&nbsp </label><%= check_box_tag forem_user.forem_auto_subscribe,
+    forem_user.forem_auto_subscribe, forem_user.forem_auto_subscribe, 
+    autocomplete: 'off', id: "autosubscribe",
+    value: forem_user.forem_auto_subscribe,
+    name: "Auto Subscribe to Future Posts" %>
+</div>
+<hr>
 
-<% @forums.each do |forum| %>
-  <h3>Forum: <%= forum.name %></h3>
-  <ul>
-    <% forum.topics.each do |topic| %>
-      <li><%= "Topic: #{topic.subject}  " %>
-      <%= check_box_tag topic.id, topic.subscriber?(forem_user.id),
+<% @categories.each do |category| %>
+  <h4>Category: <%= category.name %></h4>
+  <% category.forums.each do |forum| %>
+    <label>Forum: <%= forum.name %></label>
+    <ul>
+      <% forum.topics.each do |topic| %>
+        <li><%= "Topic: #{topic.subject}  " %>
+        <%= check_box_tag topic.id, topic.subscriber?(forem_user.id),
           topic.subscriber?(forem_user.id), autocomplete: 'off',
           class: "topic", value: topic.id, name: topic.subject  %></li>
-    <% end %>
-  </ul>
+      <% end %>
+    </ul>
+  <% end %>
+  <hr>
 <% end %>
 
 <script>
@@ -29,6 +43,21 @@ $(document).ready(function(){
     $.post( url, { topic_id: $(this).val(), user_id: '<%= forem_user.id %>' },
         function() { alert(msg) });
     });
+
+  $('#autosubscribe').change(function() {
+    if ($(this).is(":checked")) {
+      var url = "/forum/admin/notifications/auto_subscribe";
+      var msg = "Subscribed to all future topics";
+    }
+    else {
+      var url = "/forum/admin/notifications/auto_unsubscribe";
+      var msg = "Unsubscribed to all future topics";
+    }
+
+    $.post( url, { user_id: '<%= forem_user.id %>' },
+        function() { alert(msg) });
+    });
+
   });
 
 </script>

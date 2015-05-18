@@ -39,6 +39,7 @@ module Forem
     before_save  :set_first_post_user
     after_create :subscribe_poster
     after_create :skip_pending_review, :unless => :moderated?
+    after_create :auto_subscriber
 
     class << self
       def visible
@@ -113,6 +114,13 @@ module Forem
 
     def subscribe_poster
       subscribe_user(user_id)
+    end
+
+    def auto_subscriber
+      admins = Forem::user_class.all.where(forem_auto_subscribe: true)
+      admins.each do |admin|
+        subscriptions.create!(subscriber_id: admin.id)
+      end
     end
 
     def subscribe_user(subscriber_id)
