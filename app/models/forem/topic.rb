@@ -40,6 +40,7 @@ module Forem
     after_create :subscribe_poster
     after_create :skip_pending_review, :unless => :moderated?
     after_create :auto_subscriber
+    after_create :category_subscriber
 
     class << self
       def visible
@@ -57,7 +58,7 @@ module Forem
       end
 
       def by_pinned_or_most_recent_post
-	order('forem_topics.pinned DESC').
+        order('forem_topics.pinned DESC').
         order('forem_topics.last_post_at DESC').
         order('forem_topics.id')
       end
@@ -120,6 +121,12 @@ module Forem
       admins = Forem::user_class.all.where(forem_auto_subscribe: true)
       admins.each do |admin|
         subscriptions.create!(subscriber_id: admin.id)
+      end
+    end
+
+    def category_subscriber
+      forum.category.category_subscriptions.each do |x|
+        subscribe_user(x.monitor_id)
       end
     end
 

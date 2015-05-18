@@ -5,6 +5,7 @@ module Forem
     extend FriendlyId
     friendly_id :name, :use => [:slugged, :finders]
 
+    has_many :category_subscriptions
     has_many :forums
     validates :name, uniqueness: { case_sensitive: false}, presence: true
     validates :position, numericality: { only_integer: true }
@@ -16,6 +17,20 @@ module Forem
 
     def to_s
       name
+    end
+
+    def subscribe_user(subscriber_id)
+      if subscriber_id && !subscribed?(subscriber_id)
+        category_subscriptions.create!(monitor_id: subscriber_id)
+      end
+    end
+
+    def unsubscribe_user(subscriber_id)
+      category_subscriptions.find_by(monitor_id: subscriber_id).destroy
+    end
+
+    def subscribed?(subscriber_id)
+      category_subscriptions.find_by(monitor_id: subscriber_id) ? true : false
     end
 
     private
