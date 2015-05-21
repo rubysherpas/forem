@@ -28,14 +28,19 @@ Forem::Engine.routes.draw do
     end
 
     resources :notifications, only: [:index]
-    post '/notifications/subscribe', to: "notifications#subscribe",
-      as: "notifications_subscribe"
-    post '/notifications/unsubscribe', to: "notifications#unsubscribe",
-      as: "notifications_unsubscribe"
+
     post '/notifications/auto_subscribe', to: "notifications#auto_subscribe",
       as: "notifications_auto_subscribe"
     post '/notifications/auto_unsubscribe', to: "notifications#auto_unsubscribe",
       as: "notifications_auto_unsubscribe"
+    post '/notifications/category_subscribe', to: "notifications#category_subscribe",
+      as: "notifications_category_subscribe"
+    post '/notifications/category_unsubscribe', to: "notifications#category_unsubscribe",
+      as: "notifications_category_unsubscribe"
+    post '/notifications/topic_subscribe', to: "notifications#topic_subscribe",
+      as: "notifications_topic_subscribe"
+    post '/notifications/topic_unsubscribe', to: "notifications#topic_unsubscribe",
+      as: "notifications_topic_unsubscribe"
 
     resources :categories
 

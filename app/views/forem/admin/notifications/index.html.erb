@@ -2,17 +2,22 @@
 <%= link_to t('Back to Admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
 <hr>
 <div>
-  <h3>Forum Future Posts</h3>
-  <label>Subscription:&nbsp&nbsp </label><%= check_box_tag forem_user.forem_auto_subscribe,
+  <h4>SUBSCRIBE TO ALL FUTURE TOPICS?&nbsp&nbsp
+    <%= check_box_tag forem_user.forem_auto_subscribe,
     forem_user.forem_auto_subscribe, forem_user.forem_auto_subscribe, 
     autocomplete: 'off', id: "autosubscribe",
     value: forem_user.forem_auto_subscribe,
     name: "Auto Subscribe to Future Posts" %>
+  </h4>
 </div>
 <hr>
 
 <% @categories.each do |category| %>
-  <h4>Category: <%= category.name %></h4>
+  <h4>SUBSCRIBE TO CATEGORY: <%= category.name %>&nbsp&nbsp
+  <%= check_box_tag category.id, category.subscribed?(forem_user.id),
+    category.subscribed?(forem_user.id), autocomplete: 'off',
+    class: "categorysubscribe", value: category.id, name: category.name %>
+</h4>
   <% category.forums.each do |forum| %>
     <label>Forum: <%= forum.name %></label>
     <ul>
@@ -20,7 +25,7 @@
         <li><%= "Topic: #{topic.subject}  " %>
         <%= check_box_tag topic.id, topic.subscriber?(forem_user.id),
           topic.subscriber?(forem_user.id), autocomplete: 'off',
-          class: "topic", value: topic.id, name: topic.subject  %></li>
+          class: "topic #{category.name}", value: topic.id, name: topic.subject  %></li>
       <% end %>
     </ul>
   <% end %>
@@ -32,11 +37,11 @@
 $(document).ready(function(){
   $('.topic').change(function() {
     if ($(this).is(":checked")) {
-      var url = "/forum/admin/notifications/subscribe";
+      var url = "/forum/admin/notifications/topic_subscribe";
       var msg = "Subscribed to: " + $(this).attr("name");
     }
     else {
-      var url = "/forum/admin/notifications/unsubscribe";
+      var url = "/forum/admin/notifications/topic_unsubscribe";
       var msg = "Unsubscribed to: " + $(this).attr("name");
     }
 
@@ -57,6 +62,36 @@ $(document).ready(function(){
     $.post( url, { user_id: '<%= forem_user.id %>' },
         function() { alert(msg) });
     });
+
+  $('.categorysubscribe').change(function() {
+    if ($(this).is(":checked")) {
+      var url = "/forum/admin/notifications/category_subscribe";
+      var msg = "Subscribed to Category: " + $(this).attr("name");
+      categoryTopics(true, $(this).attr("name"));
+    }
+    else {
+      var url = "/forum/admin/notifications/category_unsubscribe";
+      var msg = "Unsubscribed to Category: " + $(this).attr("name");
+      categoryTopics(false, $(this).attr("name"));
+    }
+
+    $.post( url, { category_id: $(this).val(), user_id: '<%= forem_user.id %>' },
+        function() { alert(msg) });
+    });
+
+  function categoryTopics(checkstatus, category) {
+    if (checkstatus == true)  {
+      topics = document.getElementsByClassName(category);
+      for (var i = 0, l = topics.length; i < l; i++) {
+        topics[i].checked = true;
+      }
+    } else {
+      topics = document.getElementsByClassName(category);
+      for (var i = 0, l = topics.length; i < l; i++) {
+        topics[i].checked = false;
+      }
+    }
+  };
 
   });
 
