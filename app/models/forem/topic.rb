@@ -41,6 +41,7 @@ module Forem
     after_create :skip_pending_review, :unless => :moderated?
     after_create :auto_subscriber
     after_create :category_subscriber
+    after_create :email_new_topic
 
     class << self
       def visible
@@ -118,8 +119,8 @@ module Forem
     end
 
     def auto_subscriber
-      admins = Forem::user_class.all.where(forem_auto_subscribe: true)
-      admins.each do |admin|
+      @admins = Forem::user_class.all.where(forem_auto_subscribe: true)
+      @admins.each do |admin|
         subscriptions.create!(subscriber_id: admin.id)
       end
     end
@@ -127,6 +128,18 @@ module Forem
     def category_subscriber
       forum.category.category_subscriptions.each do |x|
         subscribe_user(x.monitor_id)
+      end
+    end
+
+    def email_new_topic
+      @admins = Forem::user_class.all.where(is_admin: true)
+      @admins.each do |admin|
+        opts = {
+          forum_id: forum_id,
+          topic: id,
+          email: admin.email
+        }
+        EmailWorker.perform_async :new_topic_send_to_admin, opts
       end
     end
 

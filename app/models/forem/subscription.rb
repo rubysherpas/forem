@@ -5,11 +5,20 @@ module Forem
 
     validates :subscriber_id, :presence => true
 
-    def send_notification(post_id)
+    def send_topic_notification(post_id)
       # If a user cannot be found, then no-op
       # This will happen if the user record has been deleted.
       if subscriber.present?
-        SubscriptionMailer.topic_reply(post_id, subscriber.id).deliver
+
+        post = Post.find(post_id)
+        user = Forem.user_class.find(subscriber_id)
+        opts = {
+          forum_id: post.topic.forum_id,
+          post: post.id,
+          topic: post.topic,
+          email: user.email
+        }
+        EmailWorker.perform_async :forum_post_send_to_subscriber, opts
       end
     end
   end

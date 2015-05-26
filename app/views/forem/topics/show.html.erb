@@ -9,6 +9,7 @@
       <% if @topic.user == forem_user || forem_admin? %>
         <%= link_to t(".delete"), forem.forum_topic_path(@forum, @topic), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-danger" %>
       <% end %>
+
       <% if forem_user %>
         <% if !@topic.subscriber?(forem_user.id) %>
           <%= link_to t(".subscribe"), forem.subscribe_forum_topic_path(@forum, @topic), :method => :post, :class => "btn btn-success" %>
@@ -17,6 +18,7 @@
         <% end %>
       <% end %>
     </div>
+
     <% if forem_admin? %>
       <div class='btn-group'>
         <%= link_to t('forem.topic.links.edit'), forem.edit_admin_forum_topic_path(@forum, @topic), :class => "btn" %>
