@@ -106,7 +106,7 @@ module Forem
 
     def email_topic_subscribers
       topic.subscriptions.includes(:subscriber).find_each do |subscription|
-        subscription.send_topic_notification(id) if subscription.subscriber != user
+        subscription.send_post_notification(id) if subscription.subscriber != user
       end
       update_column(:notified, true)
     end
