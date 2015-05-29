@@ -132,13 +132,14 @@ module Forem
     end
 
     def email_new_topic
-      @admins = Forem::user_class.all.where(forem_auto_subscribe: true) 
+      @admins = Forem::user_class.all.where(forem_auto_subscribe: true)
       category_subs = Forem::CategorySubscription.
                         where(category_id: forum.category_id)
       category_subs.each do |category_subscriber|
         @admins << Forem::user_class.find_by(id: category_subscriber.monitor_id)
       end
-      @admins.each do |admin|
+      @email_users = @admins.to_a.uniq
+      @email_users.each do |admin|
         opts = {
           forum_id: forum_id,
           topic: id,

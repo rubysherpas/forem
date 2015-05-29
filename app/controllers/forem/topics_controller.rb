@@ -11,7 +11,6 @@ module Forem
       if find_topic
         register_view(@topic, forem_user)
         @posts = find_posts(@topic)
-
         # Kaminari allows to configure the method and param used
         @posts = @posts.send(pagination_method, params[pagination_param]).per(Forem.per_page)
       end
@@ -77,13 +76,11 @@ module Forem
 
     def destroy_successful
       flash[:notice] = t("forem.topic.deleted")
-
       redirect_to @topic.forum
     end
 
     def destroy_unsuccessful
       flash.alert = t("forem.topic.cannot_delete")
-
       redirect_to @topic.forum
     end
 
