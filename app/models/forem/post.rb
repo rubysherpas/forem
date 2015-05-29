@@ -100,15 +100,25 @@ module Forem
     # Called when a post is approved.
     def approve
       approve_user
-      return if notified?
+      return if all_subscribers_notified?
       email_topic_subscribers
     end
 
-    def email_topic_subscribers
-      topic.subscriptions.includes(:subscriber).find_each do |subscription|
+    def email_topic_subscribers(admin_s_only=false)
+
+      users_to_be_emailed = topic.subscriptions.includes(:subscriber).joins(:subscriber)
+
+      if admin_s_only
+        users_to_be_emailed = users_to_be_emailed.where("users.is_admin = 't'")
+      else
+        users_to_be_emailed = users_to_be_emailed.where("users.is_admin = 'f'")
+      end
+      
+      users_to_be_emailed.find_each do |subscription|
         subscription.send_post_notification(id) if subscription.subscriber != user
       end
-      update_column(:notified, true)
+      
+      admin_s_only ? update_column(:admin_s_notified, true) : update_column(:all_subscribers_notified, true) #if !admin_only
     end
 
     def set_topic_last_post_at
@@ -116,7 +126,7 @@ module Forem
     end
 
     def skip_pending_review
-      approve! unless user && user.forem_moderate_posts?
+      user && user.forem_moderate_posts? ? email_topic_subscribers(true) : approve!
     end
 
     def approve_user
