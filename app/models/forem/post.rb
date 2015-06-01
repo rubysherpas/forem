@@ -110,7 +110,7 @@ module Forem
 
       if admin_s_only
         users_to_be_emailed = users_to_be_emailed.where("users.is_admin = 't'")
-      else
+      elsif admin_s_notified
         users_to_be_emailed = users_to_be_emailed.where("users.is_admin = 'f'")
       end
       
