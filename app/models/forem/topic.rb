@@ -191,7 +191,8 @@ module Forem
     end
 
     def moderated?
-      user.forem_moderate_posts?
+      false
+      #user.forem_moderate_posts?
     end
 
     private
