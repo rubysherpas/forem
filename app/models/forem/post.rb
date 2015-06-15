@@ -126,7 +126,10 @@ module Forem
     end
 
     def skip_pending_review
-      user && user.forem_moderate_posts? ? email_topic_subscribers(true) : approve!
+      # user && user.forem_moderate_posts? ? email_topic_subscribers(true) : approve!
+      email_topic_subscribers(true)
+      approve_user 
+      update_column(:state, 'approved')
     end
 
     def approve_user
