@@ -199,6 +199,7 @@ We currently have support for the following languages:
 * Russian
 * Slovak
 * Spanish
+* Turkish
 
 Patches for new translations are very much welcome!
 

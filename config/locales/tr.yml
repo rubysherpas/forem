@@ -1,0 +1,191 @@
+tr:
+  forem:
+    general:
+      forum: Forum
+      topics: Konular
+      topic: Konu
+      posts: Mesajlar
+      posts_count:
+        zero: Mesaj yok
+        one: 1 mesaj
+        other: "%{count} mesaj"
+      flagged_for_spam: Hesabınız spam olarak bildirildi.
+      cannot_create_topic: Şu anda yeni konu yaratamazsınız.
+      cannot_create_post: Şu anda yeni mesaj ekleyemezsiniz.
+
+    access_denied: "Bu işlem için yetkiniz yok."
+    admin:
+      area: Yönetim sayfası
+      welcome: "Yönetim paneline hoşgeldiniz."
+      forum:
+        index: Forumları yönetin
+        new: Yeni forum açın
+        new_link: Yeni forum
+        deleted: Seçtiğiniz forum silinmiştir.
+        created: Bu forum yaratıldı.
+        not_created: Bu forum yaratılamadı.
+        updated: Bu forum güncellendi.
+        not_updated: Bu forum güncellenemedi.
+      forums:
+        edit: Değiştir
+        delete: Sil
+        category: Kategori
+        delete_confirm: Silmek istediğinizden eminmisiniz ? 
+        index:
+          last_post: Son mesaj
+          none: Yok
+      group:
+        index: Grupları yönet
+        created: Grup başarıyla yaratıldı.
+        not_created: Grup yaratılamadı.
+        deleted: Seçilen grup silindi.
+      groups:
+        show:
+          add_member: Ekle
+      category:
+        index: Forum kategorilerini yönet
+        new: Yeni forum kategorisi yarat
+        new_link: Yeni forum kategorisi
+        deleted: Forum kategorisi silinmiştir.
+        created: Bu forum kategorisi eklenmiştir.
+        not_created: Bu forum kategorisini eklenemedi.
+        updated: Bu forum kategorisi güncellendi.
+        not_updated: Bu forum kategorisi güncellenemedi.
+      categories:
+        edit: Güncelle
+        delete: Sil
+        category: Kategori
+        delete_confirm: Bu kategoriyi silmek istyediğinizden eminmisiniz ?
+    common:
+      pages: Sayfalar
+    errors:
+      not_signed_in: Giriş yapmalısınız.
+      access_denied: Yetkiniz bulunmadı.
+    forum:
+      header: "%{title}'i aç"
+      forums: Forumlar
+      new: Yeni forum aç
+      edit: "%{title} forum'u güncelle"
+      topics_count:
+        zero: 0 konu
+        one: 1 konu
+        other: "%{count} konu"
+      posts_count:
+        zero: 0 mesaj
+        one: 1 mesaj
+        other: "%{count} mesaj"
+      moderator_tools: "Moderasyon seçenekleri"
+    forums:
+      index:
+        title: Forum
+        forum: Forum
+        views: Görüntüleme
+        last_post: 'Son mesaj:'
+        none: Yok
+    topic:
+      headings:
+        topic: Konu
+        latest: Sonuncu
+        posts: Mesaj
+        views: Görüntüleme
+      moderation:
+        success: Bu yazı moderatör tarafından değiştirildi.
+      reply: Cevapla
+      quote: Alıntı yap
+      delete: Sil
+      created: Bu konu eklendi.
+      new: Yeni konu yarat
+      edit: Konu güncelle
+      not_created: Konu eklenemedi.
+      deleted: Konu silindi.
+      cannot_delete: Sizin olmayan bir konuyu silemezsiniz.
+      updated: Konu güncellendi.
+      not_updated: Konu güncellenemedi.
+      subscribed: Bu konuya abone oldunuz.
+      unsubscribed: Bu konuya aboneliğinizi sonlandırdınız.
+      none: Bu forumda hiç bir konu bulunamadı.
+      links:
+        new: Yeni konu
+        back_to_topics: Konulara geri dön
+        edit: Konuyu değiştir
+      not_found: Aranan konu bulunamadı.
+      hidden:
+        'true': Bu konu gizlendi.
+        'false': Bu konu görüntülenebilinir.
+      locked:
+        'true': Bu konu kapatıldı.
+        'false': Bu konu açık.
+      pinned:
+        'true': Bu konu iğnelendi.
+        'false': "Bu konunun iğnesi kaldırıldı."
+    topics:
+      show:
+        reply: Cevapla
+        delete: Sil
+        subscribe: "Abone ol"
+        unsubscribe: Abonelikten çık
+        reply_to_topic: Konuya cevap yaz
+        pending_review: Bu konu revize edilmektedir, yalnız sahibi ve moderatörler görüntüleyebilir.
+        hide:
+          'true': Konuyu görüntüle
+          'false': Konuyu gizle
+        lock:
+          'true': Konuyu kapat
+          'false': Konuyu aç
+        pin:
+          'true': Konuyu iğnele
+          'false': Konuyu kaldır
+    post:
+      buttons:
+        reply: Cevapla
+        edit: Değiştir
+      created: Konunuz kaydetdildi.
+      new: Cevap yaz
+      edit: Değiştir
+      not_created: Konunuz kaydedilemedi.
+      not_created_topic_locked: Kapalı konulara cevap yazamazsınız.
+      edited: Mesajınız güncellendi.
+      not_edited: Mesajınız güncellenemedi.
+      deleted: Mesajınız silindi.
+      deleted_with_topic: Konu ve mesajlar silindi.
+      cannot_delete: Sahibi olmadığınız bir mesajı silemezsiniz.
+      in_reply_to: "a cevaben"
+    posts:
+      moderation:
+        moderate: Moderasyon
+        approve: Onayla
+        success: Seçili mesajlar moderatör tarafından revize edildi.
+      post:
+        pending_review: Bu mesaj revize edilmektedir. Yalnız sahibi ve moderatöreler görüntüleyebilir.
+    moderation:
+      title: "%{forum} için moderasyon seçenekleri."
+  helpers:
+    submit:
+      forum:
+        create: Forum aç
+        update: Forum güncelle
+      topic:
+        create: Konu aç
+        update: Konu güncelle
+  simple_form:
+    labels:
+      forum:
+        title: Başlık
+        description: Tanım
+      topic:
+        subject: Konu
+        locked: Kapalı
+        pinned: İğneli
+        hidden: Gizli
+        posts:
+          text: Metin
+      post:
+        text: Metin
+
+  # General stuff
+  time_ago_in_words: " %{time} var"
+  ago: " önce"
+  ago_by: "ago_by "
+  by: "by "
+  started_by: "started by "
+  are_you_sure: "Edminmisiniz ?"
