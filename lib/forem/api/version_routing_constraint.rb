@@ -17,7 +17,7 @@ module Forem
       private
 
       def requested_this_version?(request)
-        Integer(requested_version(request)) == @version
+        requested_version(request) == @version
       end
 
       def no_requested_version?(request)
@@ -28,7 +28,7 @@ module Forem
         accept = request.headers['Accept']
         accept &&
           accept[/application\/vnd\.forem\+json; version=([0-9]+)/] &&
-          $1
+          Integer($1)
       end
 
       # True if no later API version exists.
