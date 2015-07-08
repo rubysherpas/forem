@@ -9,6 +9,10 @@ describe 'Forums API', type: :request do
       Accept: 'application/vnd.forem+json; version=1'
   end
 
+  def included_objects_of_type(type)
+    json[:included].select { |o| o[:type] == type }
+  end
+
   describe '#show' do
     before { api :get, api_forum_path(forum) }
 
@@ -26,22 +30,21 @@ describe 'Forums API', type: :request do
       expect(data[:attributes][:slug]).to eq forum.slug
     end
 
-    let(:related_topics) { json[:relationships][:topics] }
-    let(:included_objects) { json[:included] }
+    let(:related_topics) { data[:relationships][:topics] }
+    let(:related_topic) { related_topics[:data].first }
+    let(:included_topics) { included_objects_of_type('topics') }
+    let(:included_topic) { included_topics.first }
 
     it 'describes topic relationships' do
       expect(related_topics[:data].length).to eq 1
-      related_topic = related_topics[:data].first
 
       expect(related_topic[:type]).to eq 'topics'
       expect(related_topic[:id]).to eq topic.id
     end
 
     it 'includes topic data' do
-      expect(included_objects.length).to eq 1
-      included_topic = included_objects.first
+      expect(included_topics.length).to eq 1
 
-      expect(included_topic[:type]).to eq 'topics'
       expect(included_topic[:id]).to eq topic.id
       expect(included_topic[:attributes][:subject]).to eq topic.subject
     end

@@ -4,13 +4,13 @@ json.data do
   json.attributes do
     json.(@forum, :title, :slug)
   end
-end
 
-json.relationships do
-  json.topics do
-    json.data @forum.topics do |topic|
-      json.type 'topics'
-      json.(topic, :id)
+  json.relationships do
+    json.topics do
+      json.data @forum.topics do |topic|
+        json.type 'topics'
+        json.(topic, :id)
+      end
     end
   end
 end
