@@ -19,6 +19,7 @@ json.included @forum.topics do |topic|
   json.type 'topics'
   json.(topic, :id)
   json.attributes do
-    json.(topic, :subject)
+    json.(topic, :subject, :views_count)
+    json.posts_count relevant_posts(topic).count
   end
 end

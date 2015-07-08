@@ -2,7 +2,12 @@ require 'spec_helper'
 
 describe 'Forums API', type: :request do
   let(:forum) { create(:forum) }
-  let!(:topic) { create(:topic, forum: forum) }
+  let!(:topic) { create(:approved_topic, forum: forum) }
+  let!(:post) { create(:approved_post, topic: topic) }
+
+  before do
+    topic.register_view_by(post.user)
+  end
 
   def api(method, action, params = {})
     send method, action, params,
@@ -47,6 +52,8 @@ describe 'Forums API', type: :request do
 
       expect(included_topic[:id]).to eq topic.id
       expect(included_topic[:attributes][:subject]).to eq topic.subject
+      expect(included_topic[:attributes][:posts_count]).to eq 2
+      expect(included_topic[:attributes][:views_count]).to eq 1
     end
   end
 end
