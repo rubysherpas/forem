@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Forem::Admin::ForumsController do
+  use_forem_routes
   let(:user) { FactoryGirl.create(:user, forem_admin: true) }
 
   before do

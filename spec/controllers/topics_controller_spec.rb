@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Forem::TopicsController do
+  use_forem_routes
+
   context "attempting to subscribe to a hidden topic" do
     let!(:forum) { create(:forum) }
     let!(:topic) { create(:topic) }
