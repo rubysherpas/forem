@@ -140,7 +140,7 @@ module Forem
     protected
     def set_first_post_user
       post = posts.first
-      post.user = user
+      post.user = user if post
     end
 
     def skip_pending_review
@@ -149,7 +149,7 @@ module Forem
 
     def approve
       first_post = posts.by_created_at.first
-      first_post.approve! unless first_post.approved?
+      first_post.approve! unless !first_post || first_post.approved?
     end
 
     def moderated?

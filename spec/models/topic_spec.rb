@@ -87,6 +87,18 @@ describe Forem::Topic do
     end
   end
 
+  context 'with no first post' do
+    before { topic.posts.clear }
+
+    it 'can be saved' do
+      topic.save
+    end
+
+    it 'can be approved' do
+      topic.approve!
+    end
+  end
+
   describe "helper methods" do
     describe "#subscribe_user" do
       let(:subscription_user) { FactoryGirl.create(:user) }
