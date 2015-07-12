@@ -10,7 +10,7 @@ describe Forem::ApplicationHelper do
           allow(helper).to receive(:will_paginate).and_return('content')
           collection = double(Forem::Post, num_pages: 10, current_page: 1, total_pages: 3, limit_value: 1)
 
-          helper.should_receive(:will_paginate).with(collection, test_option: :test)
+          expect(helper).to receive(:will_paginate).with(collection, test_option: :test)
 
           helper.forem_pages_widget(collection, test_option: :test)
         end
@@ -21,7 +21,7 @@ describe Forem::ApplicationHelper do
           allow(helper).to receive(:paginate).and_return('content')
           collection = double(Forem::Post, num_pages: 10, current_page: 1, total_pages: 3, limit_value: 1)
 
-          helper.should_receive(:paginate).with(collection, test_option: :test)
+          expect(helper).to receive(:paginate).with(collection, test_option: :test)
 
           helper.forem_pages_widget(collection, test_option: :test)
         end
