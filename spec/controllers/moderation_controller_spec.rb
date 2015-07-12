@@ -34,7 +34,6 @@ describe Forem::ModerationController do
 
   # Regression test for #238
   it "is prompted to select an option when no option selected" do
-    topic = FactoryGirl.create(:topic, :forum => forum)
     @request.env['HTTP_REFERER'] = Capybara.default_host
     allow(controller).to receive_messages :forem_admin? => true
     put :topic, forum_id: 1, topic_id: 1
