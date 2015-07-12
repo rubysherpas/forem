@@ -1,6 +1,7 @@
 language: ruby
 before_script: bundle exec rake forem:dummy_app --trace
 script: bundle exec rspec spec
+sudo: false
 env:
   - DB=postgres
   - DB=mysql
