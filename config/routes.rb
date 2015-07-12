@@ -3,6 +3,14 @@ require 'forem/api/version_routing_constraint'
 Forem::Engine.routes.draw do
   root :to => "forums#index"
 
+  namespace :api do
+    constraints Forem::API::VersionRoutingConstraint.new(1) do
+      scope module: :v1 do
+        resources :forums
+      end
+    end
+  end
+
   # resources :topics, :only => [:new, :create, :index, :show, :destroy] do
   #   resources :posts
   # end
@@ -47,14 +55,6 @@ Forem::Engine.routes.draw do
       member do
         post :subscribe
         post :unsubscribe
-      end
-    end
-  end
-
-  namespace :api do
-    constraints Forem::API::VersionRoutingConstraint.new(1) do
-      scope module: :v1 do
-        resources :forums
       end
     end
   end
