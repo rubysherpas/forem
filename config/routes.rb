@@ -6,7 +6,9 @@ Forem::Engine.routes.draw do
   namespace :api do
     constraints Forem::API::VersionRoutingConstraint.new(1) do
       scope module: :v1 do
-        resources :forums
+        resources :forums do
+          resources :topics
+        end
       end
     end
   end

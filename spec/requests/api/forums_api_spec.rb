@@ -9,15 +9,6 @@ describe 'Forums API', type: :request do
     topic.register_view_by(post.user)
   end
 
-  def api(method, action, params = {})
-    send method, action, params,
-      Accept: 'application/vnd.forem+json; version=1'
-  end
-
-  def included_objects_of_type(type)
-    json[:included].select { |o| o[:type] == type }
-  end
-
   describe '#show' do
     before { api :get, api_forum_path(forum) }
 
