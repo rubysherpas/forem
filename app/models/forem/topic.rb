@@ -1,22 +1,12 @@
 require 'friendly_id'
+require 'forem/state_workflow'
 
 module Forem
   class Topic < ActiveRecord::Base
     include Forem::Concerns::Viewable
     include Forem::Concerns::NilUser
     include Workflow
-
-    workflow_column :state
-    workflow do
-      state :pending_review do
-        event :spam,    :transitions_to => :spam
-        event :approve, :transitions_to => :approved
-      end
-      state :spam
-      state :approved do
-        event :approve, :transitions_to => :approved
-      end
-    end
+    include Forem::StateWorkflow
 
     attr_accessor :moderation_option
 
