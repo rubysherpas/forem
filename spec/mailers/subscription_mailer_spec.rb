@@ -5,7 +5,7 @@ describe Forem::SubscriptionMailer do
     let(:user) { FactoryGirl.create(:user) }
     let(:topic) { FactoryGirl.create(:topic) }
     let(:post) { FactoryGirl.create(:post, :topic => topic) }
-    let(:mail) { Forem::SubscriptionMailer.topic_reply(post, user) }
+    let(:mail) { Forem::SubscriptionMailer.topic_reply(post.id, user.id) }
 
   it "sends an email announcing a forum post update" do
     mail.to.should eq([user.email])
