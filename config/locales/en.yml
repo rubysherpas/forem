@@ -122,6 +122,7 @@ en:
       not_updated: This topic could not be updated.
       subscribed: You have subscribed to this topic.
       unsubscribed: You have unsubscribed from this topic.
+      unsubscription_failed: Failed to unsubscribe you from this topic.
       none: There are no topics in this forum currently.
       links:
         new: New topic

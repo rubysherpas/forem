@@ -6,6 +6,13 @@ describe Forem::Subscription do
     FactoryGirl.build(:subscription).should be_valid
   end
 
+  context "set_token" do
+    it "sets a unique token for the subscription" do
+      subscription = Forem::Subscription.create!(subscriber_id: 1)
+      expect(subscription.token).to be_present
+    end
+  end
+
   describe "topic subscriptions" do
     before(:each) do
       Forem::Topic.any_instance.stub(:set_first_post_user)
