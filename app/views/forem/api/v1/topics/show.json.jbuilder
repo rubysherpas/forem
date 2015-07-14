@@ -4,7 +4,7 @@ json.data do
   json.type "topics"
   json.(@topic, :id)
   json.attributes do
-    json.(@topic, :subject, :views_count)
+    json.(@topic, :subject, :user_id, :created_at, :views_count)
     json.posts_count relevant_posts(@topic).count
   end
 

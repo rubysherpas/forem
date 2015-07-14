@@ -60,7 +60,7 @@ describe 'Forums API', type: :request do
       expect(included_posts.length).to eq 1
 
       expect(included_post[:id]).to eq post.id
-      created_at =Time.zone.parse(included_post[:attributes][:created_at])
+      created_at = Time.zone.parse(included_post[:attributes][:created_at])
       expect(created_at).to be_within(0.05).of(post.created_at)
     end
   end

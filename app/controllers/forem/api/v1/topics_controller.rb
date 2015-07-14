@@ -6,7 +6,8 @@ module Forem
       class TopicsController < Forem::TopicsController
         before_action { request.format = :json }
 
-        before_filter :client_generated_ids_are_unsupported
+        before_action :client_generated_ids_are_unsupported,
+          only: [:create, :update]
 
         rescue_from ActionController::ParameterMissing, with: :bad_request
         rescue_from CanCan::AccessDenied, with: :forbidden
@@ -27,6 +28,10 @@ module Forem
 
         def create_unsuccessful
           render 'member_errors', status: :bad_request
+        end
+
+        def topic_not_found
+          render nothing: true, status: :not_found
         end
 
         def bad_request
