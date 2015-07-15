@@ -88,7 +88,7 @@ module Forem
     end
 
     def create_failed
-      params[:reply_to_id] = params[:post][:reply_to_id]
+      params[:reply_to_id] = params[:post][:reply_to_id] if params[:post]
       flash.now.alert = t("forem.post.not_created")
       render :action => "new"
     end
