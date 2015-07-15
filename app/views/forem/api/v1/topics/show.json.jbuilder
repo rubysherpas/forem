@@ -8,17 +8,13 @@ json.data do
     json.posts_count relevant_posts(@topic).count
   end
 
-  last_post = relevant_posts(@topic).last
+  json.relationships do
+    json.posts do
+      json.data @topic.posts do |post|
+        included << post
 
-  if last_post
-    included << last_post
-
-    json.relationships do
-      json.last_post do
-        json.data do
-          json.type 'posts'
-          json.(last_post, :id)
-        end
+        json.type 'posts'
+        json.(post, :id)
       end
     end
   end
@@ -31,7 +27,7 @@ json.included included do |object|
   json.attributes do
     case object
     when Forem::Post
-      json.(object, :created_at)
+      json.(object, :text, :user_id, :created_at)
     end
   end
 end
