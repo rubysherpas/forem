@@ -6,7 +6,13 @@ module Forem
       extend ActiveSupport::Concern
 
       included do
-        has_many :views, :as => :viewable, :dependent => :destroy
+        has_many :views, :as => :viewable, :dependent => :destroy,
+          # dirty hack: workaround for rails 4.2.x, < 4.2.4 issue where activerecord
+          # uses views_count as a counter cache for has_many relation on views
+          # This should be removed once rails 4.2.4 is released and this bug fixed
+          # Forem issue: https://github.com/radar/forem/issues/640
+          # Rails issue: https://github.com/rails/rails/issues/19042
+          counter_cache: :this_is_not_a_column_that_exists
       end
 
       def view_for(user)
