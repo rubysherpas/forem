@@ -40,6 +40,13 @@ describe 'Posts API', type: :request do
         expect(data[:attributes][:text]).to eq 'This is a post.'
         expect(data[:attributes][:user_id]).to eq user.id
       end
+
+      let(:related_topic) { data[:relationships][:topic][:data] }
+
+      it 'references the topic' do
+        expect(related_topic[:type]).to eq 'topics'
+        expect(related_topic[:id]).to eq topic.id
+      end
     end
 
     describe 'with no data' do
