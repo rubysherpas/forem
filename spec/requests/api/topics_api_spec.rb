@@ -1,104 +1,37 @@
 require 'spec_helper'
+require 'shared_examples/api_examples'
 
 describe 'Topics API', type: :request do
+  let(:data_type) { 'topics' }
+
   let(:forum) { create(:forum) }
   let(:user) { create(:user) }
 
   let(:authorized?) { true }
 
   before do
-    Forem::Ability.any_instance.stub(:cannot?) { true } if !authorized?
+    Forem::Ability.any_instance.stub(:cannot?) { !authorized? }
 
     sign_in user
   end
 
-  let(:json) { JSON.parse(response.body).with_indifferent_access }
-  let(:data) { json[:data] }
-  let(:errors) { json[:errors] }
-
   describe '#create' do
     let(:input_data) { {type: 'topics', attributes: attributes} }
     let(:attributes) { {subject: 'New topic'} }
+    let(:invalid_attributes) { {nonexistent_attribute: 'New topic'} }
+    let(:invalid_attributes_message) { "Subject can't be blank" }
+    let(:new_resource_url) { api_forum_topic_path(forum, Forem::Topic.last) }
 
     before { api :post, api_forum_topics_path(forum), data: input_data }
 
+    it_behaves_like 'an API create request'
+
     describe 'with valid data' do
-      it 'succeeds' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:created)
-      end
-
-      it 'provides a URL for the new topic' do
-        expect(URI.parse(response.location).path).
-          to eq api_forum_topic_path(forum, Forem::Topic.last)
-      end
-
       it 'responds with JSON for the new topic' do
-        expect(data[:type]).to eq 'topics'
+        expect(data[:type]).to eq data_type
         expect(data[:attributes][:subject]).to eq 'New topic'
         expect(data[:attributes][:views_count]).to eq 0
         expect(data[:attributes][:posts_count]).to eq 0
-      end
-    end
-
-    describe 'with no data' do
-      let(:attributes) { {} }
-
-      it 'fails' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:bad_request)
-      end
-    end
-
-    describe 'with invalid data' do
-      let(:attributes) { {nonexistent_attribute: 'New topic'} }
-
-      it 'fails' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:bad_request)
-      end
-
-      it 'does not create a topic' do
-        expect(Forem::Topic.count).to eq 0
-      end
-
-      it 'returns error objects' do
-        expect(errors).not_to be_blank
-
-        expect(errors.first[:title]).to eq "Subject can't be blank"
-      end
-    end
-
-    describe 'with a client-generated ID' do
-      let(:input_data) {
-        {type: 'topics', id: 'generated-ID', attributes: attributes}
-      }
-
-      it 'is forbidden' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:forbidden)
-      end
-    end
-
-    describe 'from an unauthenticated user' do
-      let(:user) { nil }
-
-      it 'is forbidden' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:forbidden)
-      end
-
-      it 'does not create a topic' do
-        expect(Forem::Topic.count).to eq 0
-      end
-    end
-
-    describe 'from an unauthorized user' do
-      let(:authorized?) { false }
-
-      it 'is forbidden' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:forbidden)
       end
     end
   end
@@ -117,12 +50,10 @@ describe 'Topics API', type: :request do
       api :get, api_forum_topic_path(forum.id, topic.id)
     end
 
-    it 'succeeds' do
-      expect(response).to be_success
-    end
+    it_behaves_like 'an API show request'
 
     it 'responds with JSON for the new topic' do
-      expect(data[:type]).to eq 'topics'
+      expect(data[:type]).to eq data_type
       expect(data[:attributes][:subject]).to eq 'Old topic'
       expect(data[:attributes][:user_id]).to eq topic.user_id
       expect(data[:attributes][:views_count]).to eq 2 # including initial post
@@ -157,25 +88,7 @@ describe 'Topics API', type: :request do
       let(:topic) { build(:topic, id: 0) }
 
       it 'is not found' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:not_found)
-      end
-    end
-
-    describe 'from an unauthenticated user' do
-      let(:user) { nil }
-
-      it 'succeeds' do
-        expect(response).to be_success
-      end
-    end
-
-    describe 'from an unauthorized user' do
-      let(:authorized?) { false }
-
-      it 'is forbidden' do
-        expect(response.response_code).
-          to eq Rack::Utils::status_code(:forbidden)
+        expect(response).to be_not_found
       end
     end
   end

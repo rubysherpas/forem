@@ -1,26 +1,34 @@
 require 'spec_helper'
+require 'shared_examples/api_examples'
 
 describe 'Forums API', type: :request do
-  let(:forum) { create(:forum) }
-  let!(:topic) { create(:approved_topic, forum: forum) }
-  let!(:post) { create(:approved_post, topic: topic) }
+  let(:data_type) { 'forums' }
+
+  let(:user) { create(:user) }
+
+  let(:authorized?) { true }
 
   before do
-    topic.register_view_by(post.user)
+    Forem::Ability.any_instance.stub(:cannot?) { !authorized? }
+
+    sign_in user
   end
 
   describe '#show' do
-    before { api :get, api_forum_path(forum) }
+    let(:forum) { create(:forum) }
+    let!(:topic) { create(:approved_topic, forum: forum) }
+    let!(:post) { create(:approved_post, topic: topic) }
 
-    let(:json) { JSON.parse(response.body).with_indifferent_access }
-    let(:data) { json[:data] }
+    before do
+      topic.register_view_by(post.user)
 
-    it 'succeeds' do
-      expect(response).to be_success
+      api :get, api_forum_path(forum)
     end
 
+    it_behaves_like 'an API show request'
+
     it 'represents the forum' do
-      expect(data[:type]).to eq 'forums'
+      expect(data[:type]).to eq data_type
       expect(data[:id]).to eq forum.id
       expect(data[:attributes][:title]).to eq forum.title
       expect(data[:attributes][:slug]).to eq forum.slug
