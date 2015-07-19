@@ -62,16 +62,11 @@ describe 'Topics API', type: :request do
       expect(created_at).to be_within(0.05).of(topic.created_at)
     end
 
-    let(:related_posts) { data[:relationships][:posts] }
-    let(:related_post) { related_posts[:data].first }
     let(:included_posts) { included_objects_of_type('posts') }
     let(:included_post) { included_posts.first }
 
     it 'references related posts' do
-      expect(related_posts[:data].length).to eq 1
-
-      expect(related_post[:type]).to eq 'posts'
-      expect(related_post[:id]).to eq post.id
+      expect(data).to reference_many(:posts, ['posts', post.id])
     end
     
     it 'includes post data' do

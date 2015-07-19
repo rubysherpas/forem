@@ -27,6 +27,50 @@ RSpec::Matchers.define :have_http_status do |expected|
   end
 end
 
+RSpec::Matchers.define :reference_one do |relationship, (type, id)|
+  define_method :related do
+    actual[:relationships][relationship][:data] rescue nil
+  end
+
+  match do |actual|
+    [related[:type], related[:id]] == [type, id] if related
+  end
+
+  failure_message_for_should do
+    found = related ? "'#{related[:type]} #{related[:id]}'" : 'not found'
+
+    "expected #{actual[:type]} #{actual[:id]} " +
+      "to reference #{relationship} '#{type} #{id}'; " +
+      "was #{found}"
+  end
+end
+
+RSpec::Matchers.define :reference_many do |relationship, *expected_types_and_ids|
+  define_method :related do
+    actual[:relationships][relationship][:data] rescue nil
+  end
+
+  define_method :related_types_and_ids do
+    related.map { |item| item.values_at(:type, :id) }
+  end
+
+  def sentence(types_and_ids)
+    types_and_ids.map { |(type, id)| "'#{type} #{id}'" }.to_sentence
+  end
+
+  match do |actual|
+    related && (related_types_and_ids.sort == expected_types_and_ids.sort)
+  end
+
+  failure_message_for_should do
+    found = related ? sentence(related_types_and_ids) : 'not found'
+
+    "expected #{actual[:type]} #{actual[:id]} " +
+      "to reference #{relationship} #{sentence(expected_types_and_ids)}; " +
+      "was #{found}"
+  end
+end
+
 RSpec.configure do |c|
   c.include ApiHelpers, :type => :request
 end

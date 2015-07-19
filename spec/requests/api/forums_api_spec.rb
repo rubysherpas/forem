@@ -40,10 +40,7 @@ describe 'Forums API', type: :request do
     let(:included_topic) { included_topics.first }
 
     it 'describes topic relationships' do
-      expect(related_topics[:data].length).to eq 1
-
-      expect(related_topic[:type]).to eq 'topics'
-      expect(related_topic[:id]).to eq topic.id
+      expect(data).to reference_many(:topics, ['topics', topic.id])
     end
 
     it 'includes topic data' do
@@ -55,13 +52,11 @@ describe 'Forums API', type: :request do
       expect(included_topic[:attributes][:views_count]).to eq 1
     end
 
-    let(:related_last_post) { related_topic[:relationships][:last_post][:data] }
     let(:included_posts) { included_objects_of_type('posts') }
     let(:included_post) { included_posts.last }
 
     it 'references the last post' do
-      expect(related_last_post[:type]).to eq 'posts'
-      expect(related_last_post[:id]).to eq post.id
+      expect(related_topic).to reference_one(:last_post, ['posts', post.id])
     end
 
     it 'includes the last post' do

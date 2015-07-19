@@ -38,11 +38,8 @@ describe 'Posts API', type: :request do
         expect(data[:attributes][:user_id]).to eq user.id
       end
 
-      let(:related_topic) { data[:relationships][:topic][:data] }
-
       it 'references the topic' do
-        expect(related_topic[:type]).to eq 'topics'
-        expect(related_topic[:id]).to eq topic.id
+        expect(data).to reference_one(:topic, ['topics', topic.id])
       end
     end
   end
