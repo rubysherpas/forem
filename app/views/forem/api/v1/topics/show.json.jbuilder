@@ -18,20 +18,8 @@ json.data do
 end
 
 json.included included do |object|
-  json.type object.class.name.demodulize.downcase.pluralize
-  json.(object, :id)
-
-  json.attributes do
-    case object
-    when Forem::Post
-      json.(object, :text, :created_at)
-    end
-  end
-
-  json.relationships do
-    case object
-    when Forem::Post
-      api_has_one(json, :user, 'users', object.user_id)
-    end
+  case object
+  when Forem::Post
+    json.partial! 'forem/api/v1/posts/post', post: object
   end
 end
