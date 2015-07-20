@@ -2,22 +2,12 @@ json.data do
   json.type "posts"
   json.(@post, :id)
   json.attributes do
-    json.(@post, :text, :user_id, :created_at)
+    json.(@post, :text, :created_at)
   end
 
   json.relationships do
-    json.topic do
-      json.data do
-        json.type 'topics'
-        json.(@topic, :id)
-      end
-    end
-
-    json.forum do
-      json.data do
-        json.type 'forums'
-        json.(@topic.forum, :id)
-      end
-    end
+    api_has_one(json, :user, 'users', @post.user_id)
+    api_has_one(json, :topic, 'topics', @post.topic_id)
+    api_has_one(json, :forum, 'forums', @post.forum.id)
   end
 end

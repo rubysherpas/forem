@@ -9,21 +9,11 @@ json.data do
   end
 
   json.relationships do
-    json.forum do
-      json.data do
-        json.type 'forums'
-        json.(@forum, :id)
-      end
-    end
+    api_has_one(json, :user, 'users', @topic.user_id)
+    api_has_one(json, :forum, 'forums', @topic.forum_id)
+    api_has_many(json, :posts, 'posts', @topic.posts)
 
-    json.posts do
-      json.data @topic.posts do |post|
-        included << post
-
-        json.type 'posts'
-        json.(post, :id)
-      end
-    end
+    included += @topic.posts
   end
 end
 
@@ -34,7 +24,14 @@ json.included included do |object|
   json.attributes do
     case object
     when Forem::Post
-      json.(object, :text, :user_id, :created_at)
+      json.(object, :text, :created_at)
+    end
+  end
+
+  json.relationships do
+    case object
+    when Forem::Post
+      api_has_one(json, :user, 'users', object.user_id)
     end
   end
 end

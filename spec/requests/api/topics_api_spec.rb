@@ -55,7 +55,6 @@ describe 'Topics API', type: :request do
     it 'responds with JSON for the new topic' do
       expect(data[:type]).to eq data_type
       expect(data[:attributes][:subject]).to eq 'Old topic'
-      expect(data[:attributes][:user_id]).to eq topic.user_id
       expect(data[:attributes][:views_count]).to eq 2 # including initial post
       expect(data[:attributes][:posts_count]).to eq 1
       created_at = Time.zone.parse(data[:attributes][:created_at])
@@ -73,12 +72,16 @@ describe 'Topics API', type: :request do
       expect(data).to reference_one(:forum, ['forums', forum.id])
     end
 
+    it 'references the related user' do
+      expect(data).to reference_one(:user, ['users', topic.user_id])
+    end
+
     it 'includes post data' do
       expect(included_posts.length).to eq 1
 
       expect(included_post[:id]).to eq post.id
       expect(included_post[:attributes][:text]).to eq post.text
-      expect(included_post[:attributes][:user_id]).to eq post.user_id
+      expect(included_post[:relationships][:user][:data][:id]).to eq post.user_id
       created_at = Time.zone.parse(included_post[:attributes][:created_at])
       expect(created_at).to be_within(0.05).of(post.created_at)
     end

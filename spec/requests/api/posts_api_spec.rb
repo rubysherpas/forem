@@ -35,7 +35,6 @@ describe 'Posts API', type: :request do
       it 'responds with JSON for the new post' do
         expect(data[:type]).to eq data_type
         expect(data[:attributes][:text]).to eq 'This is a post.'
-        expect(data[:attributes][:user_id]).to eq user.id
       end
 
       it 'references the topic' do
@@ -44,6 +43,10 @@ describe 'Posts API', type: :request do
 
       it 'references the forum' do
         expect(data).to reference_one(:forum, ['forums', forum.id])
+      end
+
+      it 'references the related user' do
+        expect(data).to reference_one(:user, ['users', user.id])
       end
     end
   end

@@ -2,30 +2,25 @@ included = []
 
 json.data do
   json.type "forums"
-  json.(@forum, :id)
+  json.id @forum.id
   json.attributes do
     json.(@forum, :title, :slug)
   end
 
   json.relationships do
-    json.topics do
-      json.data @forum.topics do |topic|
-        included << topic
+    included += @forum.topics
 
-        json.type 'topics'
-        json.(topic, :id)
+    api_has_many(json, :topics, 'topics', @forum.topics) do |topic|
+      last_post = relevant_posts(topic).last
 
-        last_post = relevant_posts(topic).last
+      if last_post
+        included << last_post
 
-        if last_post
-          included << last_post
-
-          json.relationships do
-            json.last_post do
-              json.data do
-                json.type 'posts'
-                json.(last_post, :id)
-              end
+        json.relationships do
+          json.last_post do
+            json.data do
+              json.type 'posts'
+              json.(last_post, :id)
             end
           end
         end
