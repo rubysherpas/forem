@@ -9,6 +9,13 @@ json.data do
   end
 
   json.relationships do
+    json.forum do
+      json.data do
+        json.type 'forums'
+        json.(@forum, :id)
+      end
+    end
+
     json.posts do
       json.data @topic.posts do |post|
         included << post

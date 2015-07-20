@@ -68,7 +68,11 @@ describe 'Topics API', type: :request do
     it 'references related posts' do
       expect(data).to reference_many(:posts, ['posts', post.id])
     end
-    
+
+    it 'references the related forum' do
+      expect(data).to reference_one(:forum, ['forums', forum.id])
+    end
+
     it 'includes post data' do
       expect(included_posts.length).to eq 1
 

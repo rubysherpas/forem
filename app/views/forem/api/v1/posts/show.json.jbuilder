@@ -12,5 +12,12 @@ json.data do
         json.(@topic, :id)
       end
     end
+
+    json.forum do
+      json.data do
+        json.type 'forums'
+        json.(@topic.forum, :id)
+      end
+    end
   end
 end

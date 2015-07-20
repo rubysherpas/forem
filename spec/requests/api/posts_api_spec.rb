@@ -41,6 +41,10 @@ describe 'Posts API', type: :request do
       it 'references the topic' do
         expect(data).to reference_one(:topic, ['topics', topic.id])
       end
+
+      it 'references the forum' do
+        expect(data).to reference_one(:forum, ['forums', forum.id])
+      end
     end
   end
 
