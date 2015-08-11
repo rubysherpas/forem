@@ -1,0 +1,219 @@
+bs:
+  forem:
+    general:
+      deleted: [izbrisan]
+      forum: Forum
+      topics: Teme
+      topic: Tema
+      posts: Postovi
+      posts_count:
+        zero: Nema postova
+        one: 1 post
+        other: "%{count} posta"
+      flagged_for_spam: Vaš akaunt je označen kao spam.
+      cannot_create_topic: Trenutno ne možete napraviti novu temu.
+      cannot_create_post: Trenutno ne možete napraviti novi post.
+
+    access_denied: "Ne smijete to učiniti."
+    admin:
+      area: Admin Područje
+      back_to_admin: "Nazad u Admin"
+      back_to_forums: "Nazad u forume"
+      back_to_groups: "Nazad u grupe"
+      welcome: "Dobrodošli u forem-ovo Admin područje."
+      forum:
+        moderator_groups: Moderator grupe
+        index: Upravljanje Forumima
+        new: Stvaranje novog foruma
+        new_link: Novi Forum
+        deleted: Odabrani forum je izbrisan.
+        created: Ovaj forum je napravljen.
+        not_created: Ovaj forum ne može da bude napravljen.
+        updated: Ovaj forum je osvježen.
+        not_updated: Ovaj forum ne može da bude osvježen.
+      forums:
+        edit: Izmijeni
+        delete: Briši
+        category: Kategorija
+        delete_confirm: Da li ste sigurni da želite izbrisati ovaj forum?
+        index:
+          last_post: Posljednji post
+          none: Nijedan
+          moderators: Moderatori
+      group:
+        index: Upravljanje Grupama
+        new: Nova Grupa
+        created: Ova grupa je uspješno napravljena.
+        not_created: Grupe se ne može napraviti.
+        deleted: Označena grupa je izbrisana.
+        members: "Članova u %{group}"
+      groups:
+        show:
+          add_member: Dodati
+          add_a_new_member: "Dodati novog člana"
+          current_members: "Trenutni Članovi"
+          remove_member: "Ukloniti člana"
+          member_removed: "Označeni korisnik je ukloljen iz ove grupe."
+          no_member_to_remove: "Označeni korisnik ne pripada ovoj grupi."
+        edit: Izmijeni
+        delete: Briši
+        name: Ime
+      category:
+        index: Upravljanje Kategorijama Foruma
+        new: Napravti novu Kategoriju Foruma
+        edit: "Izmijena %{title} kategorije"
+        new_link: Nova Kategorija Foruma
+        deleted: Označena kategorija foruma je izbrisana.
+        created: Ova kategorija foruma je napravljena.
+        not_created: Ova kategorija forum se ne može napraviti. 
+        updated: Ova kategorija foruma je izmijenjena.
+        not_updated: Ova kategorija foruma se ne može izmijeniti.
+      categories:
+        edit: Izmijeni
+        delete: Briši
+        category: Kategorija
+        delete_confirm: Da li ste sigurni da želite izbrisati ovu Kategoriju?
+    common:
+      pages: Stranice
+    errors:
+      not_signed_in: Morate se prijaviti.
+      access_denied: Pristup odbijen.
+    forum:
+      header: "Pregled %{title}"
+      forums: Forumi
+      new: Napravi novi forum.
+      edit: "Izmijeni %{title} forum"
+      topics_count:
+        zero: 0 tema
+        one: 1 tema
+        other: "%{count} tema"
+      posts_count:
+        zero: 0 postova
+        one: 1 post
+        other: "%{count} postova"
+      moderator_tools: "Alati za moderiranje"
+    forums:
+      index:
+        title: Forumi
+        forum: Forum
+        views: Pregledi
+        last_post: 'Posljednji Post:'
+        none: Nijedan
+    topic:
+      headings:
+        topic: Tema
+        latest: Poslijednje
+        posts: Postovi
+        views: Pregledi
+      moderation:
+        success: Odabrana tema je izmijenjena.
+        no_option_selected: Nije odabrana opcija za izmijenu.
+      received_reply: Tema na koju ste predplaćeni je dobila odgovor.
+      reply: Odgovor
+      quote: Citat
+      delete: Briši
+      created: Ova tema je napravljena.
+      new: Napravi novu temu
+      edit: Izmijeni temu
+      not_created: Ova tema se ne može napraviti.
+      deleted: Vaša tema je izbrisana.
+      cannot_delete: Ne možete izbrisati temu koji niste napravili.
+      updated: Ova tema je izmijenjena.
+      not_updated: Ova tema se ne možete izmijeniti.
+      subscribed: Predplaćeni ste na ovu temu.
+      unsubscribed: Otkazali ste predplatu na ovu temu.
+      none: Ovaj forum trenutno nema tema.
+      links:
+        new: Nova tema
+        back_to_topics: Nazad u teme
+        edit: Izmijeni temu
+      not_found: Temu koju tražite ne mogu pronaći.
+      hidden:
+        'true': Ova tema je sakrivena.
+        'false': Ova tema je vidljiva.
+      locked:
+        'true': Ova tema je zaključana.
+        'false': Ova tema je odključana.
+      pinned:
+        'true': Ova tema je pinovana.
+        'false': Ova tema je odpinovana.
+    topics:
+      show:
+        reply: Odgovor
+        delete: Briši
+        subscribe: Predplata
+        unsubscribe: Otkaži predplatu
+        reply_to_topic: Odgovori na Temu
+        pending_review: Ova tema čeka da se odobri. Samo korisnik koji je napravio i moderatori je mogu vidjeti.
+        hide:
+          'true': Prikaži ovu temu
+          'false': Sakrij ovu temu
+        lock:
+          'true': Odključaj ovu temu
+          'false': Uaključaj ovu temu
+        pin:
+          'true': Odpinuj ovu temu
+          'false': Pinuj ovu temu
+    post:
+      buttons:
+        reply: Odgovori
+        edit: Izmijeni
+      created: Vaš odgovor je postavljen.
+      new: Odgovori na
+      edit: Izmijeni post
+      not_created: Vaš odgovor se ne može dodati.
+      not_created_topic_locked: Ne možete odgovoriti na zaključanu temu.
+      edited: Vaš odgovor je izmijenjen.
+      not_edited: Vaš odgovor se ne može izmijeniti.
+      deleted: Vaš post je izbrisan.
+      deleted_with_topic: Post u temi izbrisan. Tema izbrisana.
+      cannot_delete: Ne možete izbrisati post koji niste napravili.
+      in_reply_to: U odgovoru na 
+      cannot_quote_deleted_post: Post koji pokušavate citirati više ne postoji.
+    posts:
+      moderation:
+        moderate: Moderiranje
+        approve: Odobren
+        spam: Spam
+        success: Označeni post je izmijenjen.
+      post:
+        pending_review: Ovaj post trenutno čeka da se odobri. Samo korisnik koji ga je napravio i moderatori mogu da ga vide.
+    moderation:
+      index:
+        title: "Alati za upravljanje %{forum}"
+  helpers:
+    submit:
+      forum:
+        create: Napravi Forum
+        update: Izmijeni Forum
+      topic:
+        create: Napravi Temu
+        update: Izmijeni Temu
+  simple_form:
+    labels:
+      category:
+        name: Ime
+      forum:
+        title: Naslov
+        description: Opis
+        category: Kategorija
+        moderators: Moderatori
+      topic:
+        subject: Subjekt
+        locked: Zaključano
+        pinned: Pinovano
+        hidden: Sakriveno
+        posts:
+          text: Tekst
+      post:
+        text: Tekst
+      group:
+        name: Ime
+
+  # General stuff
+  time_ago_in_words: "Prije %{time}"
+  ago: " prije"
+  ago_by: " prije od"
+  by: od
+  started_by: "Pokrenut od "
+  are_you_sure: Da li ste sigurni?
