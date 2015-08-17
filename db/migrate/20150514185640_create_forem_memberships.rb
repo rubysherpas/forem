@@ -3,8 +3,8 @@ class CreateForemMemberships < ActiveRecord::Migration
     create_table :forem_memberships do |t|
       t.integer :group_id
       t.integer :member_id
-    end
 
-    add_index :forem_memberships, :group_id
+      t.index :group_id
+    end
   end
 end

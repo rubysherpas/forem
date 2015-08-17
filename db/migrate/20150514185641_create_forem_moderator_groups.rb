@@ -3,8 +3,8 @@ class CreateForemModeratorGroups < ActiveRecord::Migration
     create_table :forem_moderator_groups do |t|
       t.integer :forum_id
       t.integer :group_id
-    end
 
-    add_index :forem_moderator_groups, :forum_id
+      t.index :forum_id
+    end
   end
 end
