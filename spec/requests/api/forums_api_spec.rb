@@ -48,6 +48,7 @@ describe 'Forums API', type: :request do
 
       expect(included_topic[:id]).to eq topic.id
       expect(included_topic[:attributes][:subject]).to eq topic.subject
+      expect(included_topic[:attributes][:slug]).to eq topic.slug
       expect(included_topic[:attributes][:posts_count]).to eq 2
       expect(included_topic[:attributes][:views_count]).to eq 1
     end

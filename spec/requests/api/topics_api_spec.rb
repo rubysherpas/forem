@@ -30,6 +30,7 @@ describe 'Topics API', type: :request do
       it 'responds with JSON for the new topic' do
         expect(data[:type]).to eq data_type
         expect(data[:attributes][:subject]).to eq 'New topic'
+        expect(data[:attributes][:slug]).to eq 'new-topic'
         expect(data[:attributes][:views_count]).to eq 0
         expect(data[:attributes][:posts_count]).to eq 0
       end
@@ -52,9 +53,10 @@ describe 'Topics API', type: :request do
 
     it_behaves_like 'an API show request'
 
-    it 'responds with JSON for the new topic' do
+    it 'responds with JSON for the topic' do
       expect(data[:type]).to eq data_type
       expect(data[:attributes][:subject]).to eq 'Old topic'
+      expect(data[:attributes][:slug]).to eq 'old-topic'
       expect(data[:attributes][:views_count]).to eq 2 # including initial post
       expect(data[:attributes][:posts_count]).to eq 1
       created_at = Time.zone.parse(data[:attributes][:created_at])
