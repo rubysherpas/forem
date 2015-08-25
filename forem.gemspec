@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails', '~> 4.0'
   s.add_development_dependency 'coffee-rails', '~> 4.0'
 
-  s.add_dependency 'rails', '~> 4.0', '<= 4.2'
+  s.add_dependency 'rails', '~> 4.0', '<= 4.2.4'
   s.add_dependency 'simple_form', '~> 3.0'
   s.add_dependency 'sanitize', '2.0.6'
   s.add_dependency 'workflow', '1.0.0'
