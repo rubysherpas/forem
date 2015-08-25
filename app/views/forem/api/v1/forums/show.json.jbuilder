@@ -8,9 +8,9 @@ json.data do
   end
 
   json.relationships do
-    included += @forum.topics
+    included += @topics
 
-    api_has_many(json, :topics, 'topics', @forum.topics) do |topic|
+    api_has_many(json, :topics, 'topics', @topics) do |topic|
       last_post = relevant_posts(topic).last
 
       if last_post

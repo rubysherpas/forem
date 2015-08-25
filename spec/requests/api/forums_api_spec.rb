@@ -17,6 +17,7 @@ describe 'Forums API', type: :request do
   describe '#show' do
     let(:forum) { create(:forum) }
     let!(:topic) { create(:approved_topic, forum: forum) }
+    let!(:pending_topic) { create(:topic, forum: forum) }
     let!(:post) { create(:approved_post, topic: topic) }
 
     before do
@@ -41,10 +42,12 @@ describe 'Forums API', type: :request do
 
     it 'describes topic relationships' do
       expect(data).to reference_many(:topics, ['topics', topic.id])
+      # note: does not reference pending_topic
     end
 
     it 'includes topic data' do
       expect(included_topics.length).to eq 1
+      # note: pending_topic is not included
 
       expect(included_topic[:id]).to eq topic.id
       expect(included_topic[:attributes][:subject]).to eq topic.subject
