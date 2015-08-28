@@ -9,7 +9,7 @@ describe Forem::Generators::InstallGenerator do
   # Wish RSpec had a setting for this already
   before { flag_example! }
   def flag_example!
-    example.metadata[:run] = true
+    RSpec.current_example.metadata[:run] = true
   end
 
   def migrations
@@ -17,17 +17,17 @@ describe Forem::Generators::InstallGenerator do
   end
 
   it "copies over the migrations" do
-    migrations.should be_empty
-    capture(:stdout) do
+    expect(migrations).to be_empty
+    silence_stream(STDOUT) do
       described_class.start(["--user-class=User", "--no-migrate", "--current-user-helper=current_user"], :destination => Rails.root)
     end
 
     # Ensure forem migrations have been copied over
-    migrations.should_not be_empty
+    expect(migrations).not_to be_empty
 
     # Ensure initializer has been created
     forem_initializer = File.readlines("#{Rails.root}/config/initializers/forem.rb")
-    forem_initializer[0].strip.should == %q{Forem.user_class = "User"}
+    expect(forem_initializer[0].strip).to eq(%q{Forem.user_class = "User"})
 
     # Ensure forem_user is added to ApplicationController
     application_controller = File.read("#{Rails.root}/app/controllers/application_controller.rb")
@@ -35,25 +35,25 @@ describe Forem::Generators::InstallGenerator do
     current_user
   end
   helper_method :forem_user}
-    application_controller.should include(expected_forem_user_method)
+    expect(application_controller).to include(expected_forem_user_method)
   end
 
   it "seeds the database" do
-    Forem::Forum.count.should == 0
-    Forem::Topic.count.should == 0
+    expect(Forem::Forum.count).to eq(0)
+    expect(Forem::Topic.count).to eq(0)
 
     FactoryGirl.create(:user)
     FactoryGirl.create(:category)
     Forem::Engine.load_seed
 
-    Forem::Forum.count.should == 1
-    Forem::Topic.count.should == 1
+    expect(Forem::Forum.count).to eq(1)
+    expect(Forem::Topic.count).to eq(1)
   end
 
   it "seeds the database if a user exists already but Forem.user_class hasn't been set" do
     # This test recreates #495.
-    Forem::Forum.count.should == 0
-    Forem::Topic.count.should == 0
+    expect(Forem::Forum.count).to eq(0)
+    expect(Forem::Topic.count).to eq(0)
 
     # Pretend the user_class hasn't been decorated yet.
     # This reproduces the problem where the decorator is loaded
@@ -66,7 +66,7 @@ describe Forem::Generators::InstallGenerator do
     FactoryGirl.create(:user)
     Forem::Engine.load_seed
 
-    Forem::Forum.count.should == 1
-    Forem::Topic.count.should == 1
+    expect(Forem::Forum.count).to eq(1)
+    expect(Forem::Topic.count).to eq(1)
   end
 end

@@ -25,13 +25,13 @@ describe "topic listing" do
     context "for regular users" do
       it "shows approved post as latest post" do
         visit forum_path(forum)
-        last_post_anchor.should == "post-#{approved_post.id}"
+        expect(last_post_anchor).to eq("post-#{approved_post.id}")
       end
 
       it "shows topics by deleted users" do
         approved_post.update_column(:user_id, nil)
         visit forum_path(forum)
-        page.should have_content("Started by [deleted]")
+        expect(page).to have_content("Started by [deleted]")
       end
     end
 
@@ -43,19 +43,19 @@ describe "topic listing" do
 
       it "sees unapproved post as last post" do
         visit forum_path(forum)
-        last_post_anchor.should == "post-#{unapproved_post.id}"
+        expect(last_post_anchor).to eq("post-#{unapproved_post.id}")
       end
     end
 
     context "for moderators" do
       before do
-        Forem::Forum.any_instance.stub :moderator? => true
+        allow_any_instance_of(Forem::Forum).to receive_messages :moderator? => true
         sign_in(user)
       end
 
       it "sees unapproved post as last post" do
         visit forum_path(forum)
-        last_post_anchor.should == "post-#{unapproved_post.id}"
+        expect(last_post_anchor).to eq("post-#{unapproved_post.id}")
       end
     end
   end

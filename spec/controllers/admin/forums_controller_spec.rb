@@ -5,14 +5,14 @@ describe Forem::Admin::ForumsController do
   let(:user) { FactoryGirl.create(:user, forem_admin: true) }
 
   before do
-    controller.stub current_user: user
+    allow(controller).to receive_messages current_user: user
   end
 
   it "forum_params permits all the necessary fields" do
     group = FactoryGirl.create(:group)
     category = FactoryGirl.create(:category)
 
-    Forem::Forum.should_receive(:new).with({
+    expect(Forem::Forum).to receive(:new).with({
       category_id: category.id.to_s,
       title: 'Forum title',
       description: 'Description for the forum',

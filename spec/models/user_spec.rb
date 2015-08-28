@@ -20,14 +20,14 @@ describe User do
     context "with custom methods" do
       describe "#forem_email" do
         it "responds to our own email method" do
-          subject.should receive :email
+          expect(subject).to receive :email
           subject.forem_email
         end
       end
 
       describe "#forem_name" do
         it "responds to our own name method" do
-          subject.should receive :login
+          expect(subject).to receive :login
           subject.forem_name
         end
       end
@@ -49,16 +49,16 @@ describe User do
 
       describe "#forem_email" do
         it "defaults with 'email'" do
-          subject.should respond_to :forem_email
-          subject.should receive(:email)
+          expect(subject).to respond_to :forem_email
+          expect(subject).to receive(:email)
           subject.forem_email
         end
       end
 
       describe "#forem_name" do
         it "defaults with 'to_s'" do
-          subject.should respond_to :forem_name
-          subject.should receive :to_s
+          expect(subject).to respond_to :forem_name
+          expect(subject).to receive :to_s
           subject.forem_name
         end
       end

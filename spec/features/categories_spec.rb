@@ -10,11 +10,11 @@ describe 'categories' do
   it "sees categorised forums" do
     visit forums_path
     within("#category_#{category_1.id}") do
-      page.should have_content(forum_1.title)
+      expect(page).to have_content(forum_1.title)
     end
 
     within("#category_#{category_2.id}") do
-      page.should have_content(forum_2.title)
+      expect(page).to have_content(forum_2.title)
     end
   end
 
@@ -25,8 +25,8 @@ describe 'categories' do
       click_link category_1.name
     end
 
-    page.should have_content(forum_1.title)
+    expect(page).to have_content(forum_1.title)
     # page.should_not have_content(forum_2.title)
-    page.html.should_not match(forum_2.title)
+    expect(page.html).not_to match(forum_2.title)
   end
 end

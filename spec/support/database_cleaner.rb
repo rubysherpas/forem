@@ -1,7 +1,7 @@
 require "database_cleaner"
 
 RSpec.configure do |config|
-  config.before(:each) do
+  config.before(:each) do |example|
     if example.metadata[:js]
       DatabaseCleaner.strategy = :truncation
     else

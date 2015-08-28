@@ -15,7 +15,7 @@ describe "topics" do
   it "can hide a topic" do
     # make sure no hidden topics yet
     visit forum_path(forum)
-    page.should_not have_selector("span.hidden.icon")
+    expect(page).not_to have_selector("span.hidden.icon")
 
     visit forum_topic_path(forum, topic)
     click_link "Hide"
@@ -23,7 +23,7 @@ describe "topics" do
 
     # check for hidden topics
     visit forum_path(forum)
-    page.should have_selector("span.hidden.icon")
+    expect(page).to have_selector("span.hidden.icon")
 
     sign_out
 
@@ -60,7 +60,7 @@ describe "topics" do
 
     visit forum_topic_path(forum, topic)
     # page.should_not have_content("New Topic")
-    page.html.should_not match("New Topic")
+    expect(page.html).not_to match("New Topic")
   end
 
   it "can pin a topic" do
@@ -74,9 +74,9 @@ describe "topics" do
     # Capybara 2.0 #text method has issues on Ruby 1.8
     # page.all(".topics .topic .subject").map(&:text).should == ["FIRST TOPIC", "SECOND TOPIC"]
 
-    page.all(".topics .topic .subject a").map do |a|
+    expect(page.all(".topics .topic .subject a").map do |a|
       a.native.children.first.text
-    end.should == ["FIRST TOPIC", "SECOND TOPIC"]
+    end).to eq(["FIRST TOPIC", "SECOND TOPIC"])
   end
 
   it "can move topic" do
@@ -91,6 +91,6 @@ describe "topics" do
     flash_alert!("The topic you are looking for could not be found.")
     #Visit Topic in New Forum
     visit forum_topic_path(other_forum, topic)
-    page.should have_content("FIRST TOPIC")
+    expect(page).to have_content("FIRST TOPIC")
   end
 end

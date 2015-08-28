@@ -5,14 +5,14 @@ describe 'forum permissions' do
   let!(:topic) { FactoryGirl.create(:topic, :forum => forum) }
 
   it "can't see forums it can't access" do
-    User.any_instance.stub(:can_read_forem_forums?).and_return(false)
+    allow_any_instance_of(User).to receive(:can_read_forem_forums?).and_return(false)
     visit forums_path
-    page.should_not have_content("Welcome to Forem!")
+    expect(page).not_to have_content("Welcome to Forem!")
   end
 
   context "without ability to read all forums" do
     before do
-      User.any_instance.stub(:can_read_forem_forums?).and_return(false)
+      allow_any_instance_of(User).to receive(:can_read_forem_forums?).and_return(false)
     end
 
     it "is denied access" do
@@ -23,8 +23,8 @@ describe 'forum permissions' do
 
   context "without ability to read a specific forum" do
     before do
-      User.any_instance.stub(:can_read_forem_category?).and_return(true)
-      User.any_instance.stub(:can_read_forem_forum?).and_return(false)
+      allow_any_instance_of(User).to receive(:can_read_forem_category?).and_return(true)
+      allow_any_instance_of(User).to receive(:can_read_forem_forum?).and_return(false)
     end
 
     it "is denied access" do
@@ -40,7 +40,7 @@ describe 'forum permissions' do
 
   context "without ability to read a specific forum's category" do
     before do
-      User.any_instance.stub(:can_read_forem_category?).and_return(false)
+      allow_any_instance_of(User).to receive(:can_read_forem_category?).and_return(false)
     end
 
     it "is denied access" do
@@ -56,10 +56,10 @@ describe 'forum permissions' do
 
     it "shows the title" do
       within("#forum h2") do
-        page.should have_content("Welcome to Forem!")
+        expect(page).to have_content("Welcome to Forem!")
       end
       within("#forum #description") do
-        page.should have_content("A placeholder forum.")
+        expect(page).to have_content("A placeholder forum.")
       end
     end
   end

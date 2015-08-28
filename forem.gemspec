@@ -10,8 +10,9 @@ Gem::Specification.new do |s|
   s.version = ::Forem.version
 
   s.add_development_dependency 'launchy'
-  s.add_development_dependency 'rspec-rails', '~> 2.14.0'
-  s.add_development_dependency 'capybara', '2.1.0'
+  s.add_development_dependency 'rspec-rails', '~> 3.2'
+  s.add_development_dependency 'rspec-activemodel-mocks', '~> 1.0.1'
+  s.add_development_dependency 'capybara', '2.3.0'
   s.add_development_dependency 'jquery-rails'
 
   s.add_development_dependency 'factory_girl_rails', '~> 4.4.1'
@@ -22,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails', '~> 4.0'
   s.add_development_dependency 'coffee-rails', '~> 4.0'
 
-  s.add_dependency 'rails', '~> 4.0', '<= 4.2'
+  s.add_dependency 'rails', '~> 4.0', '!= 4.2.0', '!= 4.2.1', '!= 4.2.2', '!= 4.2.3'
   s.add_dependency 'simple_form', '~> 3.0'
   s.add_dependency 'sanitize', '2.0.6'
   s.add_dependency 'workflow', '1.0.0'

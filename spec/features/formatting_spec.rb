@@ -10,10 +10,10 @@ describe "When a post is displayed " do
       visit forum_topic_path(forum, topic)
       # Regression test for #72
       page.all(".contents").each do |div|
-        div.should_not have_css("pre")
+        expect(div).not_to have_css("pre")
       end
 
-      page.should have_content(post.text)
+      expect(page).to have_content(post.text)
     end
 
     it "does render a tags in post text" do
@@ -21,8 +21,8 @@ describe "When a post is displayed " do
       post.save!
       visit forum_topic_path(forum, topic)
       xpath = '//a[text()="click me"]'
-      page.should have_xpath(xpath)
-      find(xpath)['rel'].should == "nofollow"
+      expect(page).to have_xpath(xpath)
+      expect(find(xpath)['rel']).to eq("nofollow")
     end
 
     # Regression test for #359
@@ -30,7 +30,7 @@ describe "When a post is displayed " do
       post.text = 'And then I said: <blockquote>You know what?</blockquote>'
       post.save!
       visit forum_topic_path(forum, topic)
-      all(".post").last.find("blockquote").text.should == "You know what?"
+      expect(all(".post").last.find("blockquote").text).to eq("You know what?")
     end
 
     # Regression test for #359
@@ -38,14 +38,14 @@ describe "When a post is displayed " do
       post.text = '<blockquote>You know what?</blockquote>'
       post.save!
       visit forum_topic_path(forum, topic)
-      lambda { all(".post").last.find(".contents p") }.should raise_error(Capybara::ElementNotFound)
+      expect { all(".post").last.find(".contents p") }.to raise_error(Capybara::ElementNotFound)
     end
 
     it "does not render script tags in post text" do
       post.text = '<a href="http://localhost">click me</a>'
       post.save!
       visit forum_topic_path(forum, topic)
-      lambda { all(".post")[1].find("script") }.should raise_error(Capybara::ElementNotFound)
+      expect { all(".post")[1].find("script") }.to raise_error(Capybara::ElementNotFound)
     end
   end
 
@@ -66,7 +66,7 @@ describe "When a post is displayed " do
       visit forum_topic_path(forum, topic)
 
       within("strong") do
-        page.should have_content("strong text goes here")
+        expect(page).to have_content("strong text goes here")
       end
     end
 
@@ -74,7 +74,7 @@ describe "When a post is displayed " do
       post.text = '<a href="http://localhost">click me</a>'
       post.save!
       visit forum_topic_path(forum, topic)
-      page.should have_xpath('//a[text()="click me"]')
+      expect(page).to have_xpath('//a[text()="click me"]')
     end
 
     it "does not escape blockquotes" do
@@ -83,7 +83,7 @@ describe "When a post is displayed " do
       visit forum_topic_path(forum, topic)
 
       within("blockquote strong") do
-        page.should have_content("strong text")
+        expect(page).to have_content("strong text")
       end
     end
   end

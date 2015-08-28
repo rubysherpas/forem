@@ -16,7 +16,7 @@ describe "forum moderators" do
     check "The Mods"
     click_button "Update Forum"
     within(".forum .moderators") do
-      page.should have_content("The Mods")
+      expect(page).to have_content("The Mods")
     end
   end
 end

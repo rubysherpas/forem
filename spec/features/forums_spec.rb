@@ -6,9 +6,9 @@ describe "forums" do
   it "listing all" do
     visit forums_path
     within(".forum") do
-      page.should have_content("Welcome to Forem!")
+      expect(page).to have_content("Welcome to Forem!")
       within(".description") do
-        page.should have_content("A placeholder forum.")
+        expect(page).to have_content("A placeholder forum.")
       end
     end
   end
@@ -53,13 +53,13 @@ describe "forums" do
     it "lists pinned topics first" do
       # TODO: cleaner way to get at topic subjects on the page?
       topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
-      topic_subjects.should == ["PINNED!", "Most Recent", "Unpinned"]
+      expect(topic_subjects).to eq(["PINNED!", "Most Recent", "Unpinned"])
     end
 
     it "does not show hidden topics" do
       # TODO: cleaner way to get at topic subjects on the page?
       topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .subject").map(&:text)
-      topic_subjects.include?("HIDDEN!").should be_false
+      expect(topic_subjects.include?("HIDDEN!")).to be_falsey
     end
 
     context "when logged in" do
@@ -78,7 +78,7 @@ describe "forums" do
           visit forum_path(forum)
 
           page.all(".topics .topic .started-by").each do |div|
-            div.should have_content("forem_user")
+            expect(div).to have_content("forem_user")
           end
         end
 
@@ -89,7 +89,7 @@ describe "forums" do
           # page.all(".topics .topic .started-by").each do |div|
           #   div.should_not have_content("other_user")
           # end
-          page.html.should_not match("other_user")
+          expect(page.html).not_to match("other_user")
         end
 
         it "should show topic if logged in user is forem_admin" do
@@ -104,7 +104,7 @@ describe "forums" do
         ::Forem::View.last.update_attribute(:updated_at, 1.minute.ago)
         visit forum_path(forum)
         topic_subjects = Nokogiri::HTML(page.body).css(".topics tbody tr .new_posts")
-        topic_subjects.should_not be_empty
+        expect(topic_subjects).not_to be_empty
       end
 
       context "checking new topics" do
@@ -120,7 +120,7 @@ describe "forums" do
         it "calls out new topics since last visit" do
           visit forum_path(forum)
           new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
-          new_topics.size.should eq(3)
+          expect(new_topics.size).to eq(3)
         end
 
         it "doesn't call out a topic that has been viewed" do
@@ -128,7 +128,7 @@ describe "forums" do
           visit forum_topic_path(forum, @topic_1)
           visit forum_path(forum)
           new_topics = Nokogiri::HTML(page.body).css(".topics tbody tr super")
-          new_topics.size.should eq(2)
+          expect(new_topics.size).to eq(2)
         end
       end
     end

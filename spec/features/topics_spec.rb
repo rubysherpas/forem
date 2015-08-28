@@ -38,8 +38,8 @@ describe "topics" do
         click_button 'Create Topic'
 
         flash_alert!("This topic could not be created.")
-        find_field("topic_subject").value.should be_blank
-        find_field("topic_posts_attributes_0_text").value.chomp.should be_blank
+        expect(find_field("topic_subject").value).to be_blank
+        expect(find_field("topic_posts_attributes_0_text").value.chomp).to be_blank
       end
 
       it "does not keep flash error over requests" do
@@ -47,7 +47,7 @@ describe "topics" do
         flash_alert!("This topic could not be created.")
         visit root_path
         # page.should_not have_content("This topic could not be created.")
-        page.html.should_not match("This topic could not be created.")
+        expect(page.html).not_to match("This topic could not be created.")
       end
 
       it "can delete their own topics" do
@@ -64,7 +64,7 @@ describe "topics" do
           click_link("Subscribe")
         end
         flash_notice!("You have subscribed to this topic.")
-        page.should have_content("Unsubscribe")
+        expect(page).to have_content("Unsubscribe")
       end
 
       it "can unsubscribe from an subscribed topic" do
@@ -74,13 +74,13 @@ describe "topics" do
           click_link("Unsubscribe")
         end
         flash_notice!("You have unsubscribed from this topic.")
-        page.should have_content("Subscribe")
+        expect(page).to have_content("Subscribe")
       end
 
       it "cannot delete topics by others" do
         visit forum_topic_path(other_topic.forum, other_topic)
         within(selector_for(:topic_menu)) do
-          page.should_not have_selector("a", :text => "Delete")
+          expect(page).not_to have_selector("a", :text => "Delete")
         end
       end
 
@@ -99,9 +99,9 @@ describe "topics" do
 
       context "creating a topic" do
         it "creates a view" do
-          lambda do
+          expect do
             visit forum_topic_path(forum, topic)
-          end.should change(Forem::View, :count).by(1)
+          end.to change(Forem::View, :count).by(1)
         end
 
         it "increments a view" do
@@ -119,9 +119,9 @@ describe "topics" do
           # But instead must go long-form:
 
           view = ::Forem::View.last
-          view.count.should eql(1)
+          expect(view.count).to eql(1)
           visit forum_topic_path(forum, topic)
-          view.reload.count.should eql(2)
+          expect(view.reload.count).to eql(2)
         end
       end
     end
@@ -144,14 +144,14 @@ describe "topics" do
     end
 
     it "should show a custom avatar when set" do
-      Forem.stub(:avatar_user_method => "custom_avatar_url")
+      allow(Forem).to receive_messages(:avatar_user_method => "custom_avatar_url")
 
       visit forum_topic_path(forum, topic)
       assert page.has_selector?("div.icon > img[alt='Avatar']")
     end
 
     it "should show no avatar with custom method empty" do
-      Forem.stub(:avatar_user_method => "custom_avatar_url")
+      allow(Forem).to receive_messages(:avatar_user_method => "custom_avatar_url")
 
       visit forum_topic_path(forum, other_topic)
       assert page.has_no_selector?("div.icon > img[alt='Avatar']")
@@ -159,7 +159,7 @@ describe "topics" do
 
     it "should have an autodiscover link tag" do
       visit forum_topic_path(forum, topic)
-      Nokogiri::HTML(page.body).css("link[title='ATOM']").should_not be_empty
+      expect(Nokogiri::HTML(page.body).css("link[title='ATOM']")).not_to be_empty
     end
   end
 end

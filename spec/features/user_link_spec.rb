@@ -15,7 +15,7 @@ describe "user links" do
       # There should be at least one link on the page with the user's name
       first(:link, post.user.forem_name).click
 
-      page.should have_content("A user's page!")
+      expect(page).to have_content("A user's page!")
     end
   end
 

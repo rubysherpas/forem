@@ -10,8 +10,8 @@ describe AddForemState do
   include_context "user migrations"
   
   it "adds forem_state to user_class" do
-    subject.should_receive('column_exists?').and_return(false)
-    subject.should_receive('add_column').with(:users, :forem_state, :string, {:default=>"pending_review"})
+    expect(subject).to receive('column_exists?').and_return(false)
+    expect(subject).to receive('add_column').with(:users, :forem_state, :string, {:default=>"pending_review"})
     subject.change
   end
 end

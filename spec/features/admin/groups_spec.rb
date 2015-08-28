@@ -17,9 +17,9 @@ describe 'groups' do
       fill_in "Name", :with => "Special People"
       click_button 'Create Group'
       flash_notice!("The group was successfully created.")
-      page.current_path.should == admin_group_path(
+      expect(page.current_path).to eq(admin_group_path(
         Forem::Group.find_by_name("Special People")
-      )
+      ))
     end
 
     it "is invalid without a name" do
