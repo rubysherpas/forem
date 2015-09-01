@@ -1,3 +1,5 @@
+require 'workflow'
+
 module Forem
   module StateWorkflow
     def self.included(base)
