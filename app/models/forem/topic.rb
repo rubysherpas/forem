@@ -1,5 +1,4 @@
 require 'friendly_id'
-require 'forem/state_workflow'
 
 module Forem
   class Topic < ActiveRecord::Base

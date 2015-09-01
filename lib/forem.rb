@@ -6,7 +6,7 @@ require 'forem/autocomplete'
 require 'forem/default_permissions'
 require 'forem/platform'
 require 'forem/sanitizer'
-require 'workflow'
+require 'forem/state_workflow'
 require 'sanitize'
 
 require 'decorators'

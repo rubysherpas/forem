@@ -1,5 +1,3 @@
-require 'forem/state_workflow'
-
 module Forem
   class Post < ActiveRecord::Base
     include Workflow
