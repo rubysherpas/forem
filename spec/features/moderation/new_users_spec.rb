@@ -39,13 +39,13 @@ describe "moderation" do
       it "cannot see the moderation tools" do
         visit forum_path(forum)
         # page.should_not have_content("Moderation Tools")
-        page.html.should_not match("Moderation Tools")
+        expect(page.html).not_to match("Moderation Tools")
       end
 
       it "cannot see a unapproved topic by another user" do
         topic = FactoryGirl.create(:topic, :forum => forum, :subject => "In review")
         visit forum_path(forum)
-        page.should_not have_content("In review")
+        expect(page).not_to have_content("In review")
 
         visit forum_topic_path(forum, topic)
         flash_alert!("The topic you are looking for could not be found.")
@@ -58,7 +58,7 @@ describe "moderation" do
 
         visit forum_topic_path(forum, topic)
         # page.should_not have_content("BUY VIAGRA")
-        page.html.should_not match("BUY VIAGRA")
+        expect(page.html).not_to match("BUY VIAGRA")
       end
     end
   end
@@ -82,7 +82,7 @@ describe "moderation" do
         click_button "Create Topic"
 
         flash_notice!("This topic has been created.")
-        page.should_not have_content("This topic is currently pending review.")
+        expect(page).not_to have_content("This topic is currently pending review.")
       end
 
       it "does not have their first post moderated" do
@@ -96,7 +96,7 @@ describe "moderation" do
         click_button "Reply"
 
         flash_notice!("Your reply has been posted.")
-        page.should_not have_content("This post is currently pending review.")
+        expect(page).not_to have_content("This post is currently pending review.")
       end
     end
   end

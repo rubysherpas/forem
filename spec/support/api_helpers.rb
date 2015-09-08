@@ -36,7 +36,7 @@ RSpec::Matchers.define :reference_one do |relationship, (type, id)|
     [related[:type], related[:id]] == [type, id] if related
   end
 
-  failure_message_for_should do
+  failure_message do
     found = related ? "'#{related[:type]} #{related[:id]}'" : 'not found'
 
     "expected #{actual[:type]} #{actual[:id]} " +
@@ -62,7 +62,7 @@ RSpec::Matchers.define :reference_many do |relationship, *expected_types_and_ids
     related && (related_types_and_ids.sort == expected_types_and_ids.sort)
   end
 
-  failure_message_for_should do
+  failure_message do
     found = related ? sentence(related_types_and_ids) : 'not found'
 
     "expected #{actual[:type]} #{actual[:id]} " +

@@ -11,7 +11,8 @@ describe 'Posts API', type: :request do
   let(:authorized?) { true }
 
   before do
-    Forem::Ability.any_instance.stub(:cannot?) { !authorized? }
+    allow_any_instance_of(Forem::Ability).
+      to receive(:cannot?).and_return(!authorized?)
 
     sign_in user
   end

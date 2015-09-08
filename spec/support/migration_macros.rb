@@ -9,7 +9,5 @@ module Forem
 end
 
 RSpec.configure do |c|
-  c.include Forem::MigrationMacros, :example_group => {
-    :file_path => c.escaped_path(%w[spec (migrations)])
-  }
+  c.include Forem::MigrationMacros
 end

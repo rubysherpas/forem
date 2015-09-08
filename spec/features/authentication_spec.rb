@@ -10,14 +10,14 @@ describe 'authentication' do
     it "is redirected to main_app.sign_in_path by default" do
       visit forum_topic_path(forum, topic)
       click_link("Reply")
-      page.current_path.should eq("/users/sign_in")
+      expect(page.current_path).to eq("/users/sign_in")
     end
 
     it "is redirected to configured path if configured" do
       Forem.sign_in_path = "/"
       visit forum_topic_path(forum, topic)
       click_link("Reply")
-      page.current_path.should eq("/")
+      expect(page.current_path).to eq("/")
     end
 
     after do

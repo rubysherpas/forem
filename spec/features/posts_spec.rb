@@ -17,7 +17,7 @@ describe "posts" do
       first_post = topic.posts.first
       first_post.update_column(:user_id, nil)
       visit forum_topic_path(forum, topic)
-      page.should have_content(topic.subject)
+      expect(page).to have_content(topic.subject)
     end
   end
 
@@ -36,19 +36,19 @@ describe "posts" do
 
       context "to a topic with multiple pages" do
         it "redirects to the last page" do
-          Forem.stub(:per_page).and_return(1)
+          allow(Forem).to receive(:per_page).and_return(1)
 
           fill_in "Text", :with => "Witty and insightful commentary."
           click_button "Post Reply"
 
-          page.should have_content("Witty and insightful commentary")
-          page.should_not have_content(topic.posts.first.text)
+          expect(page).to have_content("Witty and insightful commentary")
+          expect(page).not_to have_content(topic.posts.first.text)
         end
       end
 
       context "to an unlocked topic" do
         it "shows the topic we are replying to" do
-          page.should have_content(topic.posts.first.text)
+          expect(page).to have_content(topic.posts.first.text)
         end
 
         it "can post a reply" do
@@ -79,7 +79,7 @@ describe "posts" do
         click_button "Post Reply"
         flash_alert!("Your reply could not be posted.")
         visit root_path
-        page.should_not have_content("Your reply could not be posted.")
+        expect(page).not_to have_content("Your reply could not be posted.")
       end
     end
 
@@ -115,7 +115,7 @@ describe "posts" do
         fill_in "Text", :with => "this is my edit"
         click_button "Edit"
         flash_notice!("Your post has been edited")
-        page.should have_content("this is my edit")
+        expect(page).to have_content("this is my edit")
       end
 
       it "should not allow you to edit a post you don't own" do
@@ -132,15 +132,15 @@ describe "posts" do
         # all("#post_#{@second_post.id} ul.actions a").each do |a|
         #   a.should_not have_content("Edit")
         # end
-        all("#post_#{@second_post.id} ul.actions a").map do |a|
+        expect(all("#post_#{@second_post.id} ul.actions a").map do |a|
           a.native.children.first.text
-        end.should_not include("Edit")
+        end).not_to include("Edit")
       end
 
       it "should display edit link on posts you own" do
         visit forum_topic_path(forum, topic)
         within(selector_for(:first_post)) do
-          page.should have_content("Edit")
+          expect(page).to have_content("Edit")
         end
       end
     end
@@ -155,11 +155,11 @@ describe "posts" do
         it "shows correct 'started by' and 'last post' information" do
           visit forum_path(forum)
           within(".topic .started-by") do
-            page.should have_content("forem_user")
+            expect(page).to have_content("forem_user")
           end
 
           within(".topic .latest-post") do
-            page.should have_content("other_forem_user")
+            expect(page).to have_content("other_forem_user")
           end
         end
 
@@ -177,7 +177,7 @@ describe "posts" do
           #sends delete request with the current rack-test logged-in session & follows the redirect
           Capybara.current_session.driver.submit :delete, forum_topic_post_path(forum, topic, other_post), {}
           flash_alert!("You cannot delete a post you do not own.")
-          ::Forem::Post.should exist(other_post.id)
+          expect(::Forem::Post).to exist(other_post.id)
         end
       end
 
@@ -187,11 +187,11 @@ describe "posts" do
         end
 
         it "topic is deleted if only post" do
-          Forem::Topic.count.should == 1
+          expect(Forem::Topic.count).to eq(1)
           within(selector_for(:first_post)) do
             click_link("Delete")
           end
-          Forem::Topic.count.should == 0
+          expect(Forem::Topic.count).to eq(0)
 
           flash_notice!("Only post in topic deleted. Topic also deleted.")
         end

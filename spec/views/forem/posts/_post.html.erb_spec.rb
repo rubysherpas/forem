@@ -7,18 +7,18 @@ describe "forem/posts/_post.html.erb" do
   let!(:post) { stub_model(Forem::Post, topic: topic, user: user) }
 
   before do
-    view.stub :forem_admin_or_moderator? => false
-    view.stub :post_time_tag => "Time goes here"
-    view.stub :forem_format => "Some text goes here"
-    view.stub :forem_user => user
-    controller.stub :current_ability => Forem::Ability.new(user)
+    allow(view).to receive_messages :forem_admin_or_moderator? => false
+    allow(view).to receive_messages :post_time_tag => "Time goes here"
+    allow(view).to receive_messages :forem_format => "Some text goes here"
+    allow(view).to receive_messages :forem_user => user
+    allow(controller).to receive_messages :current_ability => Forem::Ability.new(user)
   end
 
   context "edit link" do
 
     context "without permission to edit the post" do
       before do
-        user.stub :can_edit_forem_posts? => false
+        allow(user).to receive_messages :can_edit_forem_posts? => false
       end
 
       it "does not show a post edit link" do
@@ -44,7 +44,7 @@ describe "forem/posts/_post.html.erb" do
   context "delete link" do
     context "without permission to edit the post" do
       before do
-        user.stub :can_destroy_forem_posts? => false
+        allow(user).to receive_messages :can_destroy_forem_posts? => false
       end
 
       it "does not show a delete link" do

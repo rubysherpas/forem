@@ -10,8 +10,8 @@ describe AddForemAdmin do
   include_context "user migrations"
   
   it "adds forem_admin to user_class" do
-    subject.should_receive('column_exists?').and_return(false)
-    subject.should_receive('add_column').with(:users, :forem_admin, :boolean, {:default=>false})
+    expect(subject).to receive('column_exists?').and_return(false)
+    expect(subject).to receive('add_column').with(:users, :forem_admin, :boolean, {:default=>false})
     subject.change
   end
 end

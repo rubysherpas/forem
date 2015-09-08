@@ -6,12 +6,12 @@ describe "category permissions" do
 
   context "without ability to read a category" do
     before do
-      User.any_instance.stub(:can_read_forem_category?).and_return(false)
+      allow_any_instance_of(User).to receive(:can_read_forem_category?).and_return(false)
     end
 
     it "can't see the categories it can't access" do
       visit forums_path
-      page.should_not have_content("Welcome to Forem!")
+      expect(page).not_to have_content("Welcome to Forem!")
     end
 
     it "can't visit a particular category" do
@@ -24,7 +24,7 @@ describe "category permissions" do
     it "can see the category" do
       visit root_path
       within(".category h2") do
-        page.should have_content("Test Category")
+        expect(page).to have_content("Test Category")
       end
     end
   end
