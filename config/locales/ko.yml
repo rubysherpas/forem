@@ -200,9 +200,9 @@ ko:
         moderators: 포럼 운영자
       topic:
         subject: 제목
-        locked: 잠김
-        pinned: 고정됨
-        hidden: 숨겨짐
+        locked: 잠금
+        pinned: 상단 고정
+        hidden: 숨김
         posts:
           text: 내용
       post:
