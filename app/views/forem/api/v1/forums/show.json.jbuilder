@@ -36,7 +36,7 @@ json.included included do |object|
   json.attributes do
     case object
     when Forem::Topic
-      json.(object, :slug, :subject, :views_count)
+      json.(object, :slug, :subject, :views_count, :created_at)
       json.posts_count relevant_posts(object).count
     when Forem::Post
       json.(object, :created_at)

@@ -55,6 +55,8 @@ describe 'Forums API', type: :request do
       expect(included_topic[:attributes][:slug]).to eq topic.slug
       expect(included_topic[:attributes][:posts_count]).to eq 2
       expect(included_topic[:attributes][:views_count]).to eq 1
+      expect(Time.zone.parse(included_topic[:attributes][:created_at])).
+        to be_within(1.second).of topic.created_at
     end
 
     let(:included_posts) { included_objects_of_type('posts') }
