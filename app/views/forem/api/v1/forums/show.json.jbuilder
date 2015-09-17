@@ -33,12 +33,18 @@ json.included included do |object|
   json.type object.class.name.demodulize.downcase.pluralize
   json.(object, :id)
 
-  json.attributes do
-    case object
-    when Forem::Topic
+  case object
+  when Forem::Topic
+    json.attributes do
       json.(object, :slug, :subject, :views_count, :created_at)
       json.posts_count relevant_posts(object).count
-    when Forem::Post
+    end
+
+    json.relationships do
+      api_has_one(json, :user, 'users', object.user_id)
+    end
+  when Forem::Post
+    json.attributes do
       json.(object, :created_at)
     end
   end
