@@ -3,10 +3,12 @@ included = []
 json.data do
   json.partial! 'forem/api/v1/topics/topic', topic: @topic
 
-  json.relationships do
-    api_has_many(json, :posts, 'posts', @topic.posts)
+  if @posts
+    json.relationships do
+      api_has_many(json, :posts, 'posts', @posts)
 
-    included += @topic.posts
+      included += @posts
+    end
   end
 end
 

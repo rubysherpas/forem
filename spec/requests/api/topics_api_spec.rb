@@ -48,6 +48,7 @@ describe 'Topics API', type: :request do
 
     before do
       topic.register_view_by(user) if topic.persisted?
+      create(:post, topic: topic) # unapproved post should not be included
 
       api :get, api_forum_topic_path(forum.id, topic.id)
     end
