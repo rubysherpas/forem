@@ -44,8 +44,6 @@ json.included included do |object|
       api_has_one(json, :user, 'users', object.user_id)
     end
   when Forem::Post
-    json.attributes do
-      json.(object, :created_at)
-    end
+    json.partial! 'forem/api/v1/posts/post', post: object
   end
 end
