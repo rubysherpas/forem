@@ -35,14 +35,7 @@ json.included included do |object|
 
   case object
   when Forem::Topic
-    json.attributes do
-      json.(object, :slug, :subject, :views_count, :created_at)
-      json.posts_count relevant_posts(object).count
-    end
-
-    json.relationships do
-      api_has_one(json, :user, 'users', object.user_id)
-    end
+    json.partial! 'forem/api/v1/topics/topic', topic: object
   when Forem::Post
     json.partial! 'forem/api/v1/posts/post', post: object
   end

@@ -1,16 +1,9 @@
 included = []
 
 json.data do
-  json.type "topics"
-  json.(@topic, :id)
-  json.attributes do
-    json.(@topic, :slug, :subject, :user_id, :created_at, :views_count)
-    json.posts_count relevant_posts(@topic).count
-  end
+  json.partial! 'forem/api/v1/topics/topic', topic: @topic
 
   json.relationships do
-    api_has_one(json, :user, 'users', @topic.user_id)
-    api_has_one(json, :forum, 'forums', @topic.forum_id)
     api_has_many(json, :posts, 'posts', @topic.posts)
 
     included += @topic.posts
