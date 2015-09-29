@@ -22,6 +22,7 @@ module Forem
     validates :user, :presence => true
 
     before_save  :set_first_post_user
+    before_create :set_last_post_at
     after_create :subscribe_poster
     after_create :skip_pending_review, :unless => :moderated?
 
@@ -130,6 +131,10 @@ module Forem
     def set_first_post_user
       post = posts.first
       post.user = user if post
+    end
+
+    def set_last_post_at
+      self.last_post_at ||= created_at
     end
 
     def skip_pending_review

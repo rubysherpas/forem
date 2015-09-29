@@ -97,6 +97,12 @@ describe Forem::Topic do
     it 'can be approved' do
       topic.approve!
     end
+
+    it 'has a last_post_at (based on created_at)' do
+      topic.save
+
+      expect(topic.last_post_at).to eq topic.created_at
+    end
   end
 
   describe "helper methods" do
