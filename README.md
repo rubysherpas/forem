@@ -180,6 +180,7 @@ The exact same format can be used to redefine an existing method.
 
 We currently have support for the following languages:
 
+* Arabic
 * Brazillian (pt-BR)
 * Bulgarian
 * Chinese (Simplified, zh-CN)
