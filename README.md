@@ -6,7 +6,7 @@
 
 *Forem, using the forem-bootstrap theme*
 
-# Forem [![Build status](https://api.travis-ci.org/radar/forem.png)](https://travis-ci.org/radar/forem)
+# Forem [![Build Status](https://travis-ci.org/rubysherpas/forem.svg)](https://travis-ci.org/rubysherpas/forem)
 *"NO U!"*
 
 
