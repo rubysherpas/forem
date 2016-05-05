@@ -1,6 +1,11 @@
-## New maintainer required
+## No longer maintained
 
-**I am currently looking for a new maintainer for this gem. I am no longer doing any more work on this myself. Please contact me@ryanbigg.com if you'd like to take over this project.**
+**I put the word out for people to contact me if they'd like to maintain this for me. I did that, and they have not done any more work on this project despite promising to do so. Therefore, I have no choice but to mark this project as unmaintained.**
+
+If you would like a better maintained forum system, please use [Thredded](https://github.com/thredded/thredded).
+
+----
+
 
 ![Forem - using Bootstrap](https://raw.githubusercontent.com/radar/forem/rails4/doc/theme.png)
 
