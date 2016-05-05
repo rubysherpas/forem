@@ -1,8 +1,10 @@
 ## No longer maintained
 
-**I put the word out for people to contact me if they'd like to maintain this for me. Quite a few people contacted me, and I added those people as maintainers. No further work got done.
+**I put the word out for people to contact me if they'd like to maintain this for me. Quite a few people contacted me, and I added those people as maintainers. No further work got done.**
 
-**Therefore, I have no choice but to mark this project as unmaintained. I have removed all other maintainers as a result. This project is no longer accepting pull requests or issues.**
+**Therefore, I have no choice but to mark this project as unmaintained. I have removed all other maintainers as a result.**
+
+**This project is no longer accepting pull requests or issues.**
 
 If you would like a better maintained forum system, please use [Thredded](https://github.com/thredded/thredded).
 
