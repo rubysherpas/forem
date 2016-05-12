@@ -51,6 +51,9 @@ module Forem
 
     def unsubscribe
       if find_topic
+        subscription = @topic.subscriptions.find_by(subscriber_id: forem_user.id, token: params[:token])
+        unsubscribe_unsuccessful and return unless subscription
+
         @topic.unsubscribe_user(forem_user.id)
         unsubscribe_successful
       end
@@ -90,6 +93,11 @@ module Forem
 
     def unsubscribe_successful
       flash[:notice] = t("forem.topic.unsubscribed")
+      redirect_to forum_topic_url(@topic.forum, @topic)
+    end
+
+    def unsubscribe_unsuccessful
+      flash.alert = t("forem.topic.unsubscription_failed")
       redirect_to forum_topic_url(@topic.forum, @topic)
     end
 

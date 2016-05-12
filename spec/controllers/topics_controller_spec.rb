@@ -68,4 +68,34 @@ describe Forem::TopicsController do
       expect(flash.alert).to eq("You must sign in first.")
     end
   end
+
+  context "subscribing & unsubscribing" do
+    let!(:forum) { create(:forum) }
+    let!(:user) { create(:user) }
+    let!(:topic) { create(:approved_topic, forum: forum, forem_user: user) }
+    let(:subscription) { topic.subscriptions.first }
+
+    before do
+      sign_in(user)
+      controller.current_user.stub :can_read_topic? => true
+    end
+
+    it "can subscribe to a topic" do
+      post :subscribe, forum_id: forum.to_param, id: topic.to_param
+      expect(flash[:notice]).to eq(I18n.t("forem.topic.subscribed"))
+      expect(response).to redirect_to(forum_topic_path(forum, topic))
+    end
+
+    it "can unsubscribe with a valid token" do
+      get :unsubscribe, forum_id: forum.to_param, id: topic.to_param, token: subscription.token
+      expect(flash[:notice]).to eq(I18n.t("forem.topic.unsubscribed"))
+      expect(response).to redirect_to(forum_topic_path(forum, topic))
+    end
+
+    it "cannot unsubscribe without a token" do
+      get :unsubscribe, forum_id: forum.to_param, id: topic.to_param, token: "fake"
+      expect(flash[:alert]).to eq(I18n.t("forem.topic.unsubscription_failed"))
+      expect(response).to redirect_to(forum_topic_path(forum, topic))
+    end
+  end
 end

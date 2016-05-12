@@ -9,6 +9,13 @@ describe Forem::Subscription do
     expect(subscription).to be_valid
   end
 
+  context "set_token" do
+    it "sets a unique token for the subscription" do
+      subscription = Forem::Subscription.create!(subscriber_id: 1)
+      expect(subscription.token).to be_present
+    end
+  end
+
   describe "topic subscriptions" do
     before(:each) do
       allow_any_instance_of(Forem::Topic).to receive(:set_first_post_user)

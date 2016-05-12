@@ -5,6 +5,8 @@ module Forem
 
     validates :subscriber_id, :presence => true
 
+    before_create :set_token
+
     def send_notification(post_id)
       # If a user cannot be found, then no-op
       # This will happen if the user record has been deleted.
@@ -16,6 +18,12 @@ module Forem
           mail.deliver
         end
       end
+    end
+
+    private
+
+    def set_token
+      self.token = SecureRandom.hex(24)
     end
   end
 end
