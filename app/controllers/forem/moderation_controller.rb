@@ -3,6 +3,7 @@ module Forem
     before_filter :ensure_moderator_or_admin
 
     helper 'forem/posts'
+    helper 'forem/topics'
 
     def index
       @posts = forum.posts.pending_review
