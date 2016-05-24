@@ -13,7 +13,7 @@ module Forem
 
         if forum_view
           if topic_view.nil? && topic.created_at > forum_view.past_viewed_at
-            content_tag :super, "New"
+            content_tag :super, t('forem.general.newly_created')
           end
         end
       end

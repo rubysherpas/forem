@@ -12,9 +12,17 @@ ru:
         few: "%{count} ответов"
         many: "%{count} ответов"
         other: "%{count} ответа"
+      views: Просмотры
+      views_count:
+        zero: Нет просмотров
+        one: "%{count} просмотр"
+        few: "%{count} просмотра"
+        many: "%{count} просмотров"
+        other: "%{count} просмотра"
       flagged_for_spam: Ваш аккаунт отмечен как спамовый.
       cannot_create_topic: Вы не можете сейчас создать тему.
       cannot_create_post: Вы не можете сейчас создать новый ответ.
+      newly_created: Новое
 
     access_denied: Доступ запрещен.
     admin:
