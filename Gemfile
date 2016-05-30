@@ -7,6 +7,7 @@ gemspec
 gem 'pry-rails'
 gem 'pry-nav'
 gem 'select2-rails', '~> 3.5.4'
+gem 'jbuilder'
 
 platforms :jruby do
   gem "activerecord-jdbc-adapter", :require => false

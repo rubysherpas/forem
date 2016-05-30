@@ -87,6 +87,24 @@ describe Forem::Topic do
     end
   end
 
+  context 'with no first post' do
+    before { topic.posts.clear }
+
+    it 'can be saved' do
+      topic.save
+    end
+
+    it 'can be approved' do
+      topic.approve!
+    end
+
+    it 'has a last_post_at (based on created_at)' do
+      topic.save
+
+      expect(topic.last_post_at).to eq topic.created_at
+    end
+  end
+
   describe "helper methods" do
     describe "#subscribe_user" do
       let(:subscription_user) { FactoryGirl.create(:user) }

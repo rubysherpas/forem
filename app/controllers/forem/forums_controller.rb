@@ -21,11 +21,6 @@ module Forem
 
       # Kaminari allows to configure the method and param used
       @topics = @topics.send(pagination_method, params[pagination_param]).per(Forem.per_page)
-
-      respond_to do |format|
-        format.html
-        format.atom { render :layout => false }
-      end
     end
 
     private

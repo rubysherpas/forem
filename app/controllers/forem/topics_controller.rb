@@ -3,16 +3,15 @@ module Forem
     helper 'forem/posts'
     before_filter :authenticate_forem_user, :except => [:show]
     before_filter :find_forum
+    before_filter :find_topic, :only => [:show, :subscribe, :unsubscribe]
     before_filter :block_spammers, :only => [:new, :create]
 
     def show
-      if find_topic
-        register_view(@topic, forem_user)
-        @posts = find_posts(@topic)
+      register_view(@topic, forem_user)
+      @posts = find_posts(@topic)
 
-        # Kaminari allows to configure the method and param used
-        @posts = @posts.send(pagination_method, params[pagination_param]).per(Forem.per_page)
-      end
+      # Kaminari allows to configure the method and param used
+      @posts = @posts.send(pagination_method, params[pagination_param]).per(Forem.per_page)
     end
 
     def new
@@ -43,17 +42,13 @@ module Forem
     end
 
     def subscribe
-      if find_topic
-        @topic.subscribe_user(forem_user.id)
-        subscribe_successful
-      end
+      @topic.subscribe_user(forem_user.id)
+      subscribe_successful
     end
 
     def unsubscribe
-      if find_topic
-        @topic.unsubscribe_user(forem_user.id)
-        unsubscribe_successful
-      end
+      @topic.unsubscribe_user(forem_user.id)
+      unsubscribe_successful
     end
 
     protected
@@ -108,13 +103,15 @@ module Forem
     end
 
     def find_topic
-      begin
-        @topic = forum_topics(@forum, forem_user).friendly.find(params[:id])
-        authorize! :read, @topic
-      rescue ActiveRecord::RecordNotFound
-        flash.alert = t("forem.topic.not_found")
-        redirect_to @forum and return
-      end
+      @topic = forum_topics(@forum, forem_user).friendly.find(params[:id])
+      authorize! :read, @topic
+    rescue ActiveRecord::RecordNotFound
+      topic_not_found
+    end
+
+    def topic_not_found
+      flash.alert = t("forem.topic.not_found")
+      redirect_to @forum
     end
 
     def register_view(topic, user)

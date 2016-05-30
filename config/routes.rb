@@ -1,5 +1,19 @@
+require 'forem/api/version_routing_constraint'
+
 Forem::Engine.routes.draw do
   root :to => "forums#index"
+
+  namespace :api do
+    constraints Forem::API::VersionRoutingConstraint.new(1) do
+      scope module: :v1 do
+        resources :forums do
+          resources :topics do
+            resources :posts
+          end
+        end
+      end
+    end
+  end
 
   resources :categories, :only => [:index, :show]
 

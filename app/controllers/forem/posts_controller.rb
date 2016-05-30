@@ -3,9 +3,11 @@ module Forem
     before_filter :authenticate_forem_user, except: :show
     before_filter :find_topic
     before_filter :reject_locked_topic!, only: [:new, :create]
+    before_filter :authorize_edit_post_for_forum!, only: [:edit, :update]
+    before_filter :authorize_destroy_post_for_forum!, only: [:destroy]
+    before_filter :find_post, except: [:new, :create]
 
     def show
-      find_post
       page = (@topic.posts.count.to_f / Forem.per_page.to_f).ceil
 
       redirect_to forum_topic_url(@topic.forum, @topic, pagination_param => page, anchor: "post-#{@post.id}")
@@ -39,13 +41,9 @@ module Forem
     end
 
     def edit
-      authorize_edit_post_for_forum!
-      find_post
     end
 
     def update
-      authorize_edit_post_for_forum!
-      find_post
       if @post.owner_or_admin?(forem_user) && @post.update_attributes(post_params)
         update_successful
       else
@@ -54,8 +52,6 @@ module Forem
     end
 
     def destroy
-      authorize_destroy_post_for_forum!
-      find_post
       unless @post.owner_or_admin? forem_user
         flash[:alert] = t("forem.post.cannot_delete")
         redirect_to [@topic.forum, @topic] and return
@@ -88,7 +84,7 @@ module Forem
     end
 
     def create_failed
-      params[:reply_to_id] = params[:post][:reply_to_id]
+      params[:reply_to_id] = params[:post][:reply_to_id] if params[:post]
       flash.now.alert = t("forem.post.not_created")
       render :action => "new"
     end
