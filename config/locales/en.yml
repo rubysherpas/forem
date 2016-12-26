@@ -109,6 +109,7 @@ en:
         success: The selected topic has been moderated.
         no_option_selected: No moderation option was selected.
       received_reply: A topic you have subscribed to has received a reply.
+      moderation_needed: New topic needs moderation.
       reply: Reply
       quote: Quote
       delete: Delete
@@ -163,6 +164,7 @@ en:
       edit: Editing post
       not_created: Your reply could not be posted.
       not_created_topic_locked: You cannot reply to a locked topic.
+      moderation_needed: New post needs moderation.
       edited: Your post has been edited.
       not_edited: Your post could not be edited.
       deleted: Your post has been deleted.

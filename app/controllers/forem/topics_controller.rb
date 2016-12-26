@@ -26,6 +26,7 @@ module Forem
       @topic = @forum.topics.build(topic_params)
       @topic.user = forem_user
       if @topic.save
+        ModerationQueueMailer.new_topic(@topic).deliver if @topic.user.forem_moderate_posts?
         create_successful
       else
         create_unsuccessful

@@ -32,6 +32,7 @@ module Forem
       @post.user = forem_user
 
       if @post.save
+        ModerationQueueMailer.new_post(@post).deliver if @post.topic.user.forem_moderate_posts?
         create_successful
       else
         create_failed
