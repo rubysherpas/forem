@@ -21,6 +21,8 @@ module Forem
 
     default_scope { order(:position) }
 
+    default_scope order('title ASC')
+
     def last_post_for(forem_user)
       if forem_user && (forem_user.forem_admin? || moderator?(forem_user))
         posts.last
