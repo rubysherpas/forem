@@ -189,6 +189,49 @@ zh-CN:
           text: 内容
       post:
         text: 内容
+  datetime:
+      distance_in_words:
+        about_x_hours:
+          one: 大约一小时
+          other: 大约 %{count} 小时
+        about_x_months:
+          one: 大约一个月
+          other: 大约 %{count} 个月
+        about_x_years:
+          one: 大约一年
+          other: 大约 %{count} 年
+        almost_x_years:
+          one: 接近一年
+          other: 接近 %{count} 年
+        half_a_minute: 半分钟
+        less_than_x_minutes:
+          one: 不到一分钟
+          other: 不到 %{count} 分钟
+        less_than_x_seconds:
+          one: 不到一秒
+          other: 不到 %{count} 秒
+        over_x_years:
+          one: 一年多
+          other: ! '%{count} 年多'
+        x_days:
+          one: 一天
+          other: ! '%{count} 天'
+        x_minutes:
+          one: 一分钟
+          other: ! '%{count} 分钟'
+        x_months:
+          one: 一个月
+          other: ! '%{count} 个月'
+        x_seconds:
+          one: 一秒
+          other: ! '%{count} 秒'
+      prompts:
+        day: 日
+        hour: 时
+        minute: 分
+        month: 月
+        second: 秒
+        year: 年
 
   # General stuff
   time_ago_in_words: "%{time} 前"
